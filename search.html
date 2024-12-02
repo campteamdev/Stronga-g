@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wyszukiwarka Kempingów</title>
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      #main-container {
+        width: 70%;
+        max-width: 500px;
+        background-color: #ffffff;
+        border: 3px solid #15830d; /* Grubsze linie */
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      #search-section {
+        position: relative; /* Ustawienie dla lepszego wyrównania */
+        top: 0;
+        width: 100%;
+        background-color: #f8fafc;
+        z-index: 1000;
+        border-bottom: 3px solid #15830d;
+        padding: 10px 0; /* Usunięto marginesy i dodano padding */
+      }
+
+      #search-bar-container {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        border: 3px solid #15830d; /* Grubsza linia dla ramki */
+        border-radius: 8px;
+        padding: 5px;
+        gap: 5px;
+        box-sizing: border-box; /* Dodano dla spójności */
+      }
+
+      #search-bar {
+        flex: 1;
+        padding: 8px;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        font-weight: bold;
+      }
+
+      .action-buttons {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .action-buttons button {
+        flex: 1;
+        padding: 8px 12px;
+        font-size: 14px;
+        background-color: #facc15;
+        color: #000000;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .action-buttons button:hover {
+        background-color: #e6b814;
+      }
+
+      #camping-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px; /* Więcej odstępów między obiektami */
+        padding: 10px;
+        max-height: 400px;
+        overflow-y: auto;
+        border: 3px solid #15830d; /* Grubsze linie */
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+
+      #camping-list li {
+        display: none;
+        align-items: center;
+        border: 3px solid #15830d;
+        border-radius: 8px;
+        padding: 15px; /* Więcej miejsca w środku */
+        font-size: 12px;
+        color: #000000;
+        background-color: #ffffff;
+        text-align: center;
+      }
+
+      #camping-list li.visible {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .details-button {
+        flex: 1;
+        padding: 8px;
+        text-align: center;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+        background-color: #facc15;
+      }
+
+      .details-button:hover {
+        background-color: #e6b814;
+      }
+
+      .map-button {
+        flex: 1;
+        padding: 8px;
+        text-align: center;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+        background-color: #15830d;
+      }
+
+      .map-button:hover {
+        background-color: #136b0b;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main-container">
+      <div id="search-section">
+        <div id="search-bar-container">
+          <input type="text" id="search-bar" placeholder="Wyszukaj obiekt" />
+        </div>
+        <div class="action-buttons">
+          <button id="hide-all-btn">Zwiń listę</button>
+        </div>
+      </div>
+      <ul id="camping-list"></ul>
+    </div>
+
+    <script>
+      const kmlUrl = "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/refs/heads/main/map.kml";
+
+      async function loadCampingList() {
+        try {
+          const response = await fetch(kmlUrl, { cache: "force-cache" });
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+          const kmlText = await response.text();
+          const parser = new DOMParser();
+          const kml = parser.parseFromString(kmlText, "application/xml");
+
+          const placemarks = Array.from(kml.getElementsByTagName("Placemark")).sort((a, b) => {
+            const nameA = a.getElementsByTagName("name")[0]?.textContent || "";
+            const nameB = b.getElementsByTagName("name")[0]?.textContent || "";
+            return nameA.localeCompare(nameB, "pl");
+          });
+
+          const campingList = document.getElementById("camping-list");
+          campingList.innerHTML = "";
+
+          placemarks.forEach((placemark) => {
+            const name = placemark.getElementsByTagName("name")[0]?.textContent || "Brak nazwy";
+            const coordinates = placemark.getElementsByTagName("coordinates")[0]?.textContent.trim();
+
+            if (coordinates) {
+              const [lon, lat] = coordinates.split(",");
+              const li = document.createElement("li");
+
+              li.innerHTML = `
+                <span>${name}</span>
+                <div class="button-container">
+                  <a class="details-button" href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank">Dodaj zdjęcia lub opinię</a>
+                  <a class="map-button" href="map.html?lat=${lat}&lon=${lon}&name=${encodeURIComponent(name)}" target="_blank">Pokaż na mapie</a>
+                </div>
+              `;
+
+              campingList.appendChild(li);
+            }
+          });
+
+          // Automatycznie wyświetl wszystkie obiekty
+          document.querySelectorAll("#camping-list li").forEach((item) => {
+            item.classList.add("visible");
+          });
+
+          attachSearchAndHideAll(); // Po załadowaniu listy, aktywuj obsługę wyszukiwania i przycisku
+        } catch (error) {
+          console.error("Błąd podczas wczytywania pliku KML:", error);
+        }
+      }
+
+      function attachSearchAndHideAll() {
+        const campingList = document.getElementById("camping-list");
+        const listItems = Array.from(campingList.querySelectorAll("li"));
+
+        document.getElementById("search-bar").addEventListener("input", () => {
+          const searchTerm = document.getElementById("search-bar").value.toLowerCase().trim();
+          listItems.forEach((item) => {
+            const text = item.querySelector("span").textContent.toLowerCase();
+            if (text.includes(searchTerm)) {
+              item.classList.add("visible");
+            } else {
+              item.classList.remove("visible");
+            }
+          });
+        });
+
+        document.getElementById("hide-all-btn").addEventListener("click", () => {
+          listItems.forEach((item) => item.classList.remove("visible"));
+        });
+      }
+
+      loadCampingList();
+    </script>
+  </body>
+</html>

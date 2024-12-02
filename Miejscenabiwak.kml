@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Miejsce na biwak  - polecone przez Grupowiczów CampTeam</name>
+    <Style id="icon-1899-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>Sowia Góra</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056321205778596/]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value>https://www.facebook.com/groups/1055351639208886/permalink/1056321205778596/</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.985271,52.34177,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiślinka</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: FREE Miejsce na Biwak/Nocleg Rzeka,Spokój,Natura]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value>FREE Miejsce na Biwak/Nocleg Rzeka,Spokój,Natura</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.791734,54.344988,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Plaża Stelchno</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: Toalety, Stoły/Wiata, W okresie letnim czynny bar są dmuchańce dla dzieci ale to wszystko na plaży]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value>Toalety, Stoły/Wiata, W okresie letnim czynny bar są dmuchańce dla dzieci ale to wszystko na plaży</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.476075,53.529492,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Sucha Polana</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Biwak_Sucha_Polana<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Biwak_Sucha_Polana
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.050858,49.783166,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe Cicha Soblówka</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Pole_Biwakowe_Cicha_Soblowka<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Pole_Biwakowe_Cicha_Soblowka
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.144553,49.461693,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowania</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.909073,52.989277,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowania Strychy</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Miejsce_Biwakowania_Strychy<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Miejsce_Biwakowania_Strychy
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.82821,52.58701,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

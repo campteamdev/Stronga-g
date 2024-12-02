@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Pola namiotowe/biwakowe - polecone przez Grupowiczów CampTeam</name>
+    <Style id="icon-1899-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>Sosenka Leśne pole biwakowe</name>
+      <description><![CDATA[opis: <br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody ,Czynne całą dobę<br>phone: +48 664 048 017<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Sosenka_Lesne_pole_biwakowe<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>Udogodnienia: Toalety, Miejsce na ognisko/grill, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody ,Czynne całą dobę</value>
+        </Data>
+        <Data name="phone">
+          <value>+48 664 048 017</value>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value>http://campteam.pl/dodaj_zdjecie?Sosenka_Lesne_pole_biwakowe</value>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value>www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.003043,51.90947,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Namiotowe/Kempingowe U Sikory</name>
+      <description><![CDATA[opis: <br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: Udogodnienia: Toalety,Miejsce na ognisko/grill,Kuchnia,Prysznice,Stoły/Wiata,Atrakcje dla dzieci,Przyjazny zwierzętom,Dostęp do prądu,Dostęp do wody,Czynne całą dobę<br>phone: +48 691 122 582<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Pole_Namiotowe/Kempingowe_U_Sikory<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>Udogodnienia: Toalety,Miejsce na ognisko/grill,Kuchnia,Prysznice,Stoły/Wiata,Atrakcje dla dzieci,Przyjazny zwierzętom,Dostęp do prądu,Dostęp do wody,Czynne całą dobę</value>
+        </Data>
+        <Data name="phone">
+          <value>+48 691 122 582</value>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value>http://campteam.pl/dodaj_zdjecie?Pole_Namiotowe/Kempingowe_U_Sikory</value>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value>www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.347476,52.334566,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ostoja Leśna Pod Sosnami</name>
+      <description><![CDATA[opis: <br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: Plac zabaw ,tyrolka, domki że zjeżdżalnią, miejsce na ognisko. Świetne na pobyt z dziećmi.<br>phone: +48793139274<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Ostoja_Lesna_Pod_Sosnami<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>Plac zabaw ,tyrolka, domki że zjeżdżalnią, miejsce na ognisko. Świetne na pobyt z dziećmi.</value>
+        </Data>
+        <Data name="phone">
+          <value>+48793139274</value>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value>http://campteam.pl/dodaj_zdjecie?Ostoja_Lesna_Pod_Sosnami</value>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value>www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.064007,50.757692,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>U Beaty</name>
+      <description><![CDATA[opis: <br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: #polenamiotowe #warminskomazurskie #czerwonki   https://www.facebook.com/groups/1055351639208886/permalink/1057982162279167/<br>phone: 694902413<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?U_Beaty<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>#polenamiotowe #warminskomazurskie #czerwonki   https://www.facebook.com/groups/1055351639208886/permalink/1057982162279167/</value>
+        </Data>
+        <Data name="phone">
+          <value>694902413</value>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value>http://campteam.pl/dodaj_zdjecie?U_Beaty</value>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value>www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.365324,53.855326,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Błyskawica</name>
+      <description><![CDATA[opis: <br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: https://www.facebook.com/groups/1055351639208886/permalink/1059000378844012/<br>phone: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Blyskawica<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>https://www.facebook.com/groups/1055351639208886/permalink/1059000378844012/</value>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value>http://campteam.pl/dodaj_zdjecie?Blyskawica</value>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value>www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.218098,53.907469,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Kempingowe Namiotowe Szwecja Przy Białej Kładce</name>
+      <description><![CDATA[opis: <br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: https://www.facebook.com/groups/1055351639208886/permalink/1057381999005850/<br>phone: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Pole_Kempingowe_Szwecja_Przy_Bialej_Kladce<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>https://www.facebook.com/groups/1055351639208886/permalink/1057381999005850/</value>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value>http://campteam.pl/dodaj_zdjecie?Pole_Kempingowe_Szwecja_Przy_Bialej_Kladce</value>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value>www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.572733,53.342947,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole namiotowe u Gosi i Michała</name>
+      <description><![CDATA[opis: <br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056646442412739/<br>phone: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Pole_Namiotowe_u_Gosi_i_Michala<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>https://www.facebook.com/groups/1055351639208886/permalink/1056646442412739/</value>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value>http://campteam.pl/dodaj_zdjecie?Pole_Namiotowe_u_Gosi_i_Michala</value>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value>www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.524781,53.876976,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wypoczynek nad Bugiem</name>
+      <description><![CDATA[opis: <br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056125485798168/<br>phone: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Wypoczynek_nad_Bugiem<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>https://www.facebook.com/groups/1055351639208886/permalink/1056125485798168/</value>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value>http://campteam.pl/dodaj_zdjecie?Wypoczynek_nad_Bugiem</value>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value>www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.057046,52.303958,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Port Starych Kapitanów</name>
+      <description><![CDATA[opis: <br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: Udogodnienia: Toalety,Miejsce na ognisko/grill,Prysznice,Stoły/Wiata,Atrakcje dla dzieci,Przyjazny zwierzętom,Dostęp do prądu,Dostęp do wody,Czynne całą dobę<br>phone: +48 502 220 469<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Port_Starych_Kapitanow<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>Udogodnienia: Toalety,Miejsce na ognisko/grill,Prysznice,Stoły/Wiata,Atrakcje dla dzieci,Przyjazny zwierzętom,Dostęp do prądu,Dostęp do wody,Czynne całą dobę</value>
+        </Data>
+        <Data name="phone">
+          <value>+48 502 220 469</value>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value>http://campteam.pl/dodaj_zdjecie?Port_Starych_Kapitanow</value>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value>www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.089689,52.21392,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wesoła Górka Camping Pole Namiotowe </name>
+      <description><![CDATA[opis: <br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: Dojazd pojazdami 4x4 . Najbliżej natury.<br>phone: +48 798 912 756<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Wesola_Gorka_Camping_Pole_Namiotowe<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>Dojazd pojazdami 4x4 . Najbliżej natury.</value>
+        </Data>
+        <Data name="phone">
+          <value>+48 798 912 756</value>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value>http://campteam.pl/dodaj_zdjecie?Wesola_Gorka_Camping_Pole_Namiotowe</value>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value>www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.466604,49.150867,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Campingowe Kitowscy</name>
+      <description><![CDATA[opis: <br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: Udogodnienia: toaleta, Ławki, hamaki, leżaki, stoliki, prysznice polowe. Wypożyczalnia sprzętu<br>phone: +48 607 053 604<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Pole_Campingowe_Kitowscy<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>Udogodnienia: toaleta, Ławki, hamaki, leżaki, stoliki, prysznice polowe. Wypożyczalnia sprzętu</value>
+        </Data>
+        <Data name="phone">
+          <value>+48 607 053 604</value>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value>http://campteam.pl/dodaj_zdjecie?Pole_Campingowe_Kitowscy</value>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value>www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.05373,54.315602,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole namiotowe TRAMP</name>
+      <description><![CDATA[opis: <br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: Bieszczadzkie klimaty dla turystów, którzy wolą muzykę na żywo i spokój od luksusów. Pełna infrastruktura. <br>phone: +48 507 947 840<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Pole_Namiotowe_TRAMP<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>Bieszczadzkie klimaty dla turystów, którzy wolą muzykę na żywo i spokój od luksusów. Pełna infrastruktura. </value>
+        </Data>
+        <Data name="phone">
+          <value>+48 507 947 840</value>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value>http://campteam.pl/dodaj_zdjecie?Pole_Namiotowe_TRAMP</value>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value>www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.32913,49.208533,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

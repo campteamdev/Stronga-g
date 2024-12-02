@@ -1,0 +1,1385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Kempingi</name>
+    <Style id="icon-1899-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>Camper Park Lądek Zdrój</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Ladek_Zdroj<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: <br>Strona www:: camperparkpanorama.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Ladek_Zdroj
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value>camperparkpanorama.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.896006,50.347325,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camper Park Gzub</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Gzub<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: +48 667 753 982<br>Strona www:: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Gzub
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>+48 667 753 982</value>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.200434,52.208382,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camperpark CAMP4U</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camperpark_CAMP4U<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: <br>Strona www:: www.camp4u.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camperpark_CAMP4U
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.camp4u.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.164794,51.017095,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camper Park Aqua Zdrój</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Aqua_Zdroj<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: Telefon: 74 660 93 00<br>Strona www:: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Aqua_Zdroj
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>Telefon: 74 660 93 00</value>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.25089,50.78538,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>AKWA MARINA Pole Kempingowe</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?AKWA_MARINA_Pole_Kempingowe<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 669 550 222<br>Strona www:: www.akwamarina.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?AKWA_MARINA_Pole_Kempingowe
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>669 550 222</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.akwamarina.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.280103,50.477177,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping Park Brody</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Park_Brody<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 603 439 460<br>Strona www:: brody.info.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Park_Brody
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>603 439 460</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>brody.info.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.172607,51.006852,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camper Park Stary Folwark</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Stary_Folwark<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 662 666 450<br>Strona www:: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Stary_Folwark
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>662 666 450</value>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.083279,54.077602,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camper Plac Wilkasy</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Wilkasy<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 696 007 390<br>Strona www:: www.siedliskoutymka.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Wilkasy
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>696 007 390</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.siedliskoutymka.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.740445,54.014505,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camper park Krasiejów</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Krasiejow<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: <br>Strona www:: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Krasiejow
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.267625,50.661291,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>JuraPark pole kempingowe</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?JuraPark_pole_kempingowe<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 510263896<br>Strona www:: juraparkbaltow.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?JuraPark_pole_kempingowe
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>510263896</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>juraparkbaltow.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.543786,51.01665,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camper Park Jeżowa Woda</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Jezowa_woda<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 669 934 201 <br>Strona www:: camperpark.jezowawoda.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Jezowa_woda
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>669 934 201 </value>
+        </Data>
+        <Data name="Strona www:">
+          <value>camperpark.jezowawoda.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.465501,49.65033,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Tatrzański Camper Park</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Tatrzanski_Camper_Park<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 787 230 137<br>Strona www:: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Tatrzanski_Camper_Park
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>787 230 137</value>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.098969,49.335812,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ondraszek Kemping</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Ondraszek_Kemping<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 33 814 64 25<br>Strona www:: www.campingondraszek.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Ondraszek_Kemping
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>33 814 64 25</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.campingondraszek.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.05379,49.78023,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kopalnia Camper Park</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kopalnia_Camper_Park<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 605 158 148<br>Strona www:: www.kopalniacamperpark.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kopalnia_Camper_Park
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>605 158 148</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.kopalniacamperpark.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.941213,51.205323,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Gadabout Camp</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Gadabout_Camp<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 502 838 303<br>Strona www:: gadabout.camp]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Gadabout_Camp
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>502 838 303</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>gadabout.camp</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.900961,51.115552,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Catalpa Camper Park</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Catalpa_Camper_Park<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 605 266 902<br>Strona www:: agrocampcatalpa.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Catalpa_Camper_Park
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>605 266 902</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>agrocampcatalpa.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.389499,52.537243,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>CamperPark Woziwoda</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Woziwoda<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 799 372 333<br>Strona www:: www.camperpark-woziwoda.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Woziwoda
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>799 372 333</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.camperpark-woziwoda.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.907137,53.669298,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>CamperPark Pit Stop</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?CamperPark _Pit_Stop<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 602 653 051<br>Strona www:: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?CamperPark _Pit_Stop
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>602 653 051</value>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.951935,54.211548,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camper Park Politechniki Gdańskiej</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Politechniki_Gdanskiej<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 58 347 27 41<br>Strona www:: csa.pg.edu.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camper_Park_Politechniki_Gdanskiej
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>58 347 27 41</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>csa.pg.edu.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.629445,54.371794,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Parking Kamper Przemyśl</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Parking_Kamper_Przemysl<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 575 787 767<br>Strona www:: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Parking_Kamper_Przemysl
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>575 787 767</value>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.754962,49.77826,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dream Camper Park</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Dream_Camper_Park<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 886 380 316<br>Strona www:: www.dream-camp.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Dream_Camper_Park
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>886 380 316</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.dream-camp.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.900594,50.008325,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kemping Hotel Górecki </name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_Hotel_Gorecki<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 89 767 32 92<br>Strona www:: hotelgorecki.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_Hotel_Gorecki
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>89 767 32 92</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>hotelgorecki.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.571014,54.114646,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping Nr 14 Leśny</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Nr_14_Lesny<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: <br>Strona www:: www.eurocampings.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Nr_14_Lesny
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.eurocampings.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.549567,53.599128,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping Wiking</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Wiking<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 91 381 34 93<br>Strona www:: www.campingwiking.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Wiking
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>91 381 34 93</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.campingwiking.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.800041,54.034257,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Arka Kemping</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Arka_Kemping<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 91 381 31 65<br>Strona www:: nadmorze.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Arka_Kemping
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>91 381 31 65</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>nadmorze.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.807025,54.035667,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kemping Pole Dziwnówek</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_Pole_Dziwnowek<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 500 661 080<br>Strona www:: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_Pole_Dziwnowek
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>500 661 080</value>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.809075,54.035454,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping nr 215</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_nr_215<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 32 256 59 39<br>Strona www:: camping.mosir.katowice.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_nr_215
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>32 256 59 39</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>camping.mosir.katowice.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.047453,50.243567,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kemping nr 188 Pajda Mazur</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_nr_188_Pajda_Mazur<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 696 096 012<br>Strona www:: www.pajdamazur.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_nr_188_Pajda_Mazur
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>696 096 012</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.pajdamazur.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.077854,53.703916,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kemping Baltic Kołobrzeg</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_Baltic_Kolobrzeg<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 606 411 954<br>Strona www:: www.campin.kolobrzeg.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_Baltic_Kolobrzeg
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>606 411 954</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.campin.kolobrzeg.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.595383,54.181588,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping Adam Kraków</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Adam_Krakow<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 12 429 93 75<br>Strona www:: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Adam_Krakow
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>12 429 93 75</value>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.903045,50.046312,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kemping nr 21 Morski Łeba</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_nr_21_Morski_Leba<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 664 258 806<br>Strona www:: www.camping21.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_nr_21_Morski_Leba
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>664 258 806</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.camping21.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.538262,54.761764,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping nr 41 AMBRE Łeba</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_nr_41_AMBRE_Leba<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 500 533 466<br>Strona www:: www.ambre.leba.info]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_nr_41_AMBRE_Leba
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>500 533 466</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.ambre.leba.info</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.570386,54.76542,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping Rodzinny nr 105 Mielno</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Rodzinny_nr_105_Mielno<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 94 318 93 85<br>Strona www:: www.campingrodzinny.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Rodzinny_nr_105_Mielno
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>94 318 93 85</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.campingrodzinny.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.072467,54.262808,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping nr 192 Klif Rewal</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_nt_192_Klif_Rewal<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 91 386 26 18<br>Strona www:: www.klifrewal.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_nt_192_Klif_Rewal
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>91 386 26 18</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.klifrewal.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.003991,54.079426,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kemping Nad Stradomką Szczyrzyc</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_Nad_Stradamka_Szczyrzyc<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 12 333 33 30<br>Strona www:: www.nadstradomka.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_Nad_Stradamka_Szczyrzyc
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>12 333 33 30</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.nadstradomka.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.189069,49.779901,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping nr 17 Ciechocinek</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_nr_17_Ciechocinek<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 54 200 56 10<br>Strona www:: www.osir.ciechocinek.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_nr_17_Ciechocinek
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>54 200 56 10</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.osir.ciechocinek.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.782136,52.880566,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kemping Nad Jeziorem Golczewo</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_Nad_Jeziorem_Golczewo<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 602 348 451<br>Strona www:: www.campinggolczewo.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_Nad_Jeziorem_Golczewo
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>602 348 451</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.campinggolczewo.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.982417,53.818319,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping nr 171 Krakowianka</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_nr_171_Krakowianka<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 12 268 14 17<br>Strona www:: www.krakowianka.info]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_nr_171_Krakowianka
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>12 268 14 17</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.krakowianka.info</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.924498,50.015292,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping InterCamp nr 84 </name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_InterCamp_nr_84<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 59 866 22 18<br>Strona www:: www.intercamp84.eu]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_InterCamp_nr_84
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>59 866 22 18</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.intercamp84.eu</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.541539,54.758603,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kemping MOLO</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_MOLO<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 33 432 25 03<br>Strona www:: www.moloresort.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Kemping_MOLO
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>33 432 25 03</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.moloresort.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.272748,49.947602,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>WYGODA Kemping Rowy</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Wygoda_Kemping_Rowy<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 661 780 343<br>Strona www:: www.polenamiotowe-rowy.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Wygoda_Kemping_Rowy
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>661 780 343</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.polenamiotowe-rowy.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.052594,54.661687,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping 202 Pod Jabłoniami</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_202_Pod_Jabloniami<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 502 562 005<br>Strona www:: www.camping.tarnow.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_202_Pod_Jabloniami
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>502 562 005</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.camping.tarnow.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.987963,50.023315,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping DRAWTUR</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_DRAWTUR Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 602 869 060<br>Strona www:: www.drawtur.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_DRAWTUR Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>602 869 060</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.drawtur.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.219667,53.576377,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping nr 1 Zamek</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_nr_1_Zamek<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 87 428 34 10<br>Strona www:: www.cmazur.obitur.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_nr_1_Zamek
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>87 428 34 10</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.cmazur.obitur.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.760818,54.034367,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping Polana Sosny</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Polana_Sosny<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 18 262 94 03<br>Strona www:: www.polanasosny.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Polana_Sosny
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>18 262 94 03</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.polanasosny.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.332886,49.404769,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping Podhale Przystań na Grapie </name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Podhale_Przystan_na_Grapie<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 796 568 531 <br>Strona www:: wwwlprzystannagrapie.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Podhale_Przystan_na_Grapie
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>796 568 531 </value>
+        </Data>
+        <Data name="Strona www:">
+          <value>wwwlprzystannagrapie.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.116844,49.418758,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping Ukiel</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Ukiel<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>Telefon:: 509 382 924<br>Strona www:: www.camping.mazury.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Camping_Ukiel
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>509 382 924</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.camping.mazury.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.39762,53.787038,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>OW Suchany Camping Pole Namiotowe</name>
+      <description><![CDATA[opis: <br>Kempingi: Yes_Kempingi<br>Opis:: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?OW_Suchany_Camping_Pole_Namiotowe<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj      <br>Telefon:: 516 127 288<br>Strona www:: www.suchany.pl]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value>Yes_Kempingi</value>
+        </Data>
+        <Data name="Opis:">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?OW_Suchany_Camping_Pole_Namiotowe
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj      </value>
+        </Data>
+        <Data name="Telefon:">
+          <value>516 127 288</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>www.suchany.pl</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.954397,51.02013,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
