@@ -45,6 +45,7 @@
         border-radius: 5px;
         padding: 5px;
         box-sizing: border-box;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 4px 10px;
       }
       #search-input {
         flex: 1;
@@ -143,6 +144,23 @@
         background-color: #e6f0ff;
         color: #0056b3;
       }
+      .link-button {
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        z-index: 1000;
+        transform: translateX(-50%);
+        background-color: #008000;
+        color: white;
+        padding: 7px 28px;
+        border-radius: 8px;
+        border: 2px solid #006e00;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 4px 10px;
+        text-decoration: none;
+        color: white !important;
+        font-weight: bold;
+        letter-spacing: 0.4px;
+      }
     </style>
   </head>
   <body>
@@ -153,7 +171,14 @@
       </div>
       <div id="suggestions"></div>
     </div>
-    <div id="map"></div>
+    <div id="map">
+      <a
+        href="https://www.campteam.pl/dodaj"
+        target="_blank"
+        class="link-button"
+        >Dodaj miejsce na mapie</a
+      >
+    </div>
     <script>
       const urls = {
         kml: "/map.kml",
