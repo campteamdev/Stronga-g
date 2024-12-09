@@ -160,10 +160,16 @@
         color: white !important;
         font-weight: bold;
         letter-spacing: 0.4px;
+        white-space: nowrap;
+      }
+      @media (max-width: 600px) {
+        .link-button {
+          bottom: 20px;
+        }
       }
     </style>
   </head>
-  <body>
+  <body class="">
     <div id="search-container">
       <div id="search-bar">
         <input type="text" id="search-input" placeholder="Znajdź obiekt..." />
