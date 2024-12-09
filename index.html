@@ -164,8 +164,29 @@
       }
       @media (max-width: 600px) {
         .link-button {
-          bottom: 20px;
+          display: none;
         }
+      }
+      @media (min-width: 1000px) {
+        .link-button-mobile {
+          display: none;
+        }
+      }
+      .link-button-mobile {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: #008000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white !important;
+        border: 2px solid #006e00;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 4px 10px;
+        bottom: 50px;
+        right: 20px;
+        z-index: 2000;
       }
     </style>
   </head>
@@ -178,12 +199,36 @@
       <div id="suggestions"></div>
     </div>
     <div id="map">
-      <a
+      <!-- <a
         href="https://www.campteam.pl/dodaj"
         target="_blank"
         class="link-button"
         >Dodaj miejsce na mapie</a
+      > -->
+      <a
+        href="https://www.campteam.pl/dodaj"
+        target="_blank"
+        class="link-button-mobile"
       >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-map-pin-plus-inside"
+        >
+          <path
+            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+          />
+          <path d="M12 7v6" />
+          <path d="M9 10h6" />
+        </svg>
+      </a>
     </div>
     <script>
       const urls = {
