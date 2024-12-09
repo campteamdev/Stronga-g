@@ -1,274 +1,350 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mapa Kempingów</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
-    #map {
-      width: 100%;
-      height: 100vh;
-    }
-    #search-container {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%;
-      z-index: 1000;
-    }
-    #search-bar {
-      display: flex;
-      flex-wrap: wrap; /* Zapewnia poprawną responsywność */
-      background-color: lightgray;
-      border: 2px solid green;
-      border-radius: 5px;
-      padding: 5px;
-      box-sizing: border-box;
-    }
-    #search-input {
-      flex: 1;
-      padding: 5px;
-      border: none;
-      outline: none;
-      font-size: 14px;
-      background-color: lightgray;
-      border-radius: 3px;
-      min-width: 0; /* Rozwiązanie dla problemów z flexbox */
-    }
-    #search-button {
-      background-color: green;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 3px;
-      cursor: pointer;
-      margin-left: 5px;
-      flex-shrink: 0; /* Zapobiega zmniejszaniu przycisku */
-    }
-    #search-button:hover {
-      background-color: darkgreen;
-    }
-    #suggestions {
-      margin-top: 5px;
-      background-color: white;
-      border: 1px solid green;
-      border-radius: 5px;
-      max-height: 150px;
-      overflow-y: auto;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      display: none;
-    }
-    .suggestion {
-      padding: 10px;
-      font-size: 14px;
-      cursor: pointer;
-      border-bottom: 1px solid #ddd;
-    }
-    .suggestion:last-child {
-      border-bottom: none;
-    }
-    .suggestion:hover {
-      background-color: lightgreen;
-    }
-  </style>
-</head>
-<body>
-  <div id="search-container">
-    <div id="search-bar">
-      <input type="text" id="search-input" placeholder="Znajdź obiekt..." />
-      <button id="search-button">Szukaj</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa Kempingów</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script src="custom-functions.js"></script>
+    <!-- Dodano obsługę dodatkowych funkcji -->
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        width: 100%;
+        height: 100vh;
+      }
+      #search-container {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        z-index: 1000;
+      }
+      #search-bar {
+        display: flex;
+        flex-wrap: wrap; /* Zapewnia poprawną responsywność */
+        background-color: lightgray;
+        border: 2px solid green;
+        border-radius: 5px;
+        padding: 5px;
+        box-sizing: border-box;
+      }
+      #search-input {
+        flex: 1;
+        padding: 5px;
+        border: none;
+        outline: none;
+        font-size: 14px;
+        background-color: lightgray;
+        border-radius: 3px;
+        min-width: 0; /* Rozwiązanie dla problemów z flexbox */
+      }
+      #search-button {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-left: 5px;
+        flex-shrink: 0; /* Zapobiega zmniejszaniu przycisku */
+      }
+      #search-button:hover {
+        background-color: darkgreen;
+      }
+      #suggestions {
+        margin-top: 5px;
+        background-color: white;
+        border: 1px solid green;
+        border-radius: 5px;
+        max-height: 150px;
+        overflow-y: auto;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: none;
+      }
+      .suggestion {
+        padding: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        border-bottom: 1px solid #ddd;
+      }
+      .suggestion:last-child {
+        border-bottom: none;
+      }
+      .suggestion:hover {
+        background-color: lightgreen;
+      }
+      .details-button {
+        display: inline-block;
+        margin: 5px 0;
+        padding: 5px 10px;
+        border: 2px solid #ffc107;
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+      .details-button:hover {
+        background-color: #fff8e1;
+      }
+      .navigate-button {
+        display: inline-block;
+        margin: 5px 0;
+        padding: 5px 10px;
+        border: 2px solid #28a745;
+        color: #28a745;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+      .navigate-button:hover {
+        background-color: #e9f7ef;
+        color: #155724;
+      }
+      .phone-link {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .phone-link:hover {
+        text-decoration: underline;
+      }
+      .update-button {
+        display: inline-block;
+        margin: 5px 0;
+        padding: 5px 10px;
+        border: 2px solid #007bff;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+      .update-button:hover {
+        background-color: #e6f0ff;
+        color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="search-container">
+      <div id="search-bar">
+        <input type="text" id="search-input" placeholder="Znajdź obiekt..." />
+        <button id="search-button">Szukaj</button>
+      </div>
+      <div id="suggestions"></div>
     </div>
-    <div id="suggestions"></div>
-  </div>
-  <div id="map"></div>
-  <script>
-    const urls = {
-      kml: "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/refs/heads/main/map.kml",
-      kempingi: "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/refs/heads/main/Kempingi.kml",
-      polanamiotowe: "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/refs/heads/main/Polanamiotowe.kml",
-      kempingiopen: "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/refs/heads/main/Kempingiopen.kml",
-      polanamiotoweopen: "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/refs/heads/main/Polanamiotoweopen.kml",
-      parkingilesne: "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/refs/heads/main/Parkingilesne.kml",
-      kempingi1: "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/refs/heads/main/Kempingi1.kml",
-      atrakcje: "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/refs/heads/main/Atrakcje.kml",
-      miejscenabiwak: "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/refs/heads/main/Miejscenabiwak.kml",
-    };
+    <div id="map"></div>
+    <script>
+      const urls = {
+        kml: "/map.kml",
+        kempingi: "/Kempingi.kml",
+        polanamiotowe: "/Polanamiotowe.kml",
+        kempingiopen: "/Kempingiopen.kml",
+        polanamiotoweopen: "/Polanamiotoweopen.kml",
+        parkingilesne: "/Parkingilesne.kml",
+        kempingi1: "/Kempingi1.kml",
+        atrakcje: "/Atrakcje.kml",
+        miejscenabiwak: "/Miejscenabiwak.kml",
+      };
 
-    const icons = {
-      kempingi: L.icon({
-        iconUrl: "https://raw.githubusercontent.com/MarcinCampteam/mapa-kempingow/main/icons/Ikona_Kempingi_Polecane.png",
-        iconSize: [40, 40],
-        iconAnchor: [20, 20],
-        popupAnchor: [0, -20],
-      }),
-      polanamiotowe: L.icon({
-        iconUrl: "https://raw.githubusercontent.com/MarcinCampteam/mapa-kempingow/main/icons/Ikona_Pole_Namiotowe.png",
-        iconSize: [50, 50],
-        iconAnchor: [20, 20],
-        popupAnchor: [0, -20],
-      }),
-      kempingiopen: L.icon({
-        iconUrl: "https://raw.githubusercontent.com/MarcinCampteam/mapa-kempingow/main/icons/Ikona_Kempingi.png",
-        iconSize: [30, 30],
-        iconAnchor: [15, 15],
-        popupAnchor: [0, -10],
-      }),
-      polanamiotoweopen: L.icon({
-        iconUrl: "https://raw.githubusercontent.com/MarcinCampteam/mapa-kempingow/main/icons/Ikona_Pole_Namiotowe.png",
-        iconSize: [30, 30],
-        iconAnchor: [15, 15],
-        popupAnchor: [0, -10],
-      }),
-      parkingilesne: L.icon({
-        iconUrl: "https://raw.githubusercontent.com/MarcinCampteam/mapa-kempingow/main/icons/Ikona_Parking_Le%C5%9Bny.png",
-        iconSize: [30, 30],
-        iconAnchor: [15, 15],
-        popupAnchor: [0, -10],
-      }),
-      kempingi1: L.icon({
-        iconUrl: "https://raw.githubusercontent.com/MarcinCampteam/mapa-kempingow/main/icons/Ikona_Kempingi.png",
-        iconSize: [30, 30],
-        iconAnchor: [15, 15],
-        popupAnchor: [0, -10],
-      }),
-      atrakcje: L.icon({
-        iconUrl: "https://raw.githubusercontent.com/MarcinCampteam/mapa-kempingow/main/icons/Ikona_Atrakcje.png",
-        iconSize: [30, 30],
-        iconAnchor: [15, 15],
-        popupAnchor: [0, -10],
-      }),
-      miejscenabiwak: L.icon({
-        iconUrl: "https://raw.githubusercontent.com/MarcinCampteam/mapa-kempingow/main/icons/Ikona_Miejsce_Biwakowe.png",
-        iconSize: [30, 30],
-        iconAnchor: [15, 15],
-        popupAnchor: [0, -10],
-      }),
-    };
+      const icons = {
+        kempingi: L.icon({
+          iconUrl: "/ikony/Ikona_Kempingi_Polecane.png",
+          iconSize: [40, 40],
+          iconAnchor: [20, 20],
+          popupAnchor: [0, -20],
+        }),
+        polanamiotowe: L.icon({
+          iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
+          iconSize: [50, 50],
+          iconAnchor: [20, 20],
+          popupAnchor: [0, -20],
+        }),
+        kempingiopen: L.icon({
+          iconUrl: "/ikony/Ikona_Kempingi.png",
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -10],
+        }),
+        polanamiotoweopen: L.icon({
+          iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -10],
+        }),
+        parkingilesne: L.icon({
+          iconUrl: "/ikony/Ikona_Parking_Le%C5%9Bny.png",
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -10],
+        }),
+        kempingi1: L.icon({
+          iconUrl: "/ikony/Ikona_Kempingi.png",
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -10],
+        }),
+        atrakcje: L.icon({
+          iconUrl: "/ikony/Ikona_Atrakcje.png",
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -10],
+        }),
+        miejscenabiwak: L.icon({
+          iconUrl: "/ikony/Ikona_Miejsce_Biwakowe.png",
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -10],
+        }),
+      };
 
-    const map = L.map("map").setView([52.237049, 21.017532], 6);
-    const markerCluster = L.markerClusterGroup({
-      showCoverageOnHover: false,
-      maxClusterRadius: 50,
-    });
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "&copy; OpenStreetMap contributors",
-    }).addTo(map);
-
-    const addedMarkers = new Set();
-    const allMarkers = [];
-
-    async function fetchKml(url) {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
-      return response.text();
-    }
-
-    async function loadMarkers(url, icon, addToCluster = true) {
-      const kmlText = await fetchKml(url);
-      const parser = new DOMParser();
-      const kml = parser.parseFromString(kmlText, "application/xml");
-      const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
-
-      placemarks.forEach((placemark) => {
-        const name = placemark.getElementsByTagName("name")[0]?.textContent || "Brak nazwy";
-        const coordinates = placemark.getElementsByTagName("coordinates")[0]?.textContent.trim();
-
-        if (coordinates) {
-          const [lon, lat] = coordinates.split(",");
-          const key = `${lat},${lon}`;
-
-          if (!addedMarkers.has(key)) {
-            addedMarkers.add(key);
-            const marker = L.marker([lat, lon], { icon }).bindPopup(`<strong>${name}</strong>`);
-
-            if (addToCluster) {
-              markerCluster.addLayer(marker);
-            } else {
-              marker.addTo(map);
-            }
-
-            allMarkers.push({ marker, name, lat, lon }); // Zapisuje nazwę z oryginalnymi wielkimi literami
-          }
-        }
+      const map = L.map("map").setView([52.237049, 21.017532], 6);
+      const markerCluster = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        maxClusterRadius: 50,
       });
-    }
 
-    function initializeSearch() {
-      const searchInput = document.getElementById("search-input");
-      const searchButton = document.getElementById("search-button");
-      const suggestions = document.getElementById("suggestions");
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+      }).addTo(map);
 
-      searchInput.addEventListener("input", () => {
-        const query = searchInput.value.toLowerCase().trim();
-        suggestions.innerHTML = "";
-        if (!query) {
-          suggestions.style.display = "none";
-          return;
-        }
+      const addedMarkers = new Set();
+      const allMarkers = [];
+      const allPlacemarks = []; // Przechowywanie placemarks
 
-        const matches = allMarkers
-          .filter((m) => m.name.toLowerCase().includes(query))
-          .slice(0, 4);
+      async function fetchKml(url) {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
+        return response.text();
+      }
 
-        matches.forEach((match) => {
-          const suggestion = document.createElement("div");
-          suggestion.className = "suggestion";
-          suggestion.textContent = match.name; // Wyświetla nazwę z wielkimi literami
-          suggestion.addEventListener("click", () => {
-            map.setView([match.lat, match.lon], 15);
-            match.marker.openPopup();
+      async function loadMarkers(url, icon, addToCluster = true) {
+        const kmlText = await fetchKml(url);
+        const parser = new DOMParser();
+        const kml = parser.parseFromString(kmlText, "application/xml");
+        const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+        allPlacemarks.push(...placemarks); // Dodanie placemarks do globalnej listy
+
+        placemarks.forEach((placemark) => {
+          const name =
+            placemark.getElementsByTagName("name")[0]?.textContent ||
+            "Brak nazwy";
+          const coordinates = placemark
+            .getElementsByTagName("coordinates")[0]
+            ?.textContent.trim();
+
+          if (coordinates) {
+            const [lon, lat] = coordinates.split(",");
+            const key = `${lat},${lon}`;
+
+            if (!addedMarkers.has(key)) {
+              addedMarkers.add(key);
+              const marker = L.marker([lat, lon], { icon }).bindPopup(
+                `<strong>${name}</strong>`
+              );
+
+              if (addToCluster) {
+                markerCluster.addLayer(marker);
+              } else {
+                marker.addTo(map);
+              }
+
+              allMarkers.push({ marker, name, lat, lon });
+            }
+          }
+        });
+      }
+
+      function initializeSearch() {
+        const searchInput = document.getElementById("search-input");
+        const searchButton = document.getElementById("search-button");
+        const suggestions = document.getElementById("suggestions");
+
+        searchInput.addEventListener("input", () => {
+          const query = searchInput.value.toLowerCase().trim();
+          suggestions.innerHTML = "";
+          if (!query) {
             suggestions.style.display = "none";
-            searchInput.value = match.name;
+            return;
+          }
+
+          const matches = allMarkers
+            .filter((m) => m.name.toLowerCase().includes(query))
+            .slice(0, 4);
+
+          matches.forEach((match) => {
+            const suggestion = document.createElement("div");
+            suggestion.className = "suggestion";
+            suggestion.textContent = match.name; // Wyświetla nazwę z wielkimi literami
+            suggestion.addEventListener("click", () => {
+              map.setView([match.lat, match.lon], 15);
+              match.marker.openPopup();
+              suggestions.style.display = "none";
+              searchInput.value = match.name;
+            });
+            suggestions.appendChild(suggestion);
           });
-          suggestions.appendChild(suggestion);
+
+          suggestions.style.display = matches.length > 0 ? "block" : "none";
         });
 
-        suggestions.style.display = matches.length > 0 ? "block" : "none";
-      });
+        searchButton.addEventListener("click", () => {
+          const query = searchInput.value.toLowerCase().trim();
+          if (!query) return;
 
-      searchButton.addEventListener("click", () => {
-        const query = searchInput.value.toLowerCase().trim();
-        if (!query) return;
+          const targetMarker = allMarkers.find((m) =>
+            m.name.toLowerCase().includes(query)
+          );
 
-        const targetMarker = allMarkers.find((m) => m.name.toLowerCase().includes(query));
+          if (targetMarker) {
+            map.setView([targetMarker.lat, targetMarker.lon], 15);
+            targetMarker.marker.openPopup();
+          } else {
+            alert("Nie znaleziono obiektu.");
+          }
+        });
+      }
 
-        if (targetMarker) {
-          map.setView([targetMarker.lat, targetMarker.lon], 15);
-          targetMarker.marker.openPopup();
-        } else {
-          alert("Nie znaleziono obiektu.");
-        }
-      });
-    }
+      async function initializeMap() {
+        await Promise.all([
+          loadMarkers(urls.kempingi, icons.kempingi, false), // Kempingi - bez grupowania
+          loadMarkers(urls.polanamiotowe, icons.polanamiotowe, false), // Pola namiotowe - bez grupowania
+          loadMarkers(urls.kempingiopen, icons.kempingiopen),
+          loadMarkers(urls.polanamiotoweopen, icons.polanamiotoweopen),
+          loadMarkers(urls.parkingilesne, icons.parkingilesne),
+          loadMarkers(urls.kempingi1, icons.kempingi1),
+          loadMarkers(urls.atrakcje, icons.atrakcje),
+          loadMarkers(urls.miejscenabiwak, icons.miejscenabiwak),
+        ]);
 
-    async function initializeMap() {
-      await Promise.all([
-        loadMarkers(urls.kempingi, icons.kempingi, false), // Kempingi - bez grupowania
-        loadMarkers(urls.polanamiotowe, icons.polanamiotowe, false), // Pola namiotowe - bez grupowania
-        loadMarkers(urls.kempingiopen, icons.kempingiopen),
-        loadMarkers(urls.polanamiotoweopen, icons.polanamiotoweopen),
-        loadMarkers(urls.parkingilesne, icons.parkingilesne),
-        loadMarkers(urls.kempingi1, icons.kempingi1),
-        loadMarkers(urls.atrakcje, icons.atrakcje),
-        loadMarkers(urls.miejscenabiwak, icons.miejscenabiwak),
-      ]);
+        map.addLayer(markerCluster);
+        initializeSearch();
 
-      map.addLayer(markerCluster);
-      initializeSearch();
-    }
+        // Wywołanie funkcji z custom-functions.js
+        await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
+      }
 
-    initializeMap();
-  </script>
-</body>
+      initializeMap();
+    </script>
+  </body>
 </html>

@@ -40,7 +40,7 @@
     </StyleMap>
     <Placemark>
       <name>Camping Pomona</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Czynne całą dobę, WiFi ,Sklep w pobliżu<br>phone: +48 91 386 34 45<br>website: https://www.domki.niechorze.tv/<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Camping_Pomona<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Czynne całą dobę, WiFi ,Sklep w pobliżu . Phone:+48 91 386 34 45<br>phone: +48 91 386 34 45<br>website: https://www.domki.niechorze.tv/<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -50,16 +50,13 @@
           <value/>
         </Data>
         <Data name="description">
-          <value>Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Czynne całą dobę, WiFi ,Sklep w pobliżu</value>
+          <value>Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Czynne całą dobę, WiFi ,Sklep w pobliżu . Phone:+48 91 386 34 45</value>
         </Data>
         <Data name="phone">
           <value>+48 91 386 34 45</value>
         </Data>
         <Data name="website">
           <value>https://www.domki.niechorze.tv/</value>
-        </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Camping_Pomona</value>
         </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.campteam.pl/dodaj</value>
@@ -76,7 +73,7 @@
     </Placemark>
     <Placemark>
       <name>Camp 66</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety,Miejsce na ognisko/grill,Kuchnia,Prysznice,Stoły/Wiata,Atrakcje dla dzieci,Przyjazny zwierzętom,Dostęp do prądu,Dostęp do wody,WiFi<br>phone: +48 792 566 569<br>website: https://camp66.pl/<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Camp_66<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, ostęp do wody WiFi Phone: +48 792 566 569<br>phone: +48 792 566 569<br>website: https://camp66.pl/<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -86,16 +83,13 @@
           <value/>
         </Data>
         <Data name="description">
-          <value>Udogodnienia: Toalety,Miejsce na ognisko/grill,Kuchnia,Prysznice,Stoły/Wiata,Atrakcje dla dzieci,Przyjazny zwierzętom,Dostęp do prądu,Dostęp do wody,WiFi</value>
+          <value>Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, ostęp do wody WiFi Phone: +48 792 566 569</value>
         </Data>
         <Data name="phone">
           <value>+48 792 566 569</value>
         </Data>
         <Data name="website">
           <value>https://camp66.pl/</value>
-        </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Camp_66</value>
         </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.campteam.pl/dodaj</value>
@@ -112,7 +106,7 @@
     </Placemark>
     <Placemark>
       <name>Camping Tramp</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: <br>phone: +48 91 321 26 62<br>website: http://campingtramp.com/<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Camping_Tramp<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Phone: +48 91 321 26 62<br>phone: +48 91 321 26 62<br>website: http://campingtramp.com/<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -122,16 +116,13 @@
           <value/>
         </Data>
         <Data name="description">
-          <value/>
+          <value>Phone: +48 91 321 26 62</value>
         </Data>
         <Data name="phone">
           <value>+48 91 321 26 62</value>
         </Data>
         <Data name="website">
           <value>http://campingtramp.com/</value>
-        </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Camping_Tramp</value>
         </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.campteam.pl/dodaj</value>
@@ -148,7 +139,7 @@
     </Placemark>
     <Placemark>
       <name>Kemping Polesie</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety,Miejsce na ognisko/grill,Kuchnia,Prysznice,Stoły/Wiata,Atrakcje dla dzieci,Przyjazny zwierzętom,Dostęp do prądu,Dostęp do wody,Sklep w pobliżu<br>phone: +48 533 614 250<br>website: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Kemping_Polesie<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety ,Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Sklep w pobliżu Phone:+48 533 614 250<br>phone: +48 533 614 250<br>website: <br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -158,16 +149,13 @@
           <value/>
         </Data>
         <Data name="description">
-          <value>Udogodnienia: Toalety,Miejsce na ognisko/grill,Kuchnia,Prysznice,Stoły/Wiata,Atrakcje dla dzieci,Przyjazny zwierzętom,Dostęp do prądu,Dostęp do wody,Sklep w pobliżu</value>
+          <value>Udogodnienia: Toalety ,Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Sklep w pobliżu Phone:+48 533 614 250</value>
         </Data>
         <Data name="phone">
           <value>+48 533 614 250</value>
         </Data>
         <Data name="website">
           <value/>
-        </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Kemping_Polesie</value>
         </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.campteam.pl/dodaj</value>
@@ -184,7 +172,7 @@
     </Placemark>
     <Placemark>
       <name>Górska Sadyba</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety,Miejsce na ognisko/grill,Kuchnia,Prysznice,Stoły/Wiata,Atrakcje dla dzieci,Przyjazny zwierzętom,Dostęp do prądu,Dostęp do wody,Czynne całą dobę<br>phone: +48 606 103 637<br>website: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Gorska_Sadyba<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Czynne całą dobę Phone: +48 606 103 637<br>phone: +48 606 103 637<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -194,16 +182,13 @@
           <value/>
         </Data>
         <Data name="description">
-          <value>Udogodnienia: Toalety,Miejsce na ognisko/grill,Kuchnia,Prysznice,Stoły/Wiata,Atrakcje dla dzieci,Przyjazny zwierzętom,Dostęp do prądu,Dostęp do wody,Czynne całą dobę</value>
+          <value>Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Czynne całą dobę Phone: +48 606 103 637</value>
         </Data>
         <Data name="phone">
           <value>+48 606 103 637</value>
         </Data>
         <Data name="website">
           <value/>
-        </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Gorska_Sadyba</value>
         </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
@@ -220,7 +205,7 @@
     </Placemark>
     <Placemark>
       <name>Camp Hel</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1059561438787906/<br>phone: 576 420 490<br>website: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Camp_Hel<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1059561438787906/ Phone: 576 420 490 <br>phone: 576 420 490<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -230,16 +215,13 @@
           <value/>
         </Data>
         <Data name="description">
-          <value>https://www.facebook.com/groups/1055351639208886/permalink/1059561438787906/</value>
+          <value>https://www.facebook.com/groups/1055351639208886/permalink/1059561438787906/ Phone: 576 420 490 </value>
         </Data>
         <Data name="phone">
           <value>576 420 490</value>
         </Data>
         <Data name="website">
           <value/>
-        </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Camp_Hel</value>
         </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
@@ -256,7 +238,7 @@
     </Placemark>
     <Placemark>
       <name>Kemping Dziki Wschód</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056754892401894/<br>phone: 500 260 006<br>website: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Kemping_Dziki_Wschod<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056754892401894/<br>phone: 500 260 006<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -274,9 +256,6 @@
         <Data name="website">
           <value/>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Kemping_Dziki_Wschod</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
@@ -292,7 +271,7 @@
     </Placemark>
     <Placemark>
       <name>Camp Gorący Potok</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Pełna infrastruktura dla karawaningu<br>phone: +48 883 122 223<br>website: https://camp.goracypotok.pl/<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Camp_Goracy_Potok<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Pełna infrastruktura dla karawaningu<br>phone: +48 883 122 223<br>website: https://camp.goracypotok.pl/<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -310,9 +289,6 @@
         <Data name="website">
           <value>https://camp.goracypotok.pl/</value>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Camp_Goracy_Potok</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
@@ -328,7 +304,7 @@
     </Placemark>
     <Placemark>
       <name>Pod Brzozą - pole kempingowe</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1057390039005046/<br>phone: <br>website: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Pod_Brzoza<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1057390039005046/<br>phone: <br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -346,9 +322,6 @@
         <Data name="website">
           <value/>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Pod_Brzoza</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
@@ -364,7 +337,7 @@
     </Placemark>
     <Placemark>
       <name>Góra Gbura Camperpark</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056390192438364/<br>phone: <br>website: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Gora_Gbura_Camperpark<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056390192438364/<br>phone: <br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -382,9 +355,6 @@
         <Data name="website">
           <value/>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Gora_Gbura_Camperpark</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
@@ -400,7 +370,7 @@
     </Placemark>
     <Placemark>
       <name><![CDATA[Lazurowe - Camping, Caravaning & Pole Namiotowe nad Morzem]]></name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: <br>phone: +48 501 197 450<br>website: www.lazurowe.com.pl<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Lazurowe_Camping<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: <br>phone: +48 501 197 450<br>website: www.lazurowe.com.pl<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -418,9 +388,6 @@
         <Data name="website">
           <value>www.lazurowe.com.pl</value>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Lazurowe_Camping</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
@@ -436,7 +403,7 @@
     </Placemark>
     <Placemark>
       <name>Camping SIEDLISKO ROŻYŃSK</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056087719135278/<br>phone: <br>website: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Camping_Siedlisko_Rozynsk<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056087719135278/<br>phone: <br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -454,9 +421,6 @@
         <Data name="website">
           <value/>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Camping_Siedlisko_Rozynsk</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
@@ -472,7 +436,7 @@
     </Placemark>
     <Placemark>
       <name>Złoty Widok camper parking</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety,Miejsce na ognisko/grill,Prysznice,Stoły/Wiata,Przyjazny zwierzętom,Dostęp do prądu,Czynne całą dobę,                                                                   Do zobaczenia :Zamek Księcia Henryka,zbiornik Sosnówka<br>phone: <br>website: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Zloty_Widok_camper_parking<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety,Miejsce na ognisko/grill,Prysznice,Stoły/Wiata,Przyjazny zwierzętom,Dostęp do prądu,Czynne całą dobę,                                                                   Do zobaczenia :Zamek Księcia Henryka,zbiornik Sosnówka<br>phone: <br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -490,9 +454,6 @@
         <Data name="website">
           <value/>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Zloty_Widok_camper_parking</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
@@ -508,7 +469,7 @@
     </Placemark>
     <Placemark>
       <name>SuliCamp Camping 271</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu Dostęp do wody, Czynne całą dobę, WiFi, Sklep w pobliżu<br>phone: +48 530 721 048<br>website: https://sulicamp.pl/<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?SuliCamp_Camping_271<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu Dostęp do wody, Czynne całą dobę, WiFi, Sklep w pobliżu<br>phone: +48 530 721 048<br>website: https://sulicamp.pl/<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -526,9 +487,6 @@
         <Data name="website">
           <value>https://sulicamp.pl/</value>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?SuliCamp_Camping_271</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
@@ -544,7 +502,7 @@
     </Placemark>
     <Placemark>
       <name>CamperPark Kujawski Zakątek</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Atrakcje: Basen, sauna, balia, kajaki, łowisko ryb, wyroby z lawendy Udogodnienia: Toalety ,Miejsce na ognisko/grill, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody ,WiFi,<br>phone: 514901889<br>website: https://kujawski-zakatek.pl/<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?CamperPark_Kujawski_Zakatek<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Atrakcje: Basen, sauna, balia, kajaki, łowisko ryb, wyroby z lawendy Udogodnienia: Toalety ,Miejsce na ognisko/grill, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody ,WiFi,<br>phone: 514901889<br>website: https://kujawski-zakatek.pl/<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -562,9 +520,6 @@
         <Data name="website">
           <value>https://kujawski-zakatek.pl/</value>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?CamperPark_Kujawski_Zakatek</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
@@ -580,7 +535,7 @@
     </Placemark>
     <Placemark>
       <name>Jura Camp kemping nr 244</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody<br>phone: +48 600 544 201<br>website: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Jura_Camp_kemping_nr_244<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody<br>phone: +48 600 544 201<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -598,9 +553,6 @@
         <Data name="website">
           <value/>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Jura_Camp_kemping_nr_244</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
@@ -616,7 +568,7 @@
     </Placemark>
     <Placemark>
       <name>Agroturystyka u Celiny</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Las cisza i spokój. Zwierzęta mile widziane<br>phone: +48 726 141 502<br>website: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Agroturystyka_u_Celiny<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Las cisza i spokój. Zwierzęta mile widziane<br>phone: +48 726 141 502<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -634,9 +586,6 @@
         <Data name="website">
           <value/>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Agroturystyka_u_Celiny</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
@@ -652,7 +601,7 @@
     </Placemark>
     <Placemark>
       <name>Camping Wyzwanie</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia<br>Toalety, Miejsce na ognisko/grill, Prysznice<br>Stoły/Wiata, Atrakcje dla dzieci<br>Przyjazny zwierzętom, Dostęp do prądu<br>Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,<br>- szlaki rowerowe,<br>- szlaki piesze,<br>- jeziora,<br>phone: +48 790 390 610<br>website: campingwyzwanie.com<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Camping_Wyzwanie<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia<br>Toalety, Miejsce na ognisko/grill, Prysznice<br>Stoły/Wiata, Atrakcje dla dzieci<br>Przyjazny zwierzętom, Dostęp do prądu<br>Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,<br>- szlaki rowerowe,<br>- szlaki piesze,<br>- jeziora,<br>phone: +48 790 390 610<br>website: campingwyzwanie.com<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -677,9 +626,6 @@ Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,
         <Data name="website">
           <value>campingwyzwanie.com</value>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Camping_Wyzwanie</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
@@ -695,7 +641,7 @@ Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,
     </Placemark>
     <Placemark>
       <name>Camping nad stawami</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Prywatne stawy z darmowym wędkowaniem. Atrakcje w pobliżu: Kopalnia złota, Twierdza w Kłodzku i Srebrnej Górze, Pałace , Uzdrowiska , trasy rowerowe i mnóstwo innych. Udogodnienia: Toalety, Miejsce na ognisko/grill ,Prysznice, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody<br>phone: +48 608 306 739<br>website: <br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Camping_nad_stawami<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Prywatne stawy z darmowym wędkowaniem. Atrakcje w pobliżu: Kopalnia złota, Twierdza w Kłodzku i Srebrnej Górze, Pałace , Uzdrowiska , trasy rowerowe i mnóstwo innych. Udogodnienia: Toalety, Miejsce na ognisko/grill ,Prysznice, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody<br>phone: +48 608 306 739<br>website: <br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -713,9 +659,6 @@ Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,
         <Data name="website">
           <value/>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Camping_nad_stawami</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.campteam.pl/dodaj</value>
         </Data>
@@ -731,7 +674,7 @@ Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,
     </Placemark>
     <Placemark>
       <name>Camping Drwęca Nielbark</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice,Stoły/Wiata<br>phone: +48 604 507 012<br>website: campingnielbark.pl<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: http://campteam.pl/dodaj_zdjecie?Camping_Drweca_Nielbark<br>Dodaj nowe miejsce do mapy:: grupy CampTeam: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice,Stoły/Wiata<br>phone: +48 604 507 012<br>website: campingnielbark.pl<br>Dodaj nowe miejsce do mapy:: grupy CampTeam: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -749,9 +692,6 @@ Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,
         <Data name="website">
           <value>campingnielbark.pl</value>
         </Data>
-        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
-          <value>http://campteam.pl/dodaj_zdjecie?Camping_Drweca_Nielbark</value>
-        </Data>
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>grupy CampTeam: www.campteam.pl/dodaj</value>
         </Data>
@@ -762,6 +702,58 @@ Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,
       <Point>
         <coordinates>
           19.528195,53.360175,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kozia Góra Camping</name>
+      <description><![CDATA[opis: KEMPING & POLE NAMIOTOWE<br>NA KASZUBACH NAD JEZIOREM<br><br>Kemping położony jest nad samym jeziorem Raduńskim w miejscowości Żuromino na Kaszubach.<br><br>To malownicze miejsce otoczone jest lasami usytuowane z daleka od miejskiego zgiełku, które zapewni spokój i ciszę. Oferuje doskonały wypoczynek na pięknej plaży z kąpieliskiem.<br><br>Wszystkie miejsca kempingowe wyposażone są w przyłącza prądu, dając możliwość korzystania z elektryczności. Możliwy jest dostęp do wody miejskiej oraz miejsce zlewowe. Do dyspozycji gości oddajemy zaplecze sanitarne.<br><br>Dla gości pola namiotowego przygotowaliśmy stanowiska biwakowe usytuowane nad wodą z możliwością podłączenia do prądu.<br><br>Osobą lubiącym aktywny wypoczynek oferujemy wypożyczalnię sprzętu wodnego ( kajaki, rowerki wodne, łódki, supy) dzięki, któremu można podjąć przygodę na bliskim jeziorze.<br><br>Na terenie kempingu znajduje się boisko do siatkówki plażowej, które zachęca do aktywności fizycznej. Dla najmłodszych zaś przygotowano plac zabaw oraz salon gier gdzie będą mogli spędzić miło czas.<br><br>W ciągu dnia można skorzystać z baru, który oferuje pyszne jedzenie i desery.<br><br>Wieczorami jest możliwość rozgrzać się i miło spędzić czas przy ognisku.<br><br>W okolicy można zwiedzić ciekawe miejsca takie jak np. Szymbark, Wieżyca, Strysza Buda<br>Kemping: <br>description: Udogodnienia: Toalety ,Miejsce na ognisko/grill ,Prysznice, Stoły/Wiata Phone: 511039999<br>phone: 511039999<br>website: <br>Dodaj nowe miejsce do mapy:: <br>Kempingi: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value><![CDATA[KEMPING & POLE NAMIOTOWE
+NA KASZUBACH NAD JEZIOREM
+
+Kemping położony jest nad samym jeziorem Raduńskim w miejscowości Żuromino na Kaszubach.
+
+To malownicze miejsce otoczone jest lasami usytuowane z daleka od miejskiego zgiełku, które zapewni spokój i ciszę. Oferuje doskonały wypoczynek na pięknej plaży z kąpieliskiem.
+
+Wszystkie miejsca kempingowe wyposażone są w przyłącza prądu, dając możliwość korzystania z elektryczności. Możliwy jest dostęp do wody miejskiej oraz miejsce zlewowe. Do dyspozycji gości oddajemy zaplecze sanitarne.
+
+Dla gości pola namiotowego przygotowaliśmy stanowiska biwakowe usytuowane nad wodą z możliwością podłączenia do prądu.
+
+Osobą lubiącym aktywny wypoczynek oferujemy wypożyczalnię sprzętu wodnego ( kajaki, rowerki wodne, łódki, supy) dzięki, któremu można podjąć przygodę na bliskim jeziorze.
+
+Na terenie kempingu znajduje się boisko do siatkówki plażowej, które zachęca do aktywności fizycznej. Dla najmłodszych zaś przygotowano plac zabaw oraz salon gier gdzie będą mogli spędzić miło czas.
+
+W ciągu dnia można skorzystać z baru, który oferuje pyszne jedzenie i desery.
+
+Wieczorami jest możliwość rozgrzać się i miło spędzić czas przy ognisku.
+
+W okolicy można zwiedzić ciekawe miejsca takie jak np. Szymbark, Wieżyca, Strysza Buda]]></value>
+        </Data>
+        <Data name="Kemping">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value>Udogodnienia: Toalety ,Miejsce na ognisko/grill ,Prysznice, Stoły/Wiata Phone: 511039999</value>
+        </Data>
+        <Data name="phone">
+          <value>511039999</value>
+        </Data>
+        <Data name="website">
+          <value/>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value/>
+        </Data>
+        <Data name="Kempingi">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.962425,54.2332632,0
         </coordinates>
       </Point>
     </Placemark>

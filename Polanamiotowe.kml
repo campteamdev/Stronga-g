@@ -398,5 +398,69 @@
         </coordinates>
       </Point>
     </Placemark>
+    <Placemark>
+      <name>Jędrusiowe Pole Biwakowe</name>
+      <description><![CDATA[opis: Pole Biwakowe prowadzone w klimacie rodzinnym, otwarte cały rok. Pole posiada piaszczysta plażę a także graniczy z rzeką na której znajduje się stopniowany jaz jest też łagodne zejście dla dzieci . Pole jest bazą wypadową do wielu szlaków turystycznych po Beskidzie Sądeckim, Wyspowym a także Gorcach. W pobliżu jest ponad 20 więź widokowych. Od tego roku nawiązaliśmy współpracę z Firmą organizująca spływy Dunajcem na różnych jego odcinkach.<br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Prysznice, Stoły/Wiata ,Dostęp do prądu, Dostęp do wody, Atrakcje dla dzieci, Przyjazny zwierzętom, Sklep w pobliżu, Czynny całą dobę, Możliwość obsługi kampera<br>phone: +48509960504<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: <br>Dodaj nowe miejsce do mapy:: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value>Pole Biwakowe prowadzone w klimacie rodzinnym, otwarte cały rok. Pole posiada piaszczysta plażę a także graniczy z rzeką na której znajduje się stopniowany jaz jest też łagodne zejście dla dzieci . Pole jest bazą wypadową do wielu szlaków turystycznych po Beskidzie Sądeckim, Wyspowym a także Gorcach. W pobliżu jest ponad 20 więź widokowych. Od tego roku nawiązaliśmy współpracę z Firmą organizująca spływy Dunajcem na różnych jego odcinkach.</value>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>Udogodnienia: Toalety, Miejsce na ognisko/grill, Prysznice, Stoły/Wiata ,Dostęp do prądu, Dostęp do wody, Atrakcje dla dzieci, Przyjazny zwierzętom, Sklep w pobliżu, Czynny całą dobę, Możliwość obsługi kampera</value>
+        </Data>
+        <Data name="phone">
+          <value>+48509960504</value>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value/>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.5308654,49.5968501,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Biwakowe Wiesiółka Kajaki Wałcz Piła</name>
+      <description><![CDATA[opis: Posiadamy pięknie położone pole biwakowe nad rzeką Dobrzycą w miejscowości Wiesiółka. 3km od zjazdu od DKS10 ( obwodnica Wałcza).<br>Na polu znajdują się toalety damskie i męskie oraz prysznice z ciepła woda. Do dyspozycji zadaszenia z zapleczem lodówek oraz podłączenie do prądu.<br>Mini plac zabaw dla najmłodszych oraz miejsce do rozgrywek siatkowych.<br>Co najważniejsze posiadamy własne kajaki jedno i dwuosobowe oraz całe potrzebne wyposażenia do bezpiecznego spływu kajakowego po rzekach Dobrzyca, Piława oraz Różyca.<br>Zapraszamy serdecznie<br>Pole Namiotowe: Yes_Pole_Namiotowe<br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Prysznice, Stoły/Wiata, Dostęp do prądu, Dostęp do wody, Atrakcje dla dzieci<br>phone: 509990049<br>Dodaj zdjęcia lub komentarz do tej lokalizacji:: <br>Dodaj nowe miejsce do mapy:: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value>Posiadamy pięknie położone pole biwakowe nad rzeką Dobrzycą w miejscowości Wiesiółka. 3km od zjazdu od DKS10 ( obwodnica Wałcza).
+Na polu znajdują się toalety damskie i męskie oraz prysznice z ciepła woda. Do dyspozycji zadaszenia z zapleczem lodówek oraz podłączenie do prądu.
+Mini plac zabaw dla najmłodszych oraz miejsce do rozgrywek siatkowych.
+Co najważniejsze posiadamy własne kajaki jedno i dwuosobowe oraz całe potrzebne wyposażenia do bezpiecznego spływu kajakowego po rzekach Dobrzyca, Piława oraz Różyca.
+Zapraszamy serdecznie</value>
+        </Data>
+        <Data name="Pole Namiotowe">
+          <value>Yes_Pole_Namiotowe</value>
+        </Data>
+        <Data name="description">
+          <value>Udogodnienia: Toalety, Miejsce na ognisko/grill, Prysznice, Stoły/Wiata, Dostęp do prądu, Dostęp do wody, Atrakcje dla dzieci</value>
+        </Data>
+        <Data name="phone">
+          <value>509990049</value>
+        </Data>
+        <Data name="Dodaj zdjęcia lub komentarz do tej lokalizacji:">
+          <value/>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.612725,53.2718706,0
+        </coordinates>
+      </Point>
+    </Placemark>
   </Document>
 </kml>
