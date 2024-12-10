@@ -6,8 +6,9 @@ let phoneNumbersMap = {};
 // Funkcja wczytująca dane z pliku szczegóły.json
 async function loadDetails() {
   try {
-    const response = await fetch("https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/main/szczegoly.json");
-    if (!response.ok) throw new Error("Nie udało się załadować pliku szczegóły.json");
+    const response = await fetch("/szczegoly.json");
+    if (!response.ok)
+      throw new Error("Nie udało się załadować pliku szczegóły.json");
     const data = await response.json();
     detailsMap = data.reduce((map, item) => {
       const [name, link] = item.split(",");
@@ -34,27 +35,32 @@ function extractPhoneNumber(description) {
 // Funkcja wczytująca numery telefonów z plików KML
 async function loadPhoneNumbers() {
   const kmlFiles = [
-    "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/main/Kempingi.kml",
-    "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/main/Kempingi1.kml",
-    "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/main/Kempingiopen.kml",
-    "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/main/Miejscenabiwak.kml",
-    "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/main/Parkingilesne.kml",
-    "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/main/Polanamiotowe.kml",
-    "https://raw.githubusercontent.com/MarcinCampteam/lista-kempingow/main/Polanamiotoweopen.kml",
+    "/Kempingi.kml",
+    "/Kempingi1.kml",
+    "/Kempingiopen.kml",
+    "/Miejscenabiwak.kml",
+    "/Parkingilesne.kml",
+    "/Polanamiotowe.kml",
+    "/Polanamiotoweopen.kml",
   ];
 
   for (const url of kmlFiles) {
     try {
       const response = await fetch(url);
-      if (!response.ok) throw new Error(`Nie udało się załadować pliku: ${url}`);
+      if (!response.ok)
+        throw new Error(`Nie udało się załadować pliku: ${url}`);
       const kmlText = await response.text();
       const parser = new DOMParser();
       const kml = parser.parseFromString(kmlText, "application/xml");
       const placemarks = kml.getElementsByTagName("Placemark");
 
       for (const placemark of placemarks) {
-        const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
-        const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
+        const name = placemark
+          .getElementsByTagName("name")[0]
+          ?.textContent.trim();
+        const description = placemark
+          .getElementsByTagName("description")[0]
+          ?.textContent.trim();
         if (name && description) {
           const phone = extractPhoneNumber(description);
           phoneNumbersMap[name] = phone || "Brak numeru kontaktowego";
@@ -72,9 +78,10 @@ function generatePopupContent(name, lat, lon) {
 
   // Dodanie numeru telefonu
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
-  const phoneLink = phone !== "Brak numeru kontaktowego"
-    ? `<a href="tel:${phone}" style="color:blue; text-decoration:none;">${phone}</a>`
-    : phone;
+  const phoneLink =
+    phone !== "Brak numeru kontaktowego"
+      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none;">${phone}</a>`
+      : phone;
   popupContent += `<strong>Kontakt:</strong> ${phoneLink}<br>`;
 
   // Dodanie przycisku "Pokaż szczegóły", jeśli istnieje link w szczegóły.json
