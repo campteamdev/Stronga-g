@@ -334,7 +334,11 @@
 
             if (!addedMarkers.has(key)) {
               addedMarkers.add(key);
-              const marker = L.marker([lat, lon], { icon }).bindPopup(
+              const markerOptions = { icon };
+              if (!addToCluster) {
+                markerOptions.zIndexOffset = 10; // Wyższy zIndex dla markerów poza grupowaniem
+              }
+              const marker = L.marker([lat, lon], markerOptions).bindPopup(
                 `<strong>${name}</strong>`
               );
 
