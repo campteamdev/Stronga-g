@@ -40,11 +40,11 @@
     </StyleMap>
     <Placemark>
       <name>Camping Pomona</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Czynne całą dobę, WiFi ,Sklep w pobliżu . Phone:+48 91 386 34 45<br>phone: +48 91 386 34 45<br>website: https://www.domki.niechorze.tv/<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: Kemping Pomona znajduje się w malowniczej lokalizacji w pobliżu latarni morskiej w Niechorzu na zachodnim wybrzeżu Polski. Bliskość Bałtyku sprawia, że jest to idealne miejsce na wypoczynek. Dojście do dwóch plaż, w tym jednej dla psów, zapewnia różnorodność i wygodę dla gości. Na terenie kempingu dominuje zieleń, a parcele są oddzielone żywopłotami, co gwarantuje prywatność. W okolicy panuje cisza i spokój, co sprzyja relaksowi. Kemping jest zadbany, a infrastruktura utrzymywana na najwyższym poziomie, co podkreślają liczne pozytywne opinie gości.<br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Czynne całą dobę, WiFi ,Sklep w pobliżu . Phone:+48 91 386 34 45<br>phone: +48 91 386 34 45<br>website: https://www.domki.niechorze.tv/<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Udogodnienia:: Toalety nr: 1<br>Prysznice nr: 2<br>Restauracja nr: 17<br>Bar nr: 16<br>Dostęp do prądu nr: 5<br>Dostęp do wody pitnej nr: 6<br>Obsługa kampera nr: 20<br>Place zabaw<br>Wydzielone parcele<br>Atrakcje w pobliżu:: Latarnia Morska Niechorze (ok. 500 m)<br>Ikoniczna latarnia oferuje piękne widoki na wybrzeże. Warto ją odwiedzić, by poznać historię lokalnej nawigacji morskiej.<br><br>Muzeum Rybołówstwa Morskiego w Niechorzu (ok. 1 km)<br>Ciekawe eksponaty związane z rybołówstwem i historią regionu.<br><br>Park Wieloryba w Rewalu (ok. 5 km)<br>Tematyczny park edukacyjno-rozrywkowy idealny dla rodzin z dziećmi.<br><br>Jezioro Liwia Łuża (ok. 3 km)<br>Obszar chroniony, gdzie można obserwować rzadkie gatunki ptaków i cieszyć się przyrodą.<br><br>Ruiny Kościoła w Trzęsaczu (ok. 7 km)<br>Zabytkowe ruiny na klifie, będące jednym z symboli wybrzeża zachodniego, oferujące spektakularne widoki.]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
-          <value/>
+          <value>Kemping Pomona znajduje się w malowniczej lokalizacji w pobliżu latarni morskiej w Niechorzu na zachodnim wybrzeżu Polski. Bliskość Bałtyku sprawia, że jest to idealne miejsce na wypoczynek. Dojście do dwóch plaż, w tym jednej dla psów, zapewnia różnorodność i wygodę dla gości. Na terenie kempingu dominuje zieleń, a parcele są oddzielone żywopłotami, co gwarantuje prywatność. W okolicy panuje cisza i spokój, co sprzyja relaksowi. Kemping jest zadbany, a infrastruktura utrzymywana na najwyższym poziomie, co podkreślają liczne pozytywne opinie gości.</value>
         </Data>
         <Data name="Kemping">
           <value/>
@@ -61,8 +61,32 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.campteam.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value>Toalety nr: 1
+Prysznice nr: 2
+Restauracja nr: 17
+Bar nr: 16
+Dostęp do prądu nr: 5
+Dostęp do wody pitnej nr: 6
+Obsługa kampera nr: 20
+Place zabaw
+Wydzielone parcele</value>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value>Latarnia Morska Niechorze (ok. 500 m)
+Ikoniczna latarnia oferuje piękne widoki na wybrzeże. Warto ją odwiedzić, by poznać historię lokalnej nawigacji morskiej.
+
+Muzeum Rybołówstwa Morskiego w Niechorzu (ok. 1 km)
+Ciekawe eksponaty związane z rybołówstwem i historią regionu.
+
+Park Wieloryba w Rewalu (ok. 5 km)
+Tematyczny park edukacyjno-rozrywkowy idealny dla rodzin z dziećmi.
+
+Jezioro Liwia Łuża (ok. 3 km)
+Obszar chroniony, gdzie można obserwować rzadkie gatunki ptaków i cieszyć się przyrodą.
+
+Ruiny Kościoła w Trzęsaczu (ok. 7 km)
+Zabytkowe ruiny na klifie, będące jednym z symboli wybrzeża zachodniego, oferujące spektakularne widoki.</value>
         </Data>
       </ExtendedData>
       <Point>
@@ -73,11 +97,11 @@
     </Placemark>
     <Placemark>
       <name>Camp 66</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, ostęp do wody WiFi Phone: +48 792 566 569<br>phone: +48 792 566 569<br>website: https://camp66.pl/<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: Camping Camp66 znajduje się w malowniczej miejscowości Ściegny, zaledwie kilka kilometrów od centrum Karpacza, w otoczeniu Karkonoszy. To idealna baza wypadowa na górskie wędrówki i wycieczki rowerowe, z przepięknym widokiem na Śnieżkę, który można podziwiać bezpośrednio z terenu kempingu. Obiekt oferuje przestronne pole namiotowe, parcele dla kamperów i przyczep kempingowych oraz przytulne domki z drewna. Położenie w spokojnej, zielonej okolicy sprzyja relaksowi i kontaktowi z naturą, a bliskość Karpacza gwarantuje łatwy dostęp do licznych atrakcji turystycznych. W sezonie letnim goście mogą korzystać z basenu, co dodatkowo uprzyjemnia pobyt.<br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, ostęp do wody WiFi Phone: +48 792 566 569<br>phone: +48 792 566 569<br>website: https://camp66.pl/<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Udogodnienia:: Toalety nr: 1<br>Prysznice nr: 2<br>Restauracja nr: 17<br>Dostęp do prądu nr: 5<br>Dostęp do wody nr: 6<br>Pralnia nr: 21<br>Bar nr: 16<br>Kuchnia wspólna<br>Plac zabaw<br>Basen<br>Altana nr: 3<br>Miejsce na ognisko nr: 4<br>Hamaki nr: 7<br>Wiata rekreacyjna<br>Gry i książki do wypożyczenia<br><br>Atrakcje w pobliżu:: Świątynia Wang (ok. 5 km)<br>Zabytkowy kościół zbudowany z norweskiego drewna, unikalny w skali Europy, w malowniczym otoczeniu Karkonoszy.<br><br>Park Wodny Tropikana (ok. 6 km)<br>Kompleks basenów i saun w Karpaczu, idealny na relaks po aktywnym dniu w górach.<br><br>Dziki Wodospad (ok. 7 km)<br>Malowniczy wodospad u stóp Śnieżki, popularne miejsce na zdjęcia i odpoczynek.<br><br>Karkonoskie Tajemnice (ok. 5 km)<br>Interaktywne muzeum w Karpaczu, w którym można poznać legendy i historię regionu.<br><br>Western City w Ścięgnach (ok. 1 km)<br>Park rozrywki w stylu Dzikiego Zachodu, oferujący atrakcje dla dzieci i dorosłych, jak strzelanie z łuku czy jazda konna.<br>]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
-          <value/>
+          <value>Camping Camp66 znajduje się w malowniczej miejscowości Ściegny, zaledwie kilka kilometrów od centrum Karpacza, w otoczeniu Karkonoszy. To idealna baza wypadowa na górskie wędrówki i wycieczki rowerowe, z przepięknym widokiem na Śnieżkę, który można podziwiać bezpośrednio z terenu kempingu. Obiekt oferuje przestronne pole namiotowe, parcele dla kamperów i przyczep kempingowych oraz przytulne domki z drewna. Położenie w spokojnej, zielonej okolicy sprzyja relaksowi i kontaktowi z naturą, a bliskość Karpacza gwarantuje łatwy dostęp do licznych atrakcji turystycznych. W sezonie letnim goście mogą korzystać z basenu, co dodatkowo uprzyjemnia pobyt.</value>
         </Data>
         <Data name="Kemping">
           <value/>
@@ -94,8 +118,40 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.campteam.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value>Toalety nr: 1
+Prysznice nr: 2
+Restauracja nr: 17
+Dostęp do prądu nr: 5
+Dostęp do wody nr: 6
+Pralnia nr: 21
+Bar nr: 16
+Kuchnia wspólna
+Plac zabaw
+Basen
+Altana nr: 3
+Miejsce na ognisko nr: 4
+Hamaki nr: 7
+Wiata rekreacyjna
+Gry i książki do wypożyczenia
+</value>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value>Świątynia Wang (ok. 5 km)
+Zabytkowy kościół zbudowany z norweskiego drewna, unikalny w skali Europy, w malowniczym otoczeniu Karkonoszy.
+
+Park Wodny Tropikana (ok. 6 km)
+Kompleks basenów i saun w Karpaczu, idealny na relaks po aktywnym dniu w górach.
+
+Dziki Wodospad (ok. 7 km)
+Malowniczy wodospad u stóp Śnieżki, popularne miejsce na zdjęcia i odpoczynek.
+
+Karkonoskie Tajemnice (ok. 5 km)
+Interaktywne muzeum w Karpaczu, w którym można poznać legendy i historię regionu.
+
+Western City w Ścięgnach (ok. 1 km)
+Park rozrywki w stylu Dzikiego Zachodu, oferujący atrakcje dla dzieci i dorosłych, jak strzelanie z łuku czy jazda konna.
+</value>
         </Data>
       </ExtendedData>
       <Point>
@@ -106,11 +162,11 @@
     </Placemark>
     <Placemark>
       <name>Camping Tramp</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Phone: +48 91 321 26 62<br>phone: +48 91 321 26 62<br>website: http://campingtramp.com/<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: Camping Tramp położony jest w malowniczej lokalizacji, w otoczeniu lasu i bliskości Bałtyku. Dzięki bezpośredniemu dostępowi do plaży goście mogą cieszyć się spokojnym wypoczynkiem nad morzem z dala od tłocznych kurortów. Kemping oferuje szeroki wachlarz atrakcji dla rodzin z dziećmi, a także dla miłośników przyrody. Na terenie znajduje się wiele udogodnień, dzięki czemu goście mają wszystko, czego potrzebują, bez konieczności opuszczania kempingu.<br>Kemping: <br>description: Phone: +48 91 321 26 62<br>phone: +48 91 321 26 62<br>website: http://campingtramp.com/<br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Udogodnienia:: Toalety nr: 1<br>Prysznice nr: 2<br>Dostęp do prądu nr: 5<br>Dostęp do wody pitnej nr: 6<br>Kosze na śmieci nr: 8<br>Bar nr: 16<br>Restauracja nr: 17<br>Boisko do siatkówki<br>Plac zabaw<br>Sklep spożywczy<br>Miejsce na ognisko nr: 4<br>Pralnia nr: 21<br>Atrakcje w pobliżu:: Woliński Park Narodowy (ok. 10 km) – Rezerwat przyrody z pięknymi szlakami turystycznymi i widokami na klify. Warto odwiedzić Zagrodę Pokazową Żubrów.<br>Latarnia Morska w Świnoujściu (ok. 20 km) – Jedna z najwyższych latarni w Europie, oferująca wspaniałe widoki na okolicę.<br>Międzyzdroje – Promenada Gwiazd (ok. 15 km) – Popularna atrakcja turystyczna z licznymi kafejkami i miejscami związanymi z polskim kinem.<br>Rezerwat Jeziora Turkusowego (ok. 12 km) – Niesamowite jezioro o turkusowej barwie, idealne na spacer w otoczeniu przyrody.<br>Fort Gerharda (ok. 18 km) – Historyczny fort pruski z bogatą historią i interesującymi ekspozycjami militarnymi.]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
-          <value/>
+          <value>Camping Tramp położony jest w malowniczej lokalizacji, w otoczeniu lasu i bliskości Bałtyku. Dzięki bezpośredniemu dostępowi do plaży goście mogą cieszyć się spokojnym wypoczynkiem nad morzem z dala od tłocznych kurortów. Kemping oferuje szeroki wachlarz atrakcji dla rodzin z dziećmi, a także dla miłośników przyrody. Na terenie znajduje się wiele udogodnień, dzięki czemu goście mają wszystko, czego potrzebują, bez konieczności opuszczania kempingu.</value>
         </Data>
         <Data name="Kemping">
           <value/>
@@ -127,8 +183,26 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.campteam.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value>Toalety nr: 1
+Prysznice nr: 2
+Dostęp do prądu nr: 5
+Dostęp do wody pitnej nr: 6
+Kosze na śmieci nr: 8
+Bar nr: 16
+Restauracja nr: 17
+Boisko do siatkówki
+Plac zabaw
+Sklep spożywczy
+Miejsce na ognisko nr: 4
+Pralnia nr: 21</value>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value>Woliński Park Narodowy (ok. 10 km) – Rezerwat przyrody z pięknymi szlakami turystycznymi i widokami na klify. Warto odwiedzić Zagrodę Pokazową Żubrów.
+Latarnia Morska w Świnoujściu (ok. 20 km) – Jedna z najwyższych latarni w Europie, oferująca wspaniałe widoki na okolicę.
+Międzyzdroje – Promenada Gwiazd (ok. 15 km) – Popularna atrakcja turystyczna z licznymi kafejkami i miejscami związanymi z polskim kinem.
+Rezerwat Jeziora Turkusowego (ok. 12 km) – Niesamowite jezioro o turkusowej barwie, idealne na spacer w otoczeniu przyrody.
+Fort Gerharda (ok. 18 km) – Historyczny fort pruski z bogatą historią i interesującymi ekspozycjami militarnymi.</value>
         </Data>
       </ExtendedData>
       <Point>
@@ -139,7 +213,7 @@
     </Placemark>
     <Placemark>
       <name>Kemping Polesie</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety ,Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Sklep w pobliżu Phone:+48 533 614 250<br>phone: +48 533 614 250<br>website: <br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety ,Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Sklep w pobliżu Phone:+48 533 614 250<br>phone: +48 533 614 250<br>website: <br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -160,8 +234,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.campteam.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -172,7 +249,7 @@
     </Placemark>
     <Placemark>
       <name>Górska Sadyba</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Czynne całą dobę Phone: +48 606 103 637<br>phone: +48 606 103 637<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody, Czynne całą dobę Phone: +48 606 103 637<br>phone: +48 606 103 637<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -193,8 +270,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -205,7 +285,7 @@
     </Placemark>
     <Placemark>
       <name>Camp Hel</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1059561438787906/ Phone: Phone: +48576420490 <br>phone: 576 420 490<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1059561438787906/ Phone: Phone: +48576420490 <br>phone: 576 420 490<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -226,8 +306,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -238,7 +321,7 @@
     </Placemark>
     <Placemark>
       <name>Kemping Dziki Wschód</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056754892401894/<br>phone: 500 260 006<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056754892401894/<br>phone: 500 260 006<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -259,8 +342,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -271,7 +357,7 @@
     </Placemark>
     <Placemark>
       <name>Camp Gorący Potok</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Pełna infrastruktura dla karawaningu Phone: +48 883 122 223<br>phone: +48 883 122 223<br>website: https://camp.goracypotok.pl/<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Pełna infrastruktura dla karawaningu Phone: +48 883 122 223<br>phone: +48 883 122 223<br>website: https://camp.goracypotok.pl/<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -292,8 +378,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -304,7 +393,7 @@
     </Placemark>
     <Placemark>
       <name>Pod Brzozą - pole kempingowe</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1057390039005046/ Phone:  +48606885014<br>phone: 606885014<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1057390039005046/ Phone:  +48606885014<br>phone: 606885014<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -325,8 +414,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -337,7 +429,7 @@
     </Placemark>
     <Placemark>
       <name>Góra Gbura Camperpark</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056390192438364/ Phone: +48880910168<br>phone: +48880910168<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056390192438364/ Phone: +48880910168<br>phone: +48880910168<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -358,8 +450,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -370,7 +465,7 @@
     </Placemark>
     <Placemark>
       <name><![CDATA[Lazurowe - Camping, Caravaning & Pole Namiotowe nad Morzem]]></name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Phone: +48 501 197 450<br>phone: +48 501 197 450<br>website: www.lazurowe.com.pl<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Phone: +48 501 197 450<br>phone: +48 501 197 450<br>website: www.lazurowe.com.pl<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -391,8 +486,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -403,7 +501,7 @@
     </Placemark>
     <Placemark>
       <name>Camping SIEDLISKO ROŻYŃSK</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056087719135278/ Phone: +48604577108<br>phone: +48604577108<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056087719135278/ Phone: +48604577108<br>phone: +48604577108<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -424,8 +522,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -436,7 +537,7 @@
     </Placemark>
     <Placemark>
       <name>Złoty Widok camper parking</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety,Miejsce na ognisko/grill,Prysznice,Stoły/Wiata,Przyjazny zwierzętom,Dostęp do prądu,Czynne całą dobę,                                                                   Do zobaczenia :Zamek Księcia Henryka,zbiornik Sosnówka Phone: +48601847066<br>phone: +48601847066<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety,Miejsce na ognisko/grill,Prysznice,Stoły/Wiata,Przyjazny zwierzętom,Dostęp do prądu,Czynne całą dobę,                                                                   Do zobaczenia :Zamek Księcia Henryka,zbiornik Sosnówka Phone: +48601847066<br>phone: +48601847066<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -457,8 +558,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -469,7 +573,7 @@
     </Placemark>
     <Placemark>
       <name>SuliCamp Camping 271</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu Dostęp do wody, Czynne całą dobę, WiFi, Sklep w pobliżu<br>phone: +48 530 721 048<br>website: https://sulicamp.pl/<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu Dostęp do wody, Czynne całą dobę, WiFi, Sklep w pobliżu<br>phone: +48 530 721 048<br>website: https://sulicamp.pl/<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -490,8 +594,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -502,7 +609,7 @@
     </Placemark>
     <Placemark>
       <name>CamperPark Kujawski Zakątek</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Atrakcje: Basen, sauna, balia, kajaki, łowisko ryb, wyroby z lawendy Udogodnienia: Toalety ,Miejsce na ognisko/grill, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody ,WiFi,<br>phone: 514901889<br>website: https://kujawski-zakatek.pl/<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Atrakcje: Basen, sauna, balia, kajaki, łowisko ryb, wyroby z lawendy Udogodnienia: Toalety ,Miejsce na ognisko/grill, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody ,WiFi,<br>phone: 514901889<br>website: https://kujawski-zakatek.pl/<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -523,8 +630,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -535,7 +645,7 @@
     </Placemark>
     <Placemark>
       <name>Jura Camp kemping nr 244</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody<br>phone: +48 600544201<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody<br>phone: +48 600544201<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -556,8 +666,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -568,7 +681,7 @@
     </Placemark>
     <Placemark>
       <name>Agroturystyka u Celiny</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Las cisza i spokój. Zwierzęta mile widziane<br>phone: +48726141502<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Las cisza i spokój. Zwierzęta mile widziane<br>phone: +48726141502<br>website: <br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -589,8 +702,11 @@
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -601,7 +717,7 @@
     </Placemark>
     <Placemark>
       <name>Camping Wyzwanie</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia<br>Toalety, Miejsce na ognisko/grill, Prysznice<br>Stoły/Wiata, Atrakcje dla dzieci<br>Przyjazny zwierzętom, Dostęp do prądu<br>Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,<br>- szlaki rowerowe,<br>- szlaki piesze,<br>- jeziora,<br>phone: +48790390610<br>website: campingwyzwanie.com<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia<br>Toalety, Miejsce na ognisko/grill, Prysznice<br>Stoły/Wiata, Atrakcje dla dzieci<br>Przyjazny zwierzętom, Dostęp do prądu<br>Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,<br>- szlaki rowerowe,<br>- szlaki piesze,<br>- jeziora,<br>phone: +48790390610<br>website: campingwyzwanie.com<br>Dodaj nowe miejsce do mapy:: www.camptem.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -629,8 +745,11 @@ Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.camptem.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -641,7 +760,7 @@ Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,
     </Placemark>
     <Placemark>
       <name>Camping nad stawami</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Prywatne stawy z darmowym wędkowaniem. Atrakcje w pobliżu: Kopalnia złota, Twierdza w Kłodzku i Srebrnej Górze, Pałace , Uzdrowiska , trasy rowerowe i mnóstwo innych. Udogodnienia: Toalety, Miejsce na ognisko/grill ,Prysznice, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody<br>phone: +48 608 306 739<br>website: <br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Prywatne stawy z darmowym wędkowaniem. Atrakcje w pobliżu: Kopalnia złota, Twierdza w Kłodzku i Srebrnej Górze, Pałace , Uzdrowiska , trasy rowerowe i mnóstwo innych. Udogodnienia: Toalety, Miejsce na ognisko/grill ,Prysznice, Atrakcje dla dzieci, Przyjazny zwierzętom, Dostęp do prądu, Dostęp do wody<br>phone: +48 608 306 739<br>website: <br>Dodaj nowe miejsce do mapy:: www.campteam.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -662,8 +781,11 @@ Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>www.campteam.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -674,7 +796,7 @@ Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,
     </Placemark>
     <Placemark>
       <name>Camping Drwęca Nielbark</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice,Stoły/Wiata<br>phone: +48 604507012<br>website: campingnielbark.pl<br>Dodaj nowe miejsce do mapy:: grupy CampTeam: www.campteam.pl/dodaj<br>Kempingi: Yes_Kempingi]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice,Stoły/Wiata<br>phone: +48 604507012<br>website: campingnielbark.pl<br>Dodaj nowe miejsce do mapy:: grupy CampTeam: www.campteam.pl/dodaj<br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -695,8 +817,11 @@ Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,
         <Data name="Dodaj nowe miejsce do mapy:">
           <value>grupy CampTeam: www.campteam.pl/dodaj</value>
         </Data>
-        <Data name="Kempingi">
-          <value>Yes_Kempingi</value>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
         </Data>
       </ExtendedData>
       <Point>
@@ -707,7 +832,7 @@ Dostęp do wody, Czynne całą dobę. Dodatkowe atrakcje: - spływy kajakowe,
     </Placemark>
     <Placemark>
       <name>Kozia Góra Camping</name>
-      <description><![CDATA[opis: KEMPING & POLE NAMIOTOWE<br>NA KASZUBACH NAD JEZIOREM<br><br>Kemping położony jest nad samym jeziorem Raduńskim w miejscowości Żuromino na Kaszubach.<br><br>To malownicze miejsce otoczone jest lasami usytuowane z daleka od miejskiego zgiełku, które zapewni spokój i ciszę. Oferuje doskonały wypoczynek na pięknej plaży z kąpieliskiem.<br><br>Wszystkie miejsca kempingowe wyposażone są w przyłącza prądu, dając możliwość korzystania z elektryczności. Możliwy jest dostęp do wody miejskiej oraz miejsce zlewowe. Do dyspozycji gości oddajemy zaplecze sanitarne.<br><br>Dla gości pola namiotowego przygotowaliśmy stanowiska biwakowe usytuowane nad wodą z możliwością podłączenia do prądu.<br><br>Osobą lubiącym aktywny wypoczynek oferujemy wypożyczalnię sprzętu wodnego ( kajaki, rowerki wodne, łódki, supy) dzięki, któremu można podjąć przygodę na bliskim jeziorze.<br><br>Na terenie kempingu znajduje się boisko do siatkówki plażowej, które zachęca do aktywności fizycznej. Dla najmłodszych zaś przygotowano plac zabaw oraz salon gier gdzie będą mogli spędzić miło czas.<br><br>W ciągu dnia można skorzystać z baru, który oferuje pyszne jedzenie i desery.<br><br>Wieczorami jest możliwość rozgrzać się i miło spędzić czas przy ognisku.<br><br>W okolicy można zwiedzić ciekawe miejsca takie jak np. Szymbark, Wieżyca, Strysza Buda<br>Kemping: <br>description: Udogodnienia: Toalety ,Miejsce na ognisko/grill ,Prysznice, Stoły/Wiata Phone: 511039999<br>phone: 511039999<br>website: <br>Dodaj nowe miejsce do mapy:: <br>Kempingi: ]]></description>
+      <description><![CDATA[opis: KEMPING & POLE NAMIOTOWE<br>NA KASZUBACH NAD JEZIOREM<br><br>Kemping położony jest nad samym jeziorem Raduńskim w miejscowości Żuromino na Kaszubach.<br><br>To malownicze miejsce otoczone jest lasami usytuowane z daleka od miejskiego zgiełku, które zapewni spokój i ciszę. Oferuje doskonały wypoczynek na pięknej plaży z kąpieliskiem.<br><br>Wszystkie miejsca kempingowe wyposażone są w przyłącza prądu, dając możliwość korzystania z elektryczności. Możliwy jest dostęp do wody miejskiej oraz miejsce zlewowe. Do dyspozycji gości oddajemy zaplecze sanitarne.<br><br>Dla gości pola namiotowego przygotowaliśmy stanowiska biwakowe usytuowane nad wodą z możliwością podłączenia do prądu.<br><br>Osobą lubiącym aktywny wypoczynek oferujemy wypożyczalnię sprzętu wodnego ( kajaki, rowerki wodne, łódki, supy) dzięki, któremu można podjąć przygodę na bliskim jeziorze.<br><br>Na terenie kempingu znajduje się boisko do siatkówki plażowej, które zachęca do aktywności fizycznej. Dla najmłodszych zaś przygotowano plac zabaw oraz salon gier gdzie będą mogli spędzić miło czas.<br><br>W ciągu dnia można skorzystać z baru, który oferuje pyszne jedzenie i desery.<br><br>Wieczorami jest możliwość rozgrzać się i miło spędzić czas przy ognisku.<br><br>W okolicy można zwiedzić ciekawe miejsca takie jak np. Szymbark, Wieżyca, Strysza Buda<br>Kemping: <br>description: Udogodnienia: Toalety ,Miejsce na ognisko/grill ,Prysznice, Stoły/Wiata Phone: 511039999<br>phone: 511039999<br>website: <br>Dodaj nowe miejsce do mapy:: <br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -747,7 +872,10 @@ W okolicy można zwiedzić ciekawe miejsca takie jak np. Szymbark, Wieżyca, Str
         <Data name="Dodaj nowe miejsce do mapy:">
           <value/>
         </Data>
-        <Data name="Kempingi">
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
           <value/>
         </Data>
       </ExtendedData>
@@ -759,7 +887,7 @@ W okolicy można zwiedzić ciekawe miejsca takie jak np. Szymbark, Wieżyca, Str
     </Placemark>
     <Placemark>
       <name>Pod Skamieniałym Miastem</name>
-      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Dostęp do prądu, Dostęp do wody, Atrakcje dla dzieci, Przyjazny zwierzętom, Wypożyczalnia sprzętu, WiFi, Sklep w pobliżu, Czynny całą dobę, Możliwość obsługi kampera Phone:  +48608613607<br>phone: +48608613607<br>website: <br>Dodaj nowe miejsce do mapy:: <br>Kempingi: ]]></description>
+      <description><![CDATA[opis: <br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Kuchnia, Prysznice, Stoły/Wiata, Dostęp do prądu, Dostęp do wody, Atrakcje dla dzieci, Przyjazny zwierzętom, Wypożyczalnia sprzętu, WiFi, Sklep w pobliżu, Czynny całą dobę, Możliwość obsługi kampera Phone:  +48608613607<br>phone: +48608613607<br>website: <br>Dodaj nowe miejsce do mapy:: <br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
       <ExtendedData>
         <Data name="opis">
@@ -780,13 +908,53 @@ W okolicy można zwiedzić ciekawe miejsca takie jak np. Szymbark, Wieżyca, Str
         <Data name="Dodaj nowe miejsce do mapy:">
           <value/>
         </Data>
-        <Data name="Kempingi">
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
           <value/>
         </Data>
       </ExtendedData>
       <Point>
         <coordinates>
           20.9758106,49.7906944,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camper Park Stary Folwark</name>
+      <description><![CDATA[opis: Kameralny Kemping dla osób wymagających ciszy spokoju, komfortowych toalet oraz poszukujących relaksu przy łonie natury. Obiekt znajduje się na samym jeziorem Wigry w Wigierskim Parku Narodowym. Strefa ciszy - tylko żaglówki , kajaki, SUPy.<br>Dostęp do wszystkich udogodnień w jednej cenie za pobyt. Strefa zrzutu nieczystości z Camper System.<br>Kemping: <br>description: Udogodnienia: Toalety, Miejsce na ognisko/grill, Prysznice  Telefon: 502024282<br>phone: <br>website: <br>Dodaj nowe miejsce do mapy:: <br>Udogodnienia:: <br>Atrakcje w pobliżu:: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value>Kameralny Kemping dla osób wymagających ciszy spokoju, komfortowych toalet oraz poszukujących relaksu przy łonie natury. Obiekt znajduje się na samym jeziorem Wigry w Wigierskim Parku Narodowym. Strefa ciszy - tylko żaglówki , kajaki, SUPy.
+Dostęp do wszystkich udogodnień w jednej cenie za pobyt. Strefa zrzutu nieczystości z Camper System.</value>
+        </Data>
+        <Data name="Kemping">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value>Udogodnienia: Toalety, Miejsce na ognisko/grill, Prysznice  Telefon: 502024282</value>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="website">
+          <value/>
+        </Data>
+        <Data name="Dodaj nowe miejsce do mapy:">
+          <value/>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Atrakcje w pobliżu:">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.0832575,54.0776964,0
         </coordinates>
       </Point>
     </Placemark>
