@@ -263,8 +263,11 @@
         polanamiotoweopen: "/Polanamiotoweopen.kml",
         parkingilesne: "/Parkingilesne.kml",
         kempingi1: "/Kempingi1.kml",
-        atrakcje: "/Atrakcje.kml",
+        AtrakcjeKulturowe: "/AtrakcjeKulturowe.kml",
+        AtrakcjePrzyrodnicze: "/AtrakcjePrzyrodnicze.kml",
+        AtrakcjeRozrywkowe: "/AtrakcjeRozrywka.kml",
         miejscenabiwak: "/Miejscenabiwak.kml",
+        europa: "/europa.kml", // Dodajemy URL do pliku europa.kml
       };
 
       const icons = {
@@ -304,8 +307,20 @@
           iconAnchor: [15, 15],
           popupAnchor: [0, -10],
         }),
-        atrakcje: L.icon({
-          iconUrl: "/ikony/Ikona_Atrakcje.png",
+        atractionCultural: L.icon({
+          iconUrl: "/ikony/atractionCultural.png",
+          iconSize: [35, 35],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -10],
+        }),
+        atractionFun: L.icon({
+          iconUrl: "/ikony/atractionFun.png",
+          iconSize: [35, 35],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -10],
+        }),
+        atractionNature: L.icon({
+          iconUrl: "/ikony/atractionNature.png",
           iconSize: [35, 35],
           iconAnchor: [15, 15],
           popupAnchor: [0, -10],
@@ -437,8 +452,11 @@
           loadMarkers(urls.polanamiotoweopen, icons.polanamiotoweopen),
           loadMarkers(urls.parkingilesne, icons.parkingilesne),
           loadMarkers(urls.kempingi1, icons.kempingi1),
-          loadMarkers(urls.atrakcje, icons.atrakcje),
           loadMarkers(urls.miejscenabiwak, icons.miejscenabiwak),
+          loadMarkers(urls.europa, icons.kempingi), // Dodajemy markery z europa.kml z ikoną kampingu
+          loadMarkers(urls.AtrakcjeKulturowe, icons.atractionCultural),
+          loadMarkers(urls.AtrakcjePrzyrodnicze, icons.atractionNature),
+          loadMarkers(urls.AtrakcjeRozrywkowe, icons.atractionFun),
         ]);
 
         map.addLayer(markerCluster);

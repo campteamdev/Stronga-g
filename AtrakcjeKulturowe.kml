@@ -1,0 +1,1107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Atrakcje kulturowe</name>
+    <Style id="icon-1598-4E342E-normal">
+      <IconStyle>
+        <color>ff2e344e</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1598-4E342E-highlight">
+      <IconStyle>
+        <color>ff2e344e</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1598-4E342E">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1598-4E342E-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1598-4E342E-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1598-4E342E-nodesc-normal">
+      <IconStyle>
+        <color>ff2e344e</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1598-4E342E-nodesc-highlight">
+      <IconStyle>
+        <color>ff2e344e</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1598-4E342E-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1598-4E342E-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1598-4E342E-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>Zamek Królewski na Wawelu</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Królewski na Wawelu<br>Pkt2. Opis: Jeden z najważniejszych zabytków w Polsce, symbol władzy królewskiej i narodowej tożsamości. Położony na wzgórzu nad Wisłą, oferuje zwiedzanie reprezentacyjnych komnat królewskich, zbrojowni, skarbca oraz katedry z Kaplicą Zygmuntowską. Bogata historia i piękne widoki sprawiają, że jest to obowiązkowy punkt wizyty w Krakowie.<br>Pkt3. Adres: Wawel 5, 31-001 Kraków<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 10:00–16:00<br>Wtorek – Niedziela: 09:30–17:00<br>Pkt5. Telefon: 12 422 51 55<br>Pkt6. Strona internetowa: wawel.krakow.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          19.935607,50.054139,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek w Malborku</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Malborku<br>Pkt2. Opis: Największy gotycki zamek na świecie, będący jednym z najważniejszych zabytków w Polsce. XIV-wieczna twierdza krzyżacka, obecnie mieszcząca muzeum z kolekcją średniowiecznych artefaktów, obrazów i bursztynu. Monumentalność zamku oraz bogactwo ekspozycji pozwalają przenieść się w czasy rycerzy i krzyżaków.<br>Pkt3. Adres: Starościńska 1, 82-200 Malbork<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–16:00<br>Wtorek: 09:00–15:00<br>Środa: 09:00–15:00<br>Czwartek: 09:00–15:00<br>Piątek: 09:00–15:00<br>Sobota: 09:00–15:00<br>Niedziela: 09:00–15:00<br>Pkt5. Telefon: 55 647 09 02<br>Pkt6. Strona internetowa: zamek.malbork.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          19.028013,54.039753,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Książ</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Książ<br>Pkt2. Opis: Elegancki zamek otoczony malowniczymi ogrodami, oferujący zwiedzanie z przewodnikiem, galerię sztuki, restauracje oraz hotele. Wnętrza pełne zabytkowych mebli i dzieł sztuki zachwycają swoją monumentalnością.<br>Pkt3. Adres: Piastów Śląskich 1, 58-306 Wałbrzych<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 10:00–17:00<br>Wtorek: 10:00–17:00<br>Środa: 10:00–17:00<br>Czwartek: 10:00–17:00<br>Piątek: 10:00–17:00<br>Sobota: 10:00–19:00<br>Niedziela: 10:00–19:00<br>Pkt5. Telefon: 74 664 38 34<br>Pkt6. Strona internetowa: ksiaz.walbrzych.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          16.291567,50.842315,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Moszna Zamek</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Moszna Zamek<br>Pkt2. Opis: XVIII-wieczny zamek z elegancką restauracją, spa i pomieszczeniami stylizowanymi na stare pokoje oraz apartamenty.<br>Pkt3. Adres: Zamkowa 1, 47-370 Moszna<br>Pkt4. Godziny otwarcia: Brak informacji o godzinach zwiedzania zamku <br>Pkt5. Telefon: 530 357 094<br>Pkt6. Strona internetowa: mosznazamek.pl<br>Pkt7. Czy dostęp jest płatny: Tak<br>Plus Code: CQR9+74 Moszna]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          17.767819,50.440748,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek krzyżacki w Nidzicy (warmińsko-mazurskie)</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek krzyżacki w Nidzicy (warmińsko-mazurskie)<br>Pkt2. Opis: XIV-wieczny wczesnogotycki zamek na wapiennym wzgórzu z widokiem na jezioro, oferujący wycieczki z przewodnikiem. Wewnątrz znajdują się m.in. miejska biblioteka, galeria sztuki, hotel oraz restauracja na dziedzińcu.<br>Pkt3. Adres: 13-100 Nidzica<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 10:00–16:00<br>Środa: 10:00–16:00<br>Czwartek: 10:00–16:00<br>Piątek: 10:00–16:00<br>Sobota: 10:00–16:00<br>Niedziela: 10:00–16:00<br>Pkt5. Telefon: 89 625 03 70<br>Pkt6. Strona internetowa: nok.nidzica.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          20.42911,53.359739,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Ogrodzieniec</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Ogrodzieniec<br>Pkt2. Opis: Częściowo odrestaurowana twierdza z XIII wieku na Jurze Krakowsko-Częstochowskiej, oferująca trasę zwiedzania przez ruiny, galerię wystaw w lochach, bar i restaurację. Zamek jest częścią systemu Orlich Gniazd.<br>Pkt3. Adres: Zamkowa, 42-440 Podzamcze<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 10:00–16:00<br>Wtorek: 10:00–16:00<br>Środa: 10:00–16:00<br>Czwartek: 10:00–16:00<br>Piątek: 10:00–16:00<br>Sobota: 10:00–16:00<br>Niedziela: 10:00–16:00<br>Pkt5. Telefon: 32 673 22 20<br>Pkt6. Strona internetowa: zamek-ogrodzieniec.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          19.552094,50.453113,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Pieskowa Skała. Oddział Zamku Królewskiego na Wawelu</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Pieskowa Skała. Oddział Zamku Królewskiego na Wawelu<br>Pkt2. Opis: Okazały renesansowy zamek z muzeum i ogrodami, zbudowany wzdłuż klifu pod koniec XIV wieku. Otoczony pięknym parkiem w Dolinie Prądnika, znany z historycznych scen i wystaw sztuki.<br>Pkt3. Adres: Sułoszowa 5, 32-045 Pieskowa<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 09:30–16:00<br>Środa: 09:30–16:00<br>Czwartek: 09:30–16:00<br>Piątek: 10:00–16:00<br>Sobota: 10:00–17:00<br>Niedziela: 10:00–17:00<br>Pkt5. Telefon: 12 389 60 04<br>Pkt6. Strona internetowa: pieskowaskala.eu<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          19.780848,50.244231,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum-Zamek w Łańcucie</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Muzeum-Zamek w Łańcucie<br>Pkt2. Opis: XVII-wieczny zamek z kolekcją powozów i odrestaurowanymi komnatami z XVIII wieku, mieszczący dzieła sztuki.<br>Pkt3. Adres: Zamkowa 1, 37-100 Łańcut<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 12:00–14:30<br>Wtorek: 09:00–14:50<br>Środa: 09:00–14:50<br>Czwartek: 09:00–14:50<br>Piątek: 09:00–14:50<br>Sobota: 09:00–14:50<br>Niedziela: 09:00–16:00<br>Pkt5. Telefon: 17 225 20 08<br>Pkt6. Strona internetowa: zamek-lancut.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          22.23459,50.06867,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Czocha</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Czocha<br>Pkt2. Opis: Imponujący XIII-wieczny zamek, który obecnie pełni funkcję hotelu z elegancką restauracją, klasycznymi pokojami i możliwością zwiedzania. Miejsce pełne historii i tajemniczości.<br>Pkt3. Adres: Sucha, 59-820 Leśna<br>Pkt4. Godziny otwarcia: brak informacji<br>Pkt5. Telefon: 75 721 15 53<br>Pkt6. Strona internetowa: zamekczocha.com<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          15.303652,51.030774,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Królewski w Chęcinach</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Królewski w Chęcinach<br>Pkt2. Opis: Ruiny zamku z przełomu XIII i XIV wieku, położone na wzgórzu z pięknymi widokami. Z budowli zachowały się wieże, ściany oraz dziedziniec. Miejsce oferuje możliwość zwiedzania, w tym wejścia na wieżę widokową.<br>Pkt3. Adres: Małogoska 7, 26-060 Chęciny<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–15:30<br>Wtorek: 09:00–15:30<br>Środa: 09:00–15:30<br>Czwartek: 09:00–15:30<br>Piątek: 09:00–15:30<br>Sobota: 09:00–15:30<br>Niedziela: 09:00–15:30<br>Pkt5. Telefon: 41 308 00 48<br>Pkt6. Strona internetowa: zamek.checiny.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          20.459654,50.797594,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek w Krasiczynie</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Krasiczynie<br>Pkt2. Opis: XVII-wieczny zamek renesansowy otoczony pięknym parkiem. Zwiedzanie z przewodnikiem trwa około godziny i obejmuje także lochy oraz wieżę. Zamek oferuje noclegi, restaurację i kawiarnię.<br>Pkt3. Adres: Zamek, 37-741 Krasiczyn<br>Pkt4. Godziny otwarcia: brak informacji<br>Pkt5. Telefon: 16 671 83 21<br>Pkt6. Strona internetowa: krasiczyn.com.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          22.650112,49.776379,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ruiny Zamku w Olsztynie k. Częstochowy</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Ruiny Zamku w Olsztynie k. Częstochowy<br>Pkt2. Opis: XIV-wieczne ruiny zamku położone na wzgórzu, z widokiem na okolicę. Znajduje się tam charakterystyczna cylindryczna wieża, która w przeszłości służyła jako więzienie. Popularne miejsce na spacery, pikniki oraz atrakcja na Szlaku Orlich Gniazd.<br>Pkt3. Adres: Zamkowa 18, 42-256 Olsztyn<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–19:00<br>Wtorek: 09:00–19:00<br>Środa: 09:00–19:00<br>Czwartek: 09:00–19:00<br>Piątek: 09:00–19:00<br>Sobota: 09:00–19:00<br>Niedziela: 09:00–19:00<br>Pkt5. Telefon: 784 628 845<br>Pkt6. Strona internetowa: zamekolsztyn.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          19.274199,50.749698,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Golubski</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.04979,53.115361,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Baranów Sandomierski. Zespół pałacowo - parkowy</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Baranów Sandomierski. Zespół pałacowo-parkowy<br>Pkt2. Opis: XVII-wieczny pałac zwany "Małym Wawelem", otoczony pięknym ogrodem z oranżerią. Wnętrza pałacu oferują stylizowane wyposażenie i możliwość zwiedzania z przewodnikiem. Na miejscu znajdują się restauracja oraz kawiarnia.<br>Pkt3. Adres: Zamkowa 20, 39-450 Baranów Sandomierski<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 10:00–19:00<br>Wtorek: 10:00–19:00<br>Środa: 10:00–19:00<br>Czwartek: 10:00–19:00<br>Piątek: 10:00–19:00<br>Sobota: 10:00–19:00<br>Niedziela: 10:00–19:00<br>Pkt5. Telefon: 15 811 80 39<br>Pkt6. Strona internetowa: baranow.com.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          21.534476,50.502044,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek w Wiśniczu</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Wiśniczu<br>Pkt2. Opis: Średniowieczny zamek, który zachwyca freskami, strzelnicami i wystawą narzędzi tortur. Odnowiony i dostępny do zwiedzania z przewodnikiem. W środku znajdują się ekspozycje strojów, zbroi, porcelany oraz sztućców.<br>Pkt3. Adres: 32-720 Stary Wiśnicz<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 08:00–16:00<br>Wtorek: 08:00–16:00<br>Środa: 08:00–16:00<br>Czwartek: 08:00–16:00<br>Piątek: 08:00–16:00<br>Sobota: 09:00–17:00<br>Niedziela: 09:00–17:00<br>Pkt5. Telefon: 14 612 83 41<br>Pkt6. Strona internetowa: zamekwisnicz.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          20.469359,49.917368,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Letni Pałac Lubomirskich w Rzeszowie</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Letni Pałac Lubomirskich w Rzeszowie<br>Pkt2. Opis: Odrestaurowany pałac z pięknym ogrodem, dostępny do zwiedzania jedynie z zewnątrz. Obecnie wnętrza zajmuje Izba Lekarska. Położony w pobliżu fontanny multimedialnej, parku i Zamku Lubomirskich.<br>Pkt3. Adres: Jana Dekerta 2, 35-231 Rzeszów<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 09:00–17:00<br>Środa: 09:00–17:00<br>Czwartek: 09:00–17:00<br>Piątek: 09:00–17:00<br>Sobota: 09:00–17:00<br>Niedziela: Zamknięte<br>Pkt5. Telefon: brak informacji<br>Pkt6. Strona internetowa: brak informacji<br>Pkt7. Czy dostęp jest płatny: brak informacji]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          22.002446,50.033958,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Królewski w Sandomierzu</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Królewski w Sandomierzu<br>Pkt2. Opis: Potężna budowla na wzgórzu, oferująca widoki na Wisłę i panoramę okolic. W środku znajdują się atrakcje muzealne. Miejsce obowiązkowe do zwiedzenia w Sandomierzu.<br>Pkt3. Adres: Zamkowa 12, 27-600 Sandomierz<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 10:00–16:15<br>Środa: 10:00–16:15<br>Czwartek: 10:00–16:15<br>Piątek: 10:00–16:15<br>Sobota: 10:00–16:15<br>Niedziela: 10:00–16:15<br>Pkt5. Telefon: 15 832 22 65<br>Pkt6. Strona internetowa: zamek-sandomierz.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          21.747586,50.676175,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Gniew Hotel</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Gniew Hotel<br>Pkt2. Opis: Nowoczesny hotel zlokalizowany w średniowiecznym zamku, oferujący rekonstrukcje walk konnych, uczty rycerskie oraz komfortowe pokoje w historycznym otoczeniu.<br>Pkt3. Adres: Zamkowa 3, 83-140 Gniew<br>Pkt4. Godziny otwarcia: brak informacji<br>Pkt5. Telefon: 58 535 38 80<br>Pkt6. Strona internetowa: zamek-gniew.pl<br>Pkt7. Czy dostęp jest płatny: brak informacji]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          18.827939,53.834444,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek w Kwidzynie</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Kwidzynie<br>Pkt2. Opis: Ceglana twierdza z XIV wieku połączona z katedrą, oferująca wystawy związane z zakonem krzyżackim oraz innymi tematami historycznymi.<br>Pkt3. Adres: Katedralna 1, 82-500 Kwidzyn<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 09:00–16:00<br>Środa: 09:00–16:00<br>Czwartek: 09:00–16:00<br>Piątek: 09:00–16:00<br>Sobota: 09:00–16:00<br>Niedziela: 09:00–16:00<br>Pkt5. Telefon: 55 646 37 97<br>Pkt6. Strona internetowa: zamek.kwidzyn.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          18.921474,53.736073,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum Zbrojownia na Zamku w Liwie</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Muzeum Zbrojownia na Zamku w Liwie<br>Pkt2. Opis: Położony przy ruinach zamku dworek z kolekcją broni i zbroi, oferujący widok z wieży na okoliczne pola i rzekę Liwiec.<br>Pkt3. Adres: Stefana Batorego 2, 07-100 Liw<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 10:00–16:00<br>Środa: 10:00–16:00<br>Czwartek: 10:00–16:00<br>Piątek: 10:00–16:00<br>Sobota: 10:00–16:00<br>Niedziela: 10:00–16:00<br>Pkt5. Telefon: 25 792 57 17<br>Pkt6. Strona internetowa: liw-zamek.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          21.970034,52.373484,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Osada Średniowieczna w Hucie Szklanej pod Świętym Krzyżem</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.020826,50.863221,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ruiny Pałacu Paca</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.806016,53.981448,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dzwonnica</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.238787,53.763886,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Krzyżacki mostek</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.840995,53.826694,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Świątynia Dumania (ruiny XIX wiecznej kaplicy)</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.600533,54.081207,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Biskupi w Lidzbarku Warmińskim</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.58294,54.125997,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek krzyżacki w Przezmarku</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.495318,53.858325,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zabytkowe wodociągi</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.200153,53.758847,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ruiny Kościoła</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.883378,50.115397,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża Ratuszowa</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.092797,51.663932,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wapiennik</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.445605,54.097668,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zespół Pałacowy Radziwiłłów w Białej</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.114961,52.031018,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kamienny Młyn Wodny Łowczego</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.759127,52.276685,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Sosna Powstańców 1863</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.521701,52.311801,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Skansen w Starym Młynie</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.55303,54.509965,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Most rozsuwany im. kpt. Witolda Huberta w Darłówku</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.380254,54.439296,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Baszta Czarownic</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.034025,54.465499,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ruiny kościoła św. Mikołaja</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.536025,54.764016,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Stary spichlerz - ruiny</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.242889,54.76431,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wczesnośredniowieczne Grodzisko Pruskie</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.101173,54.2242,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Bocznica kolejowa "Be" dawnego Wojskowego Rejonu Przeładunkowego Braniewo]]></name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.780084,54.277483,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum w Mrągowie</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.304245,53.870434,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Młyn wodny</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.342154,53.889109,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zabytkowy most kolei wąskotorowej</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.566122,53.787839,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dawna Stacja Kolejowa Pozezdrze</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.866799,54.139781,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Stary Młyn w Turtulu</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.811272,54.222037,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Most Kolejowy</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.80906,53.671678,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Grodzisko wczesnośredniowieczne Stupsk</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.400097,53.013243,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pałac w Mojej Woli</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.602384,51.473964,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Twierdza Srebrna Góra</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.642754,50.574074,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ruiny Zamku Krzyżtopór w Ujeździe</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.310466,50.714071,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kościół Wang</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          15.724084,50.77738,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pałac w Pławniowicach</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.477388,50.38475,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Tworków - ruiny pałacu</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.236763,50.011744,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Hermanna von Pücklera</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          14.723103,51.547534,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Piastowski w Raciborzu - Punkt Informacji Turystycznej</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.221004,50.096044,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek. Muzeum Piastów Śląskich w Brzegu</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.466646,50.863528,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek w Tykocinie</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.770606,53.213082,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Łazienki Królewskie</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.032894,52.214673,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum Pałacu Króla Jana III w Wilanowie</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.090508,52.165175,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Królewski w Poznaniu</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.931046,52.409141,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pałac w Krowiarkach</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.082897,50.137127,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Jasna Góra</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.097006,50.812596,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum Archeologiczne w Biskupinie</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.743437,52.785008,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Rabsztyn</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.592698,50.299818,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Joannitów w Łagowie</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          15.292818,52.334649,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Prawosławny Monaster Zwiastowania Przenajświętszej Bogarodzicy</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.337246,53.210597,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kolumna Zygmunta III Wazy</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.013378,52.247253,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Krasnale Syzyfki</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.032889,51.108938,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Górny</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.487241,49.426288,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Bazylika Mariacka</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.93939,50.061641,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Stary Młyn Muzeum Dawnych Rzemiosł</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.373553,50.628565,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Grodno</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.410846,50.749777,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum Budownictwa Ludowego - Park Etnograficzny w Olsztynku</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.289532,53.590298,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pałac Myśliwski Książąt Radziwiłłów</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.850532,51.51665,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pałac Kamieniec</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.540848,50.455156,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Sanktuarium Matki Bożej Licheńskiej</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.357853,52.323312,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum Zamoyskich w Kozłówce</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.48947,51.459629,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ostrów Tumski</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.046734,51.114463,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek w Gołuchowie. Oddział Muzeum Narodowego w Poznaniu</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.933838,51.85255,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Pilcza w Smoleniu</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.675251,50.438422,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ostrów Lednicki, ruiny palatium z X wieku</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.378067,52.525709,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Bazylika kolegiacka św. Piotra i Pawła w Kruszwicy</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.327498,52.679866,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kaplica templariuszy pw. św. Stanisława Kostki</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          14.642126,52.687655,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wały Chrobrego</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          14.565071,53.429848,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Parafia prawosławna pw. Opieki Matki Bożej w Puchłach</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.401076,52.913098,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Katedra Wawelska</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.935468,50.054637,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum Zamkowe w Pszczynie</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.940449,49.978169,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum im. Wojciecha Kętrzyńskiego</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.377183,54.074265,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Twierdza Zamość</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.257134,50.716474,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kościół odpustowy pw. św. Anny w Oleśnie</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.422771,50.89646,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Klasztor Misjonarzy Oblatów Maryi Niepokalanej- Sanktuarium Relikwii Drzewa Krzyża Świętego</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.052971,50.859447,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek w Suchej Beskidzkiej</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.601389,49.746389,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum Warmii i Mazur w Olsztynie</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.474663,53.777632,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Latarnia Morska Kołobrzeg</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          15.554231,54.1864,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Książąt Pomorskich w Szczecinie</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          14.560354,53.426014,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża Piastowska</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.919245,50.667455,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Rezerwat Archeologiczny Genius Loci</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.948204,52.412757,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kościół Pokoju w Świdnicy</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.491667,50.846485,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pałac Branickich - Muzeum</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.165139,53.130605,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Hotel Zamek Ryn</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.546004,53.938868,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Brama Krakowska</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.001428,50.589975,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Twierdza Kłodzko</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.653422,50.441085,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Żupny - Muzeum Żup Krakowskich Wieliczka</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.06006,49.983934,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kościół Rzymskokatolicki pw. Wniebowzięcia NMP św. Stanisława Biskupa</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.687918,49.209523,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zespół cerkiewny - cerkiew greckokatolicka pw. Michała Archanioła</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.128871,49.369177,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wawel Zaginiony</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.936071,50.053947,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Stary żuraw portowy</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.657528,54.350494,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Baranów Sandomierski</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.535609,50.502005,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Święta Góra Grabarka</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.006689,52.41661,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum „Sztygarka” w Dąbrowie Górniczej</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.18352,50.318396,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża ciśnień</name>
+      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.313094,54.308101,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

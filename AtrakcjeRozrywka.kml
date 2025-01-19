@@ -1,0 +1,2144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Atrakcje rozrywka</name>
+    <Style id="icon-1511-F57C00-normal">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1511-F57C00-highlight">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1511-F57C00">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1511-F57C00-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1511-F57C00-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1511-F57C00-nodesc-normal">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1511-F57C00-nodesc-highlight">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1511-F57C00-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1511-F57C00-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1511-F57C00-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>Kolejkowo</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Kolejkowo – Sky Tower, Wrocław<br><br>Pkt2. Opis: Kolejkowo to wyjątkowa wystawa miniaturowych światów, w której można podziwiać precyzyjne makiety przedstawiające modele pociągów oraz scenki inspirowane regionem. W trakcie zwiedzania zmieniają się warunki pogodowe – atrakcją jest burza i prawdziwy deszcz padający na makiety. Obiekt zachwyca zarówno dzieci, jak i dorosłych dzięki licznych humorystycznym i detalicznym elementom, takim jak pingwiny otrzymujące mandat czy policjant z bazuką zamiast fotoradaru. Po zwiedzaniu można skorzystać z kawiarni oferującej ciasta, kawę i lody. Bilety dostępne online, co pozwala zaoszczędzić czas i pieniądze.<br><br>Pkt3. Adres: Powstańców Śląskich 95, I piętro, 53-332 Wrocław<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek–piątek: 10:00–18:00<br>Sobota–niedziela: 10:00–19:00<br>Pkt5. Telefon: 880 008 004<br><br>Pkt6. Strona internetowa: kolejkowo.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1511-F57C00</styleUrl>
+      <Point>
+        <coordinates>
+          17.0196,51.094546,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kopalnia Soli „Wieliczka”</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Kopalnia Soli „Wieliczka”<br><br>Pkt2. Opis: Kopalnia Soli „Wieliczka” to jedno z najbardziej znanych miejsc historycznych w Polsce, wpisane na listę UNESCO. Zachwyca podziemnymi kaplicami, komnatami i solnymi jeziorami. Zwiedzanie odbywa się z przewodnikiem, który opowiada o historii kopalni i jej znaczeniu. Dostępne są różne trasy, w tym turystyczna, z dodatkowymi atrakcjami, takimi jak muzeum w cenie biletu. Bilety można kupić online, w kasach lub biletomatach. Parking znajduje się przy wejściu, ale liczba miejsc jest ograniczona.<br><br>Pkt3. Adres: Daniłowicza 10, 32-020 Wieliczka<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek–niedziela: 09:00–17:00<br>Pkt5. Telefon: 12 278 73 02<br><br>Pkt6. Strona internetowa: kopalnia.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1511-F57C00</styleUrl>
+      <Point>
+        <coordinates>
+          20.053047,49.98399,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Mazurolandia i Park Miniatur Warmii i Mazur</name>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Mazurolandia i Park Miniatur Warmii i Mazur<br><br>Pkt2. Opis: Mazurolandia to atrakcja turystyczna oferująca miniaturowe repliki polskich pałaców, fortów i kościołów, a także muzeum militariów i gród rycerski. Miejsce przyjazne rodzinom, z placami zabaw dla dzieci, dmuchańcami oraz przestrzenią do odpoczynku dla dorosłych. Według opinii użytkowników, obiekt ma potencjał, ale wymaga renowacji.<br><br>Pkt3. Adres: Parcz 7/1, 11-400 Parcz<br><br>Pkt4. Godziny otwarcia:<br><br>Pkt5. Telefon: 609 933 434<br><br>Pkt6. Strona internetowa: mazurolandia.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1511-F57C00</styleUrl>
+      <Point>
+        <coordinates>
+          21.513297,54.081421,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zakoatrakcje - Najlepsze atrakcje turystyczne dla dzieci które nie są górami</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.979846,49.287704,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Tropy dinozaurów</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.662441,51.146098,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Miliona Róż i Zabytków Kresowych</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.926427,51.317075,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Centrum Neandertalczyka</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.502921,50.822846,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Górnicza Wioska - wieś tematyczna</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.880645,53.507367,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ławeczka Zakochanych</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.428214,53.350782,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Kulturowy Korycin - Milewszczyzna</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.124659,53.438943,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Lumina Park Poznań</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.891116,52.426868,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zabytkowe Alpinarium</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.901192,52.399231,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Rogalowe Muzeum Poznania</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.935041,52.408485,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Makieta założenia pałacowego</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.933208,52.233022,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Westernland</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.917581,51.99011,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Podlaski Ogród Ziołowy</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.761297,52.641094,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ZOO SAFARI OKRĄGŁE</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.985342,53.889105,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Źródełko Miłości</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.330197,53.869032,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Nadzalewowa Kolej Drezynowa - Stacja Tolkmicko</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.523195,54.321542,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Święty Kamień</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.577819,54.34046,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża ornitologiczna na Górze Pirata</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.521384,54.403161,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wysoka Brama</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.477571,53.777635,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Molo w Ostródzie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.95864,53.703142,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Tubing Kurza Góra</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.592044,53.398717,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Garncarska wioska - park tematyczny</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.419223,53.305131,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Miniatur Centrum Kultury Ekumenicznej</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.397286,49.44598,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Chatka Wariatka</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.400001,49.465131,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Aleja Zbójników</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.115263,49.604586,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Chlebowa Chata</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.865864,49.757981,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Krzyż Zakochanych</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.948981,49.729945,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zielona WIŚLAŃSKA CIUCHCIA</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.859978,49.654224,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Historii - szlak grodzisk</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.842442,50.112135,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zagroda Jelenia Szlachetnego Cypis</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.488137,50.287181,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ogród Bajek</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.759082,50.23493,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kopalnia Uranu Kletno - Podziemna Trasa Turystyczno–Edukacyjna</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.844424,50.247979,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Wapiennik Łaskawy Kamień & Ogród Japoński]]></name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.880633,50.267893,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Radkowskie/Skalne Bastiony</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.394752,50.479755,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Dinozaurów/ Karłów</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.339837,50.478089,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kolejkowo</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.715324,50.266822,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kolejka Ogrodowa Nietoperek</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          15.536655,52.406551,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Leśna pętla przygód i tajemnic - wejście</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.051626,54.258295,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dom do góry nogami</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.106104,54.204816,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ławeczka Rybaka</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.237609,54.340333,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Szlak fortyfikacji nadmorskich</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.738351,54.370217,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Fokarium Stacji Morskiej im. Prof. Krzysztofa Skóry</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.799875,54.607206,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Grobowiec Piramida barona Friedricha von Fahrenheida w Rapie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.021766,54.309942,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Fontanna Grzybek</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.792565,52.881108,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Drewniana kładka</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.569801,53.517904,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Miniatur Latarni Morskich</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          15.068372,54.095096,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miasto Myszy w Kołobrzegu</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          15.553835,54.185445,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dom Do Góry Nogami</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.052306,54.259835,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park linowy Nad Bałtykiem</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.391744,54.432851,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park linowy Ju-Huu</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.549119,54.543004,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dolina Charlotty Fokarium</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.956243,54.528901,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dolina Charlotty. Kraina Bajek</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.952799,54.527969,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Port w Łebie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.550698,54.769016,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Plaża w Łebie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.560322,54.76832,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Plaża Ostrowo</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.258013,54.833248,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Latarnia Morska Rozewie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.336209,54.830336,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Największy trzewik świata.</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.755968,54.595949,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dom Do Góry Nogami Władysławowo</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.405892,54.793457,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Plaża Władysławowo</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.409596,54.799986,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Molo w Mechelinkach</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.514006,54.610188,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Molo Orłowo</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.565353,54.47995,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Osada pod kapeluszem</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.655561,54.335507,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Plaża Piaski na granicy polsko-rosyjskiej</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.638709,54.457906,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Mrągowska Syrenka</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.305072,53.866049,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miasteczko Westernowe Mrongoville</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.318598,53.883454,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Fontanna w jeziorze Magistrackim</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.303318,53.868784,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Grodzisko ,,Dworocha"]]></name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.451179,53.787642,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Goła Zośka</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.985605,53.873956,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wioska Mydlarska</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.665531,53.212444,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Energylandia</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.411484,49.999504,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ZOO Wrocław sp.z o.o.</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.076249,51.105626,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Latarnia Morska Stilo</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.733893,54.78692,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Magiczne Ogrody</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.910238,51.365285,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>JuraPark Krasiejów</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.267613,50.662376,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Farma Iluzji - Edukacyjny park rozrywki</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.690058,51.6589,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Żywe Muzeum Piernika</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.60485,53.008692,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ZOO Borysew</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.936612,51.881981,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Centrum Słowian i Wikingów Wolin - Jomsborg - Vineta</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          14.61999,53.840857,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Miniatur Olszowa</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.274556,50.453947,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Termy Uniejów</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.789816,51.971399,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ogrody Kapias, Restauracja Kapias, Centrum Ogrodnicze Kapias</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.952474,49.946631,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Sala zabaw Alele | Park Przygód i Atrakcji</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.757391,50.433525,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ośrodek Edukacji Ekologicznej Pszczyńskie Żubry w Jankowicach</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.008523,50.010749,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Suntago</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.460093,51.987734,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zespół tężni solankowych w Ciechocinku</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.785546,52.885644,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Hydropolis</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.056648,51.104254,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zoo Opole</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.92316,50.655774,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Magiczne Ogrody</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.910238,51.365285,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zwierzyniec Bałtowski</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.548363,51.010066,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Hevelianum</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.638962,54.356543,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kanał Elbląski</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.828562,53.804973,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum Dwóch Imperiów</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.563041,51.942551,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Bałtowski Kompleks Turystyczny</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.547794,51.017453,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Spływ Dunajcem - przystań w Sromowcach Niżnych</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.413941,49.398662,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Tężnia Solankowa</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.052372,49.984165,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Statek-muzeum "Dar Pomorza". Oddział Narodowego Muzeum Morskiego]]></name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.552852,54.519457,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Skansen Archeologiczny „Karpacka Troja”</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.433218,49.732082,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Leśny Park Niespodzianek</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.82991,49.718703,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Mandoria</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.484474,51.649564,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ogród Botaniczno-Zoologiczny CEE Egzotarium - Sosnowiec</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.104881,50.283087,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wielkopolski Park Etnograficzny w Dziekanowicach</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.383914,52.513315,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Twinpigs Park Rozrywki</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.714046,50.049811,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Sabat Krajno PARK Rozrywki i Miniatur</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.856474,50.896442,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ocean Park Władysławowo</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.3918,54.790469,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Rodzinny Park Przygód i Edukacji Górecznik</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.831105,51.571238,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Majaland Kownaty</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          15.083636,52.349893,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Rabkoland</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.948458,49.608558,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>MIKROKOSMOS Park Edukacyjny</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.933278,51.60099,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Nauki i Ewolucji Człowieka</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.267466,50.659877,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Legendia Śląskie Wesołe Miasteczko (Winter Legendia)</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.991187,50.273372,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park - Ogrodzieniec</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.552173,50.454199,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Średniowieczna Osada Górnicza</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.879248,50.44435,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Europejskie Centrum Bajki im. Koziołka Matołka</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.043097,50.398737,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Miniatur w Podzamczu</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.550365,50.453474,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Inwałd Park - 5 Parków Tematycznych</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.411352,49.868125,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Miniatur Zabytków Dolnego Śląska w Kowarach</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          15.834234,50.798597,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Makiet Mikroskala</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.256196,52.287249,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ogród Doświadczeń im. Stanisława Lema</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.997121,50.06729,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Dinozaurów i Rozrywki Dinolandia</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.408666,49.867903,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>JuraPark Solec Kujawski</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.235266,53.079523,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Miniatur i Kolejek</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          14.743914,54.01718,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kaszubski Park Miniatur.</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.043817,54.398834,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Rozrywki Zatorland</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.442078,49.988674,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ŚWIAT MARZEŃ INWAŁD | Baśniowa Warownia | Smocze Ziemie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.408714,49.870973,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Mitologii Na Wodzie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.444388,49.989566,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dream Park Ochaby</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.760342,49.854944,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park rozrywki Tajemnicza Solina</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.467626,49.39374,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Bałtycki Park Miniatur</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          14.43465,53.915662,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Miniatur Zabytków Podlasia</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.543985,52.742552,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Miliona Świateł - Zakopane</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.954882,49.291593,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Garden of Lights - Mikołów - Piotruś Pan</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.829891,50.181888,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Las Odkrywców - Rodzinny Park Tematyczny</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.078958,51.618498,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Canpol WONDERLAND</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.315626,53.652252,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Snowlandia Śnieżny Labirynt</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.962658,49.281151,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Western City</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          15.778323,50.782408,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dinopark Szklarska Poręba</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          15.541828,50.837882,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Spiska Kraina</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.317192,49.417501,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Osada Słowiańska w Stobiernej</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.496876,50.028076,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kolejowy Park Rozrywki Ogrodzieniec</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.496178,50.460163,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park tematyczny dla dzieci - Świat Labiryntów</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.358656,54.181208,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ZAUROLANDIA RODZINNY PARK ROZRYWKI</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.652076,52.743085,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wioski Świata - Park Edukacji Globalnej</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.912296,50.04849,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Kulturowy - Osada Łowców Fok w Rzucewie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.469857,54.692334,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Rodzinny Park Rozrywki Owadogigant w Lubnicy</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.892208,53.630917,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>FARMA ALEXA PARK ROZRYWKI</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.589989,54.693908,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Funlandia - Dmuchany Park Rozrywki</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.559253,54.760917,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Gród Pobiedziska</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.249587,52.476794,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zabytkowy Park Przygód</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.860863,49.657078,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Orientarium ZOO Łódź</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.412434,51.763747,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Alpakarnia Alpakacafe Poczesna. Bilet kosztuje 35zł a dzieci do lat 3 za darmo. Przy kdr 25zł. Niepełnosprawni 15zł</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.160058,50.723553,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Papugarnia Opole</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.945419,50.660771,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pentowo - VII Europejska Wieś Bociania</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.737259,53.206789,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Śląski Ogród Zoologiczny</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.991198,50.280345,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Oceanarium Międzyzdroje</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          14.445853,53.93033,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>MYSZOGRÓD ZAKOPANE</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.960408,49.291622,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Podwodny Świat</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.936851,49.294326,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Największa Papugarnia Egzotyczne Zakopane</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.979936,49.287672,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zoo - Port 2000</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          15.379259,52.270857,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ferma Strusi Afrykańskich</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.563097,50.478386,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Mini Zoo</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.203232,49.682767,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejski Ogród Zoologiczny im. Antoniny i Jana Żabińskich w Warszawie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.021576,52.258109,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Gdański Ogród Zoologiczny</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.534556,54.412956,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ogród Zoologiczny w Krakowie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.854018,50.055153,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Nowe Zoo</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.994479,52.400498,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Mini Zoo Inwałd - Agro Kucyk</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.408378,49.876722,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Tatrzański Park Edukacyjny</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.962376,49.281686,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Termy Mszczonów</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.525873,51.978087,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Wodny w Hajnówce</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.592444,52.736198,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Wodny w Krakowie S.A.</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.982809,50.089246,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Akwarium Gdyńskie MIR</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.557821,54.518436,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Baseny Mineralne Solec-Zdrój</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.884284,50.360031,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Termy Zakopiańskie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.965642,49.295105,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Centrum Nauki Experymentarium</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.447621,51.78076,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Planetarium im. W. Dziewulskiego</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.602542,53.011418,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Bajka Pana Kleksa</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.06159,50.255153,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Planetarium Śląskie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.991978,50.290522,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Planetarium wraz z Obserwatorium Astronomicznym Uniwersytetu w Białymstoku</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.156075,53.10881,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Centrum Nauki Leonardo Da Vinci</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.4662,50.782573,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Centrum Nauki Kopernik</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.028727,52.241855,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Jezioro Maltańskie</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.96989,52.402196,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ogrody Kapias, Restauracja Kapias, Centrum Ogrodnicze Kapias</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.952474,49.946631,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ogród Japoński Pisarzowice</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.146366,49.880292,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ILUZJA PARK ZAKOPANE</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.950556,49.294886,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Bieszczadzka Kolejka Leśna</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.299032,49.205572,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Motylarnia Karwia</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.21079,54.826944,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Turystyki</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.918634,49.721157,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Jurajski Park Linowy</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.43134,50.703874,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Trasy Enduro Srebrna Góra</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.659122,50.581734,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Motylarnia Władysławowo</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.416124,54.797947,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Winnica Uroczysko</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.840093,49.905362,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Tor saneczkowy - Park Ogrodzieniec</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.552782,50.454382,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>JuRajskie Ptaki</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.365789,50.630063,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Kolejka Linowa "Elka" Stacja Stadion Śląski]]></name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.974496,50.289922,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Tor Saneczkowy Góra Żar</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.224338,49.787494,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Arboretum Wojsławice</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          16.85623,50.712696,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Folwark Nadawki</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.15259,53.182168,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Przeprawa promowa</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.904029,52.836393,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Polana Zbójecka</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.860977,49.536665,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Stadnina Koni Moszna</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.765338,50.439045,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ciuchcia Ponidzie - Świętokrzyska Kolejka Wąskotorowa</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.288526,50.643682,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kolej Kasprowy Wierch Kuźnice</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.979218,49.269332,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Arboretum Leśne im. prof. Stefana Białoboka</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          17.670551,51.263279,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ogród na Rozstajach</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.503666,50.45272,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Sankostrada</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.951328,49.427548,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Park Linowy Paprocany</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.993638,50.087222,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Tramwaj Konny</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.805914,52.162397,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Winnica Dąbrówka</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.863597,49.934862,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Winnica Nad Jarem</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          21.682538,50.662245,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Przystań kajakowa</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          20.558494,50.424952,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kurza Góra</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          19.590191,53.397747,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Latarnia Morska Gąski</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          15.872726,54.242867,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Latarnia Morska Jastarnia</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.681663,54.700246,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Latarnia Morska Gdańsk Nowy Port</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.661163,54.406267,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Latarnia Morska Sopot</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.570473,54.445382,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Latarnia Morska - Góra Szwedów</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.819385,54.626526,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Latarnia Morska w Świnoujściu</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          14.284163,53.916007,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Latarnia Morska - Gdańsk Port Północny</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.696357,54.399768,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zielona Latarnia Falochron Zachodni Nowy Port</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          18.659072,54.410921,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa - Stawki</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.533259,51.629811,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa - Bagno Staw</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.321756,51.351599,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa w Ogrodnikach</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.791108,52.376201,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa w Laskowicach</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          22.640042,52.351826,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.030813,52.340161,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Góra Rowska</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.052938,52.327042,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Wieża widokowa "Szlakiem żubra"]]></name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.802365,52.825606,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa</name>
+      <styleUrl>#icon-1511-F57C00-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          23.780053,52.734847,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
