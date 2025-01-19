@@ -50,110 +50,19 @@
         width: 70%;
         z-index: 1000;
       }
-      #search-bar {
-        display: flex;
-        flex-wrap: wrap;
-        background-color: lightgray;
-        border: 2px solid green;
-        border-radius: 5px;
-        padding: 5px;
-        box-sizing: border-box;
-        box-shadow: rgba(0, 0, 0, 0.3) 0 4px 10px;
-      }
-      #search-input {
-        flex: 1;
-        padding: 5px;
-        border: none;
-        outline: none;
-        font-size: 14px;
-        background-color: lightgray;
-        border-radius: 3px;
-        min-width: 0;
-      }
-      #search-button {
-        background-color: green;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 3px;
-        cursor: pointer;
-        margin-left: 5px;
-        flex-shrink: 0;
-      }
-      #search-button:hover {
-        background-color: darkgreen;
-      }
-      #suggestions {
-        margin-top: 5px;
-        background-color: white;
-        border: 1px solid green;
-        border-radius: 5px;
-        max-height: 150px;
-        overflow-y: auto;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        display: none;
-      }
-      .suggestion {
-        padding: 10px;
-        font-size: 14px;
-        cursor: pointer;
-        border-bottom: 1px solid #ddd;
-      }
-      .suggestion:last-child {
-        border-bottom: none;
-      }
-      .suggestion:hover {
-        background-color: lightgreen;
-      }
-      .details-button {
-        display: inline-block;
-        margin: 5px 0;
-        padding: 5px 10px;
-        border: 2px solid #ffc107;
-        color: #000;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: bold;
-        border-radius: 5px;
-      }
-      .details-button:hover {
-        background-color: #fff8e1;
-      }
-      .navigate-button {
-        display: inline-block;
-        margin: 5px 0;
-        padding: 5px 10px;
-        border: 2px solid #28a745;
-        color: #28a745;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: bold;
-        border-radius: 5px;
-      }
-      .navigate-button:hover {
-        background-color: #e9f7ef;
-        color: #155724;
-      }
     </style>
   </head>
   <body class="" oncontextmenu="return false;">
     <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
+    <noscript>
+      <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-W68222TL"
         height="0"
         width="0"
         style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
+      ></iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div id="search-container">
-      <div id="search-bar">
-        <input type="text" id="search-input" placeholder="Znajdź obiekt..." />
-        <button id="search-button">Szukaj</button>
-      </div>
-      <div id="suggestions"></div>
-    </div>
     <div id="map"></div>
     <script>
       // Blokowanie narzędzi deweloperskich
@@ -173,6 +82,18 @@
         e.preventDefault();
         alert("Kliknięcie prawym przyciskiem myszy jest zablokowane.");
       });
+
+      // Inicjalizacja mapy
+      const map = L.map("map").setView([52.2297, 21.0122], 6);
+
+      // Dodanie warstwy kafelkowej OpenStreetMap
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+      }).addTo(map);
+
+      // Przykładowy marker
+      const marker = L.marker([52.2297, 21.0122]).addTo(map);
+      marker.bindPopup("Warszawa - przykładowy marker").openPopup();
     </script>
   </body>
 </html>
