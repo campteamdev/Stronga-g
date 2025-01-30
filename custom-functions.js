@@ -6,6 +6,9 @@ let phoneNumbersMap = {};
 let websiteLinksMap = {};
 // Obiekt do przechowywania nazw miejsc z pliku Parkingilesne.kml
 let excludedPlaces = new Set();
+// Obiekt do przechowywania opisów i infrastruktury
+let descriptionsMap = {};
+let amenitiesMap = {};
 
 // Funkcja wczytująca dane z pliku szczegóły.json
 async function loadDetails() {
@@ -40,35 +43,7 @@ function extractWebsite(description) {
   return match ? match[1].trim() : null;
 }
 
-// Funkcja wczytująca dane z Parkingilesne.kml
-async function loadExcludedPlaces() {
-  const url = "/Parkingilesne.kml";
-  try {
-    const response = await fetch(url);
-    if (!response.ok)
-      throw new Error("Nie udało się załadować pliku Parkingilesne.kml");
-    const kmlText = await response.text();
-    const parser = new DOMParser();
-    const kml = parser.parseFromString(kmlText, "application/xml");
-    const placemarks = kml.getElementsByTagName("Placemark");
-
-    for (const placemark of placemarks) {
-      const name = placemark
-        .getElementsByTagName("name")[0]
-        ?.textContent.trim();
-      if (name) {
-        excludedPlaces.add(name);
-      }
-    }
-  } catch (error) {
-    console.error(
-      "Błąd podczas wczytywania miejsc z Parkingilesne.kml:",
-      error
-    );
-  }
-}
-
-// Funkcja wczytująca numery telefonów i linki do stron www z plików KML
+// Funkcja wczytująca dane z KML (numery telefonów, linki, opisy, infrastruktura)
 async function loadKmlData() {
   const kmlFiles = [
     "/Atrakcje.kml",
@@ -92,16 +67,11 @@ async function loadKmlData() {
       const placemarks = kml.getElementsByTagName("Placemark");
 
       for (const placemark of placemarks) {
-        const name = placemark
-          .getElementsByTagName("name")[0]
-          ?.textContent.trim();
-        const description = placemark
-          .getElementsByTagName("description")[0]
-          ?.textContent.trim();
-        const website =
-          placemark
-            .querySelector("Data[name='website'] value")
-            ?.textContent.trim() || extractWebsite(description);
+        const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
+        const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
+        const website = placemark.querySelector("Data[name='website'] value")?.textContent.trim() || extractWebsite(description);
+        const opis = placemark.querySelector("Data[name='Opis'] value")?.textContent.trim() || "";
+        const infrastruktura = placemark.querySelector("Data[name='Udogodnienia'] value")?.textContent.trim() || "";
 
         if (name) {
           if (description) {
@@ -111,6 +81,12 @@ async function loadKmlData() {
           if (website) {
             websiteLinksMap[name] = website;
           }
+          if (opis) {
+            descriptionsMap[name] = opis;
+          }
+          if (infrastruktura) {
+            amenitiesMap[name] = infrastruktura;
+          }
         }
       }
     } catch (error) {
@@ -119,10 +95,22 @@ async function loadKmlData() {
   }
 }
 
-// Funkcja generująca link do Google Maps na podstawie nazwy
-function getGoogleMapsLink(name) {
-  const baseSearchUrl = "https://www.google.com/maps/search/";
-  return `${baseSearchUrl}${encodeURIComponent(name)}`;
+// Funkcja skracająca tekst do pierwszych 3 linii i dodająca przycisk "Pokaż więcej"
+function shortenText(text, id) {
+  const lines = text.split("\n");
+  if (lines.length > 3) {
+    const shortText = lines.slice(0, 3).join(" ") + "...";
+    return `
+      <span id="${id}-short">${shortText}</span>
+      <span id="${id}-full" style="display:none;">${text}</span>
+      <a href="#" onclick="document.getElementById('${id}-short').style.display='none';
+                          document.getElementById('${id}-full').style.display='inline';
+                          this.style.display='none'; 
+                          return false;">
+        Pokaż więcej
+      </a>`;
+  }
+  return text;
 }
 
 // Funkcja generująca treść popupu
@@ -142,32 +130,31 @@ function generatePopupContent(name, lat, lon) {
     popupContent += `<strong>Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none;">${websiteLinksMap[name]}</a><br>`;
   }
 
-  // Dodanie przycisku do Google Maps tylko, jeśli miejsce nie jest w excludedPlaces
+  // Dodanie pola "Opis"
+  if (descriptionsMap[name]) {
+    popupContent += `<strong>Opis:</strong> ${shortenText(descriptionsMap[name], `opis-${name}`)}<br>`;
+  }
+
+  // Dodanie pola "Infrastruktura"
+  if (amenitiesMap[name]) {
+    popupContent += `<strong>Infrastruktura:</strong> ${shortenText(amenitiesMap[name], `infra-${name}`)}<br>`;
+  }
+
+  // Dodanie przycisku do Google Maps
   if (!excludedPlaces.has(name)) {
-    const googleMapsLink = getGoogleMapsLink(name);
+    const googleMapsLink = `https://www.google.com/maps/search/${encodeURIComponent(name)}`;
     popupContent += `<a href="${googleMapsLink}" target="_blank" style="display:inline-block; margin-top:5px; padding:5px 10px; border:2px solid black; color:black; text-decoration:none;">Link do Wizytówki Map Google</a><br>`;
   }
 
-  // Dodanie przycisku "Pokaż szczegóły", jeśli istnieje link w szczegóły.json
+  // Dodanie przycisku "Pokaż szczegóły"
   if (detailsMap[name]) {
-    popupContent += `
-      <a href="${detailsMap[name]}" target="_blank" class="details-button">
-        Pokaż szczegóły
-      </a><br>`;
+    popupContent += `<a href="${detailsMap[name]}" target="_blank" class="details-button">Pokaż szczegóły</a><br>`;
   } else {
-    popupContent += `
-      <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
-         target="_blank" class="update-button">
-        Aktualizuj
-      </a><br>`;
+    popupContent += `<a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button">Aktualizuj</a><br>`;
   }
 
   // Dodanie przycisku "Prowadź do"
-  popupContent += `
-    <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" 
-       target="_blank" class="navigate-button">
-      Wyznacz trasę
-    </a>`;
+  popupContent += `<a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button">Wyznacz trasę</a>`;
 
   return popupContent;
 }
@@ -180,10 +167,9 @@ function updatePopups(markers) {
   });
 }
 
-// Funkcja do wczytania szczegółów i aktualizacji popupów
+// Funkcja do wczytania danych i aktualizacji popupów
 async function loadDetailsAndUpdatePopups(markers) {
-  await loadDetails(); // Wczytaj szczegóły z pliku
-  await loadExcludedPlaces(); // Wczytaj nazwy miejsc z Parkingilesne.kml
-  await loadKmlData(); // Wczytaj numery telefonów i linki z plików KML
-  updatePopups(markers); // Zaktualizuj popupy dla markerów
+  await loadDetails();
+  await loadKmlData();
+  updatePopups(markers);
 }
