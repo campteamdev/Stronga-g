@@ -117,11 +117,11 @@ function generatePopupContent(name, lat, lon) {
     phone !== "Brak numeru kontaktowego"
       ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;">${phone}</a>`
       : `<span style="font-size:10px;">${phone}</span>`;
-  popupContent += `<strong style="font-size:16px;">Kontakt:</strong> ${phoneLink}<br>`;
+  popupContent += `<strong style="font-size:12px;">Kontakt:</strong> ${phoneLink}<br>`;
 
   // Strona internetowa
   if (websiteLinksMap[name]) {
-    popupContent += `<strong style="font-size:14px;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:14px;">${websiteLinksMap[name]}</a><br>`;
+    popupContent += `<strong style="font-size:12px;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px;">${websiteLinksMap[name]}</a><br>`;
   }
 
   // Opis (napis zawsze widoczny, dane tylko jeśli istnieją)
