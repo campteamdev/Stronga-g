@@ -109,7 +109,7 @@ function shortenText(text, id) {
 
 // Funkcja generująca treść popupu z możliwością zmiany czcionki
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<strong style="font-size:18px;">${name}</strong><br>`;
+  let popupContent = `<strong style="font-size:28px;">${name}</strong><br>`;
 
   // Numer telefonu
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
