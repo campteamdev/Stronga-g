@@ -44,50 +44,62 @@
         width: 100%;
         height: 100vh;
       }
-      /* Zmiana kolorów grupowania markerów na błękitne odcienie */
+      /* Zmiana kolorów klastrów markerów na błękitne odcienie */
       .marker-cluster-small {
         background-color: rgba(173, 216, 230, 0.6) !important; /* Jasny błękit */
         border: 2px solid #87CEFA !important; /* Błękit nieba */
       }
       .marker-cluster-small div {
-        background-color: rgba(173, 216, 230, 0.8) !important; /* Intensywniejszy błękit */
+        background-color: rgba(173, 216, 230, 0.8) !important;
       }
       .marker-cluster-medium {
         background-color: rgba(70, 130, 180, 0.6) !important; /* Stalowy błękit */
-        border: 2px solid #4682B4 !important; /* Stalowy błękit */
+        border: 2px solid #4682B4 !important;
       }
       .marker-cluster-medium div {
-        background-color: rgba(70, 130, 180, 0.8) !important; /* Intensywniejszy stalowy błękit */
+        background-color: rgba(70, 130, 180, 0.8) !important;
       }
       .marker-cluster-large {
         background-color: rgba(0, 0, 139, 0.6) !important; /* Ciemny błękit */
-        border: 2px solid #00008B !important; /* Ciemny błękit */
+        border: 2px solid #00008B !important;
       }
       .marker-cluster-large div {
-        background-color: rgba(0, 0, 139, 0.8) !important; /* Intensywniejszy ciemny błękit */
+        background-color: rgba(0, 0, 139, 0.8) !important;
       }
     </style>
   </head>
   <body class="" oncontextmenu="return false;">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-W68222TL"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div id="search-container">
-      <div id="search-bar">
-        <input type="text" id="search-input" placeholder="Znajdź obiekt..." />
-        <button id="search-button">Szukaj</button>
-      </div>
-      <div id="suggestions"></div>
-    </div>
     <div id="map"></div>
     <script>
+      const urls = {
+        kempingi: "/Kempingi.kml",
+        polanamiotowe: "/Polanamiotowe.kml",
+        kempingiopen: "/Kempingiopen.kml",
+        polanamiotoweopen: "/Polanamiotoweopen.kml",
+        parkingilesne: "/Parkingilesne.kml",
+        kempingi1: "/Kempingi1.kml",
+        AtrakcjeKulturowe: "/AtrakcjeKulturowe.kml",
+        AtrakcjePrzyrodnicze: "/AtrakcjePrzyrodnicze.kml",
+        AtrakcjeRozrywkowe: "/AtrakcjeRozrywka.kml",
+        miejscenabiwak: "/Miejscenabiwak.kml",
+        europa: "/Europa.kml",
+      };
+
+      const icons = {
+        kempingi: L.icon({
+          iconUrl: "/ikony/Ikona_Kempingi_Polecane.png",
+          iconSize: [40, 40],
+          iconAnchor: [20, 20],
+          popupAnchor: [0, -20],
+        }),
+        polanamiotowe: L.icon({
+          iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
+          iconSize: [40, 40],
+          iconAnchor: [20, 20],
+          popupAnchor: [0, -20],
+        }),
+      };
+
       const map = L.map("map").setView([52.392681, 19.275023], 6);
       const markerCluster = L.markerClusterGroup({
         showCoverageOnHover: false,
@@ -108,16 +120,46 @@
         attribution: "&copy; OpenStreetMap contributors",
       }).addTo(map);
 
-      // Przykładowe dodanie markerów dla testów
-      for (let i = 0; i < 100; i++) {
-        let marker = L.marker([
-          52.392681 + Math.random() - 0.5,
-          19.275023 + Math.random() - 0.5,
-        ]);
-        markerCluster.addLayer(marker);
+      async function fetchKml(url) {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
+        return response.text();
       }
 
-      map.addLayer(markerCluster);
+      async function loadMarkers(url, icon) {
+        const kmlText = await fetchKml(url);
+        const parser = new DOMParser();
+        const kml = parser.parseFromString(kmlText, "application/xml");
+        const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+
+        placemarks.forEach((placemark) => {
+          const name =
+            placemark.getElementsByTagName("name")[0]?.textContent ||
+            "Brak nazwy";
+          const coordinates = placemark
+            .getElementsByTagName("coordinates")[0]
+            ?.textContent.trim();
+
+          if (coordinates) {
+            const [lon, lat] = coordinates.split(",");
+            const marker = L.marker([lat, lon], { icon }).bindPopup(
+              `<strong>${name}</strong>`
+            );
+            markerCluster.addLayer(marker);
+          }
+        });
+      }
+
+      async function initializeMap() {
+        await Promise.all([
+          loadMarkers(urls.kempingi, icons.kempingi),
+          loadMarkers(urls.polanamiotowe, icons.polanamiotowe),
+        ]);
+
+        map.addLayer(markerCluster);
+      }
+
+      initializeMap();
     </script>
   </body>
 </html>
