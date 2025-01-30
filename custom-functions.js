@@ -69,7 +69,12 @@ async function loadKmlData() {
         const infrastrukturaNode = placemark.querySelector("Data[name='Udogodnienia:'] > value");
 
         const opis = opisNode ? opisNode.textContent.trim() : "";
-        const infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
+        let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
+
+        // Usunięcie "nr: X" z infrastruktury
+        if (infrastruktura) {
+          infrastruktura = infrastruktura.replace(/- nr:?\s*\d+/g, "").trim();
+        }
 
         if (name) {
           if (description) {
@@ -97,19 +102,19 @@ function shortenText(text, id) {
     const shortText = lines.slice(0, 3).join(" ") + "...";
     return `
       <span id="${id}-short">${shortText}</span>
-      <span id="${id}-full" style="display:none;">${text}</span>
+      <span id="${id}-full" style="display:none;">${text.replace(/\n/g, "<br>")}</span>
       <a href="#" onclick="document.getElementById('${id}-short').style.display='none';
                           document.getElementById('${id}-full').style.display='inline';
                           this.style.display='none'; return false;">
         Pokaż więcej
       </a>`;
   }
-  return text;
+  return text.replace(/\n/g, "<br>");
 }
 
-// Funkcja generująca treść popupu z możliwością zmiany czcionki
+// Funkcja generująca treść popupu z zieloną ramką i poprawioną infrastrukturą
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<strong style="font-size:16px;">${name}</strong><br>`;
+  let popupContent = `<div style="border:2px solid green; padding:5px; display:inline-block; font-size:16px; font-weight:bold;">${name}</div><br>`;
 
   // Numer telefonu
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
@@ -125,36 +130,19 @@ function generatePopupContent(name, lat, lon) {
   }
 
   // Opis (napis zawsze widoczny, dane tylko jeśli istnieją)
-  popupContent += `<strong style="font-size:12px;">Opis:</strong><br>`;
+  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Opis:</div><br>`;
   popupContent += descriptionsMap[name] 
     ? `<span style="font-size:10px;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
     : `<span style="font-size:10px;"><i>Brak opisu</i></span>`;
 
   // Infrastruktura (napis zawsze widoczny, dane tylko jeśli istnieją)
-  popupContent += `<br><strong style="font-size:12px;">Infrastruktura:</strong><br>`;
+  popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Infrastruktura:</div><br>`;
   popupContent += amenitiesMap[name] 
-    ? `<span style="font-size:10px;">${shortenText(amenitiesMap[name], `infra-${name}`)}</span>` 
+    ? `<span style="font-size:10px;">${shortenText(amenitiesMap[name].replace(/\s*-\s*/g, "<br>"), `infra-${name}`)}</span>` 
     : `<span style="font-size:10px;"><i>Brak informacji</i></span>`;
-
-  // Google Maps
-  if (!excludedPlaces.has(name)) {
-    const googleMapsLink = `https://www.google.com/maps/search/${encodeURIComponent(name)}`;
-    popupContent += `<br><a href="${googleMapsLink}" target="_blank" style="display:inline-block; margin-top:5px; padding:5px 10px; border:2px solid black; color:black; text-decoration:none; font-size:12px;">Link do Wizytówki Map Google</a>`;
-  }
-
-  // Pokaż szczegóły lub aktualizuj
-  if (detailsMap[name]) {
-    popupContent += `<br><a href="${detailsMap[name]}" target="_blank" class="details-button" style="font-size:14px;">Pokaż szczegóły</a>`;
-  } else {
-    popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px;">Aktualizuj</a>`;
-  }
-
-  // Prowadź do
-  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px;">Wyznacz trasę</a>`;
 
   return popupContent;
 }
-
 
 // Funkcja aktualizująca popupy dla wszystkich markerów
 function updatePopups(markers) {
