@@ -29,21 +29,27 @@ function shortenText(text, id) {
 
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
+  let phone = phoneNumbersMap[name] ? `<a href="tel:${phoneNumbersMap[name]}" class="phone-link">${phoneNumbersMap[name]}</a>` : "Brak numeru";
+  let website = websiteLinksMap[name] ? `<a href="${websiteLinksMap[name]}" target="_blank" class="website-link">${websiteLinksMap[name]}</a>` : "Brak strony";
+
+  let description = descriptionsMap[name] ? shortenText(descriptionsMap[name], `opis-${name}`) : "<i>Brak opisu</i>";
+  let infrastructure = amenitiesMap[name] ? amenitiesMap[name] : "<i>Brak informacji</i>";
+
   return `
     <div class="popup-container">
       <div class="popup-title">${name}</div>
       <div class="popup-content">
-        <strong>Kontakt:</strong> ${phoneNumbersMap[name] ? `<a href="tel:${phoneNumbersMap[name]}" class="phone-link">${phoneNumbersMap[name]}</a>` : "Brak numeru"}<br>
-        ${websiteLinksMap[name] ? `<strong>Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" class="website-link">${websiteLinksMap[name]}</a><br>` : ""}
-        
+        <strong>Kontakt:</strong> ${phone}<br>
+        <strong>Strona:</strong> ${website}<br>
+
         <div class="popup-section">
           <div class="popup-label">Opis:</div>
-          <div class="popup-text">${descriptionsMap[name] ? shortenText(descriptionsMap[name], `opis-${name}`) : "<i>Brak opisu</i>"}</div>
+          <div class="popup-text">${description}</div>
         </div>
 
         <div class="popup-section">
           <div class="popup-label">Infrastruktura:</div>
-          <div class="popup-text">${amenitiesMap[name] ? amenitiesMap[name] : "<i>Brak informacji</i>"}</div>
+          <div class="popup-text">${infrastructure}</div>
         </div>
 
         <div class="popup-links">
