@@ -109,7 +109,7 @@ function shortenText(text, id) {
 
 // Funkcja generująca treść popupu z możliwością zmiany czcionki
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<strong style="font-size:28px;">${name}</strong><br>`;
+  let popupContent = `<strong style="font-size:16px;">${name}</strong><br>`;
 
   // Numer telefonu
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
@@ -121,20 +121,20 @@ function generatePopupContent(name, lat, lon) {
 
   // Strona internetowa
   if (websiteLinksMap[name]) {
-    popupContent += `<strong style="font-size:16px;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:14px;">${websiteLinksMap[name]}</a><br>`;
+    popupContent += `<strong style="font-size:14px;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:14px;">${websiteLinksMap[name]}</a><br>`;
   }
 
   // Opis (napis zawsze widoczny, dane tylko jeśli istnieją)
-  popupContent += `<strong style="font-size:16px;">Opis:</strong><br>`;
+  popupContent += `<strong style="font-size:14px;">Opis:</strong><br>`;
   popupContent += descriptionsMap[name] 
-    ? `<span style="font-size:14px;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-    : `<span style="font-size:14px;"><i>Brak opisu</i></span>`;
+    ? `<span style="font-size:10px;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+    : `<span style="font-size:10px;"><i>Brak opisu</i></span>`;
 
   // Infrastruktura (napis zawsze widoczny, dane tylko jeśli istnieją)
-  popupContent += `<br><strong style="font-size:16px;">Infrastruktura:</strong><br>`;
+  popupContent += `<br><strong style="font-size:14px;">Infrastruktura:</strong><br>`;
   popupContent += amenitiesMap[name] 
-    ? `<span style="font-size:14px;">${shortenText(amenitiesMap[name], `infra-${name}`)}</span>` 
-    : `<span style="font-size:14px;"><i>Brak informacji</i></span>`;
+    ? `<span style="font-size:10px;">${shortenText(amenitiesMap[name], `infra-${name}`)}</span>` 
+    : `<span style="font-size:10px;"><i>Brak informacji</i></span>`;
 
   // Google Maps
   if (!excludedPlaces.has(name)) {
