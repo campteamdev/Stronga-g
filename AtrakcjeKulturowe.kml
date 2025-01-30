@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <name>Atrakcje kulturowe</name>
-    <Style id="icon-1598-4E342E-normal">
+    <name>zamki</name>
+    <Style id="icon-1598-A52714-normal">
       <IconStyle>
-        <color>ff2e344e</color>
+        <color>ff1427a5</color>
         <scale>1</scale>
         <Icon>
           <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
@@ -14,9 +14,9 @@
         <scale>0</scale>
       </LabelStyle>
     </Style>
-    <Style id="icon-1598-4E342E-highlight">
+    <Style id="icon-1598-A52714-highlight">
       <IconStyle>
-        <color>ff2e344e</color>
+        <color>ff1427a5</color>
         <scale>1</scale>
         <Icon>
           <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
@@ -26,19 +26,19 @@
         <scale>1</scale>
       </LabelStyle>
     </Style>
-    <StyleMap id="icon-1598-4E342E">
+    <StyleMap id="icon-1598-A52714">
       <Pair>
         <key>normal</key>
-        <styleUrl>#icon-1598-4E342E-normal</styleUrl>
+        <styleUrl>#icon-1598-A52714-normal</styleUrl>
       </Pair>
       <Pair>
         <key>highlight</key>
-        <styleUrl>#icon-1598-4E342E-highlight</styleUrl>
+        <styleUrl>#icon-1598-A52714-highlight</styleUrl>
       </Pair>
     </StyleMap>
-    <Style id="icon-1598-4E342E-nodesc-normal">
+    <Style id="icon-1598-A52714-nodesc-normal">
       <IconStyle>
-        <color>ff2e344e</color>
+        <color>ff1427a5</color>
         <scale>1</scale>
         <Icon>
           <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
@@ -51,9 +51,9 @@
         <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
     </Style>
-    <Style id="icon-1598-4E342E-nodesc-highlight">
+    <Style id="icon-1598-A52714-nodesc-highlight">
       <IconStyle>
-        <color>ff2e344e</color>
+        <color>ff1427a5</color>
         <scale>1</scale>
         <Icon>
           <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
@@ -66,100 +66,100 @@
         <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
     </Style>
-    <StyleMap id="icon-1598-4E342E-nodesc">
+    <StyleMap id="icon-1598-A52714-nodesc">
       <Pair>
         <key>normal</key>
-        <styleUrl>#icon-1598-4E342E-nodesc-normal</styleUrl>
+        <styleUrl>#icon-1598-A52714-nodesc-normal</styleUrl>
       </Pair>
       <Pair>
         <key>highlight</key>
-        <styleUrl>#icon-1598-4E342E-nodesc-highlight</styleUrl>
+        <styleUrl>#icon-1598-A52714-nodesc-highlight</styleUrl>
       </Pair>
     </StyleMap>
     <Placemark>
       <name>Zamek Królewski na Wawelu</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Królewski na Wawelu<br>Pkt2. Opis: Jeden z najważniejszych zabytków w Polsce, symbol władzy królewskiej i narodowej tożsamości. Położony na wzgórzu nad Wisłą, oferuje zwiedzanie reprezentacyjnych komnat królewskich, zbrojowni, skarbca oraz katedry z Kaplicą Zygmuntowską. Bogata historia i piękne widoki sprawiają, że jest to obowiązkowy punkt wizyty w Krakowie.<br>Pkt3. Adres: Wawel 5, 31-001 Kraków<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 10:00–16:00<br>Wtorek – Niedziela: 09:30–17:00<br>Pkt5. Telefon: 12 422 51 55<br>Pkt6. Strona internetowa: wawel.krakow.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.935607,50.054139,0
+          19.9356071,50.0541387,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek w Malborku</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Malborku<br>Pkt2. Opis: Największy gotycki zamek na świecie, będący jednym z najważniejszych zabytków w Polsce. XIV-wieczna twierdza krzyżacka, obecnie mieszcząca muzeum z kolekcją średniowiecznych artefaktów, obrazów i bursztynu. Monumentalność zamku oraz bogactwo ekspozycji pozwalają przenieść się w czasy rycerzy i krzyżaków.<br>Pkt3. Adres: Starościńska 1, 82-200 Malbork<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–16:00<br>Wtorek: 09:00–15:00<br>Środa: 09:00–15:00<br>Czwartek: 09:00–15:00<br>Piątek: 09:00–15:00<br>Sobota: 09:00–15:00<br>Niedziela: 09:00–15:00<br>Pkt5. Telefon: 55 647 09 02<br>Pkt6. Strona internetowa: zamek.malbork.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.028013,54.039753,0
+          19.0280127,54.0397526,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Książ</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Książ<br>Pkt2. Opis: Elegancki zamek otoczony malowniczymi ogrodami, oferujący zwiedzanie z przewodnikiem, galerię sztuki, restauracje oraz hotele. Wnętrza pełne zabytkowych mebli i dzieł sztuki zachwycają swoją monumentalnością.<br>Pkt3. Adres: Piastów Śląskich 1, 58-306 Wałbrzych<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 10:00–17:00<br>Wtorek: 10:00–17:00<br>Środa: 10:00–17:00<br>Czwartek: 10:00–17:00<br>Piątek: 10:00–17:00<br>Sobota: 10:00–19:00<br>Niedziela: 10:00–19:00<br>Pkt5. Telefon: 74 664 38 34<br>Pkt6. Strona internetowa: ksiaz.walbrzych.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          16.291567,50.842315,0
+          16.2915673,50.8423154,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Moszna Zamek</name>
-      <description><![CDATA[Pkt1. Nazwa lokalizacji: Moszna Zamek<br>Pkt2. Opis: XVIII-wieczny zamek z elegancką restauracją, spa i pomieszczeniami stylizowanymi na stare pokoje oraz apartamenty.<br>Pkt3. Adres: Zamkowa 1, 47-370 Moszna<br>Pkt4. Godziny otwarcia: Brak informacji o godzinach zwiedzania zamku <br>Pkt5. Telefon: 530 357 094<br>Pkt6. Strona internetowa: mosznazamek.pl<br>Pkt7. Czy dostęp jest płatny: Tak<br>Plus Code: CQR9+74 Moszna]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Moszna Zamek<br>Pkt2. Opis: XVIII-wieczny zamek z elegancką restauracją, spa i pomieszczeniami stylizowanymi na stare pokoje oraz apartamenty.<br>Pkt3. Adres: Zamkowa 1, 47-370 Moszna<br>Pkt4. Godziny otwarcia: Brak informacji o godzinach zwiedzania zamku <br>Pkt5. Telefon: 530 357 094<br>Pkt6. Strona internetowa: mosznazamek.pl<br>Pkt7. Czy dostęp jest płatny: Tak<br>Plus Code: CQR9+74 Moszna]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          17.767819,50.440748,0
+          17.7678192,50.4407479,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek krzyżacki w Nidzicy (warmińsko-mazurskie)</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek krzyżacki w Nidzicy (warmińsko-mazurskie)<br>Pkt2. Opis: XIV-wieczny wczesnogotycki zamek na wapiennym wzgórzu z widokiem na jezioro, oferujący wycieczki z przewodnikiem. Wewnątrz znajdują się m.in. miejska biblioteka, galeria sztuki, hotel oraz restauracja na dziedzińcu.<br>Pkt3. Adres: 13-100 Nidzica<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 10:00–16:00<br>Środa: 10:00–16:00<br>Czwartek: 10:00–16:00<br>Piątek: 10:00–16:00<br>Sobota: 10:00–16:00<br>Niedziela: 10:00–16:00<br>Pkt5. Telefon: 89 625 03 70<br>Pkt6. Strona internetowa: nok.nidzica.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          20.42911,53.359739,0
+          20.4291103,53.3597392,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Ogrodzieniec</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Ogrodzieniec<br>Pkt2. Opis: Częściowo odrestaurowana twierdza z XIII wieku na Jurze Krakowsko-Częstochowskiej, oferująca trasę zwiedzania przez ruiny, galerię wystaw w lochach, bar i restaurację. Zamek jest częścią systemu Orlich Gniazd.<br>Pkt3. Adres: Zamkowa, 42-440 Podzamcze<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 10:00–16:00<br>Wtorek: 10:00–16:00<br>Środa: 10:00–16:00<br>Czwartek: 10:00–16:00<br>Piątek: 10:00–16:00<br>Sobota: 10:00–16:00<br>Niedziela: 10:00–16:00<br>Pkt5. Telefon: 32 673 22 20<br>Pkt6. Strona internetowa: zamek-ogrodzieniec.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.552094,50.453113,0
+          19.5520941,50.4531127,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Pieskowa Skała. Oddział Zamku Królewskiego na Wawelu</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Pieskowa Skała. Oddział Zamku Królewskiego na Wawelu<br>Pkt2. Opis: Okazały renesansowy zamek z muzeum i ogrodami, zbudowany wzdłuż klifu pod koniec XIV wieku. Otoczony pięknym parkiem w Dolinie Prądnika, znany z historycznych scen i wystaw sztuki.<br>Pkt3. Adres: Sułoszowa 5, 32-045 Pieskowa<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 09:30–16:00<br>Środa: 09:30–16:00<br>Czwartek: 09:30–16:00<br>Piątek: 10:00–16:00<br>Sobota: 10:00–17:00<br>Niedziela: 10:00–17:00<br>Pkt5. Telefon: 12 389 60 04<br>Pkt6. Strona internetowa: pieskowaskala.eu<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.780848,50.244231,0
+          19.7808483,50.2442309,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Muzeum-Zamek w Łańcucie</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Muzeum-Zamek w Łańcucie<br>Pkt2. Opis: XVII-wieczny zamek z kolekcją powozów i odrestaurowanymi komnatami z XVIII wieku, mieszczący dzieła sztuki.<br>Pkt3. Adres: Zamkowa 1, 37-100 Łańcut<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 12:00–14:30<br>Wtorek: 09:00–14:50<br>Środa: 09:00–14:50<br>Czwartek: 09:00–14:50<br>Piątek: 09:00–14:50<br>Sobota: 09:00–14:50<br>Niedziela: 09:00–16:00<br>Pkt5. Telefon: 17 225 20 08<br>Pkt6. Strona internetowa: zamek-lancut.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.23459,50.06867,0
+          22.2345896,50.0686697,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Czocha</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Czocha<br>Pkt2. Opis: Imponujący XIII-wieczny zamek, który obecnie pełni funkcję hotelu z elegancką restauracją, klasycznymi pokojami i możliwością zwiedzania. Miejsce pełne historii i tajemniczości.<br>Pkt3. Adres: Sucha, 59-820 Leśna<br>Pkt4. Godziny otwarcia: brak informacji<br>Pkt5. Telefon: 75 721 15 53<br>Pkt6. Strona internetowa: zamekczocha.com<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
           15.303652,51.030774,0
@@ -169,96 +169,97 @@
     <Placemark>
       <name>Zamek Królewski w Chęcinach</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Królewski w Chęcinach<br>Pkt2. Opis: Ruiny zamku z przełomu XIII i XIV wieku, położone na wzgórzu z pięknymi widokami. Z budowli zachowały się wieże, ściany oraz dziedziniec. Miejsce oferuje możliwość zwiedzania, w tym wejścia na wieżę widokową.<br>Pkt3. Adres: Małogoska 7, 26-060 Chęciny<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–15:30<br>Wtorek: 09:00–15:30<br>Środa: 09:00–15:30<br>Czwartek: 09:00–15:30<br>Piątek: 09:00–15:30<br>Sobota: 09:00–15:30<br>Niedziela: 09:00–15:30<br>Pkt5. Telefon: 41 308 00 48<br>Pkt6. Strona internetowa: zamek.checiny.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          20.459654,50.797594,0
+          20.4596535,50.7975943,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek w Krasiczynie</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Krasiczynie<br>Pkt2. Opis: XVII-wieczny zamek renesansowy otoczony pięknym parkiem. Zwiedzanie z przewodnikiem trwa około godziny i obejmuje także lochy oraz wieżę. Zamek oferuje noclegi, restaurację i kawiarnię.<br>Pkt3. Adres: Zamek, 37-741 Krasiczyn<br>Pkt4. Godziny otwarcia: brak informacji<br>Pkt5. Telefon: 16 671 83 21<br>Pkt6. Strona internetowa: krasiczyn.com.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.650112,49.776379,0
+          22.6501121,49.7763786,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Ruiny Zamku w Olsztynie k. Częstochowy</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Ruiny Zamku w Olsztynie k. Częstochowy<br>Pkt2. Opis: XIV-wieczne ruiny zamku położone na wzgórzu, z widokiem na okolicę. Znajduje się tam charakterystyczna cylindryczna wieża, która w przeszłości służyła jako więzienie. Popularne miejsce na spacery, pikniki oraz atrakcja na Szlaku Orlich Gniazd.<br>Pkt3. Adres: Zamkowa 18, 42-256 Olsztyn<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–19:00<br>Wtorek: 09:00–19:00<br>Środa: 09:00–19:00<br>Czwartek: 09:00–19:00<br>Piątek: 09:00–19:00<br>Sobota: 09:00–19:00<br>Niedziela: 09:00–19:00<br>Pkt5. Telefon: 784 628 845<br>Pkt6. Strona internetowa: zamekolsztyn.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.274199,50.749698,0
+          19.2741992,50.7496977,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Golubski</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Golubiu-Dobrzyniu<br><br>Pkt2. Opis:<br>Zamek w Golubiu-Dobrzyniu to XIV-wieczna warownia, przekształcona w XVII wieku w renesansowy pałac. Budowla znajduje się na wzgórzu, z którego rozciąga się malownicza panorama miasta i okolic. W zamku mieści się muzeum, hotel oraz restauracja. Zwiedzanie z przewodnikiem pozwala poznać historię zamku i ciekawostki związane z jego dziejami. W obiekcie organizowane są również turnieje rycerskie oraz inne wydarzenia kulturalne. Pomimo pewnych ograniczeń w zwiedzaniu, miejsce to wyróżnia się niepowtarzalnym klimatem oraz dbałością o detale historyczne.<br><br>Pkt3. Adres: PTTK 13, 87-400 Golub-Dobrzyń<br><br>Pkt4. Godziny otwarcia: brak informacji<br><br>Pkt5. Telefon: 56 683 24 55<br><br>Pkt6. Strona internetowa: zamekgolub.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.04979,53.115361,0
+          19.0497898,53.1153606,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Baranów Sandomierski. Zespół pałacowo - parkowy</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Baranów Sandomierski. Zespół pałacowo-parkowy<br>Pkt2. Opis: XVII-wieczny pałac zwany "Małym Wawelem", otoczony pięknym ogrodem z oranżerią. Wnętrza pałacu oferują stylizowane wyposażenie i możliwość zwiedzania z przewodnikiem. Na miejscu znajdują się restauracja oraz kawiarnia.<br>Pkt3. Adres: Zamkowa 20, 39-450 Baranów Sandomierski<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 10:00–19:00<br>Wtorek: 10:00–19:00<br>Środa: 10:00–19:00<br>Czwartek: 10:00–19:00<br>Piątek: 10:00–19:00<br>Sobota: 10:00–19:00<br>Niedziela: 10:00–19:00<br>Pkt5. Telefon: 15 811 80 39<br>Pkt6. Strona internetowa: baranow.com.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.534476,50.502044,0
+          21.5344762,50.5020438,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek w Wiśniczu</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Wiśniczu<br>Pkt2. Opis: Średniowieczny zamek, który zachwyca freskami, strzelnicami i wystawą narzędzi tortur. Odnowiony i dostępny do zwiedzania z przewodnikiem. W środku znajdują się ekspozycje strojów, zbroi, porcelany oraz sztućców.<br>Pkt3. Adres: 32-720 Stary Wiśnicz<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 08:00–16:00<br>Wtorek: 08:00–16:00<br>Środa: 08:00–16:00<br>Czwartek: 08:00–16:00<br>Piątek: 08:00–16:00<br>Sobota: 09:00–17:00<br>Niedziela: 09:00–17:00<br>Pkt5. Telefon: 14 612 83 41<br>Pkt6. Strona internetowa: zamekwisnicz.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          20.469359,49.917368,0
+          20.4693588,49.9173681,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Letni Pałac Lubomirskich w Rzeszowie</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Letni Pałac Lubomirskich w Rzeszowie<br>Pkt2. Opis: Odrestaurowany pałac z pięknym ogrodem, dostępny do zwiedzania jedynie z zewnątrz. Obecnie wnętrza zajmuje Izba Lekarska. Położony w pobliżu fontanny multimedialnej, parku i Zamku Lubomirskich.<br>Pkt3. Adres: Jana Dekerta 2, 35-231 Rzeszów<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 09:00–17:00<br>Środa: 09:00–17:00<br>Czwartek: 09:00–17:00<br>Piątek: 09:00–17:00<br>Sobota: 09:00–17:00<br>Niedziela: Zamknięte<br>Pkt5. Telefon: brak informacji<br>Pkt6. Strona internetowa: brak informacji<br>Pkt7. Czy dostęp jest płatny: brak informacji]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.002446,50.033958,0
+          22.0024463,50.0339583,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Królewski w Sandomierzu</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Królewski w Sandomierzu<br>Pkt2. Opis: Potężna budowla na wzgórzu, oferująca widoki na Wisłę i panoramę okolic. W środku znajdują się atrakcje muzealne. Miejsce obowiązkowe do zwiedzenia w Sandomierzu.<br>Pkt3. Adres: Zamkowa 12, 27-600 Sandomierz<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 10:00–16:15<br>Środa: 10:00–16:15<br>Czwartek: 10:00–16:15<br>Piątek: 10:00–16:15<br>Sobota: 10:00–16:15<br>Niedziela: 10:00–16:15<br>Pkt5. Telefon: 15 832 22 65<br>Pkt6. Strona internetowa: zamek-sandomierz.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.747586,50.676175,0
+          21.7475861,50.6761747,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Gniew Hotel</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Gniew Hotel<br>Pkt2. Opis: Nowoczesny hotel zlokalizowany w średniowiecznym zamku, oferujący rekonstrukcje walk konnych, uczty rycerskie oraz komfortowe pokoje w historycznym otoczeniu.<br>Pkt3. Adres: Zamkowa 3, 83-140 Gniew<br>Pkt4. Godziny otwarcia: brak informacji<br>Pkt5. Telefon: 58 535 38 80<br>Pkt6. Strona internetowa: zamek-gniew.pl<br>Pkt7. Czy dostęp jest płatny: brak informacji]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          18.827939,53.834444,0
+          18.8279394,53.8344445,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek w Kwidzynie</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Kwidzynie<br>Pkt2. Opis: Ceglana twierdza z XIV wieku połączona z katedrą, oferująca wystawy związane z zakonem krzyżackim oraz innymi tematami historycznymi.<br>Pkt3. Adres: Katedralna 1, 82-500 Kwidzyn<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 09:00–16:00<br>Środa: 09:00–16:00<br>Czwartek: 09:00–16:00<br>Piątek: 09:00–16:00<br>Sobota: 09:00–16:00<br>Niedziela: 09:00–16:00<br>Pkt5. Telefon: 55 646 37 97<br>Pkt6. Strona internetowa: zamek.kwidzyn.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
           18.921474,53.736073,0
@@ -268,160 +269,166 @@
     <Placemark>
       <name>Muzeum Zbrojownia na Zamku w Liwie</name>
       <description><![CDATA[Pkt1. Nazwa lokalizacji: Muzeum Zbrojownia na Zamku w Liwie<br>Pkt2. Opis: Położony przy ruinach zamku dworek z kolekcją broni i zbroi, oferujący widok z wieży na okoliczne pola i rzekę Liwiec.<br>Pkt3. Adres: Stefana Batorego 2, 07-100 Liw<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 10:00–16:00<br>Środa: 10:00–16:00<br>Czwartek: 10:00–16:00<br>Piątek: 10:00–16:00<br>Sobota: 10:00–16:00<br>Niedziela: 10:00–16:00<br>Pkt5. Telefon: 25 792 57 17<br>Pkt6. Strona internetowa: liw-zamek.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
-      <styleUrl>#icon-1598-4E342E</styleUrl>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.970034,52.373484,0
+          21.970034,52.3734842,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Osada Średniowieczna w Hucie Szklanej pod Świętym Krzyżem</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <styleUrl>#icon-1598-A52714-nodesc</styleUrl>
       <Point>
         <coordinates>
-          21.020826,50.863221,0
+          21.0208264,50.8632207,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Ruiny Pałacu Paca</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Ruiny Pałacu Paca w Dowspudzie<br><br>Pkt2. Opis:<br>Ruiny Pałacu Paca to pozostałości neogotyckiego pałacu, zbudowanego w latach 1820–1827 z inicjatywy generała Ludwika Michała Paca. Miejsce, niegdyś imponujące, dziś jest zaniedbane, jednak wciąż zachwyca pozostałym portykiem i wieżą, które przypominają o jego dawnej świetności. Obiekt otoczony jest starym parkiem i aleją lipową, co dodaje mu uroku. Pałac, znany z powiedzenia „Wart Pac pałaca, a pałac Paca”, jest ciekawostką historyczną, choć obecnie pozostaje w ruinie i przegrywa z upływem czasu.<br><br>Pkt3. Adres: Dowspuda<br><br>Pkt4. Godziny otwarcia: czynne całą dobę<br><br>Pkt5. Telefon: brak informacji<br><br>Pkt6. Strona internetowa: brak informacji<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.806016,53.981448,0
-        </coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>Dzwonnica</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
-      <Point>
-        <coordinates>
-          21.238787,53.763886,0
+          22.8060162,53.981448,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Krzyżacki mostek</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Krzyżacki Mostek<br>Pkt2. Opis: Krzyżacki Mostek to niewielka, ale interesująca konstrukcja zlokalizowana w leśnej głuszy. Powstał w 1915 roku jako część niemieckich umocnień obronnych przeciwko armii rosyjskiej. Jego nazwa pochodzi od cesarskiego krzyża umieszczonego na mostku, który stanowi unikalny element dekoracyjny. Mimo że mostek liczy ponad 100 lat, nadal jest w dobrej kondycji. Latem okolica bywa zarośnięta, a rzeczka pod mostkiem często wysycha, co utrudnia robienie zdjęć. Dojazd prowadzi szutrową drogą, jednak miejsce może być trudnodostępne z powodu gęstej roślinności i komarów. Polecane szczególnie miłośnikom historii.<br>Pkt3. Adres: Unnamed Road<br>Pkt4. Godziny otwarcia:<br>Pkt5. Telefon:<br>Pkt6. Strona internetowa:<br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.840995,53.826694,0
+          21.840995,53.8266942,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Świątynia Dumania (ruiny XIX wiecznej kaplicy)</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Świątynia Dumania - ruiny XIX-wiecznej kaplicy<br>Pkt2. Opis: Świątynia Dumania to tajemnicze ruiny XIX-wiecznej kaplicy, zlokalizowane na Wyspie Gilma, która stanowi rezerwat przyrody na Jeziorze Dobskim. Ruiny znajdują się na najwyższym punkcie wyspy i prowadzą do nich wąskie ścieżki przez las. Miejsce to owiane jest legendami, a niektórzy wierzą, że dawniej było miejscem mocy lub ostatnią warownią Galindów. Wyspa objęta jest zakazem cumowania i obowiązkiem zachowania ciszy, co podkreśla jej dziewiczy charakter. Sama kaplica to malownicze ruiny, które pozwalają na chwilę zadumy w otoczeniu natury. Na wyspę można się dostać jedynie łodzią, co dodaje miejscu uroku i ekskluzywności.<br>Pkt3. Adres: Wyspa Gilma, 11-500 Doba<br>Pkt4. Godziny otwarcia: czynne całą dobę<br>Pkt5. Telefon:<br>Pkt6. Strona internetowa:<br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.600533,54.081207,0
+          21.6005326,54.0812074,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Biskupi w Lidzbarku Warmińskim</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Biskupi w Lidzbarku Warmińskim<br>Pkt2. Opis: Zamek Biskupi w Lidzbarku Warmińskim to doskonale zachowany gotycki obiekt, nazywany "Wawelem Północy". Wybudowany w XIV wieku, pełnił funkcję siedziby biskupów warmińskich, w tym takich postaci jak Ignacy Krasicki czy Mikołaj Kopernik. Obecnie w zamku mieści się muzeum oferujące bogate ekspozycje historyczne, zbiory sztuki, malarstwa i eksponaty archeologiczne. Zwiedzający mogą odwiedzić wnętrza, takie jak kaplica, Wielki Refektarz czy zbrojownia, a także wejść na wieżę widokową, skąd roztacza się panorama Lidzbarka Warmińskiego. Warto zarezerwować kilka godzin na pełne zwiedzanie tej perełki architektury gotyckiej.<br>Pkt3. Adres: Plac Zamkowy 1, 11-100 Lidzbark Warmiński<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 11:00–19:00<br>Środa: 09:00–17:00<br>Czwartek: 11:00–19:00<br>Piątek: 09:00–17:00<br>Sobota: 09:00–17:00<br>Niedziela: 09:00–17:00<br>Pkt5. Telefon: 89 767 21 11<br>Pkt6. Strona internetowa: lidzbark.muzeum.olsztyn.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          20.58294,54.125997,0
+          20.5829401,54.1259967,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek krzyżacki w Przezmarku</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek krzyżacki w Przezmarku<br>Pkt2. Opis: Zamek krzyżacki w Przezmarku to obiekt z XIV wieku, z którego do dziś zachowała się imponująca wieża o wysokości 35 metrów, pełniąca niegdyś funkcje obronne, sygnalizacyjne i więzienne. Zamek jest obecnie w rękach prywatnych i dzięki zaangażowaniu właściciela, pana Ryszarda, miejsce to odzyskuje dawny blask. Pan Ryszard z pasją opowiada o historii zamku, a jego starania obejmują m.in. odnowienie wieży oraz zagospodarowanie terenu wokół. Wieża zamkowa zawiera wiele ciekawych eksponatów związanych z historią tego miejsca. Zwiedzanie obiektu to wyjątkowe doświadczenie, podczas którego można poznać nie tylko historię zamku, ale również pasję ludzi, którzy poświęcili się jego odnowie.<br>Pkt3. Adres: DW519 48, 82-450 Przezmark<br>Pkt4. Godziny otwarcia: brak informacji<br>Pkt5. Telefon: 606 641 097<br>Pkt6. Strona internetowa: zamekprzezmark.pl<br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.495318,53.858325,0
+          19.495318,53.8583248,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zabytkowe wodociągi</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zabytkowe wodociągi, Prabuty<br>Pkt2. Opis: Zabytkowe wodociągi w Prabutach to unikalna atrakcja, umożliwiająca zwiedzanie podziemnych korytarzy rozciągających się na kilkaset metrów pod rynkiem. Podziemia, położone około 3,5 metra pod ziemią, są oświetlone i mają specyficzny mikroklimat. To wyjątkowy zabytek w skali kraju, zachowany w dobrym stanie. Zwiedzanie odbywa się wyłącznie w towarzystwie przewodnika, co pozwala na bliższe poznanie historii miasta. Zimą wodociągi stają się schronieniem dla nietoperzy, co czyni je jeszcze bardziej interesującym miejscem.<br>Pkt3. Adres: Wałowa 1, 82-550 Prabuty<br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: zamknięte<br>Wtorek: 12:00–18:00<br>Środa: 12:00–18:00<br>Czwartek: 12:00–18:00<br>Piątek: 12:00–18:00<br>Sobota: 12:00–18:00<br>Niedziela: 12:00–18:00<br>Pkt5. Telefon: 55 278 23 19<br>Pkt6. Strona internetowa: pckis.pl<br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.200153,53.758847,0
+          19.2001528,53.758847,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Ruiny Kościoła</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Ruiny Kościoła w Wojnowicach<br>Pkt2. Opis: Ruiny Kościoła w Wojnowicach to klimatyczne miejsce z bogatą historią, sięgającą roku 1294, kiedy to pierwotna, drewniana konstrukcja została zastąpiona murowanym budynkiem. Niestety, obiekt uległ znacznym zniszczeniom podczas II wojny światowej i obecnie grozi zawaleniem. Mimo to ruiny wciąż robią wrażenie na odwiedzających, zwłaszcza z uwagi na ich unikalny charakter i malownicze otoczenie. Na terenie obiektu znajduje się cmentarz, co dodatkowo nadaje temu miejscu wyjątkowej atmosfery. Warto zachować ostrożność podczas zwiedzania, ponieważ konstrukcja jest bardzo osłabiona.<br>Pkt3. Adres: 48-130 Wojnowice<br>Pkt4. Godziny otwarcia: czynne całą dobę<br>Pkt5. Telefon:<br>Pkt6. Strona internetowa:<br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          17.883378,50.115397,0
+          17.8833783,50.1153966,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Wieża Ratuszowa</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Wieża Ratuszowa w Głogowie<br>Pkt2. Opis: Wieża Ratuszowa w Głogowie to wyjątkowa atrakcja, oferująca przepiękne widoki na panoramę miasta i jego okolic. Wysoka na niemal 80 metrów, jest jedną z najwyższych wież ratuszowych w Polsce. Na kolejnych piętrach znajdują się wystawy poświęcone historii Głogowa, pełne rycin, zdjęć i artefaktów, które pozwalają zwiedzającym bliżej poznać dzieje tego miejsca. Wstęp na wieżę zapewnia także możliwość odwiedzenia tarasu widokowego, skąd można podziwiać piękno okolicznego krajobrazu. To doskonałe miejsce zarówno dla miłośników historii, jak i tych, którzy szukają wyjątkowych widoków.<br>Pkt3. Adres: Rynek 10, 67-200 Głogów<br>Pkt4. Godziny otwarcia:<br><br>poniedziałek: zamknięte<br>wtorek: 08:00–15:00<br>środa: 08:00–15:00<br>czwartek: 08:00–15:00<br>piątek: 08:00–15:00<br>sobota: 09:00–16:00<br>niedziela: 09:00–16:00<br>Pkt5. Telefon: 76 726 54 51<br>Pkt6. Strona internetowa: glogow.pl<br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          16.092797,51.663932,0
+          16.092797,51.6639325,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Wapiennik</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Wapiennik w Golubkach<br>Pkt2. Opis: Wapiennik w Golubkach to ciekawy, choć zaniedbany obiekt położony na uboczu, za gospodarstwem rolnym. Pomimo upływu czasu i złego stanu technicznego, miejsce to wciąż przyciąga uwagę. Zwiedzający mogą wejść do środka i obejrzeć pozostałości dawnego pieca do wypalania wapna. Niestety, okolica jest częściowo zarośnięta, co utrudnia dostęp, ale jednocześnie nadaje miejscu nieco tajemniczy klimat.<br>Pkt3. Adres:<br>Pkt4. Godziny otwarcia:<br>Pkt5. Telefon:<br>Pkt6. Strona internetowa:<br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.445605,54.097668,0
+          22.4456048,54.097668,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zespół Pałacowy Radziwiłłów w Białej</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zespół Pałacowy Radziwiłłów w Białej Podlaskiej<br><br>Pkt2. Opis: Zespół Pałacowy Radziwiłłów w Białej Podlaskiej to zachwycający kompleks architektoniczny, stanowiący dawną siedzibę rodu Radziwiłłów. Mimo że sam pałac nie zachował się w całości, teren obfituje w odrestaurowane elementy, takie jak brama wjazdowa, bastionowe umocnienia ziemne, ogród włoski, wieża oraz park. Miejsce jest idealne zarówno na spacer, jak i rowerową przejażdżkę, oferując wiele atrakcji, w tym Muzeum Południowego Podlasia z interesującymi wystawami historycznymi. Kompleks zachwyca zadbanymi terenami, fontannami i spokojną atmosferą. Organizowane są tu również wydarzenia plenerowe, a nocą park i budynki są pięknie podświetlone.<br><br>Pkt3. Adres: Warszawska, 21-500 Biała Podlaska<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon: 83 341 67 57<br><br>Pkt6. Strona internetowa: muzeumbiala.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          23.114961,52.031018,0
+          23.1149611,52.0310184,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Kamienny Młyn Wodny Łowczego</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Kamienny Młyn Wodny Łowczego<br><br>Pkt2. Opis: Kamienny Młyn Wodny Łowczego to urokliwe i zaciszne miejsce, idealne na odpoczynek od codziennego zgiełku. Położony w malowniczej okolicy, z dala od dróg i zabudowań, młyn zachwyca swoim klimatem i odrestaurowanym wyglądem. To doskonała przestrzeń do relaksu w gronie rodziny czy przyjaciół. Otoczony lasami i polami, zapewnia wyjątkowe wrażenie bliskości natury. Właściciele zadbali o zachowanie oryginalnego charakteru miejsca, co czyni je jeszcze bardziej wyjątkowym.<br><br>Pkt3. Adres: 08-200 Patków<br><br>Pkt4. Godziny otwarcia:<br><br>Pkt5. Telefon: 668 499 050<br><br>Pkt6. Strona internetowa: facebook.com<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.759127,52.276685,0
+          22.7591269,52.2766849,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Sosna Powstańców 1863</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Sosna Powstańców z 1863<br><br>Pkt2. Opis: Sosna Powstańców 1863 to wyjątkowe miejsce pamięci historycznej, znajdujące się na południowym krańcu wsi Górki, w Puszczy Kampinoskiej. Jest to pomnik upamiętniający tragiczne wydarzenia Powstania Styczniowego, kiedy to carscy żołnierze wieszali na drzewie schwytanych powstańców. Choć sosna obecnie jest obumarła, jej pozostałości nadal przypominają o bohaterskich czynach i martyrologii powstańców. Wokół drzewa znajduje się zadbane otoczenie z krzyżami i tablicą pamiątkową, co podkreśla wagę tego miejsca w polskiej historii. Każdego roku odbywają się tu uroczystości upamiętniające poległych bohaterów. To miejsce zadumy, idealne na spacer wśród przyrody i refleksję nad historią Polski.<br><br>Pkt3. Adres: 8G6C+PM Nowe Budy<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          20.521701,52.311801,0
+          20.5217014,52.3118007,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Skansen w Starym Młynie</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Skansen w Starym Młynie<br><br>Pkt2. Opis: Skansen w Starym Młynie to wyjątkowe miejsce, które oferuje zwiedzającym podróż w czasie. Składa się z dwóch obiektów - młyna oraz muzeum po drugiej stronie drogi. W pełni zachowany młyn, z oryginalnym wyposażeniem, pozwala zrozumieć proces mielenia ziarna na mąkę. Przewodnicy, pełni pasji, dzielą się ciekawostkami na temat historii młynarstwa i regionu. W muzeum można podziwiać liczne eksponaty, w tym zabytkowe przedmioty codziennego użytku, artefakty z okresu PRL, a nawet skamieniałości. Wystawy są przemyślane i uporządkowane, co pozwala na ciekawą eksplorację historii. To doskonałe miejsce zarówno dla dorosłych, jak i dzieci, które mogą poznać fascynujące aspekty dawnego życia.<br><br>Pkt3. Adres: Naćmierz 13, 76-107 Naćmierz<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 10:00–16:00<br>Środa: 10:00–16:00<br>Czwartek: 10:00–16:00<br>Piątek: 10:00–16:00<br>Sobota: 10:00–16:00<br>Niedziela: 10:00–16:00<br>Pkt5. Telefon: 509 244 532<br><br>Pkt6. Strona internetowa: facebook.com<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          16.55303,54.509965,0
+          16.5530305,54.5099647,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Most rozsuwany im. kpt. Witolda Huberta w Darłówku</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Most rozsuwany imienia kpt. Witolda Huberta w Darłówku<br><br>Pkt2. Opis: Most rozsuwany w Darłówku to jedyna tego typu konstrukcja w Polsce, która stanowi jedną z głównych atrakcji turystycznych miejscowości. Most łączy Darłówko Wschodnie z Zachodnim, umożliwiając pieszym przeprawę przez rzekę Wieprzę. Jego unikalna budowa pozwala na rozsuwanie mostu w momencie, gdy do portu wpływają statki, jachty lub kutry rybackie. Proces rozsuwania jest wyjątkowym widowiskiem, które przyciąga zarówno dorosłych, jak i dzieci. Most został wzniesiony w miejsce starego mostu zwodzonego i od lat łączy funkcjonalność z niepowtarzalnym charakterem inżynierskim.<br><br>Pkt3. Adres: Most Imienia Kapitana Witolda Huberta, 76-150 Darłowo<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          16.380254,54.439296,0
+          16.3802538,54.4392955,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Baszta Czarownic</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Baszta Czarownic w Słupsku<br><br>Pkt2. Opis: Baszta Czarownic to jeden z najbardziej charakterystycznych zabytków Słupska, położony malowniczo nad brzegiem rzeki Słupi. Obiekt pełni funkcję galerii sztuki współczesnej, w której organizowane są czasowe wystawy. Historia baszty sięga czasów, gdy pełniła funkcję więzienia dla kobiet oskarżanych o czary, co dodaje temu miejscu niezwykłego klimatu i tajemniczości. Budynek jest odrestaurowany, a otoczenie wokół baszty zachęca do spacerów, szczególnie wzdłuż bulwarów nad Słupią. W środku znajdują się różne wystawy, choć część zwiedzających oczekiwałaby większego nawiązania do dawnego przeznaczenia obiektu. Baszta z zachowaną gotycką architekturą stanowi ważny punkt na mapie zabytków Słupska.<br><br>Pkt3. Adres: Francesco Nullo 8, 76-200 Słupsk<br><br>Pkt4. Godziny otwarcia:<br><br>Wtorek: 11:00–19:00<br>Środa: 09:00–17:00<br>Czwartek: 09:00–17:00<br>Piątek: 09:00–17:00<br>Sobota: 09:00–17:00<br>Niedziela: zamknięte<br>Poniedziałek: zamknięte<br>Pkt5. Telefon: 59 841 26 21<br><br>Pkt6. Strona internetowa: bgsw.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
           17.034025,54.465499,0
@@ -430,187 +437,208 @@
     </Placemark>
     <Placemark>
       <name>Ruiny kościoła św. Mikołaja</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Ruiny kościoła św. Mikołaja w Łebie<br><br>Pkt2. Opis: Ruiny kościoła św. Mikołaja w Łebie to jeden z nielicznych zachowanych śladów dawnej Łeby, zniszczonej przez sztormy i pochłoniętej przez piasek w XVI wieku. Obiekt, datowany na XIV wiek, jest obecnie ograniczony do fragmentu ceglanej ściany, który przetrwał wieki i przypomina o burzliwej historii tego miejsca. Ruiny znajdują się w lesie, blisko plaży, co sprawia, że są łatwo dostępne podczas spaceru. Niestety, brak tablic informacyjnych i odpowiedniego oznakowania sprawia, że historia kościoła nie jest w pełni ukazana. Mimo to, miejsce to przyciąga turystów swoją symboliczną wartością i pozwala wyobrazić sobie dawną świetność Starej Łeby.<br><br>Pkt3. Adres: Turystyczna 1, 84-360 Łeba<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          17.536025,54.764016,0
+          17.5360254,54.7640164,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Stary spichlerz - ruiny</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Ruiny Starego Spichlerza w Kłaninie<br><br>Pkt2. Opis: Ruiny Starego Spichlerza w Kłaninie to malownicze pozostałości dawnej budowli, które znajdują się na terenie przypałacowym. Miejsce to urzeka klimatyczną atmosferą i jest chętnie odwiedzane przez turystów. W okolicy można znaleźć miejsce na ognisko, a także zrelaksować się podczas spaceru po folwarku i parku. Ruiny otoczone są innymi interesującymi obiektami, w tym wyremontowanym spichlerzem oraz pałacem w Kłaninie.<br><br>Pkt3. Adres: 84-107 Kłanino<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          18.242889,54.76431,0
+          18.2428893,54.7643096,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Wczesnośredniowieczne Grodzisko Pruskie</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Wczesnośredniowieczne Grodzisko Pruskie<br><br>Pkt2. Opis: Wczesnośredniowieczne Grodzisko Pruskie to miejsce z wyjątkowym klimatem, szczególnie polecane miłośnikom przyrody i historii. Znajduje się na Szlaku Doliny Wałszy, który jest doskonale zorganizowany, oferując możliwość relaksujących spacerów w otoczeniu natury. Samo grodzisko to pozostałości dawnej osady, jednak brak wyraźnych oznaczeń sprawia, że odnalezienie miejsca może być wyzwaniem. Tablica informacyjna pomaga zidentyfikować to historyczne miejsce.<br><br>Pkt3. Adres: Unnamed Road, okolice Pieniężna<br><br>Pkt4. Godziny otwarcia:<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          20.101173,54.2242,0
+          20.1011733,54.2242001,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name><![CDATA[Bocznica kolejowa "Be" dawnego Wojskowego Rejonu Przeładunkowego Braniewo]]></name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Bocznica kolejowa "Be" dawnego Wojskowego Rejonu Przeładunkowego w Braniewie<br><br>Pkt2. Opis: Bocznica kolejowa "Be" to interesujący obiekt, który przyciąga miłośników eksploracji i historii. To dawna część Wojskowego Rejonu Przeładunkowego w Braniewie, oferująca niezwykłe wrażenia dla osób poszukujących nietypowych miejsc. Odwiedzający chwalą miejsce za atmosferę, a także za możliwość odkrywania jego zakamarków, jednak podkreślają, że należy je szanować i nie dopuszczać do aktów wandalizmu. Miejsce to było także odwiedzane przez turystyczne pociągi parowe, co dodatkowo podkreśla jego historyczne znaczenie.<br><br>Pkt3. Adres: Płoskinia<br><br>Pkt4. Godziny otwarcia:<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa: starejuchy.pl<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.780084,54.277483,0
+          19.7800841,54.2774826,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Muzeum w Mrągowie</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Muzeum w Mrągowie<br><br>Pkt2. Opis: Muzeum w Mrągowie to niewielka, ale pełna pasji instytucja, będąca oddziałem Muzeum Warmii i Mazur. Wystawy skupiają się na historii miasta, archeologii regionu oraz rozwoju turystyki na Mazurach. Znajdziemy tu różnorodne eksponaty, fotografie oraz pamiątki związane z historią Mrągowa, od epoki brązu po czasy współczesne, w tym początki Festiwalu Country. Na miejscu panuje przyjazna atmosfera, a pracownicy muzeum chętnie dzielą się swoją wiedzą i pasją. Ciekawostką są eksponaty oznaczone białą rączką, które można dotknąć, co sprawia, że miejsce jest atrakcyjne również dla dzieci.<br><br>Pkt3. Adres: Ratuszowa 5, 11-700 Mrągowo<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–16:00<br>Wtorek: 09:00–16:00<br>Środa: 09:00–16:00<br>Czwartek: 09:00–16:00<br>Piątek: 09:00–16:00<br>Sobota: 09:00–16:00<br>Niedziela: Zamknięte<br>Pkt5. Telefon: 89 741 28 12<br><br>Pkt6. Strona internetowa: mragowo.muzeum.olsztyn.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.304245,53.870434,0
+          21.3042448,53.8704342,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Młyn wodny</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zabytkowy Młyn Wodny w Stradunach<br><br>Pkt2. Opis: Zabytkowy młyn wodny w Stradunach to niezwykłe miejsce, które przyciąga miłośników inżynierii i historii. Wybudowany w 1932 roku, młyn pełnił różne funkcje na przestrzeni lat, w tym szkoły podstawowej po 1945 roku, a obecnie działa tu mała elektrownia wodna. Budynek znajduje się w malowniczej okolicy, co czyni go idealnym punktem do odwiedzenia podczas spacerów. Pomimo częściowego zdewastowania, młyn wciąż zachowuje swój unikalny urok i pozostaje istotnym zabytkiem regionu.<br><br>Pkt3. Adres: ul. Szkolna, Straduny<br><br>Pkt4. Godziny otwarcia:<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.342154,53.889109,0
+          22.3421543,53.8891087,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zabytkowy most kolei wąskotorowej</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zabytkowy most Ełckiej Kolei Wąskotorowej<br><br>Pkt2. Opis: Most Ełckiej Kolei Wąskotorowej to wyjątkowy zabytek inżynierii kolejowej, który znajduje się w malowniczej okolicy nad rzeką Legą, w miejscowości Sypitki. Wybudowany na początku XX wieku, obecnie wyłączony z eksploatacji, służy jako atrakcja turystyczna. Można na niego bezpiecznie wejść i przejść na drugą stronę rzeki, podziwiając piękne widoki i wyjątkowy klimat tego miejsca. Most znajduje się na trasie dawnej kolejki wąskotorowej, a w okolicy można również urządzić ognisko, co czyni go świetnym miejscem na rodzinne wypady.<br><br>Pkt3. Adres: 19-314 Sypitki<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa: info.elk.pl<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.566122,53.787839,0
+          22.5661222,53.7878388,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Dawna Stacja Kolejowa Pozezdrze</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Dawna stacja kolejowa w Pozezdrzu<br><br>Pkt2. Opis: Dawna stacja kolejowa w Pozezdrzu to historyczny budynek, który zachował swoje oryginalne kontury. Obecnie służy jako budynek mieszkalny, jednak brak tablic informacyjnych czy torów kolejowych utrudnia rozpoznanie jego pierwotnej funkcji. Mimo to, miejsce ma swój urok i przyciąga miłośników historii kolejnictwa.<br><br>Pkt3. Adres: Kolejowa 1, 11-610 Pozezdrze<br><br>Pkt4. Godziny otwarcia:<br><br>Środa: 08:00–22:00<br>Czwartek: 08:00–22:00<br>Piątek: Czynne całą dobę<br>Sobota: Czynne całą dobę<br>Niedziela: 08:00–12:00<br>Poniedziałek: 08:00–22:00<br>Wtorek: 08:00–22:00<br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa: facebook.com<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.866799,54.139781,0
+          21.8667987,54.1397812,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Stary Młyn w Turtulu</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Stary Młyn w Turtulu<br><br>Pkt2. Opis: Stary Młyn w Turtulu to malownicze ruiny młyna wodnego, które stały się popularną atrakcją Suwalskiego Parku Krajobrazowego. Znajduje się tu również punkt widokowy oferujący wspaniałe panoramy na Dolinę Czarnej Hańczy oraz okoliczne stawy. Ruiny, choć skromne, są doskonałym miejscem na chwilę zadumy nad historią regionu. Okolica oferuje także ścieżki edukacyjne, nowoczesną wieżę widokową i urokliwe krajobrazy, które zachwycą każdego miłośnika natury. To idealne miejsce na spacery i odpoczynek wśród przyrody.<br><br>Pkt3. Adres: 16-404 Malesowizna<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon: 87 569 18 01<br><br>Pkt6. Strona internetowa: spk.org.pl<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.811272,54.222037,0
+          22.8112722,54.2220367,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Most Kolejowy</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Most Kolejowy w Samborowie<br><br>Pkt2. Opis: Most Kolejowy w Samborowie to interesujący zabytek architektury inżynieryjnej, który łączy elementy kolejowe, hydrotechniczne i militarne. Wzniesiony na początku XX wieku, most był ufortyfikowany w celach obronnych. Po obu stronach znajdują się schrony i urządzenia hydrotechniczne, które dodatkowo urozmaicają to miejsce. Most jest popularnym punktem na trasach pieszych, rowerowych oraz spływów kajakowych. Malownicze otoczenie rzeki Drwęcy i historyczny charakter sprawiają, że warto go odwiedzić.<br><br>Pkt3. Adres: 14-100 Samborowo<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.80906,53.671678,0
+          19.8090605,53.671678,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Grodzisko wczesnośredniowieczne Stupsk</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Grodzisko wczesnośredniowieczne w Stupsku<br><br>Pkt2. Opis: Grodzisko wczesnośredniowieczne w Stupsku to miejsce o bogatej historii, które zachwyca swoim autentycznym charakterem. Obiekt znajduje się w malowniczej okolicy, co dodatkowo podkreśla jego wyjątkowość. Wrażenie robią zarówno historyczne pozostałości, jak i naturalne otoczenie.<br><br>Pkt3. Adres: Unnamed Road, 06-561<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          20.400097,53.013243,0
+          20.4000972,53.0132426,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Pałac w Mojej Woli</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Pałac Myśliwski w Mojej Woli<br><br>Pkt2. Opis: Pałac w Mojej Woli to unikatowa budowla z XIX wieku, znana z elewacji obłożonej korą dębu korkowego sprowadzonego z Portugalii. Jest to jedyne takie miejsce w Polsce i jedno z niewielu w Europie. Budowla wyróżnia się niezwykłą architekturą i fascynującym, mrocznym klimatem, co czyni ją wyjątkową atrakcją turystyczną. Obiekt, mimo swojego uroku, wymaga pilnej renowacji, ponieważ obecnie można go oglądać jedynie z zewnątrz. Otoczony lasem, stanowi malownicze i spokojne miejsce, które przyciąga miłośników historii i architektury.<br><br>Pkt3. Adres: 63-435 Moja Wola<br><br>Pkt4. Godziny otwarcia:<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          17.602384,51.473964,0
+          17.6023839,51.473964,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Twierdza Srebrna Góra</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Twierdza w Srebrnej Górze<br><br>Pkt2. Opis: Twierdza Srebrna Góra to monumentalna fortyfikacja górska z XVIII wieku, zbudowana na polecenie króla Prus, Fryderyka II. Jest to największa tego typu budowla w Europie, imponująca rozmachem i architekturą. Obiekt oferuje zwiedzanie z przewodnikiem, który z pasją opowiada o historii twierdzy, życiu żołnierzy i jej znaczeniu w historii wojskowości. Wśród atrakcji znajdują się multimedialne ekspozycje, nocne zwiedzanie z wystrzałem z armaty oraz zapierające dech w piersiach widoki na Góry Sowie. Na terenie znajduje się także hostel oraz restauracja utrzymana w klimacie XVIII wieku. Twierdza jest stale modernizowana i rozbudowywana, co przyciąga turystów poszukujących zarówno historii, jak i niesamowitych krajobrazów.<br><br>Pkt3. Adres: Kręta 4, 57-215 Srebrna Góra<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 10:00–17:00<br>Wtorek: 10:00–17:00<br>Środa: 10:00–17:00<br>Czwartek: 10:00–17:00<br>Piątek: 10:00–17:00<br>Sobota: 10:00–17:00<br>Niedziela: 10:00–17:00<br>Pkt5. Telefon: 74 818 00 99<br><br>Pkt6. Strona internetowa: forty.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          16.642754,50.574074,0
+          16.6427538,50.5740737,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Ruiny Zamku Krzyżtopór w Ujeździe</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Ruiny Zamku Krzyżtopór<br><br>Pkt2. Opis: Ruiny Zamku Krzyżtopór w Ujeździe to niezwykły przykład magnackiej rezydencji z XVII wieku, zbudowanej na wzór włoskiego palazzo in fortezza. Obiekt, uznawany za jeden z największych w Europie przed powstaniem Wersalu, imponuje swoją monumentalnością i rozmachem. Zamek posiada symbolikę kalendarzową – cztery wieże symbolizują pory roku, 12 sal – miesiące, 52 komnaty – tygodnie, a 365 okien odpowiada dniom w roku. Ruiny zachwycają wyjątkowym klimatem, architekturą i licznymi korytarzami oraz zakamarkami, które można eksplorować. Obiekt oferuje kilka tras zwiedzania, w tym także nocne wycieczki z pochodniami, które dodają magii temu miejscu. Na miejscu znajdują się darmowe parkingi, kawiarenka oraz możliwość zwiedzania z przewodnikiem, co pozwala poznać fascynującą historię zamku.<br><br>Pkt3. Adres: Ujazd 73, 27-570 Ujazd<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 08:00–16:00<br>Wtorek: 08:00–16:00<br>Środa: 08:00–16:00<br>Czwartek: 08:00–16:00<br>Piątek: 08:00–16:00<br>Sobota: 08:00–16:00<br>Niedziela: 08:00–16:00<br>Pkt5. Telefon: 15 860 11 33<br><br>Pkt6. Strona internetowa: krzyztopor.org.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.310466,50.714071,0
+          21.3104662,50.7140713,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Kościół Wang</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Kościół Wang<br><br>Pkt2. Opis: Kościół Wang w Karpaczu to wyjątkowy XII-wieczny drewniany obiekt sakralny, sprowadzony z Norwegii w 1842 roku. Został zbudowany na wzór łodzi wikingów bez użycia gwoździ, co czyni go architektonicznym arcydziełem. Położony w malowniczym otoczeniu Karkonoszy, oferuje niezwykłe widoki na okolicę. Świątynia jest jednym z najstarszych kościołów drewnianych w Polsce i symbolem Karpacza. W jej pobliżu znajduje się historyczny cmentarz, na którym spoczywa m.in. Tadeusz Różewicz. Kościół przyciąga nie tylko swoją unikalną konstrukcją, ale także bogatą historią i atmosferą, która zachwyca każdego odwiedzającego.<br><br>Pkt3. Adres: Na Śnieżkę 8, 58-540 Karpacz<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–17:00<br>Wtorek: 09:00–17:00<br>Środa: 09:00–17:00<br>Czwartek: 09:00–17:00<br>Piątek: 09:00–17:00<br>Sobota: 09:00–17:00<br>Niedziela: 11:30–17:00<br>Pkt5. Telefon: 75 752 82 90<br><br>Pkt6. Strona internetowa: wang.com.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          15.724084,50.77738,0
+          15.7240839,50.7773804,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Pałac w Pławniowicach</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Pałac w Pławniowicach<br><br>Pkt2. Opis: Pałac w Pławniowicach to neomanieryczna perła architektoniczna z końca XIX wieku, wzniesiona przez ród von Ballestrem, jedną z najbogatszych rodzin przemysłowych na Śląsku. Obiekt urzeka połączeniem stylu niderlandzkiego i neogotyckiego, a także doskonałym stanem zachowania. Otoczony pięknym parkiem, stanowi idealne miejsce na spacery i odpoczynek. Wnętrza pałacu są dostępne dla zwiedzających w określonych godzinach, choć udostępniona część jest niewielka. Teren parku i pałacu to wyjątkowa atrakcja pełna uroku, historii oraz spokoju, idealna dla miłośników zabytkowej architektury i malowniczych krajobrazów.<br><br>Pkt3. Adres: Pałac Ballestremów, Gliwicka 46, 44-171 Pławniowice<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 14:00–15:30<br>Środa: Zamknięte<br>Czwartek: 14:00–15:30<br>Piątek: Zamknięte<br>Sobota: Zamknięte<br>Niedziela: 12:30–14:30<br>Pkt5. Telefon: 32 230 55 51<br><br>Pkt6. Strona internetowa: palac.plawniowice.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          18.477388,50.38475,0
+          18.4773876,50.3847496,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Tworków - ruiny pałacu</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Tworków – ruiny pałacu<br><br>Pkt2. Opis: Ruiny pałacu w Tworkowie to niezwykle klimatyczne miejsce o bogatej historii, sięgającej średniowiecza. Obiekt zachwyca odnowionymi krużgankami, arkadami oraz wieżą widokową, z której roztacza się malowniczy widok na okolicę. Teren jest zadbany, a ruiny zabezpieczone, co pozwala na ich bezpieczne zwiedzanie. W pałacu organizowane są także wystawy, koncerty i sesje zdjęciowe, co podkreśla wyjątkowy charakter tego miejsca. Na odwiedzających czeka również przystosowana sala oraz wiekowe drzewa w sąsiednim parku. Miejsce idealne na relaks, spacer czy krótką wycieczkę w historycznej scenerii.<br><br>Pkt3. Adres: Parkowa, 47-451 Tworków<br><br>Pkt4. Godziny otwarcia: brak informacji<br><br>Pkt5. Telefon: 500 048 566<br><br>Pkt6. Strona internetowa: brak informacji<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          18.236763,50.011744,0
+          18.2367628,50.0117444,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Hermanna von Pücklera</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Hermanna von Pücklera w Parku Mużakowskim<br><br>Pkt2. Opis:<br>Zamek Hermanna von Pücklera, usytuowany w malowniczym Parku Mużakowskim, jest doskonałym przykładem harmonii między architekturą a naturą. Obiekt, pieczołowicie odbudowany po zniszczeniach wojennych, zachwyca swoim neorenesansowym stylem. Wnętrza zamku oferują interaktywne wystawy, opowiadające historię ekscentrycznego właściciela Hermanna von Pücklera oraz powstania parku wpisanego na listę UNESCO. Warto wspiąć się na wieżę zamkową, skąd roztacza się wspaniały widok na otaczającą zieleń i przepływającą przez park rzekę. Park otaczający zamek oferuje świetnie przygotowane trasy spacerowe i rowerowe, a także liczne zakątki idealne do odpoczynku. W zamkowej kawiarni można spróbować lokalnych przysmaków i napić się kawy.<br><br>Pkt3. Adres: 02953 Bad Muskau, Niemcy<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 10:00–18:00<br>Wtorek: 10:00–18:00<br>Środa: 10:00–18:00<br>Czwartek: 10:00–18:00<br>Piątek: 10:00–18:00<br>Sobota: 10:00–18:00<br>Niedziela: 10:00–18:00<br>Pkt5. Telefon: +49 35771 63100<br><br>Pkt6. Strona internetowa: muskauer-park.de<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          14.723103,51.547534,0
+          14.7231026,51.5475343,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Piastowski w Raciborzu - Punkt Informacji Turystycznej</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Piastowski w Raciborzu<br><br>Pkt2. Opis: Zamek Piastowski w Raciborzu to odrestaurowana średniowieczna warownia z XIII wieku, obejmująca m.in. piękną kaplicę w stylu gotyckim. Obiekt łączy w sobie historyczną atmosferę z nowoczesnymi rozwiązaniami multimedialnymi, które wzbogacają zwiedzanie. W środku znajdują się wystawy broni, interaktywne atrakcje oraz ciekawie przedstawiona historia zamku i miasta. Na dziedzińcu zamkowym odbywają się liczne wydarzenia, takie jak jarmarki i koncerty. Zwiedzanie odbywa się z przewodnikiem, a kaplica i inne części obiektu przyciągają uwagę zarówno dorosłych, jak i dzieci.<br><br>Pkt3. Adres: Zamkowa 2, 47-400 Racibórz<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 08:00–18:00<br>Środa: 08:00–18:00<br>Czwartek: 08:00–18:00<br>Piątek: 08:00–18:00<br>Sobota: 08:00–18:00<br>Niedziela: 08:00–18:00<br>Pkt5. Telefon: 32 414 02 33<br><br>Pkt6. Strona internetowa: zamekpiastowski.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          18.221004,50.096044,0
+          18.2210036,50.0960442,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek. Muzeum Piastów Śląskich w Brzegu</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Piastów Śląskich w Brzegu<br><br>Pkt2. Opis: Zamek Piastów Śląskich w Brzegu to wyjątkowe miejsce na mapie Dolnego Śląska, nazywane często „Śląskim Wawelem”. Budowla pochodzi z XIII wieku i była wielokrotnie przebudowywana, zachwycając dziś renesansową architekturą oraz bogato zdobioną bramą wjazdową. W zamku mieści się muzeum z obszernymi zbiorami historycznymi, w tym kolekcjami broni, zbroi, obrazów, mebli i monet. Na szczególną uwagę zasługują krypty z sarkofagami Piastów Śląskich oraz galerie sztuki sakralnej. W środę wstęp jest darmowy, co przyciąga wielu odwiedzających. Zwiedzanie można uzupełnić audioprzewodnikiem, który krok po kroku prowadzi przez bogato wyposażone wnętrza.<br><br>Pkt3. Adres: plac Zamkowy 1, 49-300 Brzeg<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 10:00–16:30<br>Środa: 10:00–16:30<br>Czwartek: 10:00–16:30<br>Piątek: 10:00–16:30<br>Sobota: 10:00–16:30<br>Niedziela: 10:00–16:30<br>Pkt5. Telefon: 77 416 32 57<br><br>Pkt6. Strona internetowa: zamek.brzeg.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          17.466646,50.863528,0
+          17.4666464,50.8635277,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek w Tykocinie</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Tykocinie<br><br>Pkt2. Opis: Zamek w Tykocinie to odbudowany zabytek historyczny z bogatą przeszłością, sięgającą średniowiecza. Położony nad Narwią, stanowi wyjątkową atrakcję turystyczną na Podlasiu. W zamku mieści się muzeum, restauracja oraz hotel, co czyni go miejscem zarówno do zwiedzania, jak i relaksu. Ekspozycje obejmują podziemia, wieżę więzienną oraz inne zamkowe wnętrza, a zwiedzanie z przewodnikiem dostarcza wielu ciekawych informacji. Restauracja na miejscu oferuje regionalne specjały, a goście mogą korzystać z darmowego parkingu. Zamek, który został odbudowany na oryginalnych fundamentach, przyciąga uwagę zarówno miłośników historii, jak i osób szukających wyjątkowego miejsca do odpoczynku.<br><br>Pkt3. Adres: Puchalskiego 3, 16-080 Tykocin<br><br>Pkt4. Godziny otwarcia: Tymczasowo zamknięte<br><br>Pkt5. Telefon: 85 718 73 72<br><br>Pkt6. Strona internetowa: zamekwtykocinie.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
           22.770606,53.213082,0
@@ -619,232 +647,258 @@
     </Placemark>
     <Placemark>
       <name>Łazienki Królewskie</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Łazienki Królewskie<br><br>Pkt2. Opis: Łazienki Królewskie w Warszawie to wyjątkowy kompleks pałacowo-parkowy, który przyciąga turystów o każdej porze roku. Powstałe w XVIII wieku na zlecenie króla Stanisława Augusta Poniatowskiego, stanowią oazę spokoju w centrum miasta. Rozległy teren obejmuje piękne ogrody, malownicze alejki oraz liczne zabytkowe budowle, takie jak Pałac na Wyspie, Amfiteatr czy Stara Oranżeria. W parku można spotkać wiewiórki, pawie i inne zwierzęta, co dodaje uroku miejscu. To idealne miejsce na spacery, relaks, a także podziwianie sztuki i architektury. Wstęp na teren parku jest bezpłatny, a jego urok zachwyca o każdej porze roku.<br><br>Pkt3. Adres: Agrykola 1, 00-460 Warszawa<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 06:00–21:00<br>Wtorek: 06:00–21:00<br>Środa: 06:00–21:00<br>Czwartek: 06:00–21:00<br>Piątek: 06:00–21:00<br>Sobota: 06:00–21:00<br>Niedziela: 06:00–21:00<br>Pkt5. Telefon: 504 243 783<br><br>Pkt6. Strona internetowa: lazienki-krolewskie.pl<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.032894,52.214673,0
+          21.0328941,52.2146733,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Muzeum Pałacu Króla Jana III w Wilanowie</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Muzeum Króla Jana III w Wilanowie<br><br>Pkt2. Opis: Odrestaurowany pałac z XVII wieku, pełniący funkcję muzeum sztuk pięknych, otoczony barokowym ogrodem i eleganckim parkiem. Kompleks pałacowo-parkowy zachwyca zarówno latem, jak i zimą, kiedy organizowane są iluminacje świetlne. Miejsce to przyciąga zwiedzających bogatą kolekcją dzieł sztuki, pięknym malarstwem sufitowym i odrestaurowanymi rzeźbami. Ogród świateł, spektakle mappingowe oraz zimowe aranżacje są wyjątkową atrakcją dla dzieci i dorosłych. Muzeum można zwiedzać indywidualnie z audioprzewodnikiem, a czwartki są dniem darmowego wstępu.<br><br>Pkt3. Adres: Stanisława Kostki Potockiego 10/16, 02-958 Warszawa<br><br>Pkt4. Godziny otwarcia: Tymczasowo zamknięte<br><br>Pkt5. Telefon: 22 544 27 00<br><br>Pkt6. Strona internetowa: wilanow-palac.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.090508,52.165175,0
+          21.0905084,52.1651749,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Królewski w Poznaniu</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Królewski na Górze Przemysła w Poznaniu<br><br>Pkt2. Opis: Współczesna rekonstrukcja XIII-wiecznego zamku, mieszcząca Muzeum Sztuki Użytkowej z bogatą kolekcją eksponatów pochodzących z różnych epok i zakątków świata. Na uwagę zasługuje wieża widokowa, z której można podziwiać panoramę Poznania. W podziemiach zamku znajduje się skarbiec, a same ekspozycje są starannie podzielone na epoki, ułatwiając zwiedzanie. To obowiązkowy punkt na mapie miasta, oferujący zarówno walory historyczne, jak i piękne widoki.<br><br>Pkt3. Adres: Góra Przemysła 1, 60-101 Poznań<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: zamknięte<br>Wtorek: 10:00–16:00<br>Środa: 10:00–16:00<br>Czwartek: 10:00–18:00<br>Piątek: 10:00–20:00<br>Sobota: 10:00–17:00<br>Niedziela: 10:00–17:00<br>Pkt5. Telefon: 61 856 80 75<br><br>Pkt6. Strona internetowa: mnp.art.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          16.931046,52.409141,0
+          16.9310458,52.4091411,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Pałac w Krowiarkach</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Pałac w Krowiarkach<br><br>Pkt2. Opis: Pałac w Krowiarkach to imponujący obiekt historyczny zlokalizowany na Śląsku, obecnie będący w rękach prywatnych. Budynek jest w trakcie remontu, a teren otaczający pałac jest ogrodzony i zamknięty dla zwiedzających. Znajdujący się wokół park jest klimatyczny i pełen urokliwych zakątków, co sprawia, że pałac i jego otoczenie są idealnym miejscem na sesje fotograficzne, szczególnie ślubne. Mimo ograniczonego dostępu, pałac zachwyca architekturą i stanowi przykład bogatej historii regionu.<br><br>Pkt3. Adres: 47-494 Krowiarki<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 07:00–15:00<br>Wtorek: 07:00–15:00<br>Środa: 07:00–15:00<br>Czwartek: 07:00–15:00<br>Piątek: 07:00–15:00<br>Sobota: Zamknięte<br>Niedziela: Zamknięte<br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa: palac.krowiarki.org<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          18.082897,50.137127,0
+          18.0828973,50.1371267,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Jasna Góra</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Klasztor Jasna Góra w Częstochowie<br><br>Pkt2. Opis: Jasna Góra to jedno z najważniejszych miejsc kultu religijnego i historycznego w Polsce. Znajduje się tu słynna ikona Matki Boskiej Częstochowskiej, przyciągająca pielgrzymów z całego świata. Kompleks klasztorny oferuje wiele atrakcji, takich jak Kaplica Cudownego Obrazu, Bazylika Jasnogórska, Wieża Widokowa oraz Muzeum Sześćsetlecia. Miejsce to słynie z pięknej architektury, bogatych zbiorów sakralnych oraz duchowej atmosfery. Jasna Góra jest również ważnym symbolem w historii Polski, związanym m.in. z obroną podczas potopu szwedzkiego.<br><br>Pkt3. Adres: ul. o. A. Kordeckiego 2, 42-225 Częstochowa<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 05:30–21:30<br>Wtorek: 05:30–21:30<br>Środa: 05:30–21:30<br>Czwartek: 05:30–21:30<br>Piątek: 05:30–21:30<br>Sobota: 05:30–21:30<br>Niedziela: 05:30–21:30<br>Pkt5. Telefon: 34 377 77 77<br><br>Pkt6. Strona internetowa: jasnagora.pl<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.097006,50.812596,0
+          19.0970058,50.8125957,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Muzeum Archeologiczne w Biskupinie</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Muzeum Archeologiczne w Biskupinie<br><br>Pkt2. Opis: Muzeum Archeologiczne w Biskupinie to wyjątkowe miejsce, które przenosi odwiedzających w czasy pradawne. Główną atrakcją jest zrekonstruowana osada kultury łużyckiej sprzed 2700 lat, otoczona naturalnym pięknem jeziora i lasów. Kompleks składa się z licznych stanowisk historycznych, warsztatów dawnych rzemiosł oraz wystaw muzealnych. Dla odwiedzających dostępne są również audioprzewodniki, warsztaty edukacyjne, a także możliwość zwiedzania z przewodnikiem. Na terenie muzeum można poznać życie codzienne przodków, zobaczyć rekonstrukcje chat, narzędzia oraz dowiedzieć się więcej o historii odkrycia i prac archeologicznych.<br><br>Pkt3. Adres: Biskupin 3, 88-410<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–16:00<br>Wtorek: 09:00–16:00<br>Środa: 09:00–16:00<br>Czwartek: 09:00–16:00<br>Piątek: 09:00–16:00<br>Sobota: 09:00–16:00<br>Niedziela: 09:00–16:00<br>Pkt5. Telefon: 453 071 403<br><br>Pkt6. Strona internetowa: biskupin.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          17.743437,52.785008,0
+          17.7434372,52.7850085,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Rabsztyn</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Rabsztynie<br><br>Pkt2. Opis: Zamek Rabsztyn, będący częścią Szlaku Orlich Gniazd, to malownicze ruiny średniowiecznej warowni położone na wapiennym wzgórzu w pobliżu Olkusza. Częściowo odrestaurowany, zamek zachwyca unikalnym połączeniem historii i nowoczesnych rozwiązań, które czynią go atrakcyjnym dla zwiedzających. W ramach biletu można zwiedzić także pobliską Chatę Kocjana. Na zamku dostępna jest kawiarnia, sklepik z pamiątkami oraz toalety. Widok z wieży zamkowej oferuje spektakularne panoramy okolicy. To doskonałe miejsce na rodzinne wycieczki i spacer pośród niezwykłego klimatu historycznego.<br><br>Pkt3. Adres: Rabsztyn 24, 32-300 Rabsztyn<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: Zamknięte<br>Środa: Zamknięte<br>Czwartek: Zamknięte<br>Piątek: 09:00–16:30<br>Sobota: 09:00–16:30<br>Niedziela: 09:00–16:30<br>Pkt5. Telefon: 32 706 52 31<br><br>Pkt6. Strona internetowa: zamekrabsztyn.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.592698,50.299818,0
+          19.5926976,50.2998182,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Joannitów w Łagowie</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Joannitów, Łagów<br><br>Pkt2. Opis: Zamek Joannitów w Łagowie to XIV-wieczna budowla, która obecnie pełni funkcję eleganckiego hotelu z restauracją. Obiekt wyróżnia się pięknym położeniem wśród starodrzewu i w pobliżu dwóch jezior o malowniczej lazurowej barwie. W zamku można skosztować wyśmienitych dań kuchni staropolskiej, takich jak pierogi z nadzieniem z kaczki czy makaron z kurczakiem w sosie kurkowym. Warto wspiąć się na zamkową wieżę widokową, z której roztacza się zapierający dech w piersiach widok na okolicę. To miejsce łączy w sobie historyczny klimat i nowoczesne udogodnienia, idealne zarówno na romantyczny wypad, jak i rodzinny wypoczynek.<br><br>Pkt3. Adres: Kościuszki 3, 66-220 Łagów<br><br>Pkt4. Godziny otwarcia: Brak informacji<br><br>Pkt5. Telefon: 68 381 40 33<br><br>Pkt6. Strona internetowa: zamek-lagow.com<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          15.292818,52.334649,0
+          15.2928185,52.3346491,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Prawosławny Monaster Zwiastowania Przenajświętszej Bogarodzicy</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Prawosławny Monaster Zwiastowania Bogarodzicy w Supraślu<br><br>Pkt2. Opis: Monaster Zwiastowania Przenajświętszej Bogarodzicy w Supraślu to wyjątkowy zespół klasztorny o bogatej historii i duchowym znaczeniu. Obiekt, odbudowany niemal od podstaw, zachwyca unikalną architekturą cerkwi o charakterze obronnym i pięknie zdobionymi wnętrzami. Zwiedzanie odbywa się wyłącznie w towarzystwie jednego z braci zakonnych, którzy opowiadają o historii klasztoru, duchowości prawosławia i codziennym życiu mnichów. Zwiedzanie wymaga odpowiedniego stroju, a wejście odbywa się za symboliczną "cegiełkę" przeznaczoną na utrzymanie i odbudowę obiektu. Monaster to miejsce, które pozwala zanurzyć się w atmosferze spokoju i refleksji, a także poznać różnice i podobieństwa między prawosławiem a katolicyzmem.<br><br>Pkt3. Adres: Klasztorna 1, 16-030 Supraśl<br><br>Pkt4. Godziny otwarcia:<br><br>Środa: 10:00–13:30, 14:30–15:00<br>Czwartek: 10:00–13:30, 14:30–15:00<br>Piątek: 10:00–13:30, 14:30–15:00<br>Sobota: 10:00–13:30, 14:30–15:00<br>Niedziela: 10:00–13:30, 14:30–15:00<br>Poniedziałek: Zamknięte<br>Wtorek: 10:00–13:30, 14:30–15:00<br>Pkt5. Telefon: 85 718 37 80<br><br>Pkt6. Strona internetowa: monaster-suprasl.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          23.337246,53.210597,0
+          23.337246,53.2105968,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Kolumna Zygmunta III Wazy</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Kolumna Zygmunta III Wazy<br><br>Pkt2. Opis: Kolumna Zygmunta III Wazy to jeden z najbardziej rozpoznawalnych symboli Warszawy. XVII-wieczny pomnik upamiętniający króla Zygmunta III Wazę, który przeniósł stolicę Polski z Krakowa do Warszawy. Kolumna stanowi popularne miejsce spotkań zarówno mieszkańców, jak i turystów. Usytuowana na Placu Zamkowym, w sąsiedztwie warszawskiej Starówki, przyciąga uwagę swoją majestatyczną formą – postać króla góruje 22 metry nad placem, trzymając w rękach miecz i krzyż. Jest to obowiązkowy punkt na mapie stolicy, szczególnie efektowny w okresie świątecznym, gdy Plac Zamkowy rozświetlają dekoracje.<br><br>Pkt3. Adres: plac Zamkowy, 00-001 Warszawa<br><br>Pkt4. Godziny otwarcia: czynne całą dobę<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.013378,52.247253,0
+          21.0133776,52.2472527,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Krasnale Syzyfki</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Krasnale Syzyfki<br><br>Pkt2. Opis: Krasnale Syzyfki, znajdujące się na ulicy Świdnickiej we Wrocławiu, to jedne z najbardziej znanych i charakterystycznych figurek wrocławskich krasnali. Dwie postacie przedstawiające krasnale, które wspólnie toczą kamienną kulę, symbolizują wytrwałość i determinację. Figurka przyciąga turystów swoją humorem i oryginalnością, wpisując się w wyjątkową tradycję Wrocławia. Poszukiwanie krasnali to popularna forma zwiedzania miasta, która angażuje zarówno dzieci, jak i dorosłych, czyniąc spacer po Wrocławiu prawdziwą przygodą.<br><br>Pkt3. Adres: Świdnicka 1, 53-319 Wrocław<br><br>Pkt4. Godziny otwarcia: czynne całą dobę<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa: krasnale.pl<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          17.032889,51.108938,0
+          17.0328886,51.1089384,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Park Górny</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Park Górny w Szczawnicy<br><br>Pkt2. Opis: Park Górny w Szczawnicy to najstarszy park zdrojowy w mieście, którego początki sięgają 1824 roku. Jest to jedno z ważniejszych miejsc na mapie turystycznej Szczawnicy, oferujące malownicze alejki spacerowe otoczone wiekowymi drzewami. Część parku została odnowiona, a spacerowicze mogą odpoczywać na licznych ławkach w cieniu starych drzew. Jednakże niektóre rejony parku pozostają zaniedbane, z popękanymi alejkami i opuszczonymi budynkami. Park oferuje piękne widoki i jest idealnym miejscem na relaks z dala od zgiełku centrum miasta. Miejsce przyjazne psom i doskonałe na spacery z pupilem.<br><br>Pkt3. Adres: Park Górny 9/5, 34-460 Szczawnica<br><br>Pkt4. Godziny otwarcia: czynne całą dobę<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa: poznajgory.pl<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          20.487241,49.426288,0
+          20.4872409,49.4262882,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Bazylika Mariacka</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Bazylika Mariacka w Krakowie<br><br>Pkt2. Opis: Bazylika Mariacka to jeden z najważniejszych zabytków Krakowa i prawdziwa perła gotyckiej architektury. Położona przy Rynku Głównym, zachwyca monumentalnym wyglądem oraz bogato zdobionym wnętrzem. Wnętrze świątyni zdobi słynny ołtarz Wita Stwosza, uważany za jedno z najwspanialszych dzieł gotyckich w Europie. Co godzinę z wyższej wieży, zwanej "Hejnalicą", trębacz wygrywa hejnał, który nagle się urywa, upamiętniając wydarzenia historyczne. Świątynia jest miejscem kultu oraz atrakcją turystyczną przyciągającą turystów z całego świata.<br><br>Pkt3. Adres: plac Mariacki 5, 31-042 Kraków<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 11:30–18:00<br>Wtorek: 11:30–18:00<br>Środa: 11:30–18:00<br>Czwartek: 11:30–18:00<br>Piątek: 11:30–18:00<br>Sobota: 14:00–18:00<br>Niedziela: 14:00–18:00<br>Pkt5. Telefon: 12 422 05 21<br><br>Pkt6. Strona internetowa: mariacki.com<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.93939,50.061641,0
+          19.9393903,50.0616411,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Stary Młyn Muzeum Dawnych Rzemiosł</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Stary Młyn - Muzeum Dawnych Rzemiosł w Żarkach<br><br>Pkt2. Opis: Stary Młyn w Żarkach to wyjątkowe muzeum, które łączy historię z nowoczesnością. Znajduje się w stuletnim budynku dawnego młyna elektrycznego. W środku zwiedzający mogą odkryć tajniki dawnych rzemiosł, takich jak młynarstwo, szewstwo czy bednarstwo. Ekspozycja jest interaktywna, pełna multimedialnych prezentacji i pozwala dotknąć eksponatów, co czyni to miejsce atrakcyjnym zarówno dla dzieci, jak i dorosłych. Zwiedzanie odbywa się w towarzystwie przewodnika, który w interesujący sposób przybliża życie dawnych rzemieślników. To idealne miejsce na edukacyjną wycieczkę z rodziną lub grupą szkolną.<br><br>Pkt3. Adres: Ofiar Katynia 5, 42-310 Żarki<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 08:00–16:00<br>Środa: 08:00–16:00<br>Czwartek: 08:00–16:00<br>Piątek: 08:00–16:00<br>Sobota: 10:00–16:00<br>Niedziela: Zamknięte<br>Pkt5. Telefon: 690 070 772<br><br>Pkt6. Strona internetowa: muzeumzarki.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.373553,50.628565,0
+          19.3735528,50.6285646,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Grodno</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Grodno<br><br>Pkt2. Opis: Zamek Grodno to malowniczo położona średniowieczna twierdza na szczycie góry Choina, wznosząca się na wysokości około 450 m n.p.m. Jest jednym z najlepiej zachowanych zamków sudeckich. Zamek oferuje zwiedzanie zarówno z przewodnikiem, jak i indywidualne, co pozwala odkryć bogatą historię tego miejsca. Szczególnie imponujące są widoki z wieży zamkowej, które rozciągają się na Jezioro Bystrzyckie i okoliczne wzgórza. W środku znajdują się liczne ekspozycje, w tym sala tortur oraz wystawy multimedialne. Na dziedzińcu mieści się restauracja, oferująca lokalne dania. To miejsce idealne dla miłośników historii, rodzin z dziećmi oraz osób ceniących piękne krajobrazy.<br><br>Pkt3. Adres: Wzgórze Zamkowe, 58-321 Zagórze Śląskie<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–17:00<br>Wtorek: 09:00–17:00<br>Środa: 09:00–17:00<br>Czwartek: 09:00–17:00<br>Piątek: 09:00–17:00<br>Sobota: 09:00–17:00<br>Niedziela: 09:00–17:00<br>Pkt5. Telefon: 74 845 33 60<br><br>Pkt6. Strona internetowa: zamekgrodno.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          16.410846,50.749777,0
+          16.4108457,50.7497768,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Muzeum Budownictwa Ludowego - Park Etnograficzny w Olsztynku</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Muzeum Budownictwa Ludowego – Park Etnograficzny w Olsztynku<br><br>Pkt2. Opis: Muzeum Budownictwa Ludowego w Olsztynku to jeden z największych i najstarszych skansenów w Polsce, rozciągający się na obszarze 77 hektarów. Zgromadzone tu zabytki, takie jak wiatraki, kuźnie, młyny wodne, remiza strażacka, szkoła czy kryty strzechą kościół, wiernie oddają klimat dawnych wsi Warmii i Mazur. Eksponaty oraz oryginalne budynki, połączone z replikami, umożliwiają wgląd w życie i codzienne zwyczaje mieszkańców regionu sprzed wieków. Zwiedzający mogą także poczuć atmosferę przeszłości dzięki ekspozycjom wewnątrz budynków oraz kontaktowi z przewodnikami w strojach ludowych. Muzeum oferuje wyjątkowe doświadczenie, łącząc historię z przyjemnością spacerów wśród malowniczych krajobrazów i zwierząt gospodarskich. Pijalnia ziół, zabytkowe chaty oraz rozległe tereny sprawiają, że jest to doskonałe miejsce na całodniowy relaks.<br><br>Pkt3. Adres: Leśna 23, 11-015 Olsztynek<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 10:00–15:00<br>Wtorek: 10:00–15:00<br>Środa: 10:00–15:00<br>Czwartek: 10:00–15:00<br>Piątek: 10:00–15:00<br>Sobota: 10:00–15:00<br>Niedziela: 10:00–15:00<br>Pkt5. Telefon: 89 519 21 64<br><br>Pkt6. Strona internetowa: muzeumolsztynek.com.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          20.289532,53.590298,0
+          20.2895325,53.5902975,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Pałac Myśliwski Książąt Radziwiłłów</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Pałac Myśliwski Książąt Radziwiłłów<br><br>Pkt2. Opis: Pałac Myśliwski Książąt Radziwiłłów w Antoninie to wyjątkowy drewniany obiekt wzniesiony na planie krzyża greckiego w latach 1822–1824. Był miejscem związanym z ważnymi postaciami historycznymi, takimi jak Fryderyk Chopin, który często gościł w tym niezwykłym miejscu. W pałacu panuje niepowtarzalna atmosfera, podkreślona przez klasyczny wystrój oraz dźwięki muzyki Chopina w tle. Otoczony rozległym i zadbanym parkiem, pałac jest doskonałym miejscem na spacery i relaks. Wewnątrz mieści się elegancki hotel oraz restauracja serwująca wykwintne dania, w tym specjały z dziczyzny. Pałac stanowi idealne miejsce zarówno na romantyczny wypad, jak i na chwilę wytchnienia w klimatycznym otoczeniu pełnym historii i natury.<br><br>Pkt3. Adres: Pałacowa 1, 63-421 Antonin<br><br>Pkt4. Godziny otwarcia: brak informacji<br><br>Pkt5. Telefon: 62 734 83 00<br><br>Pkt6. Strona internetowa: palacantonin.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          17.850532,51.51665,0
+          17.8505315,51.5166505,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Pałac Kamieniec</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Pałac w Kamieńcu<br><br>Pkt2. Opis: Pałac Kamieniec to niezwykle urokliwe miejsce, które zachwyca zarówno swoją architekturą, jak i otaczającym krajobrazem. Odrestaurowany z wielką dbałością o detale pałac oferuje eleganckie pokoje, klimatyczną restaurację oraz piękny ogród, który sprzyja wypoczynkowi. Otoczony malowniczymi polami, stanowi idealną oazę spokoju z dala od zgiełku miasta. W restauracji serwowane są wyśmienite dania, często inspirowane kuchnią sezonową, a wybór win zadowoli nawet najbardziej wymagających gości. Dodatkowym atutem jest możliwość skorzystania z sauny na wyłączność, co czyni pobyt w tym miejscu jeszcze bardziej wyjątkowym.<br><br>Pkt3. Adres: Kamieniec 47, 57-300 Kłodzko<br><br>Pkt4. Godziny otwarcia: brak informacji<br><br>Pkt5. Telefon: 74 869 20 45<br><br>Pkt6. Strona internetowa: palackamieniec.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          16.540848,50.455156,0
+          16.5408478,50.455156,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Sanktuarium Matki Bożej Licheńskiej</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Sanktuarium w Licheniu<br><br>Pkt2. Opis: Sanktuarium Matki Bożej Licheńskiej to jedno z największych i najbardziej imponujących miejsc kultu religijnego w Polsce. Monumentalna bazylika z charakterystyczną złotą kopułą przyciąga pielgrzymów i turystów swoją architekturą oraz niezwykłym bogactwem detali. Wnętrze bazyliki zachwyca zdobieniami, marmurową posadzką, imponującymi organami oraz licznymi ornamentami. Na terenie sanktuarium znajduje się również wieża widokowa, z której można podziwiać panoramę okolicy, oraz Golgota – miejsce zadumy i modlitwy. Cały kompleks otoczony jest zadbanymi ogrodami, alejkami spacerowymi i zielonymi przestrzeniami, które sprzyjają refleksji i odpoczynkowi. Miejsce to, pełne spokoju i duchowej atmosfery, jest obowiązkowym punktem na mapie dla wierzących oraz miłośników architektury i sztuki.<br><br>Pkt3. Adres: Klasztorna 4, 62-563 Licheń Stary<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 06:00–22:00<br>Wtorek: 06:00–22:00<br>Środa: 06:00–22:00<br>Czwartek: 06:00–22:00<br>Piątek: 06:00–22:00<br>Sobota: 06:00–22:00<br>Niedziela: 06:00–22:00<br>Pkt5. Telefon: 63 270 81 63<br><br>Pkt6. Strona internetowa: lichen.pl<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          18.357853,52.323312,0
+          18.3578532,52.3233124,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Muzeum Zamoyskich w Kozłówce</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Muzeum Zamoyskich, Kozłówka<br><br>Pkt2. Opis: Muzeum Zamoyskich w Kozłówce to unikalny kompleks pałacowo-parkowy, będący jednym z najlepiej zachowanych przykładów magnackiej rezydencji w Polsce. Barokowy pałac, otoczony zadbanymi ogrodami, oferuje bogate wnętrza pełne oryginalnych mebli, obrazów i dekoracji, które przetrwały historyczne zawieruchy niemal w nienaruszonym stanie. Zwiedzający mogą podziwiać również kaplicę wzorowaną na tej z Wersalu, powozownię oraz unikalną Galerię Sztuki Socrealizmu. Całość uzupełniają pięknie utrzymane tereny parkowe, które idealnie nadają się na spacery. Zwiedzanie odbywa się z przewodnikiem, który w ciekawy sposób przybliża historię rodziny Zamoyskich oraz samego obiektu. Na miejscu znajdują się także restauracja i przestronne parkingi.<br><br>Pkt3. Adres: Kozłówka 3, 21-132<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 10:00–15:00<br>Środa: 10:00–15:00<br>Czwartek: 10:00–15:00<br>Piątek: 10:00–15:00<br>Sobota: 10:00–15:00<br>Niedziela: 10:00–15:00<br>Pkt5. Telefon: 81 852 83 00<br><br>Pkt6. Strona internetowa: muzeumzamoyskich.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.48947,51.459629,0
+          22.4894705,51.4596287,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Ostrów Tumski</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Ostrów Tumski, Wrocław<br><br>Pkt2. Opis: Ostrów Tumski to najstarsza część Wrocławia, pełna historycznego uroku i zabytkowej architektury. Spacerując po brukowanych uliczkach, można podziwiać gotycką Katedrę św. Jana Chrzciciela, malownicze mosty oraz urokliwe zaułki. Wyjątkowym przeżyciem jest obserwowanie latarnika, który wieczorami zapala gazowe latarnie, dodając miejscu romantycznego klimatu. To idealne miejsce na spacer o każdej porze dnia, zwłaszcza wieczorem, gdy miejsce ożywają ciepłe światła latarni. Ostrów Tumski zachwyca atmosferą dawnych czasów i jest obowiązkowym punktem dla każdego odwiedzającego Wrocław.<br><br>Pkt3. Adres: Wrocław<br><br>Pkt4. Godziny otwarcia:<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          17.046734,51.114463,0
+          17.0467344,51.1144633,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek w Gołuchowie. Oddział Muzeum Narodowego w Poznaniu</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Gołuchowie, Oddział Muzeum Narodowego w Poznaniu<br><br>Pkt2. Opis: Zamek w Gołuchowie to zabytkowa rezydencja otoczona malowniczym parkiem, która zachwyca nie tylko architekturą, ale także interesującymi wystawami. Obiekt pierwotnie zbudowany w XVI wieku został przebudowany w XIX wieku w stylu renesansowym. We wnętrzach zamku można podziwiać bogatą kolekcję dzieł sztuki, zdobione meble, portrety oraz zabytkowe wazy. Teren wokół zamku oferuje rozległe ścieżki spacerowe, zabytkowe drzewa oraz dodatkowe atrakcje, takie jak zagroda z żubrami, dzikami i konikami polskimi. Miejsce idealne na spokojny spacer i obcowanie z historią.<br><br>Pkt3. Adres: Działyńskich 2, 63-322 Gołuchów<br><br>Pkt4. Godziny otwarcia:<br><br>Wtorek: 09:00–15:00<br>Środa: 09:00–15:00<br>Czwartek: 09:00–15:00<br>Piątek: 09:00–15:00<br>Sobota: 09:00–15:00<br>Niedziela: 09:00–15:00<br>Poniedziałek: Zamknięte<br>Pkt5. Telefon: 62 761 50 94<br><br>Pkt6. Strona internetowa: mnp.art.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          17.933838,51.85255,0
+          17.933838,51.8525497,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Pilcza w Smoleniu</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Pilcza w Smoleniu<br><br>Pkt2. Opis: Zamek Pilcza w Smoleniu to malowniczo położone ruiny na Szlaku Orlich Gniazd, w otoczeniu rezerwatu przyrody. Wybudowany w XIV wieku przez Ottona z Pilczy, zamek pełnił funkcję warownej budowli. Jego najbardziej charakterystycznym elementem jest wysoka wieża, z której rozciągają się wspaniałe widoki na okolicę. Zamek posiada dwa dziedzińce i liczne ścieżki spacerowe wokół wzgórza, które umożliwiają poznanie jego historii dzięki tablicom edukacyjnym. Miejsce oferuje spokojną atmosferę z dala od tłumów, a także możliwość zwiedzania z psem.<br><br>Pkt3. Adres: Smoleń 61, 42-436 Smoleń<br><br>Pkt4. Godziny otwarcia:<br><br>Środa: 09:00–15:00<br>Czwartek: 09:00–15:00<br>Piątek: 09:00–15:00<br>Sobota: 09:00–15:00<br>Niedziela: 09:00–15:00<br>Poniedziałek: Zamknięte<br>Wtorek: Zamknięte<br>Pkt5. Telefon: 530 702 056<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.675251,50.438422,0
+          19.675251,50.4384219,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Ostrów Lednicki, ruiny palatium z X wieku</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Ostrów Lednicki – ruiny palatium z X wieku<br><br>Pkt2. Opis: Ostrów Lednicki to jedno z najważniejszych miejsc związanych z początkami polskiej państwowości i chrześcijaństwa w Polsce. Na wyspie, dostępnej promem, znajdują się ruiny palatium z X wieku, które uchodzą za możliwe miejsce chrztu Mieszka I. Wyjątkowa atmosfera tego miejsca łączy historię z naturą, oferując odwiedzającym spacer wśród malowniczych krajobrazów i cennych zabytków. Przeprawa promowa oraz ścieżki edukacyjne wokół wyspy dodają całemu zwiedzaniu niepowtarzalnego charakteru.<br><br>Pkt3. Adres: 62-261 Ostrów Lednicki<br><br>Pkt4. Godziny otwarcia: Tymczasowo zamknięte<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          17.378067,52.525709,0
+          17.3780669,52.5257088,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Bazylika kolegiacka św. Piotra i Pawła w Kruszwicy</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Bazylika kolegiacka Świętych Piotra i Pawła w Kruszwicy<br><br>Pkt2. Opis: Bazylika kolegiacka Świętych Piotra i Pawła w Kruszwicy to unikalny przykład romańskiej architektury w Polsce. Ten historyczny kościół jest jednym z najstarszych zabytków sakralnych w kraju, a jego surowość i prostota budzą podziw wśród zwiedzających. Budowla wykonana z ciosów piaskowcowych i granitowych przyciąga swoją monumentalnością oraz niezwykłą atmosferą, która pozwala poczuć ducha przeszłości. Warto odwiedzić to miejsce, będąc w okolicy, i skorzystać z okazji do refleksji nad historią Polski.<br><br>Pkt3. Adres: Kolegiacka 26, 88-153 Kruszwica<br><br>Pkt4. Godziny otwarcia:<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa: kolegiatakruszwica.pl<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          18.327498,52.679866,0
+          18.327498,52.6798658,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Kaplica templariuszy pw. św. Stanisława Kostki</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Kaplica templariuszy pw. św. Stanisława Kostki w Chwarszczanach<br><br>Pkt2. Opis: Kaplica templariuszy w Chwarszczanach to wyjątkowy zabytek z XIII wieku, będący świadectwem obecności templariuszy na ziemiach polskich. Budowla zachwyca swoją surową gotycką architekturą i nietuzinkowym układem, w tym charakterystycznym frontem z cylindrycznymi wieżami. Wewnątrz można podziwiać malowidła z okresu średniowiecza oraz znaki templariuszy. Mimo ograniczonej dostępności do wnętrza, kaplica przyciąga pasjonatów historii i architektury. Jest to miejsce pełne tajemnic i legend, a także część szlaku templariuszy w Polsce.<br><br>Pkt3. Adres: Chwarszczany 3, 74-407 Chwarszczany<br><br>Pkt4. Godziny otwarcia:<br><br>Pkt5. Telefon: 604 273 616<br><br>Pkt6. Strona internetowa: templariusze.org<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
           14.642126,52.687655,0
@@ -853,34 +907,38 @@
     </Placemark>
     <Placemark>
       <name>Wały Chrobrego</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Wały Chrobrego w Szczecinie<br><br>Pkt2. Opis: Wały Chrobrego to jedno z najbardziej reprezentacyjnych miejsc w Szczecinie. Ta monumentalna promenada, rozciągająca się na długości 500 metrów, została zaprojektowana na początku XX wieku i oferuje wyjątkowe widoki na Odrę, port oraz okoliczne wyspy. Znajdują się tutaj słynne budynki, takie jak Muzeum Narodowe, Teatr Współczesny oraz Urząd Wojewódzki. Jest to popularne miejsce spacerów, które przyciąga zarówno mieszkańców, jak i turystów dzięki swojej zabytkowej architekturze i malowniczej scenerii. W okolicy znajdują się także restauracje i kafejki, które pozwalają cieszyć się chwilą relaksu z pięknym widokiem na wodę.<br><br>Pkt3. Adres: Wały Chrobrego, 71-899 Szczecin<br><br>Pkt4. Godziny otwarcia: czynne całą dobę<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa: szczecin.pl<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          14.565071,53.429848,0
+          14.5650712,53.4298477,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Parafia prawosławna pw. Opieki Matki Bożej w Puchłach</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Parafia prawosławna pw. Opieki Matki Bożej w Puchłach<br><br>Pkt2. Opis: Cerkiew pw. Opieki Matki Bożej w Puchłach to wyjątkowy obiekt sakralny znajdujący się na Szlaku Otwartych Okiennic na Podlasiu. Świątynia wyróżnia się niezwykłą architekturą i intensywną niebieską kolorystyką, symbolizującą opiekę Matki Bożej. Jest to jeden z najpiękniejszych zabytków drewnianych w regionie, który urzeka zarówno wyglądem zewnętrznym, jak i wnętrzem z bogatym ikonostasem. W pobliżu cerkwi znajduje się drewniana kładka prowadząca nad rzekę Narew, co dodaje miejscu malowniczego charakteru. Turyści często podkreślają gościnność proboszcza, który z pasją opowiada o historii świątyni.<br><br>Pkt3. Adres: 49, 17-210 Puchły<br><br>Pkt4. Godziny otwarcia:<br><br>Pkt5. Telefon: 85 681 55 27<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          23.401076,52.913098,0
+          23.4010761,52.9130976,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Katedra Wawelska</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Katedra Wawelska<br><br>Pkt2. Opis: Katedra Wawelska to jedno z najważniejszych miejsc w historii Polski, pełne duchowego znaczenia oraz wyjątkowej architektury i sztuki. Stanowi nekropolię polskich królów, wybitnych przywódców i wieszczów narodowych. W jej wnętrzu można zwiedzić Groby Królewskie, Dzwon Zygmunta oraz bogato zdobione kaplice i ołtarze. Jest to także miejsce koronacji polskich monarchów. Warto skorzystać z przewodnika lub audioprzewodnika, aby w pełni docenić bogactwo historyczne i artystyczne tej wyjątkowej świątyni.<br><br>Pkt3. Adres: Wawel, 31-001 Kraków<br><br>Pkt4. Godziny otwarcia:<br><br>Środa: 09:00–16:30<br>Czwartek: 09:00–16:30<br>Piątek: 09:00–16:30<br>Sobota: 09:00–16:30<br>Niedziela: 12:30–16:30<br>Poniedziałek: 09:00–16:30<br>Wtorek: 09:00–16:30<br>Pkt5. Telefon: 12 429 95 16<br><br>Pkt6. Strona internetowa: katedra-wawelska.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.935468,50.054637,0
+          19.9354684,50.0546371,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Muzeum Zamkowe w Pszczynie</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Muzeum Zamkowe w Pszczynie<br><br>Pkt2. Opis: Muzeum Zamkowe w Pszczynie to zachwycający zabytek i dawna rezydencja magnacka, otoczona malowniczym parkiem w stylu angielskim. Wnętrza zamku urzekają bogatym wyposażeniem, a około 80% oryginalnych mebli i dekoracji z XIX i XX wieku wciąż można podziwiać. Szczególne wrażenie robią sala lustrzana, zbrojownia oraz apartamenty cesarza Wilhelma II. Muzeum oferuje możliwość zwiedzania z przewodnikiem lub audioprzewodnikiem, a także liczne wystawy czasowe. Na terenie parku i zamku znajdują się również stajnie książęce, gdzie można zobaczyć dodatkowe eksponaty.<br><br>Pkt3. Adres: Brama Wybrańców 1, 43-200 Pszczyna<br><br>Pkt4. Godziny otwarcia:<br><br>Środa: 09:00–15:00<br>Czwartek: 09:00–15:00<br>Piątek: 09:00–15:00<br>Sobota: 10:00–16:00<br>Niedziela: 10:00–16:00<br>Poniedziałek: Zamknięte<br>Wtorek: 10:00–14:00<br>Pkt5. Telefon: 32 210 30 37<br><br>Pkt6. Strona internetowa: zamek-pszczyna.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
           18.940449,49.978169,0
@@ -889,52 +947,58 @@
     </Placemark>
     <Placemark>
       <name>Muzeum im. Wojciecha Kętrzyńskiego</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Muzeum im. Wojciecha Kętrzyńskiego<br><br>Pkt2. Opis: Muzeum im. Wojciecha Kętrzyńskiego w Kętrzynie mieści się w odrestaurowanym zamku krzyżackim z XIV wieku, będącym dawną siedzibą prokuratora zakonnego. Ekspozycje muzealne prezentują bogatą historię regionu, kulturę oraz sztukę, w tym imponującą multimedialną makietę przedstawiającą rozwój miasta od czasów średniowiecza. Wśród wystaw znajdują się zabytkowe meble, przedmioty sakralne i dzieła sztuki, a także interaktywne prezentacje, które cieszą się uznaniem zwiedzających. Zamek oferuje możliwość zwiedzania z przewodnikiem, a także przyjazną atmosferę, sprzyjającą poznawaniu historii tego wyjątkowego miejsca.<br><br>Pkt3. Adres: plac Zamkowy 1, 11-400 Kętrzyn<br><br>Pkt4. Godziny otwarcia:<br><br>Wtorek: 09:00–16:00<br>Środa: 09:00–16:00<br>Czwartek: 09:00–16:00<br>Piątek: 09:00–16:00<br>Sobota: 09:00–16:00<br>Niedziela: 09:00–16:00<br>Poniedziałek: Zamknięte<br>Pkt5. Telefon: 89 752 32 82<br><br>Pkt6. Strona internetowa: muzeum.ketrzyn.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.377183,54.074265,0
+          21.3771827,54.0742646,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Twierdza Zamość</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Twierdza w Zamościu<br><br>Pkt2. Opis: Twierdza Zamość, jedna z najlepiej zachowanych fortyfikacji w Polsce, stanowi niezwykły przykład architektury obronnej z przełomu XVI i XVII wieku. Wybudowana z inicjatywy hetmana wielkiego koronnego Jana Zamoyskiego, była kilkukrotnie oblegana i tylko raz zdobyta. Zwiedzający mogą spacerować po wałach obronnych, odkrywać kazamaty i galerie strzeleckie oraz korzystać z trasy podziemnej, gdzie znajdują się liczne ekspozycje i filmy edukacyjne. Miejsce to oferuje niezapomniane widoki z tarasów i przybliża historię miasta, które rozwijało się wokół twierdzy.<br><br>Pkt3. Adres: Bastion VII, 22-400 Zamość<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa: twierdza.zamosc.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          23.257134,50.716474,0
+          23.257134,50.7164736,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Kościół odpustowy pw. św. Anny w Oleśnie</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Kościół św. Anny w Oleśnie<br><br>Pkt2. Opis: Kościół pw. św. Anny w Oleśnie to unikatowy drewniany zabytek sakralny z 1518 roku, zwany "oleską różą zaklętą w drewno" z uwagi na niezwykły kształt przypominający różę. Znajduje się w malowniczej okolicy na terenie cmentarza, około 2 km od centrum miasta. W XVII wieku dobudowano promieniście ułożone kaplice, co nadało świątyni wyjątkowy układ architektoniczny. Wnętrze zachwyca pięknymi detalami, a całość otoczona jest aurą spokoju i historii. Jest to miejsce licznych pielgrzymek, a uroczystości odpustowe przyciągają wiernych z kraju i zagranicy.<br><br>Pkt3. Adres: Gorzowska 76, 46-300 Olesno<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon: 34 358 20 70<br><br>Pkt6. Strona internetowa:<br><br>Pkt7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          18.422771,50.89646,0
+          18.422771,50.8964601,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Klasztor Misjonarzy Oblatów Maryi Niepokalanej- Sanktuarium Relikwii Drzewa Krzyża Świętego</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Klasztor Misjonarzy Oblatów Maryi Niepokalanej - Sanktuarium Relikwii Drzewa Krzyża Świętego<br><br>Pkt2. Opis: Klasztor na Świętym Krzyżu to jedno z najstarszych sanktuariów w Polsce, pełne duchowej i historycznej wartości. Położony w Górach Świętokrzyskich, przyciąga pielgrzymów i turystów zarówno z kraju, jak i zagranicy. Klasztor, który pierwotnie został założony przez Benedyktynów, jest obecnie miejscem Misjonarzy Oblatów. Znajdują się tu relikwie Drzewa Krzyża Świętego, co sprawia, że jest to miejsce szczególnego kultu. Warto odwiedzić także muzeum klasztorne, kryptę oraz wieżę widokową, z której roztacza się przepiękna panorama okolicy. Klasztor jest otoczony lasami, a na szczyt prowadzą różne szlaki turystyczne, w tym droga asfaltowa i ścieżka przez las. Miejsce to to również świadek wielu wydarzeń historycznych, w tym działalności więzienia w okresie międzywojennym.<br><br>Pkt3. Adres: Święty Krzyż 1, 26-006 Nowa Słupia<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon: 41 317 70 21<br><br>Pkt6. Strona internetowa: swietykrzyz.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.052971,50.859447,0
+          21.052971,50.8594469,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek w Suchej Beskidzkiej</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek w Suchej Beskidzkiej<br><br>Pkt2. Opis: Renesansowy Zamek w Suchej Beskidzkiej, nazywany "Małym Wawelem", zachwyca swoją architekturą i pięknie odrestaurowanym dziedzińcem. Zbudowany w XVI wieku, był siedzibą znanych rodów magnackich, takich jak Suscy, Komorowscy czy Braniccy. Wnętrza zamku kryją Muzeum Miejskie z wystawami stałymi i czasowymi, prezentującymi historię regionu i zamku. Obiekt otoczony jest malowniczym parkiem z oranżerią, w której mieści się kawiarnia. Spacer po parku, w którym znajdują się stawy i liczne rzeźby, zapewnia spokój i relaks. Bezpłatny parking znajduje się tuż obok zamku, a zwiedzanie wnętrz zajmuje około godziny.<br><br>Pkt3. Adres: Zamkowa 1, 34-200 Sucha Beskidzka<br><br>Pkt4. Godziny otwarcia:<br><br>Wtorek: 09:00–16:00<br>Środa: 09:00–16:00<br>Czwartek: 09:00–16:00<br>Piątek: 09:00–16:00<br>Sobota: 09:00–16:00<br>Niedziela: Zamknięte<br>Poniedziałek: Zamknięte<br>Pkt5. Telefon: 33 874 26 05<br><br>Pkt6. Strona internetowa: zameksucha.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.601389,49.746389,0
+          19.6013889,49.7463889,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Muzeum Warmii i Mazur w Olsztynie</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Muzeum Warmii i Mazur, Olsztyn<br><br>Pkt2. Opis: Muzeum Warmii i Mazur w Olsztynie mieści się w XIV-wiecznym gotyckim zamku, który niegdyś był siedzibą biskupów warmińskich oraz Mikołaja Kopernika. Obiekt zachwyca swoją architekturą, pięknym dziedzińcem oraz dobrze zachowaną wieżą widokową, z której można podziwiać panoramę miasta. W muzeum znajdują się liczne wystawy, w tym ekspozycje poświęcone Kopernikowi, historii Warmii i Mazur oraz kulturze regionu. Szczególną uwagę przyciąga astronomiczna tablica doświadczalna stworzona przez samego Kopernika. Goście mogą także odwiedzić krużganki i różnorodne wystawy tematyczne, prezentujące zarówno stałe, jak i czasowe zbiory. Muzeum jest doskonałym miejscem dla miłośników historii i architektury, a spacer po okolicy zamku i starówki stanowi dodatkową atrakcję.<br><br>Pkt3. Adres: Zamkowa 2, 10-074 Olsztyn<br><br>Pkt4. Godziny otwarcia:<br><br>Wtorek: 09:00–16:00<br>Środa: 09:00–16:00<br>Czwartek: 09:00–16:00<br>Piątek: 09:00–16:00<br>Sobota: 09:00–16:00<br>Niedziela: 09:00–16:00<br>Poniedziałek: Zamknięte<br>Pkt5. Telefon:<br><br>Pkt6. Strona internetowa: muzeum.olsztyn.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
           20.474663,53.777632,0
@@ -943,7 +1007,8 @@
     </Placemark>
     <Placemark>
       <name>Latarnia Morska Kołobrzeg</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Latarnia Morska w Kołobrzegu<br><br>Pkt2. Opis: Latarnia Morska w Kołobrzegu to jedna z najbardziej charakterystycznych atrakcji turystycznych nad polskim Bałtykiem. Wybudowana w 1945 roku w nowym miejscu, zastępując niemiecką latarnię zniszczoną podczas II wojny światowej, pełni zarówno funkcję nawigacyjną, jak i turystyczną. Z jej tarasu widokowego można podziwiać przepiękną panoramę miasta, portu, plaży i Morza Bałtyckiego. Wewnątrz latarni znajdują się sklepiki z pamiątkami oraz muzeum minerałów. Obiekt jest w trakcie remontu, jednak pozostaje otwarty dla zwiedzających. Latarnia oferuje niezapomniane widoki, szczególnie przy zachodach słońca, co czyni ją obowiązkowym punktem na mapie Kołobrzegu.<br><br>Pkt3. Adres: Morska 1, 78-100 Kołobrzeg<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 11:00–16:00<br>Wtorek: 11:00–16:00<br>Środa: 11:00–16:00<br>Czwartek: 11:00–16:00<br>Piątek: 11:00–16:00<br>Sobota: 11:00–16:00<br>Niedziela: 11:00–16:00<br>Pkt5. Telefon: 502 058 767<br><br>Pkt6. Strona internetowa: latarnia.kolobrzeg.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
           15.554231,54.1864,0
@@ -952,154 +1017,171 @@
     </Placemark>
     <Placemark>
       <name>Zamek Książąt Pomorskich w Szczecinie</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Zamek Książąt Pomorskich, Szczecin<br><br>Pkt2. Opis: Zamek Książąt Pomorskich to renesansowy zabytek położony na Wzgórzu Zamkowym w Szczecinie. Dawna siedziba rodu Gryfitów, władców księstwa pomorskiego, jest dziś ważnym centrum kultury, gdzie odbywają się wystawy, koncerty oraz spektakle. Odbudowany po zniszczeniach II wojny światowej, zamek zachwyca odrestaurowanym renesansowym wykończeniem i oferuje wyjątkowe widoki na Szczecin z wieży widokowej. Wnętrza zamku kryją muzeum, sale wystawowe oraz operę. Na dziedzińcach odbywają się wydarzenia plenerowe, a goście mogą zwiedzać m.in. tarasy widokowe i salę z historycznymi eksponatami.<br><br>Pkt3. Adres: Korsarzy 34, 70-540 Szczecin<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 10:00–18:00<br>Wtorek: 10:00–18:00<br>Środa: 10:00–18:00<br>Czwartek: 10:00–18:00<br>Piątek: 10:00–18:00<br>Sobota: 10:00–18:00<br>Niedziela: 10:00–18:00<br>Pkt5. Telefon: 91 489 16 30<br><br>Pkt6. Strona internetowa: zamek.szczecin.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          14.560354,53.426014,0
+          14.5603542,53.4260143,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Wieża Piastowska</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Wieża Piastowska w Opolu<br><br>Pkt2. Opis: Wieża Piastowska w Opolu to imponująca pozostałość po Zamku Piastowskim, datowana na około 1300 rok. Znajdująca się nad Kanałem Ulgi wieża oferuje piękne widoki na panoramę miasta z tarasu widokowego na jej szczycie. Zwiedzanie odbywa się wyłącznie z przewodnikiem, co pozwala lepiej poznać historię Opola oraz samej wieży, która jest symbolem miasta. W trakcie wycieczki można zobaczyć pokazy multimedialne oraz dowiedzieć się ciekawostek o dawnej twierdzy Piastów Śląskich. To miejsce, które przenosi odwiedzających w przeszłość i daje okazję do podziwiania malowniczych krajobrazów Opola.<br><br>Pkt3. Adres: Piastowska 14, 45-081 Opole<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–17:00<br>Wtorek: 09:00–17:00<br>Środa: 09:00–17:00<br>Czwartek: 09:00–17:00<br>Piątek: 09:00–17:00<br>Sobota: 11:00–16:00<br>Niedziela: 11:00–16:00<br>Pkt5. Telefon: 77 441 50 20<br><br>Pkt6. Strona internetowa: mosir.opole.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          17.919245,50.667455,0
+          17.9192447,50.6674548,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Rezerwat Archeologiczny Genius Loci</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Rezerwat Archeologiczny Genius Loci<br><br>Pkt2. Opis: Rezerwat Archeologiczny Genius Loci na Ostrowie Tumskim w Poznaniu to wyjątkowe miejsce, które pozwala przenieść się w czasy początków państwowości polskiej. Obejmuje relikty średniowiecznych wałów obronnych i murów z XVI wieku. Dzięki nowoczesnym technologiom, takim jak projekcje multimedialne, szklane podłogi oraz audioprzewodniki, ekspozycja w interesujący sposób przedstawia historię Poznania. Zwiedzanie rozpoczyna się filmem wprowadzającym, który przybliża technologię budowy dawnych umocnień. Mimo niewielkich rozmiarów rezerwat zachwyca dbałością o szczegóły i jest obowiązkowym punktem dla miłośników historii i archeologii.<br><br>Pkt3. Adres: Księdza Ignacego Posadzego 3, 61-108 Poznań<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: zamknięte<br>Wtorek: 10:00–16:00<br>Środa: 10:00–16:00<br>Czwartek: 10:00–16:00<br>Piątek: 10:00–18:00<br>Sobota: 10:00–18:00<br>Niedziela: 10:00–15:00<br>Pkt5. Telefon: 61 852 21 67<br><br>Pkt6. Strona internetowa: rezerwat.muzarp.poznan.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          16.948204,52.412757,0
+          16.9482038,52.4127568,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Kościół Pokoju w Świdnicy</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Kościół Pokoju, Świdnica<br><br>Pkt2. Opis: Kościół Pokoju w Świdnicy to największa drewniana barokowa świątynia w Europie, wpisana na listę światowego dziedzictwa UNESCO. Budowla powstała w 1657 roku po zakończeniu wojny trzydziestoletniej i stanowi imponujący przykład kunsztu architektonicznego, stworzona bez użycia gwoździ, z materiałów takich jak drewno, glina, piasek i słoma. Wnętrze zachwyca bogatymi barokowymi zdobieniami, imponującymi organami oraz niezwykłą atmosferą. Kościół może pomieścić aż 7500 wiernych i jest symbolem tolerancji religijnej oraz pokoju. Wokół obiektu znajduje się malowniczy park i historyczny cmentarz.<br><br>Pkt3. Adres: plac Pokoju 6, 58-100 Świdnica<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–18:00<br>Wtorek: 09:00–18:00<br>Środa: 09:00–18:00<br>Czwartek: 09:00–18:00<br>Piątek: 09:00–18:00<br>Sobota: 09:00–18:00<br>Niedziela: 12:00–18:00<br>Pkt5. Telefon: 603 331 578<br><br>Pkt6. Strona internetowa: kosciolpokoju.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          16.491667,50.846485,0
+          16.4916674,50.8464847,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Pałac Branickich - Muzeum</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt1. Nazwa lokalizacji: Pałac Branickich, Białystok<br><br>Pkt2. Opis: Pałac Branickich, nazywany Polskim Wersalem, to jeden z najpiękniejszych przykładów architektury barokowej w Polsce. Zbudowany w XVIII wieku, obecnie pełni funkcję siedziby Uniwersytetu Medycznego w Białymstoku, a jego część udostępniona jest do zwiedzania. W pałacu mieści się Muzeum Historii Medycyny i Farmacji, gdzie można podziwiać eksponaty związane z dawną medycyną, takie jak stare przyrządy dentystyczne i sale szpitalne. Pałac otaczają przepiękne ogrody w stylu francuskim, które zachwycają bogactwem roślinności, rzeźb i fontann. Miejsce to przyciąga zarówno miłośników sztuki, jak i osób szukających odpoczynku w malowniczym otoczeniu.<br><br>Pkt3. Adres: Jana Kilińskiego 1, 15-089 Białystok<br><br>Pkt4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 10:00–17:00<br>Środa: 10:00–17:00<br>Czwartek: 10:00–17:00<br>Piątek: 10:00–17:00<br>Sobota: 10:00–17:00<br>Niedziela: 10:00–17:00<br>Pkt5. Telefon: 85 748 54 05<br><br>Pkt6. Strona internetowa: umb.edu.pl<br><br>Pkt7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          23.165139,53.130605,0
+          23.165139,53.1306049,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Hotel Zamek Ryn</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt 1. Nazwa lokalizacji: Hotel, Zamek Ryn<br><br>Pkt 2. Opis: Hotel Zamek Ryn to wyjątkowe miejsce, w którym historia spotyka się z nowoczesnością. Położony w odrestaurowanym XIV-wiecznym zamku, obiekt oferuje eleganckie pokoje, klimatyczne wnętrza oraz bogatą ofertę atrakcji. Goście mogą korzystać z basenu, strefy spa, saun, a także restauracji, które serwują różnorodne dania. W zamku organizowane są wydarzenia tematyczne, takie jak biesiady średniowieczne czy Oktoberfest, które podkreślają niezwykły klimat miejsca. Hotel otoczony jest piękną naturą, w tym jeziorami, co dodatkowo sprzyja relaksowi. Idealne miejsce zarówno na wypoczynek, jak i na wyjazdy służbowe.<br><br>Pkt 3. Adres: Plac Wolności 2, 11-520 Ryn<br><br>Pkt 4. Godziny otwarcia: Godzina zameldowania: 16:00<br>Godzina wymeldowania: 12:00<br><br>Pkt 5. Telefon: 87 429 70 00<br><br>Pkt 6. Strona internetowa: zamekryn.pl<br><br>Pkt 7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.546004,53.938868,0
+          21.5460042,53.9388675,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Brama Krakowska</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt 1. Nazwa lokalizacji: Brama Krakowska w Szydłowie<br><br>Pkt 2. Opis: Brama Krakowska to niezwykły zabytek średniowieczny, będący wizytówką miasta Szydłów, często nazywanego „Polskim Carcassonne”. Zbudowana w XIV wieku z wapienia, zachowała się jako jedyna z trzech miejskich bram, które w przeszłości strzegły miasta. Górne kondygnacje zostały przebudowane w stylu renesansowym w XVI wieku, co nadaje budowli wyjątkowy charakter. Wyróżnia ją attyka oraz dwie koliste wieżyczki. Z bramy rozciąga się piękny widok na okolicę, a jej wnętrze można zwiedzać, wspinając się po stromych, wąskich schodkach. Stanowi ona część zachowanego systemu murów obronnych, które mają około 680 metrów długości.<br><br>Pkt 3. Adres: Kazimierza Wielkiego 1, 28-225 Szydłów<br><br>Pkt 4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt 5. Telefon:<br><br>Pkt 6. Strona internetowa:<br><br>Pkt 7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.001428,50.589975,0
+          21.001428,50.5899748,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Twierdza Kłodzko</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt 1. Nazwa lokalizacji: Twierdza Kłodzko<br><br>Pkt 2. Opis: Twierdza Kłodzko to imponująca budowla z XVIII wieku, położona na wzgórzu, która góruje nad miastem. Obiekt ten zachwyca zarówno swoją monumentalną architekturą, jak i pięknymi widokami na Kłodzko i okolicę. Zwiedzanie obejmuje zarówno górną część twierdzy, jak i rozległe podziemne korytarze kontrminowe, które są dostępne tylko z przewodnikiem. Trasy są starannie zaplanowane, a liczne tablice informacyjne dostarczają ciekawych faktów historycznych. Na terenie twierdzy znajduje się lapidarium, gdzie można zobaczyć wyjątkowe zbiory płyt nagrobnych i zdobień. W czasie specjalnych wydarzeń, takich jak rekonstrukcje historyczne, twierdza oferuje dodatkowe atrakcje, w tym inscenizacje bitew i pokazy kawalerii. To miejsce jest idealnym wyborem dla miłośników historii i militariów, ale także dla rodzin z dziećmi, które mogą odkrywać tajemnicze korytarze i podziwiać panoramę miasta.<br><br>Pkt 3. Adres: Grodzisko 1, 57-300 Kłodzko<br><br>Pkt 4. Godziny otwarcia:<br><br>Poniedziałek: 09:00–16:00<br>Wtorek: 09:00–16:00<br>Środa: 09:00–16:00<br>Czwartek: 09:00–16:00<br>Piątek: 09:00–16:00<br>Sobota: 09:00–16:00<br>Niedziela: 09:00–16:00<br>Pkt 5. Telefon: 74 867 34 68<br><br>Pkt 6. Strona internetowa: twierdza.klodzko.pl<br><br>Pkt 7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          16.653422,50.441085,0
+          16.6534216,50.4410854,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Żupny - Muzeum Żup Krakowskich Wieliczka</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt 1. Nazwa lokalizacji: Zamek Żupny, Muzeum Żup Krakowskich Wieliczka<br><br>Pkt 2. Opis: Zamek Żupny w Wieliczce to średniowieczna budowla pełniąca przez wieki funkcję siedziby zarządu kopalni soli. Obecnie znajduje się tu Muzeum Żup Krakowskich, które prezentuje bogatą historię górnictwa soli, a także imponującą kolekcję solniczek – jedną z najcenniejszych na świecie. Wewnątrz zamku znajdują się różnorodne wystawy, w tym stałe i czasowe, a także artefakty związane z kopalnią oraz życiem dawnych mieszkańców Wieliczki. Zwiedzający mogą również zobaczyć gotycką salę, elementy archeologiczne oraz eksponaty związane z lokalną historią. Zamek został odrestaurowany, a jego malowniczy dziedziniec i baszta dodatkowo podkreślają wyjątkowy klimat tego miejsca. Wizyta w zamku jest doskonałym uzupełnieniem zwiedzania kopalni soli.<br><br>Pkt 3. Adres: Zamkowa 8, 32-020 Wieliczka<br><br>Pkt 4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 09:00–16:00<br>Środa: 09:00–16:00<br>Czwartek: 09:00–16:00<br>Piątek: 09:00–16:00<br>Sobota: 09:00–17:00<br>Niedziela: 09:00–17:00<br>Pkt 5. Telefon: 12 278 58 49<br><br>Pkt 6. Strona internetowa: muzeum.wieliczka.pl<br><br>Pkt 7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          20.06006,49.983934,0
+          20.0600602,49.9839341,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Kościół Rzymskokatolicki pw. Wniebowzięcia NMP św. Stanisława Biskupa</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt 1. Nazwa lokalizacji: Kościół pw. Wniebowzięcia NMP i św. Stanisława<br><br>Pkt 2. Opis: Kościół Rzymskokatolicki pw. Wniebowzięcia NMP i św. Stanisława to dawniej cerkiew greckokatolicka pw. św. Michała Archanioła, która obecnie pełni funkcję kościoła rzymskokatolickiego. Świątynia ta jest jednym z najpiękniejszych przykładów drewnianej architektury sakralnej typu bojkowskiego i została wpisana na listę Światowego Dziedzictwa UNESCO. Położona na malowniczym wzgórzu, oferuje zapierające dech w piersiach widoki na okolicę. Wnętrze świątyni, choć skromne, emanuje wyjątkowym klimatem. Budowla jest doskonale zachowana, a jej dach pokryty gontem oraz otaczające ją krajobrazy tworzą wyjątkowy klimat. Na terenie kościoła znajduje się także stary cmentarz, a sama świątynia jest popularnym przystankiem na trasie Wielkiej Pętli Bieszczadzkiej.<br><br>Pkt 3. Adres: Lutowiska 85, 38-713 Smolnik<br><br>Pkt 4. Godziny otwarcia: Otwarcie: niedziela, 09:00<br><br>Pkt 5. Telefon: 13 461 03 40<br><br>Pkt 6. Strona internetowa: parafia-lutowiska.webd.pl<br><br>Pkt 7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.687918,49.209523,0
+          22.6879177,49.2095232,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zespół cerkiewny - cerkiew greckokatolicka pw. Michała Archanioła</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt 1. Nazwa lokalizacji: Zespół cerkiewny pw. Michała Archanioła<br><br>Pkt 2. Opis: Cerkiew greckokatolicka pw. Michała Archanioła w Rzepedzi to wyjątkowy zabytek wpisany na Podkarpacki Szlak Architektury Drewnianej. Świątynia pochodzi z lat 1801-1803 i reprezentuje styl łemkowski typu północno-wschodniego. Charakterystycznym elementem jest jej bezwieżowa konstrukcja oraz pięć wieżyczek, co jest rzadko spotykane w tego typu budowlach. Wewnątrz można podziwiać czterorzędowy ikonostas oraz polichromie. Cerkiew znajduje się na malowniczym wzniesieniu, otoczona dzwonnicą z 1817 roku – najwyższą tego typu w polskich Karpatach – oraz niewielkim cmentarzem. Zwiedzanie możliwe jest po wcześniejszym kontakcie telefonicznym, a zebrane datki przeznaczane są na jej renowację.<br><br>Pkt 3. Adres: DW892 29, 38-542<br><br>Pkt 4. Godziny otwarcia:<br><br>Pkt 5. Telefon: 500 071 205<br><br>Pkt 6. Strona internetowa:<br><br>Pkt 7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.128871,49.369177,0
+          22.1288714,49.3691771,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Wawel Zaginiony</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt 1. Nazwa lokalizacji: Wystawa "Wawel Zaginiony"<br><br>Pkt 2. Opis: Wystawa "Wawel Zaginiony" to rezerwat archeologiczny na terenie Zamku Królewskiego na Wawelu, który ukazuje wczesne dzieje wzgórza wawelskiego. Ekspozycja prezentuje relikty budowli z okresu przedromańskiego i romańskiego, w tym fragmenty dawnego zamku gotyckiego, rotundy Najświętszej Marii Panny oraz pozostałości stajni i wozowni z epoki renesansu. Zwiedzający mają okazję przejść specjalnie przygotowaną kładką nad wykopaliskami i podziwiać historyczne makiety oraz zachowane elementy architektoniczne. Wystawa jest doskonałą podróżą w czasie, ukazującą, jak zmieniała się zabudowa wzgórza na przestrzeni wieków. W poniedziałki zwiedzanie jest bezpłatne po pobraniu wejściówek.<br><br>Pkt 3. Adres: Piętro 0, Zamek Królewski na Wawelu – Państwowe Zbiory Sztuki, Kraków<br><br>Pkt 4. Godziny otwarcia:<br><br>Poniedziałek: 09:30–13:00<br>Wtorek: 09:30–14:00<br>Środa: 09:30–17:00<br>Czwartek: 09:30–17:00<br>Piątek: 09:30–17:00<br>Sobota: 09:30–17:00<br>Niedziela: 09:30–17:00<br>Pkt 5. Telefon:<br><br>Pkt 6. Strona internetowa: wawel.krakow.pl<br><br>Pkt 7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.936071,50.053947,0
+          19.9360707,50.0539473,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Stary żuraw portowy</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt 1. Nazwa lokalizacji: Stary żuraw w Gdańsku<br><br>Pkt 2. Opis: Stary żuraw w Gdańsku, wybudowany w XV wieku, to najstarszy zachowany dźwig portowy w Europie i jedna z najbardziej rozpoznawalnych budowli miasta. Służył zarówno do przeładunku towarów, jak i do stawiania masztów na statkach, a także pełnił funkcję bramy miejskiej. Obecnie żuraw jest częścią multimedialnego muzeum, które przybliża historię morską Gdańska oraz codzienne życie w średniowiecznym porcie. Zwiedzający mogą podziwiać wnętrze, w tym ogromne koła do wciągania ładunków, oraz cieszyć się widokami na Motławę z górnych kondygnacji. Miejsce jest symbolem handlowej potęgi Gdańska i ważnym punktem na turystycznej mapie miasta.<br><br>Pkt 3. Adres: Szeroka 67/68, 80-835 Gdańsk<br><br>Pkt 4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt 5. Telefon:<br><br>Pkt 6. Strona internetowa:<br><br>Pkt 7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          18.657528,54.350494,0
+          18.6575279,54.3504943,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Zamek Baranów Sandomierski</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt 1. Nazwa lokalizacji: Zamek w Baranowie Sandomierskim<br><br>Pkt 2. Opis:<br>Zamek w Baranowie Sandomierskim, nazywany „Małym Wawelem” lub „Perłą Renesansu”, to XVI-wieczna budowla o wyjątkowej architekturze i bogatej historii. Zlokalizowany na terenie malowniczego parku, zachwyca swoim renesansowym stylem, pięknym dziedzińcem oraz arkadowymi krużgankami. W zamku można nie tylko zwiedzać wnętrza z przewodnikiem, ale również skorzystać z hotelowych komnat i restauracji. Obiekt oferuje liczne atrakcje, takie jak historyczne ekspozycje, ogrody idealne na spacery oraz oranżeria. Jest to obowiązkowy punkt dla miłośników historii i architektury.<br><br>Pkt 3. Adres: Zamkowa 22, 39-450 Baranów Sandomierski<br><br>Pkt 4. Godziny otwarcia: brak informacji<br><br>Pkt 5. Telefon: 15 811 80 39<br><br>Pkt 6. Strona internetowa: baranow.com.pl<br><br>Pkt 7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          21.535609,50.502005,0
+          21.5356093,50.5020046,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Święta Góra Grabarka</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt 1. Nazwa lokalizacji: Święta Góra Grabarka<br><br>Pkt 2. Opis:<br>Święta Góra Grabarka to jedno z najważniejszych miejsc pielgrzymkowych dla wyznawców prawosławia w Polsce. Otoczona zadbanym, zielonym terenem, stanowi duchowe centrum, przyciągając zarówno wiernych, jak i turystów. Na miejscu znajduje się żeński monaster, cerkwie, domy pielgrzyma oraz las krzyży przyniesionych przez pielgrzymów, który robi ogromne wrażenie. W pobliżu znajduje się także studnia ze źródełkiem cudownej wody oraz cmentarz prawosławny. W miejscu można zakupić pamiątki w sklepiku, choć płatność jest możliwa jedynie gotówką. Grabarka to obowiązkowy punkt na mapie Podlasia dla każdego, kto pragnie poznać tradycję i historię prawosławia.<br><br>Pkt 3. Adres: Górze Grabarce, 17-330<br><br>Pkt 4. Godziny otwarcia:<br><br>Pkt 5. Telefon:<br><br>Pkt 6. Strona internetowa:<br><br>Pkt 7. Czy dostęp jest płatny:]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          23.006689,52.41661,0
+          23.0066894,52.4166105,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Muzeum „Sztygarka” w Dąbrowie Górniczej</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt 1. Nazwa lokalizacji: Muzeum Sztygarka, Dąbrowa Górnicza<br><br>Pkt 2. Opis:<br>Muzeum Sztygarka w Dąbrowie Górniczej to miejsce, które łączy historię regionu z ciekawymi ekspozycjami tematycznymi. Oprócz zbiorów związanych z historią górnictwa, geologią i podróżami, obiekt oferuje również zwiedzanie kopalni ćwiczebnej, która do 1996 roku służyła do nauki przyszłych górników. W muzeum można podziwiać wystawy związane z militariami, paleontologią, kulturami świata oraz wyjątkowe eksponaty geologiczne. Na zewnątrz znajdują się pojazdy wojskowe, które są atrakcją zarówno dla dorosłych, jak i dzieci. Wydarzenia specjalne, takie jak Noc Muzeów, są tutaj organizowane z wielką starannością, oferując dodatkowe atrakcje dla odwiedzających.<br><br>Pkt 3. Adres: Legionów Polskich 69, 41-300 Dąbrowa Górnicza<br><br>Pkt 4. Godziny otwarcia:<br><br>Poniedziałek: Zamknięte<br>Wtorek: 09:00–15:00<br>Środa: 09:00–15:00<br>Czwartek: 09:00–19:00<br>Piątek: 09:00–15:00<br>Sobota: 09:00–15:00<br>Niedziela: 11:45–16:00<br>Pkt 5. Telefon: 32 726 41 85<br><br>Pkt 6. Strona internetowa: muzeum-dabrowa.pl<br><br>Pkt 7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          19.18352,50.318396,0
+          19.1835203,50.3183962,0
         </coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>Wieża ciśnień</name>
-      <styleUrl>#icon-1598-4E342E-nodesc</styleUrl>
+      <description><![CDATA[Pkt 1. Nazwa lokalizacji: Wieża ciśnień w Gołdapi<br><br>Pkt 2. Opis:<br>Wieża ciśnień w Gołdapi to odrestaurowana atrakcja turystyczna, która oferuje zarówno niezapomniane widoki, jak i możliwość poznania historii regionu. Zbudowana w 1905 roku, wieża ma 46,5 m wysokości i siedem kondygnacji, na których mieszczą się wystawy okolicznościowe i historyczne. Na szóstym piętrze znajduje się przytulna kawiarnia, gdzie można zrelaksować się przy kawie i ciastku, a najwyższy taras widokowy zapewnia zapierające dech w piersiach panoramy miasta i okolicznych jezior. Dla wygody odwiedzających dostępna jest winda, choć ostatnie piętro wymaga pokonania schodów. Na miejscu znajdziesz także sklep z pamiątkami i wygodny parking.<br><br>Pkt 3. Adres: Paderewskiego 35, 19-500 Gołdap<br><br>Pkt 4. Godziny otwarcia: Tymczasowo zamknięte<br><br>Pkt 5. Telefon: 509 951 588<br><br>Pkt 6. Strona internetowa: wieza-goldap.pl<br><br>Pkt 7. Czy dostęp jest płatny: Tak]]></description>
+      <styleUrl>#icon-1598-A52714</styleUrl>
       <Point>
         <coordinates>
-          22.313094,54.308101,0
+          22.313094,54.3081009,0
         </coordinates>
       </Point>
     </Placemark>
