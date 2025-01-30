@@ -73,7 +73,8 @@ async function loadKmlData() {
 
         // Usunięcie "nr: X" z infrastruktury
         if (infrastruktura) {
-          infrastruktura = infrastruktura.replace(/- nr:?\s*\d+/g, "").trim();
+          infrastruktura = infrastruktura.replace(/- nr:? \d+/g, "").trim();
+          infrastruktura = infrastruktura.split("\n").join("<br>"); // Każdy element w nowej linii
         }
 
         if (name) {
@@ -112,7 +113,7 @@ function shortenText(text, id) {
   return text.replace(/\n/g, "<br>");
 }
 
-// Funkcja generująca treść popupu z zieloną ramką i poprawioną infrastrukturą
+// Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
   let popupContent = `<div style="border:2px solid green; padding:5px; display:inline-block; font-size:16px; font-weight:bold;">${name}</div><br>`;
 
@@ -129,32 +130,23 @@ function generatePopupContent(name, lat, lon) {
     popupContent += `<strong style="font-size:12px;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px;">${websiteLinksMap[name]}</a><br>`;
   }
 
-  // Opis (napis zawsze widoczny, dane tylko jeśli istnieją)
+  // Opis
   popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Opis:</div><br>`;
   popupContent += descriptionsMap[name] 
     ? `<span style="font-size:10px;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
     : `<span style="font-size:10px;"><i>Brak opisu</i></span>`;
 
-  // Infrastruktura (napis zawsze widoczny, dane tylko jeśli istnieją)
+  // Infrastruktura
   popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Infrastruktura:</div><br>`;
   popupContent += amenitiesMap[name] 
-    ? `<span style="font-size:10px;">${shortenText(amenitiesMap[name].replace(/\s*-\s*/g, "<br>"), `infra-${name}`)}</span>` 
+    ? `<span style="font-size:10px;">${amenitiesMap[name]}</span>` 
     : `<span style="font-size:10px;"><i>Brak informacji</i></span>`;
 
+  // Przyciski Google Maps, Prowadź, Aktualizuj
+  const googleMapsLink = `https://www.google.com/maps/search/${encodeURIComponent(name)}`;
+  popupContent += `<br><a href="${googleMapsLink}" target="_blank" class="details-button" style="font-size:12px;">Link do Map Google</a>`;
+  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px;">Prowadź</a>`;
+  popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdjecie-lub-opinie" target="_blank" class="update-button" style="font-size:12px;">Aktualizuj</a>`;
+
   return popupContent;
-}
-
-// Funkcja aktualizująca popupy dla wszystkich markerów
-function updatePopups(markers) {
-  markers.forEach(({ marker, name, lat, lon }) => {
-    const popupContent = generatePopupContent(name, lat, lon);
-    marker.bindPopup(popupContent);
-  });
-}
-
-// Funkcja do wczytania danych i aktualizacji popupów
-async function loadDetailsAndUpdatePopups(markers) {
-  await loadDetails();
-  await loadKmlData();
-  updatePopups(markers);
 }
