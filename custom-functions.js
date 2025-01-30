@@ -1,4 +1,3 @@
-// Obiekty do przechowywania danych
 let detailsMap = {};
 let phoneNumbersMap = {};
 let websiteLinksMap = {};
@@ -53,7 +52,7 @@ async function loadKmlData() {
   for (const url of kmlFiles) {
     try {
       const response = await fetch(url);
-      if (!response.ok) throw new Error(`Nie udało się załadować: ${url}`);
+      if (!response.ok) throw new Error(Nie udało się załadować: ${url});
       const kmlText = await response.text();
       const parser = new DOMParser();
       const kml = parser.parseFromString(kmlText, "application/xml");
@@ -90,7 +89,7 @@ async function loadKmlData() {
         }
       }
     } catch (error) {
-      console.error(`Błąd podczas przetwarzania pliku ${url}:`, error);
+      console.error(Błąd podczas przetwarzania pliku ${url}:, error);
     }
   }
 }
@@ -101,52 +100,56 @@ function shortenText(text, id) {
   const words = text.split(" ");
   if (words.length > 30) { // Przybliżona liczba słów na 3 linijki
     const shortText = words.slice(0, 30).join(" ") + "...";
-    return `
+    return 
       <span id="${id}-short">${shortText}</span>
       <span id="${id}-full" style="display:none;">${text.replace(/\n/g, "<br>")}</span>
       <a href="#" onclick="document.getElementById('${id}-short').style.display='none';
                           document.getElementById('${id}-full').style.display='inline';
                           this.style.display='none'; return false;">
         Pokaż więcej
-      </a>`;
+      </a>;
   }
   return text.replace(/\n/g, "<br>");
 }
 
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<div id="popup-container" style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold;">${name}</div><br>`;
+  let popupContent = <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;">${name}</div><br>;
 
   // Kontener popupu dopasowany do szerokości opisu
-  popupContent += `<div id="popup-content" style="display:inline-block; word-wrap: break-word;">`;
+  popupContent += <div style="max-width: 80%; word-wrap: break-word;">;
 
   // Numer telefonu
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
   const phoneLink =
     phone !== "Brak numeru kontaktowego"
-      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;">${phone}</a>`
-      : `<span style="font-size:10px;">${phone}</span>`;
-  popupContent += `<strong style="font-size:12px;">Kontakt:</strong> ${phoneLink}<br>`;
+      ? <a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;">${phone}</a>
+      : <span style="font-size:10px;">${phone}</span>;
+  popupContent += <strong style="font-size:12px;">Kontakt:</strong> ${phoneLink}<br>;
 
   // Strona internetowa
   if (websiteLinksMap[name]) {
-    popupContent += `<strong style="font-size:12px;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px;">${websiteLinksMap[name]}</a><br>`;
+    popupContent += <strong style="font-size:12px;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px;">${websiteLinksMap[name]}</a><br>;
   }
 
   // Opis
-  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Opis:</div><br>`;
+  popupContent += <div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Opis:</div><br>;
   popupContent += descriptionsMap[name] 
-    ? `<span id="popup-description" style="font-size:10px; display:inline-block; max-width:100%; word-wrap:break-word;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-    : `<span style="font-size:10px;"><i>Brak opisu</i></span>`;
+    ? <span style="font-size:10px;">${shortenText(descriptionsMap[name], opis-${name})}</span> 
+    : <span style="font-size:10px;"><i>Brak opisu</i></span>;
 
   // Infrastruktura
-  popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Infrastruktura:</div><br>`;
+  popupContent += <br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Infrastruktura:</div><br>;
   popupContent += amenitiesMap[name] 
-    ? `<span style="font-size:10px;">${amenitiesMap[name]}</span>` 
-    : `<span style="font-size:10px;"><i>Brak informacji</i></span>`;
+    ? <span style="font-size:10px;">${amenitiesMap[name]}</span> 
+    : <span style="font-size:10px;"><i>Brak informacji</i></span>;
 
-  popupContent += `</div>`; // Zamknięcie kontenera popupu
+  // Linki
+  popupContent += <br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px;">Link do Map Google</a>;
+  popupContent += <br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px;">Prowadź</a>;
+  popupContent += <br><a href="https://www.campteam.pl/dodaj/dodaj-zdjecie-lub-opinie" target="_blank" class="update-button" style="font-size:12px;">Aktualizuj</a>;
 
+  popupContent += </div>; // Zamknięcie kontenera popupu
   return popupContent;
 }
 
