@@ -62,11 +62,11 @@ async function loadKmlData() {
       for (const placemark of placemarks) {
         const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
         const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
-        const website = placemark.querySelector("Data[name='website'] > value")?.textContent.trim() || extractWebsite(description);
+        const website = placemark.querySelector("Data[name='Strona www:'] > value")?.textContent.trim() || extractWebsite(description);
 
-        // Poprawione selektory dla Opisu i Infrastruktury
-        const opisNode = placemark.querySelector("Data[name='Opis'] > value");
-        const infrastrukturaNode = placemark.querySelector("Data[name='Udogodnienia'] > value");
+        // Pobieranie danych Opis i Infrastruktura
+        const opisNode = placemark.querySelector("Data[name='Opis:'] > value");
+        const infrastrukturaNode = placemark.querySelector("Data[name='Udogodnienia:'] > value");
 
         const opis = opisNode ? opisNode.textContent.trim() : "";
         const infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
@@ -126,11 +126,11 @@ function generatePopupContent(name, lat, lon) {
 
   // Opis (napis zawsze widoczny, dane tylko jeśli istnieją)
   popupContent += `<strong>Opis:</strong><br>`;
-  popupContent += descriptionsMap[name] ? shortenText(descriptionsMap[name], `opis-${name}`) : "";
+  popupContent += descriptionsMap[name] ? shortenText(descriptionsMap[name], `opis-${name}`) : "<i>Brak opisu</i>";
 
   // Infrastruktura (napis zawsze widoczny, dane tylko jeśli istnieją)
   popupContent += `<br><strong>Infrastruktura:</strong><br>`;
-  popupContent += amenitiesMap[name] ? shortenText(amenitiesMap[name], `infra-${name}`) : "";
+  popupContent += amenitiesMap[name] ? shortenText(amenitiesMap[name], `infra-${name}`) : "<i>Brak informacji</i>";
 
   // Google Maps
   if (!excludedPlaces.has(name)) {
