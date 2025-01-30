@@ -279,19 +279,19 @@
         }),
         polanamiotowe: L.icon({
           iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
-          iconSize: [40, 40],
+          iconSize: [50, 50],
           iconAnchor: [20, 20],
           popupAnchor: [0, -20],
         }),
         kempingiopen: L.icon({
           iconUrl: "/ikony/Ikona_Kempingi.png",
-          iconSize: [40, 40],
+          iconSize: [35, 35],
           iconAnchor: [15, 15],
           popupAnchor: [0, -10],
         }),
         polanamiotoweopen: L.icon({
           iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
-          iconSize: [40, 40],
+          iconSize: [35, 35],
           iconAnchor: [15, 15],
           popupAnchor: [0, -10],
         }),
@@ -303,7 +303,7 @@
         }),
         kempingi1: L.icon({
           iconUrl: "/ikony/Ikona_Kempingi.png",
-          iconSize: [40, 40],
+          iconSize: [35, 35],
           iconAnchor: [15, 15],
           popupAnchor: [0, -10],
         }),
@@ -327,7 +327,7 @@
         }),
         miejscenabiwak: L.icon({
           iconUrl: "/ikony/Ikona_Miejsce_Biwakowe.png",
-          iconSize: [35, 35],
+          iconSize: [30, 30],
           iconAnchor: [15, 15],
           popupAnchor: [0, -10],
         }),
@@ -349,7 +349,7 @@
 
       async function fetchKml(url) {
         const response = await fetch(url);
-        if (!response.ok) throw new Error(Błąd wczytywania pliku KML: ${url});
+        if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
         return response.text();
       }
 
@@ -370,7 +370,7 @@
 
           if (coordinates) {
             const [lon, lat] = coordinates.split(",");
-            const key = ${lat},${lon};
+            const key = `${lat},${lon}`;
 
             if (!addedMarkers.has(key)) {
               addedMarkers.add(key);
@@ -379,7 +379,7 @@
                 markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
               }
               const marker = L.marker([lat, lon], markerOptions).bindPopup(
-                <strong>${name}</strong>
+                `<strong>${name}</strong>`
               );
 
               if (addToCluster) {
