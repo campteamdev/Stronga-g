@@ -9,48 +9,53 @@ let excludedPlaces = new Set();
 // Blokowanie prawego przycisku myszy
 document.addEventListener("contextmenu", (event) => event.preventDefault());
 
-// Funkcja generująca treść popupu
-function generatePopupContent(name, lat, lon) {
-  let popupContent = `<div class="popup-container">${name}</div><br>`;
-
-  // Kontener popupu
-  popupContent += `<div class="popup-content">`;
-
-  // Numer telefonu
-  const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
-  const phoneLink =
-    phone !== "Brak numeru kontaktowego"
-      ? `<a href="tel:${phone}" class="phone-link">${phone}</a>`
-      : `<span class="phone-text">${phone}</span>`;
-  popupContent += `<strong>Kontakt:</strong> ${phoneLink}<br>`;
-
-  // Strona internetowa
-  if (websiteLinksMap[name]) {
-    popupContent += `<strong>Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" class="website-link">${websiteLinksMap[name]}</a><br>`;
+// Funkcja skracająca tekst do 3 linijek
+function shortenText(text, id) {
+  if (!text) return ""; // Jeśli brak treści, zwróć pusty ciąg
+  const words = text.split(" ");
+  if (words.length > 30) { // Przybliżona liczba słów na 3 linijki
+    const shortText = words.slice(0, 30).join(" ") + "...";
+    return `
+      <span id="${id}-short">${shortText}</span>
+      <span id="${id}-full" style="display:none;">${text.replace(/\n/g, "<br>")}</span>
+      <a href="#" onclick="document.getElementById('${id}-short').style.display='none';
+                          document.getElementById('${id}-full').style.display='inline';
+                          this.style.display='none'; return false;">
+        Pokaż więcej
+      </a>`;
   }
-
-  // Opis
-  popupContent += `<div class="popup-title">Opis:</div><br>`;
-  popupContent += descriptionsMap[name] 
-    ? `<span>${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-    : `<span><i>Brak opisu</i></span>`;
-
-  // Infrastruktura
-  popupContent += `<br><div class="popup-title">Infrastruktura:</div><br>`;
-  popupContent += amenitiesMap[name] 
-    ? `<span>${amenitiesMap[name]}</span>` 
-    : `<span><i>Brak informacji</i></span>`;
-
-  // Linki
-  popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button">Link do Map Google</a>`;
-  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button">Prowadź</a>`;
-  popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdjecie-lub-opinie" target="_blank" class="update-button">Dodaj Zdjęcie/Aktualizuj</a>`;
-
-  popupContent += `</div>`; // Zamknięcie kontenera popupu
-  return popupContent;
+  return text.replace(/\n/g, "<br>");
 }
 
-// Funkcja dopasowująca szerokość popupu do zoomu mapy
+// Funkcja generująca treść popupu
+function generatePopupContent(name, lat, lon) {
+  return `
+    <div class="popup-container">
+      <div class="popup-title">${name}</div>
+      <div class="popup-content">
+        <strong>Kontakt:</strong> ${phoneNumbersMap[name] ? `<a href="tel:${phoneNumbersMap[name]}" class="phone-link">${phoneNumbersMap[name]}</a>` : "Brak numeru"}<br>
+        ${websiteLinksMap[name] ? `<strong>Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" class="website-link">${websiteLinksMap[name]}</a><br>` : ""}
+        
+        <div class="popup-section">
+          <div class="popup-label">Opis:</div>
+          <div class="popup-text">${descriptionsMap[name] ? shortenText(descriptionsMap[name], `opis-${name}`) : "<i>Brak opisu</i>"}</div>
+        </div>
+
+        <div class="popup-section">
+          <div class="popup-label">Infrastruktura:</div>
+          <div class="popup-text">${amenitiesMap[name] ? amenitiesMap[name] : "<i>Brak informacji</i>"}</div>
+        </div>
+
+        <div class="popup-links">
+          <a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button">Link do Map Google</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button">Prowadź</a>
+          <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button">Dodaj Zdjęcie/Aktualizuj</a>
+        </div>
+      </div>
+    </div>`;
+}
+
+// Dopasowanie szerokości popupu do zoomu
 function adjustPopupSize() {
   let zoomLevel = map.getZoom(); // Pobierz aktualny poziom zoomu
 
