@@ -115,8 +115,8 @@ function generatePopupContent(name, lat, lon) {
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
   const phoneLink =
     phone !== "Brak numeru kontaktowego"
-      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:14px;">${phone}</a>`
-      : `<span style="font-size:14px;">${phone}</span>`;
+      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;">${phone}</a>`
+      : `<span style="font-size:10px;">${phone}</span>`;
   popupContent += `<strong style="font-size:16px;">Kontakt:</strong> ${phoneLink}<br>`;
 
   // Strona internetowa
@@ -125,13 +125,13 @@ function generatePopupContent(name, lat, lon) {
   }
 
   // Opis (napis zawsze widoczny, dane tylko jeśli istnieją)
-  popupContent += `<strong style="font-size:14px;">Opis:</strong><br>`;
+  popupContent += `<strong style="font-size:12px;">Opis:</strong><br>`;
   popupContent += descriptionsMap[name] 
     ? `<span style="font-size:10px;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
     : `<span style="font-size:10px;"><i>Brak opisu</i></span>`;
 
   // Infrastruktura (napis zawsze widoczny, dane tylko jeśli istnieją)
-  popupContent += `<br><strong style="font-size:14px;">Infrastruktura:</strong><br>`;
+  popupContent += `<br><strong style="font-size:12px;">Infrastruktura:</strong><br>`;
   popupContent += amenitiesMap[name] 
     ? `<span style="font-size:10px;">${shortenText(amenitiesMap[name], `infra-${name}`)}</span>` 
     : `<span style="font-size:10px;"><i>Brak informacji</i></span>`;
@@ -139,18 +139,18 @@ function generatePopupContent(name, lat, lon) {
   // Google Maps
   if (!excludedPlaces.has(name)) {
     const googleMapsLink = `https://www.google.com/maps/search/${encodeURIComponent(name)}`;
-    popupContent += `<br><a href="${googleMapsLink}" target="_blank" style="display:inline-block; margin-top:5px; padding:5px 10px; border:2px solid black; color:black; text-decoration:none; font-size:14px;">Link do Wizytówki Map Google</a>`;
+    popupContent += `<br><a href="${googleMapsLink}" target="_blank" style="display:inline-block; margin-top:5px; padding:5px 10px; border:2px solid black; color:black; text-decoration:none; font-size:12px;">Link do Wizytówki Map Google</a>`;
   }
 
   // Pokaż szczegóły lub aktualizuj
   if (detailsMap[name]) {
     popupContent += `<br><a href="${detailsMap[name]}" target="_blank" class="details-button" style="font-size:14px;">Pokaż szczegóły</a>`;
   } else {
-    popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:14px;">Aktualizuj</a>`;
+    popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px;">Aktualizuj</a>`;
   }
 
   // Prowadź do
-  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:14px;">Wyznacz trasę</a>`;
+  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px;">Wyznacz trasę</a>`;
 
   return popupContent;
 }
