@@ -172,3 +172,29 @@ async function loadDetailsAndUpdatePopups(markers) {
   await loadKmlData();
   updatePopups(markers);
 }
+// Funkcja dostosowująca szerokość popupa do najszerszego elementu
+function adjustPopupWidth(popupElement) {
+    let maxWidth = 0;
+    popupElement.querySelectorAll("span, div, a, strong").forEach((element) => {
+        let width = element.scrollWidth;
+        if (width > maxWidth) {
+            maxWidth = width;
+        }
+    });
+
+    popupElement.style.width = `${maxWidth + 20}px`; // Dodajemy trochę marginesu
+}
+
+// Ustawienie szerokości popupa po jego otwarciu
+map.on("popupopen", function (e) {
+    setTimeout(() => {
+        let popupElement = document.querySelector(".leaflet-popup-content");
+        if (popupElement) {
+            adjustPopupWidth(popupElement);
+        }
+    }, 50); // Krótkie opóźnienie na renderowanie treści
+});
+
+// Wywołanie funkcji inicjalizującej mapę
+initializeMap();
+}
