@@ -95,12 +95,12 @@ async function loadKmlData() {
   }
 }
 
-// Funkcja skracająca opis i dodająca przycisk "Pokaż więcej"
+// Funkcja skracająca tekst do 3 linijek
 function shortenText(text, id) {
   if (!text) return ""; // Jeśli brak treści, zwróć pusty ciąg
-  const lines = text.split("\n");
-  if (lines.length > 3) {
-    const shortText = lines.slice(0, 3).join(" ") + "...";
+  const words = text.split(" ");
+  if (words.length > 30) { // Przybliżona liczba słów na 3 linijki
+    const shortText = words.slice(0, 30).join(" ") + "...";
     return `
       <span id="${id}-short">${shortText}</span>
       <span id="${id}-full" style="display:none;">${text.replace(/\n/g, "<br>")}</span>
@@ -115,7 +115,7 @@ function shortenText(text, id) {
 
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold;">${name}</div><br>`;
+  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;">${name}</div><br>`;
 
   // Numer telefonu
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
@@ -130,7 +130,7 @@ function generatePopupContent(name, lat, lon) {
     popupContent += `<strong style="font-size:12px;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px;">${websiteLinksMap[name]}</a><br>`;
   }
 
-  // Opis
+  // Opis z funkcją "Pokaż więcej"
   popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Opis:</div><br>`;
   popupContent += descriptionsMap[name] 
     ? `<span style="font-size:10px;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
@@ -145,7 +145,7 @@ function generatePopupContent(name, lat, lon) {
   // Linki
   popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px;">Link do Map Google</a>`;
   popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px;">Prowadź</a>`;
-  popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px;">Aktualizuj</a>`;
+  popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdjecie-lub-opinie" target="_blank" class="update-button" style="font-size:12px;">Aktualizuj</a>`;
 
   return popupContent;
 }
