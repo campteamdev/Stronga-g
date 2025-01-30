@@ -6,6 +6,9 @@ let descriptionsMap = {};
 let amenitiesMap = {};
 let excludedPlaces = new Set();
 
+// Blokowanie prawego przycisku myszy
+document.addEventListener("contextmenu", (event) => event.preventDefault());
+
 // Funkcja wczytująca dane z pliku szczegóły.json
 async function loadDetails() {
   try {
