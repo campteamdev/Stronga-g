@@ -115,10 +115,10 @@ function shortenText(text, id) {
 
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;">${name}</div><br>`;
+  let popupContent = `<div id="popup-container" style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold;">${name}</div><br>`;
 
   // Kontener popupu dopasowany do szerokości opisu
-  popupContent += `<div style="max-width: 80%; word-wrap: break-word;">`;
+  popupContent += `<div id="popup-content" style="display:inline-block; word-wrap: break-word;">`;
 
   // Numer telefonu
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
@@ -136,7 +136,7 @@ function generatePopupContent(name, lat, lon) {
   // Opis
   popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Opis:</div><br>`;
   popupContent += descriptionsMap[name] 
-    ? `<span style="font-size:10px;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+    ? `<span id="popup-description" style="font-size:10px; display:inline-block; max-width:100%; word-wrap:break-word;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
     : `<span style="font-size:10px;"><i>Brak opisu</i></span>`;
 
   // Infrastruktura
@@ -145,12 +145,8 @@ function generatePopupContent(name, lat, lon) {
     ? `<span style="font-size:10px;">${amenitiesMap[name]}</span>` 
     : `<span style="font-size:10px;"><i>Brak informacji</i></span>`;
 
-  // Linki
-  popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px;">Link do Map Google</a>`;
-  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px;">Prowadź</a>`;
-  popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdjecie-lub-opinie" target="_blank" class="update-button" style="font-size:12px;">Aktualizuj</a>`;
-
   popupContent += `</div>`; // Zamknięcie kontenera popupu
+
   return popupContent;
 }
 
