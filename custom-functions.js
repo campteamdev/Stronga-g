@@ -1,21 +1,16 @@
-// Obiekt do przechowywania danych ze szczegóły.json
+// Obiekty do przechowywania danych
 let detailsMap = {};
-// Obiekt do przechowywania numerów telefonów
 let phoneNumbersMap = {};
-// Obiekt do przechowywania linków do stron www
 let websiteLinksMap = {};
-// Obiekt do przechowywania nazw miejsc z pliku Parkingilesne.kml
-let excludedPlaces = new Set();
-// Obiekt do przechowywania opisów i infrastruktury
 let descriptionsMap = {};
 let amenitiesMap = {};
+let excludedPlaces = new Set();
 
 // Funkcja wczytująca dane z pliku szczegóły.json
 async function loadDetails() {
   try {
     const response = await fetch("/szczegoly.json");
-    if (!response.ok)
-      throw new Error("Nie udało się załadować pliku szczegóły.json");
+    if (!response.ok) throw new Error("Nie udało się załadować szczegóły.json");
     const data = await response.json();
     detailsMap = data.reduce((map, item) => {
       const [name, link] = item.split(",");
@@ -27,23 +22,22 @@ async function loadDetails() {
   }
 }
 
-// Funkcja do wyodrębniania numerów telefonów z tekstu opisu
+// Funkcja do wyodrębniania numerów telefonów
 function extractPhoneNumber(description) {
   const phoneRegex = /(?:Telefon:|Phone:)?\s*(\+?\d[\d\s\-()]{7,})/i;
   const urlRegex = /https?:\/\/[^\s]+/gi;
-  const descriptionWithoutUrls = description.replace(urlRegex, "");
-  const match = descriptionWithoutUrls.match(phoneRegex);
+  const match = description.replace(urlRegex, "").match(phoneRegex);
   return match ? match[1].replace(/\s+/g, "") : null;
 }
 
-// Funkcja do wyodrębniania strony www z tekstu opisu
+// Funkcja do wyodrębniania strony www
 function extractWebsite(description) {
   const websiteRegex = /Website:\s*(https?:\/\/[^\s<]+)/i;
   const match = description.match(websiteRegex);
   return match ? match[1].trim() : null;
 }
 
-// Funkcja wczytująca dane z KML (numery telefonów, linki, opisy, infrastruktura)
+// Funkcja wczytująca dane z KML
 async function loadKmlData() {
   const kmlFiles = [
     "/Atrakcje.kml",
@@ -59,8 +53,7 @@ async function loadKmlData() {
   for (const url of kmlFiles) {
     try {
       const response = await fetch(url);
-      if (!response.ok)
-        throw new Error(`Nie udało się załadować pliku: ${url}`);
+      if (!response.ok) throw new Error(`Nie udało się załadować: ${url}`);
       const kmlText = await response.text();
       const parser = new DOMParser();
       const kml = parser.parseFromString(kmlText, "application/xml");
@@ -69,9 +62,14 @@ async function loadKmlData() {
       for (const placemark of placemarks) {
         const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
         const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
-        const website = placemark.querySelector("Data[name='website'] value")?.textContent.trim() || extractWebsite(description);
-        const opis = placemark.querySelector("Data[name='Opis'] value")?.textContent.trim() || "";
-        const infrastruktura = placemark.querySelector("Data[name='Udogodnienia'] value")?.textContent.trim() || "";
+        const website = placemark.querySelector("Data[name='website'] > value")?.textContent.trim() || extractWebsite(description);
+
+        // Poprawione selektory dla Opisu i Infrastruktury
+        const opisNode = placemark.querySelector("Data[name='Opis'] > value");
+        const infrastrukturaNode = placemark.querySelector("Data[name='Udogodnienia'] > value");
+
+        const opis = opisNode ? opisNode.textContent.trim() : "";
+        const infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
 
         if (name) {
           if (description) {
@@ -95,7 +93,7 @@ async function loadKmlData() {
   }
 }
 
-// Funkcja skracająca tekst do pierwszych 3 linii i dodająca przycisk "Pokaż więcej"
+// Funkcja skracająca tekst do pierwszych 3 linii
 function shortenText(text, id) {
   const lines = text.split("\n");
   if (lines.length > 3) {
@@ -105,8 +103,7 @@ function shortenText(text, id) {
       <span id="${id}-full" style="display:none;">${text}</span>
       <a href="#" onclick="document.getElementById('${id}-short').style.display='none';
                           document.getElementById('${id}-full').style.display='inline';
-                          this.style.display='none'; 
-                          return false;">
+                          this.style.display='none'; return false;">
         Pokaż więcej
       </a>`;
   }
@@ -117,7 +114,7 @@ function shortenText(text, id) {
 function generatePopupContent(name, lat, lon) {
   let popupContent = `<strong>${name}</strong><br>`;
 
-  // Dodanie numeru telefonu
+  // Numer telefonu
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
   const phoneLink =
     phone !== "Brak numeru kontaktowego"
@@ -125,35 +122,35 @@ function generatePopupContent(name, lat, lon) {
       : phone;
   popupContent += `<strong>Kontakt:</strong> ${phoneLink}<br>`;
 
-  // Dodanie strony www jako tekst (jeśli istnieje)
+  // Strona internetowa
   if (websiteLinksMap[name]) {
     popupContent += `<strong>Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none;">${websiteLinksMap[name]}</a><br>`;
   }
 
-  // Dodanie pola "Opis"
+  // Opis
   if (descriptionsMap[name]) {
     popupContent += `<strong>Opis:</strong> ${shortenText(descriptionsMap[name], `opis-${name}`)}<br>`;
   }
 
-  // Dodanie pola "Infrastruktura"
+  // Infrastruktura
   if (amenitiesMap[name]) {
     popupContent += `<strong>Infrastruktura:</strong> ${shortenText(amenitiesMap[name], `infra-${name}`)}<br>`;
   }
 
-  // Dodanie przycisku do Google Maps
+  // Google Maps
   if (!excludedPlaces.has(name)) {
     const googleMapsLink = `https://www.google.com/maps/search/${encodeURIComponent(name)}`;
     popupContent += `<a href="${googleMapsLink}" target="_blank" style="display:inline-block; margin-top:5px; padding:5px 10px; border:2px solid black; color:black; text-decoration:none;">Link do Wizytówki Map Google</a><br>`;
   }
 
-  // Dodanie przycisku "Pokaż szczegóły"
+  // Pokaż szczegóły lub aktualizuj
   if (detailsMap[name]) {
     popupContent += `<a href="${detailsMap[name]}" target="_blank" class="details-button">Pokaż szczegóły</a><br>`;
   } else {
     popupContent += `<a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button">Aktualizuj</a><br>`;
   }
 
-  // Dodanie przycisku "Prowadź do"
+  // Prowadź do
   popupContent += `<a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button">Wyznacz trasę</a>`;
 
   return popupContent;
