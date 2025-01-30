@@ -25,84 +25,11 @@ async function loadDetails() {
   }
 }
 
-// Funkcja do wyodrębniania numerów telefonów
-function extractPhoneNumber(description) {
-  const phoneRegex = /(?:Telefon:|Phone:)?\s*(\+?\d[\d\s\-()]{7,})/i;
-  const urlRegex = /https?:\/\/[^\s]+/gi;
-  const match = description.replace(urlRegex, "").match(phoneRegex);
-  return match ? match[1].replace(/\s+/g, "") : null;
-}
-
-// Funkcja do wyodrębniania strony www
-function extractWebsite(description) {
-  const websiteRegex = /Website:\s*(https?:\/\/[^\s<]+)/i;
-  const match = description.match(websiteRegex);
-  return match ? match[1].trim() : null;
-}
-
-// Funkcja wczytująca dane z KML
-async function loadKmlData() {
-  const kmlFiles = [
-    "/Atrakcje.kml",
-    "/Kempingi.kml",
-    "/Kempingi1.kml",
-    "/Kempingiopen.kml",
-    "/Miejscenabiwak.kml",
-    "/Parkingilesne.kml",
-    "/Polanamiotowe.kml",
-    "/Polanamiotoweopen.kml",
-  ];
-
-  for (const url of kmlFiles) {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`Nie udało się załadować: ${url}`);
-      const kmlText = await response.text();
-      const parser = new DOMParser();
-      const kml = parser.parseFromString(kmlText, "application/xml");
-      const placemarks = kml.getElementsByTagName("Placemark");
-
-      for (const placemark of placemarks) {
-        const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
-        const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
-        const website = placemark.querySelector("Data[name='Strona www:'] > value")?.textContent.trim() || extractWebsite(description);
-
-        // Pobieranie danych Opis i Infrastruktura
-        const opisNode = placemark.querySelector("Data[name='Opis:'] > value");
-        const infrastrukturaNode = placemark.querySelector("Data[name='Udogodnienia:'] > value");
-
-        const opis = opisNode ? opisNode.textContent.trim() : "";
-        let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
-
-        // Usunięcie "nr: X" z infrastruktury
-        if (infrastruktura) {
-          infrastruktura = infrastruktura.replace(/- nr:? \d+/g, "").trim();
-          infrastruktura = infrastruktura.split("\n").join("<br>"); // Każdy element w nowej linii
-        }
-
-        if (name) {
-          if (description) {
-            const phone = extractPhoneNumber(description);
-            phoneNumbersMap[name] = phone || "Brak numeru kontaktowego";
-          }
-          if (website) {
-            websiteLinksMap[name] = website;
-          }
-          descriptionsMap[name] = opis;
-          amenitiesMap[name] = infrastruktura;
-        }
-      }
-    } catch (error) {
-      console.error(`Błąd podczas przetwarzania pliku ${url}:`, error);
-    }
-  }
-}
-
-// Funkcja dynamicznego dostosowania szerokości popupa do treści
+// Funkcja dynamicznego dostosowania szerokości popupa do najdłuższego wiersza tekstu
 function adjustPopupWidth(popupElement) {
   let maxWidth = 0;
   popupElement.querySelectorAll("span, div, a, strong").forEach((element) => {
-    let width = element.offsetWidth;
+    let width = element.scrollWidth;
     if (width > maxWidth) {
       maxWidth = width;
     }
