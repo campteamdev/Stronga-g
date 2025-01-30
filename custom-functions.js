@@ -118,7 +118,7 @@ function shortenText(text, id) {
 
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>`;
+  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:300px; user-select: none;">${name}</div><br>`;
 
   // Kontener popupu z blokadą zaznaczania tekstu
   popupContent += `<div style="max-width: 80%; word-wrap: break-word; user-select: none;">`;
