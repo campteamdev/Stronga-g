@@ -130,11 +130,11 @@ function generatePopupContent(name, lat, lon) {
     popupContent += `<strong style="font-size:12px;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px;">${websiteLinksMap[name]}</a><br>`;
   }
 
-  // Opis z funkcją "Pokaż więcej"
-  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Opis:</div><br>`;
-  popupContent += descriptionsMap[name] 
-    ? `<span style="font-size:10px;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-    : `<span style="font-size:10px;"><i>Brak opisu</i></span>`;
+// Opis z funkcją "Pokaż więcej"
+popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Opis:</div><br>`;
+popupContent += descriptionsMap[name] 
+  ? `<span style="font-size:10px; display:inline-block; max-width:80%; word-wrap:break-word;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+  : `<span style="font-size:10px; display:inline-block; max-width:80%;"><i>Brak opisu</i></span>`;
 
   // Infrastruktura
   popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Infrastruktura:</div><br>`;
