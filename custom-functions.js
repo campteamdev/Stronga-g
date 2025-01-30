@@ -107,49 +107,54 @@ function shortenText(text, id) {
   return text;
 }
 
-// Funkcja generująca treść popupu
+// Funkcja generująca treść popupu z możliwością zmiany czcionki
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<strong>${name}</strong><br>`;
+  let popupContent = `<strong style="font-size:18px;">${name}</strong><br>`;
 
   // Numer telefonu
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
   const phoneLink =
     phone !== "Brak numeru kontaktowego"
-      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none;">${phone}</a>`
-      : phone;
-  popupContent += `<strong>Kontakt:</strong> ${phoneLink}<br>`;
+      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:14px;">${phone}</a>`
+      : `<span style="font-size:14px;">${phone}</span>`;
+  popupContent += `<strong style="font-size:16px;">Kontakt:</strong> ${phoneLink}<br>`;
 
   // Strona internetowa
   if (websiteLinksMap[name]) {
-    popupContent += `<strong>Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none;">${websiteLinksMap[name]}</a><br>`;
+    popupContent += `<strong style="font-size:16px;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:14px;">${websiteLinksMap[name]}</a><br>`;
   }
 
   // Opis (napis zawsze widoczny, dane tylko jeśli istnieją)
-  popupContent += `<strong>Opis:</strong><br>`;
-  popupContent += descriptionsMap[name] ? shortenText(descriptionsMap[name], `opis-${name}`) : "<i>Brak opisu</i>";
+  popupContent += `<strong style="font-size:16px;">Opis:</strong><br>`;
+  popupContent += descriptionsMap[name] 
+    ? `<span style="font-size:14px;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+    : `<span style="font-size:14px;"><i>Brak opisu</i></span>`;
 
   // Infrastruktura (napis zawsze widoczny, dane tylko jeśli istnieją)
-  popupContent += `<br><strong>Infrastruktura:</strong><br>`;
-  popupContent += amenitiesMap[name] ? shortenText(amenitiesMap[name], `infra-${name}`) : "<i>Brak informacji</i>";
+  popupContent += `<br><strong style="font-size:16px;">Infrastruktura:</strong><br>`;
+  popupContent += amenitiesMap[name] 
+    ? `<span style="font-size:14px;">${shortenText(amenitiesMap[name], `infra-${name}`)}</span>` 
+    : `<span style="font-size:14px;"><i>Brak informacji</i></span>`;
 
   // Google Maps
   if (!excludedPlaces.has(name)) {
     const googleMapsLink = `https://www.google.com/maps/search/${encodeURIComponent(name)}`;
-    popupContent += `<br><a href="${googleMapsLink}" target="_blank" style="display:inline-block; margin-top:5px; padding:5px 10px; border:2px solid black; color:black; text-decoration:none;">Link do Wizytówki Map Google</a>`;
+    popupContent += `<br><a href="${googleMapsLink}" target="_blank" style="display:inline-block; margin-top:5px; padding:5px 10px; border:2px solid black; color:black; text-decoration:none; font-size:14px;">Link do Wizytówki Map Google</a>`;
   }
 
   // Pokaż szczegóły lub aktualizuj
   if (detailsMap[name]) {
-    popupContent += `<br><a href="${detailsMap[name]}" target="_blank" class="details-button">Pokaż szczegóły</a>`;
+    popupContent += `<br><a href="${detailsMap[name]}" target="_blank" class="details-button" style="font-size:14px;">Pokaż szczegóły</a>`;
   } else {
-    popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button">Aktualizuj</a>`;
+    popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:14px;">Aktualizuj</a>`;
   }
 
   // Prowadź do
-  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button">Wyznacz trasę</a>`;
+  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:14px;">Wyznacz trasę</a>`;
 
   return popupContent;
 }
+
 
 // Funkcja aktualizująca popupy dla wszystkich markerów
 function updatePopups(markers) {
