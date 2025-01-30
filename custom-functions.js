@@ -1,3 +1,4 @@
+// Obiekty do przechowywania danych
 let detailsMap = {};
 let phoneNumbersMap = {};
 let websiteLinksMap = {};
