@@ -1,40 +1,15 @@
 <!DOCTYPE html>
 <html lang="pl">
   <head>
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-W68222TL");
-    </script>
-    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mapa Kempingów</title>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
     <script src="custom-functions.js"></script>
-
     <style>
       body {
         margin: 0;
@@ -65,73 +40,20 @@
       };
 
       const icons = {
-        kempingi: L.icon({
-          iconUrl: "/ikony/Ikona_Kempingi_Polecane.png",
-          iconSize: [40, 40],
-          iconAnchor: [20, 20],
-          popupAnchor: [0, -20],
-        }),
-        polanamiotowe: L.icon({
-          iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
-          iconSize: [40, 40],
-          iconAnchor: [20, 20],
-          popupAnchor: [0, -20],
-        }),
-        kempingiopen: L.icon({
-          iconUrl: "/ikony/Ikona_Kempingi.png",
-          iconSize: [40, 40],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        polanamiotoweopen: L.icon({
-          iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
-          iconSize: [40, 40],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        parkingilesne: L.icon({
-          iconUrl: "/ikony/Ikona_Parking_Le%C5%9Bny.png",
-          iconSize: [30, 30],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        kempingi1: L.icon({
-          iconUrl: "/ikony/Ikona_Kempingi.png",
-          iconSize: [40, 40],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        atractionCultural: L.icon({
-          iconUrl: "/ikony/atractionCultural.png",
-          iconSize: [35, 35],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        atractionFun: L.icon({
-          iconUrl: "/ikony/atractionFun.png",
-          iconSize: [35, 35],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        atractionNature: L.icon({
-          iconUrl: "/ikony/atractionNature.png",
-          iconSize: [35, 35],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        miejscenabiwak: L.icon({
-          iconUrl: "/ikony/Ikona_Miejsce_Biwakowe.png",
-          iconSize: [35, 35],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
+        kempingi: L.icon({ iconUrl: "/ikony/Ikona_Kempingi_Polecane.png", iconSize: [40, 40] }),
+        polanamiotowe: L.icon({ iconUrl: "/ikony/Ikona_Pole_Namiotowe.png", iconSize: [40, 40] }),
+        kempingiopen: L.icon({ iconUrl: "/ikony/Ikona_Kempingi.png", iconSize: [40, 40] }),
+        polanamiotoweopen: L.icon({ iconUrl: "/ikony/Ikona_Pole_Namiotowe.png", iconSize: [40, 40] }),
+        parkingilesne: L.icon({ iconUrl: "/ikony/Ikona_Parking_Leśny.png", iconSize: [30, 30] }),
+        kempingi1: L.icon({ iconUrl: "/ikony/Ikona_Kempingi.png", iconSize: [40, 40] }),
+        atractionCultural: L.icon({ iconUrl: "/ikony/atractionCultural.png", iconSize: [35, 35] }),
+        atractionFun: L.icon({ iconUrl: "/ikony/atractionFun.png", iconSize: [35, 35] }),
+        atractionNature: L.icon({ iconUrl: "/ikony/atractionNature.png", iconSize: [35, 35] }),
+        miejscenabiwak: L.icon({ iconUrl: "/ikony/Ikona_Miejsce_Biwakowe.png", iconSize: [35, 35] }),
       };
 
       const map = L.map("map").setView([52.392681, 19.275023], 6);
-      const markerCluster = L.markerClusterGroup({
-        showCoverageOnHover: false,
-        maxClusterRadius: 50,
-      });
+      const markerCluster = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 50 });
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; OpenStreetMap contributors",
@@ -139,7 +61,6 @@
 
       const addedMarkers = new Set();
       const allMarkers = [];
-      const allPlacemarks = [];
 
       async function fetchKml(url) {
         const response = await fetch(url);
@@ -147,25 +68,20 @@
         return response.text();
       }
 
-      async function loadMarkers(url, icon, addToCluster = true) {
+      async function loadMarkers(url, icon) {
         const kmlText = await fetchKml(url);
         const parser = new DOMParser();
         const kml = parser.parseFromString(kmlText, "application/xml");
         const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
-        allPlacemarks.push(...placemarks);
 
         placemarks.forEach((placemark) => {
-          const name =
-            placemark.getElementsByTagName("name")[0]?.textContent ||
-            "Brak nazwy";
-          const coordinates = placemark
-            .getElementsByTagName("coordinates")[0]
-            ?.textContent.trim();
-
-          const description =
-            placemark.querySelector('Data[name="Opis:"]')?.textContent || "";
-          const amenities =
-            placemark.querySelector('Data[name="Udogodnienia:"]')?.textContent || "";
+          const name = placemark.getElementsByTagName("name")[0]?.textContent || "Brak nazwy";
+          const coordinates = placemark.getElementsByTagName("coordinates")[0]?.textContent.trim();
+          
+          const descriptionNode = placemark.querySelector('Data[name="Opis:"]');
+          const amenitiesNode = placemark.querySelector('Data[name="Udogodnienia:"]');
+          const description = descriptionNode ? descriptionNode.textContent.trim() : null;
+          const amenities = amenitiesNode ? amenitiesNode.textContent.trim() : null;
 
           if (coordinates) {
             const [lon, lat] = coordinates.split(",");
@@ -173,19 +89,22 @@
 
             if (!addedMarkers.has(key)) {
               addedMarkers.add(key);
-              const markerOptions = { icon };
-              const marker = L.marker([lat, lon], markerOptions).bindPopup(
-                `<strong>${name}</strong><br>
-                ${description ? `<strong>Opis:</strong> ${description}<br>` : ""}
-                ${amenities ? `<strong>Infrastruktura:</strong> ${amenities}<br>` : ""}`
-              );
 
-              if (addToCluster) {
-                markerCluster.addLayer(marker);
-              } else {
-                marker.addTo(map);
+              // Tworzenie popupu z danymi
+              let popupContent = `<strong>${name}</strong><br>`;
+
+              // Jeśli opis istnieje, dodajemy go do popupu
+              if (description) {
+                popupContent += `<strong>Opis:</strong> ${description}<br>`;
               }
 
+              // Jeśli infrastruktura istnieje, dodajemy ją do popupu
+              if (amenities) {
+                popupContent += `<strong>Infrastruktura:</strong> ${amenities}<br>`;
+              }
+
+              const marker = L.marker([lat, lon], { icon }).bindPopup(popupContent);
+              markerCluster.addLayer(marker);
               allMarkers.push({ marker, name, lat, lon });
             }
           }
