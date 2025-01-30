@@ -103,7 +103,7 @@ function shortenText(text, id) {
   if (!text) return ""; // Jeśli brak treści, zwróć pusty ciąg
   const words = text.split(" ");
   if (words.length > 30) { // Przybliżona liczba słów na 3 linijki
-    const shortText = words.slice(0, 15).join(" ") + "...";
+    const shortText = words.slice(0, 20).join(" ") + "...";
     return `
       <span id="${id}-short">${shortText}</span>
       <span id="${id}-full" style="display:none;">${text.replace(/\n/g, "<br>")}</span>
