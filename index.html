@@ -480,42 +480,26 @@
       }
 
       initializeMap();
-      map.on("zoomend", function () {
-    let zoomLevel = map.getZoom(); // Pobiera aktualny zoom mapy
-    let popups = document.querySelectorAll(".leaflet-popup-content");
-
-    popups.forEach(popup => {
-        if (zoomLevel > 12) {
-            popup.style.maxWidth = "80vw"; // Przybliżenie - szeroki popup
-        } else if (zoomLevel > 9) {
-            popup.style.maxWidth = "60vw"; // Średni zoom - średni popup
-        } else {
-            popup.style.maxWidth = "40vw"; // Dalekie oddalenie - węższy popup
-        }
-    });
-});
     map.on("popupopen", function (e) {
-    let popupContent = e.popup._contentNode; // Pobiera kontener popupu
-    let zoomLevel = map.getZoom(); // Pobiera aktualny zoom
+    let popupContent = e.popup._contentNode; // Pobranie aktualnie otwartego popupu
+    if (!popupContent) return; // Sprawdzenie, czy popupContent istnieje
 
-    // 🔹 Ustawienie szerokości popupu w zależności od zoomu
     function adjustPopupSize() {
+        let zoomLevel = map.getZoom(); // Pobranie aktualnego zoomu
+
         if (zoomLevel > 12) {
-            popupContent.style.maxWidth = "80vw"; // Szeroki popup przy dużym zoomie
+            popupContent.style.maxWidth = "80vw"; // Duży popup przy dużym zoomie
         } else if (zoomLevel > 9) {
             popupContent.style.maxWidth = "60vw"; // Średni zoom
         } else {
-            popupContent.style.maxWidth = "40vw"; // Wąski popup przy oddaleniu
+            popupContent.style.maxWidth = "40vw"; // Mały popup przy oddaleniu
         }
     }
 
-    adjustPopupSize(); // Wywołanie funkcji przy otwarciu popupu
+    adjustPopupSize(); // Ustawienie szerokości przy otwarciu
 
     // 🔹 Aktualizacja szerokości popupu po każdej zmianie zoomu
-    map.on("zoomend", function () {
-        zoomLevel = map.getZoom();
-        adjustPopupSize();
-    });
+    map.on("zoomend", adjustPopupSize);
 });
 
 
