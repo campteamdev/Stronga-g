@@ -600,13 +600,7 @@ document.addEventListener("touchstart", function (event) {
 </script>
 
 <script>
-    // Blokowanie klawisza Print Screen (PrtSc)
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "PrintScreen") {
-            event.preventDefault();
-            alert("Robienie zrzutów ekranu jest zablokowane!");
-        }
-    });
+   
 
     // Blokowanie skrótu Print Screen na Mac (Cmd + Shift + 4)
     document.addEventListener("keydown", function (event) {
