@@ -25,87 +25,16 @@ async function loadDetails() {
   }
 }
 
-// Funkcja do wyodrębniania numerów telefonów
-function extractPhoneNumber(description) {
-  const phoneRegex = /(?:Telefon:|Phone:)?\s*(\+?\d[\d\s\-()]{7,})/i;
-  const urlRegex = /https?:\/\/[^\s]+/gi;
-  const match = description.replace(urlRegex, "").match(phoneRegex);
-  return match ? match[1].replace(/\s+/g, "") : null;
-}
-
-// Funkcja do wyodrębniania strony www
-function extractWebsite(description) {
-  const websiteRegex = /Website:\s*(https?:\/\/[^\s<]+)/i;
-  const match = description.match(websiteRegex);
-  return match ? match[1].trim() : null;
-}
-
-// Funkcja wczytująca dane z KML
-async function loadKmlData() {
-  const kmlFiles = [
-    "/Atrakcje.kml",
-    "/Kempingi.kml",
-    "/Kempingi1.kml",
-    "/Kempingiopen.kml",
-    "/Miejscenabiwak.kml",
-    "/Parkingilesne.kml",
-    "/Polanamiotowe.kml",
-    "/Polanamiotoweopen.kml",
-  ];
-
-  for (const url of kmlFiles) {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`Nie udało się załadować: ${url}`);
-      const kmlText = await response.text();
-      const parser = new DOMParser();
-      const kml = parser.parseFromString(kmlText, "application/xml");
-      const placemarks = kml.getElementsByTagName("Placemark");
-
-      for (const placemark of placemarks) {
-        const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
-        const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
-        const website = placemark.querySelector("Data[name='Strona www:'] > value")?.textContent.trim() || extractWebsite(description);
-
-        // Pobieranie danych Opis i Infrastruktura
-        const opisNode = placemark.querySelector("Data[name='Opis:'] > value");
-        const infrastrukturaNode = placemark.querySelector("Data[name='Udogodnienia:'] > value");
-
-        const opis = opisNode ? opisNode.textContent.trim() : "";
-        let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
-
-        // Usunięcie "nr: X" z infrastruktury
-        if (infrastruktura) {
-          infrastruktura = infrastruktura.replace(/- nr:? \d+/g, "").trim();
-          infrastruktura = infrastruktura.split("\n").join("<br>"); // Każdy element w nowej linii
-        }
-
-        if (name) {
-          if (description) {
-            const phone = extractPhoneNumber(description);
-            phoneNumbersMap[name] = phone || "Brak numeru kontaktowego";
-          }
-          if (website) {
-            websiteLinksMap[name] = website;
-          }
-          descriptionsMap[name] = opis;
-          amenitiesMap[name] = infrastruktura;
-        }
-      }
-    } catch (error) {
-      console.error(`Błąd podczas przetwarzania pliku ${url}:`, error);
-    }
-  }
-}
-
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>`;
+  let popupContent = `
+    <div style="border:2px solid #ffc107; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>`;
 
   // Sprawdzenie, czy lokalizacja ma szczegóły w pliku szczegoly.json
   if (detailsMap[name]) {
     popupContent += `
-      <a href="${detailsMap[name]}" target="_blank" style="display:block; text-align:center; background-color:yellow; color:black; font-size:12px; font-weight:bold; padding:5px; margin-bottom:5px; text-decoration:none; border-radius:5px;">
+      <a href="${detailsMap[name]}" target="_blank" 
+        style="display:block; text-align:center; background-color:#ffc107; color:black; font-size:12px; font-weight:bold; padding:5px; margin-bottom:5px; text-decoration:none; border-radius:5px;">
         Szczegóły
       </a>`;
   }
@@ -123,16 +52,36 @@ function generatePopupContent(name, lat, lon) {
   }
 
   // Opis
-  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
+  popupContent += `
+    <div style="border:2px solid #ffc107; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
   popupContent += descriptionsMap[name]
     ? `<span style="font-size:10px; user-select: none;">${descriptionsMap[name]}</span>`
     : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
 
   // Infrastruktura
-  popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
+  popupContent += `
+    <br><div style="border:2px solid #ffc107; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
   popupContent += amenitiesMap[name]
     ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>`
     : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
+
+  // Linki
+  popupContent += `
+    <br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" 
+      class="details-button" 
+      style="display:block; background-color:#ffc107; text-align:center; color:black; font-size:12px; font-weight:bold; padding:5px; text-decoration:none; border-radius:5px; margin-top:5px;">
+      Link do Map Google
+    </a>
+    <br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" 
+      class="navigate-button" 
+      style="display:block; background-color:#ffc107; text-align:center; color:black; font-size:12px; font-weight:bold; padding:5px; text-decoration:none; border-radius:5px; margin-top:5px;">
+      Prowadź
+    </a>
+    <br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" 
+      class="update-button" 
+      style="display:block; background-color:#ffc107; text-align:center; color:black; font-size:12px; font-weight:bold; padding:5px; text-decoration:none; border-radius:5px; margin-top:5px;">
+      Dodaj Zdjęcie/Aktualizuj
+    </a>`;
 
   return popupContent;
 }
