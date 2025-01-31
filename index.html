@@ -537,11 +537,11 @@ document.addEventListener("touchstart", function (event) {
 
     </script>
 
-   <script>
+ <script>
     let keyPressed = {}; // Obiekt do śledzenia wciśniętych klawiszy
 
     document.addEventListener("keydown", function (event) {
-        if (keyPressed[event.key]) return; // Jeśli klawisz już wciśnięty, ignoruj
+        if (keyPressed[event.key]) return; // Ignoruj, jeśli klawisz już wciśnięty
         keyPressed[event.key] = true; // Oznacz klawisz jako wciśnięty
 
         if (
@@ -552,7 +552,8 @@ document.addEventListener("touchstart", function (event) {
             (event.metaKey && event.key === "U")  // Mac: ⌘ + U
         ) {
             event.preventDefault();
-            alert("Podgląd kodu źródłowego jest zablokowany!");
+            console.clear(); // Czyści konsolę, jeśli otwarta
+            window.location.href = "about:blank"; // Przekierowanie na pustą stronę
         }
     });
 
@@ -561,16 +562,17 @@ document.addEventListener("touchstart", function (event) {
         delete keyPressed[event.key];
     });
 
-    // 🔹 Wykrywanie otwarcia konsoli deweloperskiej 🔹
+    // 🔹 Wykrywanie otwarcia narzędzi deweloperskich 🔹
     setInterval(function() {
-        if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
-            alert("Wykryto próbę otwarcia narzędzi deweloperskich! Strona zostanie zamknięta.");
-            window.close(); // Zamknięcie strony
-            location.href = "about:blank"; // Przekierowanie na pustą stronę
+        let before = new Date().getTime();
+        debugger; // Zatrzymuje kod, jeśli otwarta konsola
+        let after = new Date().getTime();
+        if (after - before > 100) {
+            window.stop(); // Zatrzymuje ładowanie strony
+            window.location.href = "about:blank"; // Przekierowanie na pustą stronę
         }
     }, 1000); // Sprawdzaj co 1 sekundę
 </script>
-
 </body>
 </html>
 
