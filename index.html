@@ -573,14 +573,30 @@ document.addEventListener("touchstart", function (event) {
         }
     }, 1000); // Sprawdzaj co 1 sekundę
 </script>
-</body>
-</html>
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let fakeCode = "<!-- Brak dostępu do kodu źródłowego -->";
-        document.documentElement.innerHTML = fakeCode;
+    document.addEventListener("keydown", function(event) {
+        if (event.ctrlKey && event.key === "u") { // Blokowanie Ctrl + U
+            event.preventDefault();
+            let newWin = window.open();
+            newWin.document.write("<!-- Brak dostępu do kodu źródłowego -->");
+            newWin.document.close();
+        }
     });
 </script>
+<script>
+    document.addEventListener("keydown", function(event) {
+        if (
+            event.key === "F12" || 
+            (event.ctrlKey && event.shiftKey && event.key === "I") || 
+            (event.metaKey && event.altKey && event.key === "I")
+        ) {
+            event.preventDefault();
+            alert("Podgląd kodu źródłowego jest zablokowany!");
+        }
+    });
+</script>
+
 
   </body>
 </html>
