@@ -40,6 +40,19 @@
         margin: 0;
         padding: 0;
       }
+      /* 🔹 Styl popupa - dynamiczna szerokość */
+.leaflet-popup-content {
+    max-width: 80vw; /* Maksymalna szerokość popupa - 80% szerokości ekranu */
+    word-wrap: break-word;
+}
+
+/* 🔹 Na telefonach (mniejsze ekrany) */
+@media (max-width: 600px) {
+    .leaflet-popup-content {
+        max-width: 90vw; /* Na telefonach popup może zajmować max 90% ekranu */
+    }
+}
+
       #map {
         width: 100%;
         height: 100vh;
