@@ -480,6 +480,21 @@
       }
 
       initializeMap();
+      map.on("zoomend", function () {
+    let zoomLevel = map.getZoom(); // Pobiera aktualny zoom mapy
+    let popups = document.querySelectorAll(".leaflet-popup-content");
+
+    popups.forEach(popup => {
+        if (zoomLevel > 12) {
+            popup.style.maxWidth = "80vw"; // Przybliżenie - szeroki popup
+        } else if (zoomLevel > 9) {
+            popup.style.maxWidth = "60vw"; // Średni zoom - średni popup
+        } else {
+            popup.style.maxWidth = "40vw"; // Dalekie oddalenie - węższy popup
+        }
+    });
+});
+
     </script>
   </body>
 </html>
