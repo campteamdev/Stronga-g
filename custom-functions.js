@@ -214,3 +214,8 @@ async function loadDetailsAndUpdatePopups(markers) {
   await loadKmlData();
   updatePopups(markers);
 }
+document.addEventListener("touchstart", function (event) {
+  if (event.target.closest(".leaflet-popup-content")) {
+    event.preventDefault();
+  }
+}, { passive: false });
