@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa Kempingów</title>
-
+    
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
@@ -16,85 +16,75 @@
     <script src="custom-functions.js"></script>
 
     <style>
-        body { margin: 0; padding: 0; }
-        #map { width: 100%; height: 100vh; }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        width: 100%;
+        height: 100vh;
+      }
 
-        /* 🔹 Kontener modala (popupa na pełnym ekranie) */
-        #modal-popup {
-            display: none; /* Domyślnie ukryty */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
+      /* 🔹 STYL DLA MODALA (NOWY POPUP) 🔹 */
+      #modal-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      #popup-inner {
+        background: white;
+        padding: 20px;
+        width: 90%;
+        max-width: 600px;
+        border-radius: 10px;
+        position: relative;
+      }
 
-        /* 🔹 Treść popupa */
-        #popup-content {
-            background: white;
-            padding: 20px;
-            max-width: 90%;
-            max-height: 90%;
-            overflow-y: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            position: relative;
-        }
-
-        /* 🔹 Przycisk zamykania */
-        #close-popup {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: red;
-            font-weight: bold;
-        }
+      #close-popup {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+        background: red;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
     </style>
-</head>
-<body>
+  </head>
 
-    <!-- Mapa -->
+  <body>
     <div id="map"></div>
 
-    <!-- 🔹 Modal popup -->
+    <!-- 🔹 MODAL DO WYŚWIETLANIA POPUPÓW 🔹 -->
     <div id="modal-popup">
-        <div id="popup-content">
-            <span id="close-popup">&times;</span> <!-- Przycisk zamykania -->
-            <div id="popup-inner-content"></div> <!-- Tutaj będzie dynamiczna treść -->
-        </div>
+      <div id="popup-inner">
+        <span id="close-popup">X</span>
+        <div id="popup-inner-content"></div>
+      </div>
     </div>
 
     <script>
-        const map = L.map("map").setView([52.392681, 19.275023], 6);
-        const markerCluster = L.markerClusterGroup({
-            showCoverageOnHover: false,
-            maxClusterRadius: 50,
-        });
+      const map = L.map("map").setView([52.392681, 19.275023], 6);
+      const markerCluster = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        maxClusterRadius: 50,
+      });
 
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            attribution: "&copy; OpenStreetMap contributors",
-        }).addTo(map);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+      }).addTo(map);
 
-        const modalPopup = document.getElementById("modal-popup");
-        const popupContent = document.getElementById("popup-inner-content");
-        const closePopup = document.getElementById("close-popup");
-
-        closePopup.addEventListener("click", () => {
-            modalPopup.style.display = "none"; // Zamknięcie popupa
-        });
-
-        async function initializeMap() {
-            await loadMarkers();
-            map.addLayer(markerCluster);
-        }
-
-        initializeMap();
+      map.addLayer(markerCluster);
     </script>
-</body>
+  </body>
 </html>
