@@ -43,69 +43,6 @@
         width: 100%;
         height: 100vh;
       }
-      #search-container {
-        position: absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 70%;
-        z-index: 1000;
-      }
-      #search-bar {
-        display: flex;
-        flex-wrap: wrap; /* Zapewnia poprawną responsywność */
-        background-color: lightgray;
-        border: 2px solid green;
-        border-radius: 5px;
-        padding: 5px;
-        box-sizing: border-box;
-        box-shadow: rgba(0, 0, 0, 0.3) 0 4px 10px;
-      }
-      #search-input {
-        flex: 1;
-        padding: 5px;
-        border: none;
-        outline: none;
-        font-size: 14px;
-        background-color: lightgray;
-        border-radius: 3px;
-        min-width: 0; /* Rozwiązanie dla problemów z flexbox */
-      }
-      #search-button {
-        background-color: green;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 3px;
-        cursor: pointer;
-        margin-left: 5px;
-        flex-shrink: 0; /* Zapobiega zmniejszaniu przycisku */
-      }
-      #search-button:hover {
-        background-color: darkgreen;
-      }
-      #suggestions {
-        margin-top: 5px;
-        background-color: white;
-        border: 1px solid green;
-        border-radius: 5px;
-        max-height: 150px;
-        overflow-y: auto;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        display: none;
-      }
-      .suggestion {
-        padding: 10px;
-        font-size: 14px;
-        cursor: pointer;
-        border-bottom: 1px solid #ddd;
-      }
-      .suggestion:last-child {
-        border-bottom: none;
-      }
-      .suggestion:hover {
-        background-color: lightgreen;
-      }
       /* Blokada kopiowania i zaznaczania tekstu (działa także na iPhone) */
       .leaflet-popup-content {
         -webkit-user-select: none;  /* iOS Safari */
@@ -127,13 +64,6 @@
       ></iframe
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div id="search-container">
-      <div id="search-bar">
-        <input type="text" id="search-input" placeholder="Znajdź obiekt..." />
-        <button id="search-button">Szukaj</button>
-      </div>
-      <div id="suggestions"></div>
-    </div>
     <div id="map"></div>
 
     <script>
@@ -145,6 +75,41 @@
         });
       });
 
+      const urls = {
+        kempingi: "/Kempingi.kml",
+        polanamiotowe: "/Polanamiotowe.kml",
+        kempingiopen: "/Kempingiopen.kml",
+        polanamiotoweopen: "/Polanamiotoweopen.kml",
+        parkingilesne: "/Parkingilesne.kml",
+        kempingi1: "/Kempingi1.kml",
+        AtrakcjeKulturowe: "/AtrakcjeKulturowe.kml",
+        AtrakcjePrzyrodnicze: "/AtrakcjePrzyrodnicze.kml",
+        AtrakcjeRozrywkowe: "/AtrakcjeRozrywka.kml",
+        miejscenabiwak: "/Miejscenabiwak.kml",
+        europa: "/Europa.kml",
+      };
+
+      const icons = {
+        kempingi: L.icon({
+          iconUrl: "/ikony/Ikona_Kempingi_Polecane.png",
+          iconSize: [40, 40],
+          iconAnchor: [20, 20],
+          popupAnchor: [0, -20],
+        }),
+        polanamiotowe: L.icon({
+          iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
+          iconSize: [40, 40],
+          iconAnchor: [20, 20],
+          popupAnchor: [0, -20],
+        }),
+        miejscenabiwak: L.icon({
+          iconUrl: "/ikony/Ikona_Miejsce_Biwakowe.png",
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -10],
+        }),
+      };
+
       const map = L.map("map").setView([52.392681, 19.275023], 6);
       const markerCluster = L.markerClusterGroup({
         showCoverageOnHover: false,
@@ -155,7 +120,62 @@
         attribution: "&copy; OpenStreetMap contributors",
       }).addTo(map);
 
-      map.addLayer(markerCluster);
+      const addedMarkers = new Set();
+      const allMarkers = [];
+
+      async function fetchKml(url) {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
+        return response.text();
+      }
+
+      async function loadMarkers(url, icon, addToCluster = true) {
+        const kmlText = await fetchKml(url);
+        const parser = new DOMParser();
+        const kml = parser.parseFromString(kmlText, "application/xml");
+        const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+
+        placemarks.forEach((placemark) => {
+          const name =
+            placemark.getElementsByTagName("name")[0]?.textContent ||
+            "Brak nazwy";
+          const coordinates = placemark
+            .getElementsByTagName("coordinates")[0]
+            ?.textContent.trim();
+
+          if (coordinates) {
+            const [lon, lat] = coordinates.split(",");
+            const key = `${lat},${lon}`;
+
+            if (!addedMarkers.has(key)) {
+              addedMarkers.add(key);
+              const marker = L.marker([lat, lon], { icon }).bindPopup(
+                `<strong>${name}</strong>`
+              );
+
+              if (addToCluster) {
+                markerCluster.addLayer(marker);
+              } else {
+                marker.addTo(map);
+              }
+
+              allMarkers.push({ marker, name, lat, lon });
+            }
+          }
+        });
+      }
+
+      async function initializeMap() {
+        await Promise.all([
+          loadMarkers(urls.kempingi, icons.kempingi, false),
+          loadMarkers(urls.polanamiotowe, icons.polanamiotowe, false),
+          loadMarkers(urls.miejscenabiwak, icons.miejscenabiwak),
+        ]);
+
+        map.addLayer(markerCluster);
+      }
+
+      initializeMap();
     </script>
   </body>
 </html>
