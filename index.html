@@ -494,6 +494,32 @@
         }
     });
 });
+      map.on("zoomend", function () {
+    let zoomLevel = map.getZoom(); // Pobiera aktualny zoom mapy
+    let popups = document.querySelectorAll(".leaflet-popup");
+
+    popups.forEach(popup => {
+        let popupContent = popup.querySelector(".leaflet-popup-content");
+        if (popupContent) {
+            if (zoomLevel > 12) {
+                popupContent.style.maxWidth = "80vw"; // Przybliżenie - szeroki popup
+            } else if (zoomLevel > 9) {
+                popupContent.style.maxWidth = "60vw"; // Średni zoom - średni popup
+            } else {
+                popupContent.style.maxWidth = "40vw"; // Dalekie oddalenie - węższy popup
+            }
+            
+            // 🔹 Wymusza ponowne renderowanie popupa
+            let currentPopup = map._popup;
+            if (currentPopup) {
+                setTimeout(() => {
+                    currentPopup.update();
+                }, 100);
+            }
+        }
+    });
+});
+
 
     </script>
   </body>
