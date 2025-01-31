@@ -534,31 +534,6 @@ document.addEventListener("touchstart", function (event) {
             alert("Podgląd kodu źródłowego jest zablokowany!");
         }
     }); 
-<script>
-    let keyPressed = {}; // Obiekt do śledzenia wciśniętych klawiszy
-
-    document.addEventListener("keydown", function (event) {
-        if (keyPressed[event.key]) return; // Jeśli klawisz już wciśnięty, ignoruj
-
-        keyPressed[event.key] = true; // Zaznacz klawisz jako wciśnięty
-
-        if (
-            event.key === "F12" || 
-            (event.ctrlKey && event.shiftKey && event.key === "I") ||  // Windows: Ctrl + Shift + I
-            (event.ctrlKey && event.key === "U") ||  // Windows: Ctrl + U
-            (event.metaKey && event.altKey && event.key === "I") ||  // Mac: ⌘ + Option + I
-            (event.metaKey && event.key === "U")  // Mac: ⌘ + U
-        ) {
-            event.preventDefault();
-            alert("Podgląd kodu źródłowego jest zablokowany!");
-        }
-    });
-
-    // Resetowanie statusu klawiszy po ich puszczeniu
-    document.addEventListener("keyup", function (event) {
-        delete keyPressed[event.key];
-    });
-
 
     </script>
   </body>
