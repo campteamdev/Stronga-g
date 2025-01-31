@@ -1,25 +1,21 @@
+// Pobranie elementów modalowego popupu
+const modalPopup = document.getElementById("modal-popup");
+const popupContent = document.getElementById("popup-inner-content");
+const closePopup = document.getElementById("close-popup");
+
+// Zamknięcie modala po kliknięciu "X"
+closePopup.addEventListener("click", () => {
+    modalPopup.style.display = "none";
+});
+
 // Obiekty do przechowywania danych
 let detailsMap = {};
 let phoneNumbersMap = {};
 let websiteLinksMap = {};
 let descriptionsMap = {};
 let amenitiesMap = {};
-let excludedPlaces = new Set();
 
-// Pobranie elementów modala
-const modalPopup = document.getElementById("modal-popup");
-const popupContent = document.getElementById("popup-inner-content");
-const closePopup = document.getElementById("close-popup");
-
-// Zamknięcie popupu po kliknięciu w "X"
-closePopup.addEventListener("click", () => {
-    modalPopup.style.display = "none";
-});
-
-// Blokowanie prawego przycisku myszy
-document.addEventListener("contextmenu", (event) => event.preventDefault());
-
-// Pobieranie szczegółów z JSON-a
+// Pobieranie danych JSON
 async function loadDetails() {
     try {
         const response = await fetch("/szczegoly.json");
@@ -67,7 +63,7 @@ function showPopup(name, lat, lon) {
     modalPopup.style.display = "flex"; // Pokaż modal
 }
 
-// Funkcja aktualizująca popupy – teraz zamiast bindPopup, otwieramy modal
+// Funkcja dodająca kliknięcie do markerów
 function updatePopups(markers) {
     markers.forEach(({ marker, name, lat, lon }) => {
         marker.on("click", function () {
@@ -76,7 +72,7 @@ function updatePopups(markers) {
     });
 }
 
-// Ładowanie danych i aktualizacja popupów
+// Załadowanie danych i przypisanie popupów
 async function loadDetailsAndUpdatePopups(markers) {
     await loadDetails();
     updatePopups(markers);
