@@ -642,6 +642,18 @@ document.addEventListener("touchstart", function (event) {
         }
     });
 </script>
+<script>
+    function hidePageOnScreenshot() {
+        document.body.style.opacity = "0"; // Ukrywa stronę
+        setTimeout(() => document.body.style.opacity = "1", 3000); // Przywraca po 3 sek.
+    }
+
+    document.addEventListener("keydown", function (event) {
+        if ((event.metaKey && event.shiftKey && event.key === "4") || event.key === "PrintScreen") {
+            hidePageOnScreenshot();
+        }
+    });
+</script>
 
 
   </body>
