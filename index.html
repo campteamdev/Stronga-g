@@ -585,17 +585,20 @@ document.addEventListener("touchstart", function (event) {
     });
 </script>
 <script>
-    document.addEventListener("keydown", function(event) {
-        if (
-            event.key === "F12" || 
-            (event.ctrlKey && event.shiftKey && event.key === "I") || 
-            (event.metaKey && event.altKey && event.key === "I")
-        ) {
-            event.preventDefault();
-            alert("Podgląd kodu źródłowego jest zablokowany!");
+    let devToolsDetected = false;
+
+    function detectDevTools() {
+        const threshold = 160;
+        if (!devToolsDetected && (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold)) {
+            devToolsDetected = true;
+            alert("Wykryto narzędzia deweloperskie! Strona zostanie ukryta.");
+            document.body.innerHTML = "<h2 style='text-align:center; padding-top:50px;'>Strona została zablokowana.</h2>";
         }
-    });
+    }
+
+    setInterval(detectDevTools, 2000);
 </script>
+
 <script>
     // Blokowanie klawisza Print Screen (PrtSc)
     document.addEventListener("keydown", function (event) {
@@ -628,19 +631,22 @@ document.addEventListener("touchstart", function (event) {
         }
     });
 
-    // Ukrywanie strony, jeśli okno nagle traci focus (może być to screenshot)
-    document.addEventListener("visibilitychange", function () {
-        if (document.hidden) {
-            detectScreenshot();
-        }
-    });
-
+   
     // Wykrywanie prób użycia narzędzi do zrzutów ekranu
     setInterval(() => {
         if (window.outerWidth - window.innerWidth > 50 || window.outerHeight - window.innerHeight > 50) {
             detectScreenshot();
         }
     }, 1000);
+</script>
+<script>
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            document.body.style.opacity = "0"; // Ukrywa stronę
+        } else {
+            setTimeout(() => document.body.style.opacity = "1", 500); // Przywraca po 0.5 sek.
+        }
+    });
 </script>
 
 
