@@ -494,30 +494,35 @@
         }
     });
 });
-      map.on("zoomend", function () {
+     map.on("zoomend", function () {
     let zoomLevel = map.getZoom(); // Pobiera aktualny zoom mapy
-    let popups = document.querySelectorAll(".leaflet-popup");
+    let currentPopup = map._popup; // Pobiera aktualnie otwarty popup
+    
+    if (currentPopup) {
+        let popupContent = currentPopup._container.querySelector(".leaflet-popup-content");
 
-    popups.forEach(popup => {
-        let popupContent = popup.querySelector(".leaflet-popup-content");
         if (popupContent) {
             if (zoomLevel > 12) {
-                popupContent.style.maxWidth = "80vw"; // Przybliżenie - szeroki popup
+                popupContent.style.maxWidth = "80vw !important"; // Szeroki popup przy dużym zoomie
             } else if (zoomLevel > 9) {
-                popupContent.style.maxWidth = "60vw"; // Średni zoom - średni popup
+                popupContent.style.maxWidth = "60vw !important"; // Średni zoom
             } else {
-                popupContent.style.maxWidth = "40vw"; // Dalekie oddalenie - węższy popup
+                popupContent.style.maxWidth = "40vw !important"; // Wąski popup przy oddaleniu
             }
-            
-            // 🔹 Wymusza ponowne renderowanie popupa
-            let currentPopup = map._popup;
-            if (currentPopup) {
-                setTimeout(() => {
-                    currentPopup.update();
-                }, 100);
-            }
+
+            // 🔹 Wymuszenie ponownego otwarcia popupu (zamyka i otwiera na nowo)
+            let popupLatLng = currentPopup.getLatLng();
+            let popupContentHtml = currentPopup.getContent();
+
+            map.closePopup();
+            setTimeout(() => {
+                let newPopup = L.popup()
+                    .setLatLng(popupLatLng)
+                    .setContent(popupContentHtml)
+                    .openOn(map);
+            }, 50); // Krótkie opóźnienie, by Leaflet przetworzył zmianę
         }
-    });
+    }
 });
 
 
