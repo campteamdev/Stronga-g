@@ -534,10 +534,14 @@ document.addEventListener("touchstart", function (event) {
             alert("Podgląd kodu źródłowego jest zablokowany!");
         }
     }); 
-document.addEventListener("keydown", function(event) {
+
+
+      
+      document.addEventListener("keydown", function(event) {
     if ((event.ctrlKey || event.metaKey) && event.key === "s") {
         event.preventDefault();
-        alert("Zapisywanie strony jest zablokowane!");
+        console.log("Zapisywanie strony jest zablokowane!"); // Dla testów w konsoli (możesz usunąć)
+        return false; // Dodatkowa blokada
     }
 });
 
