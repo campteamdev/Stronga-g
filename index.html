@@ -1,36 +1,24 @@
 <!DOCTYPE html>
 <html lang="pl">
   <head>
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-W68222TL");
-    </script>
-    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mapa Kempingów</title>
+
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"/>
+
+    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
     <script src="custom-functions.js"></script>
 
     <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      
+      body { margin: 0; padding: 0; }
+      #map { width: 100%; height: 100vh; }
+
       /* 🔹 Dynamiczna szerokość popupu */
       .leaflet-popup-content {
           max-width: 80vw;
@@ -43,14 +31,10 @@
               max-width: 90vw;
           }
       }
-
-      #map {
-        width: 100%;
-        height: 100vh;
-      }
     </style>
   </head>
-  <body class="" oncontextmenu="return false;">
+
+  <body oncontextmenu="return false;">
     <div id="map"></div>
 
     <script>
@@ -64,32 +48,101 @@
         attribution: "&copy; OpenStreetMap contributors",
       }).addTo(map);
 
-      // 🔹 Funkcja dostosowująca szerokość popupu do poziomu zoomu
-      function adjustPopupSize() {
-          let zoomLevel = map.getZoom(); // Pobiera aktualny zoom
-          let popups = document.querySelectorAll(".leaflet-popup-content");
+      const urls = {
+        kempingi: "/Kempingi.kml",
+        polanamiotowe: "/Polanamiotowe.kml",
+        kempingiopen: "/Kempingiopen.kml",
+        polanamiotoweopen: "/Polanamiotoweopen.kml",
+        parkingilesne: "/Parkingilesne.kml",
+        kempingi1: "/Kempingi1.kml",
+        miejscenabiwak: "/Miejscenabiwak.kml",
+        europa: "/Europa.kml",
+        AtrakcjeKulturowe: "/AtrakcjeKulturowe.kml",
+        AtrakcjePrzyrodnicze: "/AtrakcjePrzyrodnicze.kml",
+        AtrakcjeRozrywkowe: "/AtrakcjeRozrywka.kml",
+      };
 
-          popups.forEach(popup => {
-              if (zoomLevel > 12) {
-                  popup.style.maxWidth = "80vw"; // Szeroki popup przy dużym zoomie
-              } else if (zoomLevel > 9) {
-                  popup.style.maxWidth = "60vw"; // Średni zoom
-              } else {
-                  popup.style.maxWidth = "40vw"; // Mały popup przy oddaleniu
-              }
-          });
+      const icons = {
+        kempingi: L.icon({ iconUrl: "/ikony/Ikona_Kempingi_Polecane.png", iconSize: [40, 40], iconAnchor: [20, 20], popupAnchor: [0, -20] }),
+        polanamiotowe: L.icon({ iconUrl: "/ikony/Ikona_Pole_Namiotowe.png", iconSize: [40, 40], iconAnchor: [20, 20], popupAnchor: [0, -20] }),
+        kempingiopen: L.icon({ iconUrl: "/ikony/Ikona_Kempingi.png", iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -10] }),
+        miejscenabiwak: L.icon({ iconUrl: "/ikony/Ikona_Miejsce_Biwakowe.png", iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -10] }),
+        parkingilesne: L.icon({ iconUrl: "/ikony/Ikona_Parking_Le%C5%9Bny.png", iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -10] }),
+        atractionCultural: L.icon({ iconUrl: "/ikony/atractionCultural.png", iconSize: [35, 35], iconAnchor: [15, 15], popupAnchor: [0, -10] }),
+        atractionFun: L.icon({ iconUrl: "/ikony/atractionFun.png", iconSize: [35, 35], iconAnchor: [15, 15], popupAnchor: [0, -10] }),
+        atractionNature: L.icon({ iconUrl: "/ikony/atractionNature.png", iconSize: [35, 35], iconAnchor: [15, 15], popupAnchor: [0, -10] }),
+      };
+
+      const allMarkers = [];
+
+      async function fetchKml(url) {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
+        return response.text();
       }
 
-      // 🔹 Nasłuchiwanie na otwieranie popupów
-      map.on("popupopen", function (e) {
-          let popupContent = e.popup.getElement(); // Pobiera kontener popupu
-          if (!popupContent) return; // Jeśli popupContent nie istnieje, nie rób nic
+      async function loadMarkers(url, icon) {
+        const kmlText = await fetchKml(url);
+        const parser = new DOMParser();
+        const kml = parser.parseFromString(kmlText, "application/xml");
+        const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
 
-          adjustPopupSize(); // Ustaw szerokość popupu po otwarciu
+        placemarks.forEach((placemark) => {
+          const name = placemark.getElementsByTagName("name")[0]?.textContent || "Brak nazwy";
+          const coordinates = placemark.getElementsByTagName("coordinates")[0]?.textContent.trim();
+
+          if (coordinates) {
+            const [lon, lat] = coordinates.split(",");
+            const marker = L.marker([lat, lon], { icon }).bindPopup(`<strong>${name}</strong>`);
+
+            markerCluster.addLayer(marker);
+            allMarkers.push({ marker, name, lat, lon });
+          }
+        });
+      }
+
+      async function initializeMap() {
+        await Promise.all([
+          loadMarkers(urls.kempingi, icons.kempingi),
+          loadMarkers(urls.polanamiotowe, icons.polanamiotowe),
+          loadMarkers(urls.kempingiopen, icons.kempingiopen),
+          loadMarkers(urls.miejscenabiwak, icons.miejscenabiwak),
+          loadMarkers(urls.parkingilesne, icons.parkingilesne),
+          loadMarkers(urls.AtrakcjeKulturowe, icons.atractionCultural),
+          loadMarkers(urls.AtrakcjePrzyrodnicze, icons.atractionNature),
+          loadMarkers(urls.AtrakcjeRozrywkowe, icons.atractionFun),
+        ]);
+
+        map.addLayer(markerCluster);
+      }
+
+      initializeMap();
+
+      // 🔹 Funkcja dostosowująca szerokość popupu do poziomu zoomu
+      function adjustPopupSize() {
+        let zoomLevel = map.getZoom();
+        let popups = document.querySelectorAll(".leaflet-popup-content");
+
+        popups.forEach(popup => {
+          if (zoomLevel > 12) {
+              popup.style.maxWidth = "80vw";
+          } else if (zoomLevel > 9) {
+              popup.style.maxWidth = "60vw";
+          } else {
+              popup.style.maxWidth = "40vw";
+          }
+        });
+      }
+
+      // 🔹 Aktualizacja szerokości popupu przy otwieraniu
+      map.on("popupopen", function () {
+          adjustPopupSize();
       });
 
-      // 🔹 Nasłuchiwanie na zmianę zoomu dla wszystkich otwartych popupów
-      map.on("zoomend", adjustPopupSize);
+      // 🔹 Aktualizacja szerokości popupu przy zmianie zoomu
+      map.on("zoomend", function () {
+          adjustPopupSize();
+      });
     </script>
   </body>
 </html>
