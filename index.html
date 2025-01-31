@@ -537,31 +537,40 @@ document.addEventListener("touchstart", function (event) {
 
     </script>
 
-    <script>
-        let keyPressed = {}; // Obiekt do śledzenia wciśniętych klawiszy
+   <script>
+    let keyPressed = {}; // Obiekt do śledzenia wciśniętych klawiszy
 
-        document.addEventListener("keydown", function (event) {
-            if (keyPressed[event.key]) return; // Jeśli klawisz już wciśnięty, ignoruj
+    document.addEventListener("keydown", function (event) {
+        if (keyPressed[event.key]) return; // Jeśli klawisz już wciśnięty, ignoruj
+        keyPressed[event.key] = true; // Oznacz klawisz jako wciśnięty
 
-            keyPressed[event.key] = true; // Zaznacz klawisz jako wciśnięty
+        if (
+            event.key === "F12" || 
+            (event.ctrlKey && event.shiftKey && event.key === "I") ||  // Windows: Ctrl + Shift + I
+            (event.ctrlKey && event.key === "U") ||  // Windows: Ctrl + U
+            (event.metaKey && event.altKey && event.key === "I") ||  // Mac: ⌘ + Option + I
+            (event.metaKey && event.key === "U")  // Mac: ⌘ + U
+        ) {
+            event.preventDefault();
+            alert("Podgląd kodu źródłowego jest zablokowany!");
+        }
+    });
 
-            if (
-                event.key === "F12" || 
-                (event.ctrlKey && event.shiftKey && event.key === "I") ||  // Windows: Ctrl + Shift + I
-                (event.ctrlKey && event.key === "U") ||  // Windows: Ctrl + U
-                (event.metaKey && event.altKey && event.key === "I") ||  // Mac: ⌘ + Option + I
-                (event.metaKey && event.key === "U")  // Mac: ⌘ + U
-            ) {
-                event.preventDefault();
-                alert("Podgląd kodu źródłowego jest zablokowany!");
-            }
-        });
+    // Resetowanie statusu klawiszy po ich puszczeniu
+    document.addEventListener("keyup", function (event) {
+        delete keyPressed[event.key];
+    });
 
-        // Resetowanie statusu klawiszy po ich puszczeniu
-        document.addEventListener("keyup", function (event) {
-            delete keyPressed[event.key];
-        });
-    </script>
+    // 🔹 Wykrywanie otwarcia konsoli deweloperskiej 🔹
+    setInterval(function() {
+        if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
+            alert("Wykryto próbę otwarcia narzędzi deweloperskich! Strona zostanie zamknięta.");
+            window.close(); // Zamknięcie strony
+            location.href = "about:blank"; // Przekierowanie na pustą stronę
+        }
+    }, 1000); // Sprawdzaj co 1 sekundę
+</script>
+
 </body>
 </html>
 
