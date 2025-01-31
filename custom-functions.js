@@ -195,6 +195,13 @@ function generatePopupContent(name, lat, lon) {
   return popupContent;
 }
 
+// Ładowanie danych i aktualizacja popupów
+async function loadDetailsAndUpdatePopups(markers) {
+  await loadDetails();
+  await loadKmlData();
+  updatePopups(markers);
+}
+
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
 function updatePopups(markers) {
@@ -207,25 +214,4 @@ function updatePopups(markers) {
       autoPan: true   // Automatyczne przesuwanie mapy, gdy popup wychodzi poza ekran
     });
   });
-}
-
-
-// Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
-document.addEventListener("copy", (event) => {
-  event.preventDefault();
-  alert("Kopiowanie jest zablokowane!");
-});
-document.addEventListener("cut", (event) => {
-  event.preventDefault();
-  alert("Wycinanie jest zablokowane!");
-});
-document.addEventListener("paste", (event) => {
-  event.preventDefault();
-});
-document.addEventListener("selectstart", (event) => {
-  event.preventDefault();
-});
-document.addEventListener("contextmenu", (event) => {
-  event.preventDefault();
-});
 }
