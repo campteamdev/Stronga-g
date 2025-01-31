@@ -82,10 +82,8 @@
                 markerOptions.zIndexOffset = 9999;
               }
 
-              const marker = L.marker([lat, lon], markerOptions).bindPopup(
-                `<strong>${name}</strong>`,
-                { minWidth: 200, maxWidth: 400 }
-              );
+              // Tworzenie znacznika, który zostanie później uzupełniony o dane
+              const marker = L.marker([lat, lon], markerOptions);
 
               if (addToCluster) {
                 markerCluster.addLayer(marker);
@@ -115,9 +113,13 @@
         ]);
 
         map.addLayer(markerCluster);
+
+        // Załadowanie szczegółowych danych i aktualizacja popupów
+        await loadDetailsAndUpdatePopups(allMarkers);
       }
 
       initializeMap();
     </script>
+    <script src="popup-handler.js"></script> <!-- Plik obsługujący popupy -->
   </body>
 </html>
