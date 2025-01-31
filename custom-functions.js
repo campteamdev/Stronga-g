@@ -28,13 +28,16 @@ async function loadDetails() {
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
   let popupContent = `
-    <div style="border:2px solid #ffc107; padding:5px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>`;
+    <div style="border:2px solid #ffc107; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">
+      ${name}
+    </div><br>`;
 
   // Przycisk "Szczegóły" (jeśli lokalizacja znajduje się w szczegoly.json)
   if (detailsMap[name]) {
     popupContent += `
       <a href="${detailsMap[name]}" target="_blank" 
-        style="display:block; text-align:center; background-color:#ffc107; color:black; font-size:12px; font-weight:bold; padding:5px; margin-bottom:5px; text-decoration:none; border-radius:5px;">
+        style="display:block; text-align:center; background-color:#ffc107; color:black; font-size:12px; font-weight:bold; padding:5px; 
+        margin-bottom:5px; text-decoration:none; border-radius:5px;">
         Szczegóły
       </a>`;
   }
@@ -48,19 +51,26 @@ function generatePopupContent(name, lat, lon) {
 
   // Strona internetowa
   if (websiteLinksMap[name]) {
-    popupContent += `<strong style="font-size:12px; user-select: none;">🌐 Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px; user-select: none;">${websiteLinksMap[name]}</a><br>`;
+    popupContent += `<strong style="font-size:12px; user-select: none;">🌐 Strona:</strong> 
+      <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px; user-select: none;">
+        ${websiteLinksMap[name]}
+      </a><br>`;
   }
 
   // Opis
   popupContent += `
-    <div style="border:2px solid #ffc107; padding:3px; display:inline-block; font-size:12px; user-select: none; margin-top:5px;">📝 Opis:</div><br>`;
+    <div style="border:2px solid #ffc107; padding:3px; display:inline-block; font-size:12px; user-select: none; margin-top:5px;">
+      📝 Opis:
+    </div><br>`;
   popupContent += descriptionsMap[name]
     ? `<span style="font-size:10px; user-select: none;">${descriptionsMap[name]}</span>`
     : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
 
   // Infrastruktura
   popupContent += `
-    <br><div style="border:2px solid #ffc107; padding:3px; display:inline-block; font-size:12px; user-select: none; margin-top:5px;">🔧 Infrastruktura:</div><br>`;
+    <br><div style="border:2px solid #ffc107; padding:3px; display:inline-block; font-size:12px; user-select: none; margin-top:5px;">
+      🔧 Infrastruktura:
+    </div><br>`;
   popupContent += amenitiesMap[name]
     ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>`
     : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
@@ -68,15 +78,18 @@ function generatePopupContent(name, lat, lon) {
   // Linki na dole popupu
   popupContent += `
     <br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" 
-      style="display:block; background-color:#ffc107; text-align:center; color:black; font-size:12px; font-weight:bold; padding:5px; text-decoration:none; border-radius:5px; margin-top:5px;">
+      style="display:block; background-color:#ffc107; text-align:center; color:black; font-size:12px; font-weight:bold; padding:5px; 
+      text-decoration:none; border-radius:5px; margin-top:5px;">
       📍 Link do Map Google
     </a>
     <br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" 
-      style="display:block; background-color:#ffc107; text-align:center; color:black; font-size:12px; font-weight:bold; padding:5px; text-decoration:none; border-radius:5px; margin-top:5px;">
+      style="display:block; background-color:#ffc107; text-align:center; color:black; font-size:12px; font-weight:bold; padding:5px; 
+      text-decoration:none; border-radius:5px; margin-top:5px;">
       🚗 Prowadź
     </a>
     <br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" 
-      style="display:block; background-color:#ffc107; text-align:center; color:black; font-size:12px; font-weight:bold; padding:5px; text-decoration:none; border-radius:5px; margin-top:5px;">
+      style="display:block; background-color:#ffc107; text-align:center; color:black; font-size:12px; font-weight:bold; padding:5px; 
+      text-decoration:none; border-radius:5px; margin-top:5px;">
       📸 Dodaj Zdjęcie/Aktualizuj
     </a>`;
 
