@@ -596,6 +596,52 @@ document.addEventListener("touchstart", function (event) {
         }
     });
 </script>
+<script>
+    // Blokowanie klawisza Print Screen (PrtSc)
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "PrintScreen") {
+            event.preventDefault();
+            alert("Robienie zrzutów ekranu jest zablokowane!");
+        }
+    });
+
+    // Blokowanie skrótu Print Screen na Mac (Cmd + Shift + 4)
+    document.addEventListener("keydown", function (event) {
+        if (event.metaKey && event.shiftKey && event.key === "4") {
+            event.preventDefault();
+            alert("Robienie zrzutów ekranu jest zablokowane!");
+        }
+    });
+
+    // Wykrywanie prób robienia zrzutów ekranu i ukrywanie strony na 2 sekundy
+    function detectScreenshot() {
+        document.body.style.visibility = "hidden";
+        setTimeout(() => {
+            document.body.style.visibility = "visible";
+        }, 2000);
+    }
+
+    // Sprawdzanie, czy użytkownik naciska PrtSc na Windows
+    document.addEventListener("keyup", function (event) {
+        if (event.key === "PrintScreen") {
+            detectScreenshot();
+        }
+    });
+
+    // Ukrywanie strony, jeśli okno nagle traci focus (może być to screenshot)
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            detectScreenshot();
+        }
+    });
+
+    // Wykrywanie prób użycia narzędzi do zrzutów ekranu
+    setInterval(() => {
+        if (window.outerWidth - window.innerWidth > 50 || window.outerHeight - window.innerHeight > 50) {
+            detectScreenshot();
+        }
+    }, 1000);
+</script>
 
 
   </body>
