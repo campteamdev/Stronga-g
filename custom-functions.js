@@ -210,12 +210,6 @@ function updatePopups(markers) {
 }
 
 
-// Ładowanie danych i aktualizacja popupów
-async function loadDetailsAndUpdatePopups(markers) {
-  await loadDetails();
-  await loadKmlData();
-  updatePopups(markers);
-}
 // Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
 document.addEventListener("copy", (event) => {
   event.preventDefault();
@@ -234,3 +228,4 @@ document.addEventListener("selectstart", (event) => {
 document.addEventListener("contextmenu", (event) => {
   event.preventDefault();
 });
+}
