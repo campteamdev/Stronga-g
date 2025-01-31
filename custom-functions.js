@@ -216,3 +216,21 @@ async function loadDetailsAndUpdatePopups(markers) {
   await loadKmlData();
   updatePopups(markers);
 }
+// Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
+document.addEventListener("copy", (event) => {
+  event.preventDefault();
+  alert("Kopiowanie jest zablokowane!");
+});
+document.addEventListener("cut", (event) => {
+  event.preventDefault();
+  alert("Wycinanie jest zablokowane!");
+});
+document.addEventListener("paste", (event) => {
+  event.preventDefault();
+});
+document.addEventListener("selectstart", (event) => {
+  event.preventDefault();
+});
+document.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+});
