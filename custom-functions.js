@@ -195,14 +195,6 @@ function generatePopupContent(name, lat, lon) {
   return popupContent;
 }
 
-// Ładowanie danych i aktualizacja popupów
-async function loadDetailsAndUpdatePopups(markers) {
-  await loadDetails();
-  await loadKmlData();
-  updatePopups(markers);
-}
-
-
 // Aktualizacja popupów z ustawioną szerokością i wysokością
 function updatePopups(markers) {
   markers.forEach(({ marker, name, lat, lon }) => {
@@ -214,4 +206,11 @@ function updatePopups(markers) {
       autoPan: true   // Automatyczne przesuwanie mapy, gdy popup wychodzi poza ekran
     });
   });
+}
+
+// Ładowanie danych i aktualizacja popupów
+async function loadDetailsAndUpdatePopups(markers) {
+  await loadDetails();
+  await loadKmlData();
+  updatePopups(markers);
 }
