@@ -602,29 +602,6 @@ document.addEventListener("touchstart", function (event) {
 <script>
    
 
-    // Blokowanie skrótu Print Screen na Mac (Cmd + Shift + 4)
-    document.addEventListener("keydown", function (event) {
-        if (event.metaKey && event.shiftKey && event.key === "4") {
-            event.preventDefault();
-            alert("Robienie zrzutów ekranu jest zablokowane!");
-        }
-    });
-
-    // Wykrywanie prób robienia zrzutów ekranu i ukrywanie strony na 2 sekundy
-    function detectScreenshot() {
-        document.body.style.visibility = "hidden";
-        setTimeout(() => {
-            document.body.style.visibility = "visible";
-        }, 2000);
-    }
-
-    // Sprawdzanie, czy użytkownik naciska PrtSc na Windows
-    document.addEventListener("keyup", function (event) {
-        if (event.key === "PrintScreen") {
-            detectScreenshot();
-        }
-    });
-
    
     // Wykrywanie prób użycia narzędzi do zrzutów ekranu
     setInterval(() => {
