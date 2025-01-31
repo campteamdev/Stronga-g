@@ -158,13 +158,19 @@ function generatePopupContent(name, lat, lon) {
 }
 
 
-// Aktualizacja popupów
+// Aktualizacja popupów z ustawioną szerokością i wysokością
 function updatePopups(markers) {
   markers.forEach(({ marker, name, lat, lon }) => {
     const popupContent = generatePopupContent(name, lat, lon);
-    marker.bindPopup(popupContent);
+    marker.bindPopup(popupContent, {
+      minWidth: 250,  // Minimalna szerokość popupu
+      maxWidth: 400,  // Maksymalna szerokość popupu
+      maxHeight: 300, // Maksymalna wysokość popupu
+      autoPan: true   // Automatyczne przesuwanie mapy, gdy popup wychodzi poza ekran
+    });
   });
 }
+
 
 // Ładowanie danych i aktualizacja popupów
 async function loadDetailsAndUpdatePopups(markers) {
