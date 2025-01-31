@@ -494,35 +494,28 @@
         }
     });
 });
-     map.on("zoomend", function () {
-    let zoomLevel = map.getZoom(); // Pobiera aktualny zoom mapy
-    let currentPopup = map._popup; // Pobiera aktualnie otwarty popup
-    
-    if (currentPopup) {
-        let popupContent = currentPopup._container.querySelector(".leaflet-popup-content");
+    map.on("popupopen", function (e) {
+    let popupContent = e.popup._contentNode; // Pobiera kontener popupu
+    let zoomLevel = map.getZoom(); // Pobiera aktualny zoom
 
-        if (popupContent) {
-            if (zoomLevel > 12) {
-                popupContent.style.maxWidth = "80vw !important"; // Szeroki popup przy dużym zoomie
-            } else if (zoomLevel > 9) {
-                popupContent.style.maxWidth = "60vw !important"; // Średni zoom
-            } else {
-                popupContent.style.maxWidth = "40vw !important"; // Wąski popup przy oddaleniu
-            }
-
-            // 🔹 Wymuszenie ponownego otwarcia popupu (zamyka i otwiera na nowo)
-            let popupLatLng = currentPopup.getLatLng();
-            let popupContentHtml = currentPopup.getContent();
-
-            map.closePopup();
-            setTimeout(() => {
-                let newPopup = L.popup()
-                    .setLatLng(popupLatLng)
-                    .setContent(popupContentHtml)
-                    .openOn(map);
-            }, 50); // Krótkie opóźnienie, by Leaflet przetworzył zmianę
+    // 🔹 Ustawienie szerokości popupu w zależności od zoomu
+    function adjustPopupSize() {
+        if (zoomLevel > 12) {
+            popupContent.style.maxWidth = "80vw"; // Szeroki popup przy dużym zoomie
+        } else if (zoomLevel > 9) {
+            popupContent.style.maxWidth = "60vw"; // Średni zoom
+        } else {
+            popupContent.style.maxWidth = "40vw"; // Wąski popup przy oddaleniu
         }
     }
+
+    adjustPopupSize(); // Wywołanie funkcji przy otwarciu popupu
+
+    // 🔹 Aktualizacja szerokości popupu po każdej zmianie zoomu
+    map.on("zoomend", function () {
+        zoomLevel = map.getZoom();
+        adjustPopupSize();
+    });
 });
 
 
