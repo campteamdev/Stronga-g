@@ -33,8 +33,9 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.8);
         z-index: 9999;
+        display: flex;
         justify-content: center;
         align-items: center;
       }
@@ -84,7 +85,45 @@
         attribution: "&copy; OpenStreetMap contributors",
       }).addTo(map);
 
-      map.addLayer(markerCluster);
+      async function fetchKml(url) {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
+        return response.text();
+      }
+
+      async function loadMarkers(url, icon) {
+        const kmlText = await fetchKml(url);
+        const parser = new DOMParser();
+        const kml = parser.parseFromString(kmlText, "application/xml");
+        const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+
+        placemarks.forEach((placemark) => {
+          const name = placemark.getElementsByTagName("name")[0]?.textContent || "Brak nazwy";
+          const coordinates = placemark.getElementsByTagName("coordinates")[0]?.textContent.trim();
+
+          if (coordinates) {
+            const [lon, lat] = coordinates.split(",");
+            const marker = L.marker([lat, lon], { icon }).on("click", () => showPopup(name, lat, lon));
+            markerCluster.addLayer(marker);
+          }
+        });
+      }
+
+      const icons = {
+        kempingi: L.icon({ iconUrl: "/ikony/Ikona_Kempingi_Polecane.png", iconSize: [40, 40] }),
+        polanamiotowe: L.icon({ iconUrl: "/ikony/Ikona_Pole_Namiotowe.png", iconSize: [40, 40] })
+      };
+
+      async function initializeMap() {
+        await Promise.all([
+          loadMarkers("/Kempingi.kml", icons.kempingi),
+          loadMarkers("/Polanamiotowe.kml", icons.polanamiotowe)
+        ]);
+
+        map.addLayer(markerCluster);
+      }
+
+      initializeMap();
     </script>
   </body>
 </html>
