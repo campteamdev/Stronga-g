@@ -20,13 +20,16 @@ async function loadDetails() {
       map[name.trim()] = link.trim();
       return map;
     }, {});
+    console.log("✅ Załadowano szczegóły:", detailsMap);
   } catch (error) {
-    console.error("Błąd podczas wczytywania szczegółów:", error);
+    console.error("❌ Błąd podczas wczytywania szczegółów:", error);
   }
 }
 
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
+  console.log(`📍 Generowanie popupu dla: ${name}`);
+
   let popupContent = `
     <div style="border:2px solid #ffc107; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">
       ${name}
@@ -44,10 +47,8 @@ function generatePopupContent(name, lat, lon) {
 
   // Numer telefonu
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
-  const phoneLink = phone !== "Brak numeru kontaktowego"
-    ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px; user-select: none;">${phone}</a>`
-    : `<span style="font-size:10px; user-select: none;">${phone}</span>`;
-  popupContent += `<strong style="font-size:12px; user-select: none;">📞 Kontakt:</strong> ${phoneLink}<br>`;
+  popupContent += `<strong style="font-size:12px; user-select: none;">📞 Kontakt:</strong> 
+    <span style="font-size:10px; user-select: none;">${phone}</span><br>`;
 
   // Strona internetowa
   if (websiteLinksMap[name]) {
@@ -62,7 +63,7 @@ function generatePopupContent(name, lat, lon) {
     <div style="border:2px solid #ffc107; padding:3px; display:inline-block; font-size:12px; user-select: none; margin-top:5px;">
       📝 Opis:
     </div><br>`;
-  popupContent += descriptionsMap[name]
+  popupContent += descriptionsMap[name] 
     ? `<span style="font-size:10px; user-select: none;">${descriptionsMap[name]}</span>`
     : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
 
@@ -96,7 +97,7 @@ function generatePopupContent(name, lat, lon) {
   return popupContent;
 }
 
-// Aktualizacja popupów z ustawioną szerokością i wysokością
+// Aktualizacja popupów
 function updatePopups(markers) {
   markers.forEach(({ marker, name, lat, lon }) => {
     const popupContent = generatePopupContent(name, lat, lon);
@@ -111,8 +112,10 @@ function updatePopups(markers) {
 
 // Ładowanie danych i aktualizacja popupów
 async function loadDetailsAndUpdatePopups(markers) {
+  console.log("🔄 Rozpoczynam ładowanie danych...");
   await loadDetails();
   await loadKmlData();
+  console.log("✅ Wszystkie dane załadowane, aktualizacja popupów.");
   updatePopups(markers);
 }
 
