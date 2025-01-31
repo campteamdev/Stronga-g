@@ -501,6 +501,31 @@
     // 🔹 Aktualizacja szerokości popupu po każdej zmianie zoomu
     map.on("zoomend", adjustPopupSize);
 });
+// Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
+document.addEventListener("copy", (event) => {
+  event.preventDefault();
+  alert("Kopiowanie jest zablokowane!");
+});
+document.addEventListener("cut", (event) => {
+  event.preventDefault();
+  alert("Wycinanie jest zablokowane!");
+});
+document.addEventListener("paste", (event) => {
+  event.preventDefault();
+});
+document.addEventListener("selectstart", (event) => {
+  event.preventDefault();
+});
+document.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+});
+
+// Blokowanie długiego dotknięcia na iPhone i Android
+document.addEventListener("touchstart", function (event) {
+  if (event.target.closest(".leaflet-popup-content")) {
+    event.preventDefault();
+  }
+}, { passive: false });
 
    
 
