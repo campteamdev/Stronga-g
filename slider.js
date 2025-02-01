@@ -8,9 +8,9 @@ async function showSlider(name) {
    alert("📷 Sprawdzam zdjęcia dla: " + formattedName);
 
 const images = [
-    `/foty/${formattedName}_1.jpg`,
-    `/foty/${formattedName}_2.jpg`,
-    `/foty/${formattedName}_3.jpg`
+    `/foty/${formattedName}_1.jpeg`,
+    `/foty/${formattedName}_2.jpeg`,
+    `/foty/${formattedName}_3.jpeg`
     let validImages = [];
 for (let img of images) {
     let testImg = new Image();
