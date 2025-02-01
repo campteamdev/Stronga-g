@@ -419,55 +419,75 @@ async function loadMarkers(url, icon, addToCluster = true) {
 }
 
 
-      function initializeSearch() {
-        const searchInput = document.getElementById("search-input");
-        const searchButton = document.getElementById("search-button");
-        const suggestions = document.getElementById("suggestions");
+     // Wczytaj Fuse.js (jeśli nie masz go w HTML, dodaj `<script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>` do pliku HTML)
+if (typeof Fuse === "undefined") {
+    console.error("Fuse.js nie jest załadowane! Sprawdź, czy dodałeś skrypt do HTML.");
+}
 
-        searchInput.addEventListener("input", () => {
-          const query = searchInput.value.toLowerCase().trim();
-          suggestions.innerHTML = "";
-          if (!query) {
+let fuse;
+function initializeSearch() {
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+    const suggestions = document.getElementById("suggestions");
+
+    // Tworzymy listę do wyszukiwania na podstawie markerów
+    const searchIndex = allMarkers.map((m) => ({ name: m.name, lat: m.lat, lon: m.lon, marker: m.marker }));
+
+    // Konfiguracja Fuse.js
+    fuse = new Fuse(searchIndex, {
+        keys: ["name"],  // Przeszukujemy tylko nazwę
+        threshold: 0.3,  // Im mniejsza wartość, tym bardziej dokładne dopasowanie
+        includeScore: true,  // Włączamy wynik dopasowania
+        ignoreLocation: true,  // Ignorujemy kolejność wpisanych słów
+        minMatchCharLength: 2,  // Minimalna liczba znaków do wyszukiwania
+    });
+
+    // Obsługa wpisywania w wyszukiwarkę
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.trim();
+        suggestions.innerHTML = "";
+
+        if (!query) {
             suggestions.style.display = "none";
             return;
-          }
+        }
 
-          const matches = allMarkers
-            .filter((m) => m.name.toLowerCase().includes(query))
-            .slice(0, 4);
+        // Szukamy dopasowań w Fuse.js
+        const results = fuse.search(query).slice(0, 5); // Ograniczamy do 5 najlepszych wyników
 
-          matches.forEach((match) => {
+        results.forEach((result) => {
+            const match = result.item;
             const suggestion = document.createElement("div");
             suggestion.className = "suggestion";
-            suggestion.textContent = match.name; // Wyświetla nazwę z wielkimi literami
+            suggestion.textContent = match.name;
             suggestion.addEventListener("click", () => {
-              map.setView([match.lat, match.lon], 15);
-              match.marker.openPopup();
-              suggestions.style.display = "none";
-              searchInput.value = match.name;
+                map.setView([match.lat, match.lon], 15);
+                match.marker.openPopup();
+                suggestions.style.display = "none";
+                searchInput.value = match.name;
             });
             suggestions.appendChild(suggestion);
-          });
-
-          suggestions.style.display = matches.length > 0 ? "block" : "none";
         });
 
-        searchButton.addEventListener("click", () => {
-          const query = searchInput.value.toLowerCase().trim();
-          if (!query) return;
+        suggestions.style.display = results.length > 0 ? "block" : "none";
+    });
 
-          const targetMarker = allMarkers.find((m) =>
-            m.name.toLowerCase().includes(query)
-          );
+    // Obsługa przycisku "Szukaj"
+    searchButton.addEventListener("click", () => {
+        const query = searchInput.value.trim();
+        if (!query) return;
 
-          if (targetMarker) {
-            map.setView([targetMarker.lat, targetMarker.lon], 15);
-            targetMarker.marker.openPopup();
-          } else {
+        const bestMatch = fuse.search(query)[0]; // Pobierz najlepszy wynik
+        if (bestMatch) {
+            const { lat, lon, marker } = bestMatch.item;
+            map.setView([lat, lon], 15);
+            marker.openPopup();
+        } else {
             alert("Nie znaleziono obiektu.");
-          }
-        });
-      }
+        }
+    });
+}
+
 
       async function initializeMap() {
         await Promise.all([
