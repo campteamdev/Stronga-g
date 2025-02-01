@@ -23,21 +23,17 @@ async function loadImagesData() {
 
 // Funkcja do uruchomienia slidera
 async function showSlider(name) {
-    console.log("🔍 Uruchamiam slider dla: ", name);
+    console.log("🔍 Sprawdzam nazwę miejsca:", name);
+    console.log("📂 Lista dostępnych miejsc:", Object.keys(imagesData));
 
-    if (!imagesData[name]) {
+    let images = imagesData[name] || imagesData[name.toLowerCase()] || [];
+    
+    if (images.length === 0) {
         console.warn("🚫 Brak zdjęć dla:", name);
         return;
     }
 
-    const validImages = imagesData[name]; // Pobranie listy zdjęć z images.json
-
-    console.log("📷 Liczba znalezionych zdjęć:", validImages.length);
-
-    if (validImages.length === 0) {
-        console.warn("🚫 Brak zdjęć, slider nie zostanie pokazany.");
-        return;
-    }
+    console.log("📷 Liczba znalezionych zdjęć:", images.length);
 
     // Tworzymy kontener slidera, jeśli nie istnieje
     let sliderContainer = document.getElementById("campteam-slider");
@@ -63,7 +59,7 @@ async function showSlider(name) {
     let sliderHTML = `
       <div class="swiper-container" style="width:100%; height:100%;">
         <div class="swiper-wrapper">
-          ${validImages.map(img => `
+          ${images.map(img => `
             <div class="swiper-slide">
               <img src="${img}" style="width:100%; height:100%; object-fit:cover;">
             </div>
