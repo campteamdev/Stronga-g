@@ -4,37 +4,24 @@ async function showSlider(name) {
     alert("🔍 Uruchamiam slider dla: " + name);
 
     // Formatowanie nazwy pliku
-    const formattedName = name.replace(/\s+/g, "_").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-   alert("📷 Sprawdzam zdjęcia dla: " + formattedName);
+    const formattedName = name
+        .trim()
+        .replace(/\s+/g, "_") 
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-const images = [
-    `/foty/${formattedName}_1.jpeg`,
-    `/foty/${formattedName}_2.jpeg`,
-    `/foty/${formattedName}_3.jpeg`
-    let validImages = [];
-for (let img of images) {
-    let testImg = new Image();
-    testImg.src = img;
-    await new Promise((resolve) => {
-        testImg.onload = () => {
-            validImages.push(img);
-            resolve();
-        };
-        testImg.onerror = () => resolve();
-    });
-}
+    alert("📷 Sprawdzam zdjęcia dla: " + formattedName);
 
-alert("📷 Znalezione zdjęcia: " + validImages.length);
-
-];
-
-alert("🔍 Szukam zdjęć: " + images.join(", "));
-
+    // Ścieżki do zdjęć w formatach .jpeg i .jpg
     const images = [
         `/foty/${formattedName}_1.jpg`,
+        `/foty/${formattedName}_1.jpeg`,
         `/foty/${formattedName}_2.jpg`,
-        `/foty/${formattedName}_3.jpg`
+        `/foty/${formattedName}_2.jpeg`,
+        `/foty/${formattedName}_3.jpg`,
+        `/foty/${formattedName}_3.jpeg`
     ];
+
+    alert("🔍 Szukam zdjęć: " + images.join(", "));
 
     // Sprawdzamy, które zdjęcia faktycznie istnieją
     let validImages = [];
@@ -46,7 +33,10 @@ alert("🔍 Szukam zdjęć: " + images.join(", "));
                 validImages.push(img);
                 resolve();
             };
-            testImg.onerror = () => resolve();
+            testImg.onerror = () => {
+                alert("❌ Brak zdjęcia: " + img);
+                resolve();
+            };
         });
     }
 
@@ -58,7 +48,7 @@ alert("🔍 Szukam zdjęć: " + images.join(", "));
         return;
     }
 
-    // Tworzymy kontener slidera
+    // Tworzymy kontener slidera, jeśli nie istnieje
     let sliderContainer = document.getElementById("campteam-slider");
     if (!sliderContainer) {
         sliderContainer = document.createElement("div");
@@ -118,29 +108,14 @@ alert("🔍 Szukam zdjęć: " + images.join(", "));
     });
 }
 
-
-    // Obsługa zamykania slidera
-    document.getElementById("close-slider").addEventListener("click", () => {
-        sliderContainer.style.display = "none";
-    });
-}
-
 // Obsługa kliknięcia na popup
 document.body.addEventListener("click", async function (event) {
     if (event.target.closest(".leaflet-popup-content")) {
         let popup = event.target.closest(".leaflet-popup-content");
         let popupTitle = popup.querySelector("div strong");
         if (popupTitle) {
-            await showSlider(popupTitle.textContent.trim());
-        }
-    }
-});
-document.body.addEventListener("click", function (event) {
-    if (event.target.closest(".leaflet-popup-content")) {
-        let popupTitle = event.target.closest(".leaflet-popup-content").querySelector("div strong");
-        if (popupTitle) {
             alert("🟢 Kliknięto na marker: " + popupTitle.textContent.trim());
-            showSlider(popupTitle.textContent.trim());
+            await showSlider(popupTitle.textContent.trim());
         } else {
             alert("⚠️ Brak nazwy kempingu w popupie!");
         }
