@@ -428,6 +428,8 @@ if (typeof Fuse === "undefined") {
 
 let fuse;
 function initializeSearch() {
+   console.log("Sprawdzanie allMarkers w initializeSearch:", allMarkers.length);
+
     const searchInput = document.getElementById("search-input");
     const searchButton = document.getElementById("search-button");
     const suggestions = document.getElementById("suggestions");
