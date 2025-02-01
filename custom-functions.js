@@ -5,74 +5,6 @@ let websiteLinksMap = {};
 let descriptionsMap = {};
 let amenitiesMap = {};
 let excludedPlaces = new Set();
-// Obiekt przechowujący zdjęcia dla lokalizacji
-let imageMap = {};
-
-// Funkcja wczytująca zdjęcia z pliku images.json
-async function loadImages() {
-  try {
-    const response = await fetch("/images.json"); // Pobieranie pliku JSON
-    if (!response.ok) throw new Error("Nie udało się załadować images.json");
-
-    const data = await response.json();
-    imageMap = data; // Przypisujemy dane do globalnej zmiennej
-
-    console.log("Załadowano zdjęcia:", imageMap); // Debugowanie
-
-  } catch (error) {
-    console.error("Błąd podczas wczytywania zdjęć:", error);
-  }
-}
-function showImagesDebug() {
-  const debugDiv = document.createElement("div");
-  debugDiv.style.position = "fixed";
-  debugDiv.style.bottom = "10px";
-  debugDiv.style.left = "10px";
-  debugDiv.style.background = "white";
-  debugDiv.style.padding = "10px";
-  debugDiv.style.border = "1px solid black";
-  debugDiv.style.zIndex = "1000";
-  
-  debugDiv.innerHTML = "<strong>Załadowane zdjęcie testowe:</strong><br>";
-
-  // Testowe zdjęcie z Google Drive
-  const testImageUrl = "https://drive.google.com/uc?export=view&id=1F7TZvOLltQLlRPTzDFR4QCnZWc6xE-_z";
-  
-  debugDiv.innerHTML += `<img src="${testImageUrl}" width="100" height="100" style="border:2px solid red; margin:5px;">`;
-
-  document.body.appendChild(debugDiv);
-}
-
-// Uruchomienie funkcji po 3 sekundach
-setTimeout(showImagesDebug, 3000);
-
-// Wywołanie funkcji wczytującej zdjęcia
-loadImages();
-// Funkcja do wyświetlenia zdjęć w HTML (tylko do testów)
-function showImagesDebug() {
-  const debugDiv = document.createElement("div");
-  debugDiv.style.position = "fixed";
-  debugDiv.style.bottom = "10px";
-  debugDiv.style.left = "10px";
-  debugDiv.style.background = "white";
-  debugDiv.style.padding = "10px";
-  debugDiv.style.border = "1px solid black";
-  debugDiv.style.zIndex = "1000";
-  debugDiv.innerHTML = "<strong>Załadowane zdjęcia:</strong><br>";
-
-  for (const place in imageMap) {
-    debugDiv.innerHTML += `<strong>${place}:</strong><br>`;
-    imageMap[place].forEach(img => {
-      debugDiv.innerHTML += `<img src="${img}" width="50" height="50" style="margin:5px;">`;
-    });
-  }
-
-  document.body.appendChild(debugDiv);
-}
-
-// Uruchomienie funkcji po wczytaniu zdjęć
-setTimeout(showImagesDebug, 3000);
-
 
 // Blokowanie prawego przycisku myszy
 document.addEventListener("contextmenu", (event) => event.preventDefault());
@@ -111,14 +43,14 @@ function extractWebsite(description) {
 // Funkcja wczytująca dane z KML
 async function loadKmlData() {
   const kmlFiles = [
-    "/Atrakcje.kml",
-    "/Kempingi.kml",
-    "/Kempingi1.kml",
-    "/Kempingiopen.kml",
-    "/Miejscenabiwak.kml",
-    "/Parkingilesne.kml",
-    "/Polanamiotowe.kml",
-    "/Polanamiotoweopen.kml",
+    "/Atrakcje.json",
+    "/Kempingi.json",
+    "/Kempingi1.json",
+    "/Kempingiopen.json",
+    "/Miejscenabiwak.json",
+    "/Parkingilesne.json",
+    "/Polanamiotowe.json",
+    "/Polanamiotoweopen.json",
   ];
 
   for (const url of kmlFiles) {
