@@ -43,14 +43,14 @@ function extractWebsite(description) {
 // Funkcja wczytująca dane z KML
 async function loadKmlData() {
   const kmlFiles = [
-    "/Atrakcje.kml",
-    "/Kempingi.kml",
-    "/Kempingi1.kml",
-    "/Kempingiopen.kml",
-    "/Miejscenabiwak.kml",
-    "/Parkingilesne.kml",
-    "/Polanamiotowe.kml",
-    "/Polanamiotoweopen.kml",
+    "/Atrakcje.json",
+    "/Kempingi.json",
+    "/Kempingi1.json",
+    "/Kempingiopen.json",
+    "/Miejscenabiwak.json",
+    "/Parkingilesne.json",
+    "/Polanamiotowe.json",
+    "/Polanamiotoweopen.json",
   ];
 
   for (const url of kmlFiles) {
@@ -74,13 +74,11 @@ async function loadKmlData() {
         const opis = opisNode ? opisNode.textContent.trim() : "";
         let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
 
-      if (infrastruktura) {
-  // Usunięcie wzorca "nr: X", także z różnymi spacjami
-  infrastruktura = infrastruktura.replace(/\s*-?\s*nr:?\s*\d+/gi, "").trim();
-  
-  // Każda linia w nowej linii HTML
-  infrastruktura = infrastruktura.replace(/\n/g, "<br>");
-}
+        // Usunięcie "nr: X" z infrastruktury
+        if (infrastruktura) {
+          infrastruktura = infrastruktura.replace(/- nr:? \d+/g, "").trim();
+          infrastruktura = infrastruktura.split("\n").join("<br>"); // Każdy element w nowej linii
+        }
 
         if (name) {
           if (description) {
@@ -118,70 +116,84 @@ function shortenText(text, id) {
   return text.replace(/\n/g, "<br>");
 }
 
+// Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
-  // Formatowanie nazwy do użycia w ścieżkach zdjęć (usuwa spacje i polskie znaki)
-  const formattedName = name.replace(/\s+/g, "_").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  const images = [1, 2, 3].map(num => `/foty/${formattedName}_${num}.jpg`);
+  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>`;
+// Funkcja generująca treść popupu z pełną blokadą kopiowania
+function generatePopupContent(name, lat, lon) {
+  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+      ${name}</div><br>`;
 
-  // Sprawdzamy, czy zdjęcia faktycznie istnieją
-  let validImages = [];
-  images.forEach((img, index) => {
-    let testImg = new Image();
-    testImg.src = img;
-    testImg.onload = () => { validImages.push(img); };
-  });
+  // Kontener popupu z blokadą kopiowania
+  popupContent += `<div style="max-width: 80%; word-wrap: break-word;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">`;
 
-  let popupContent = "";
-
-  // Dodajemy slider TYLKO jeśli istnieją zdjęcia
-  if (validImages.length > 0) {
-    popupContent += `
-      <div class="swiper-container" style="width:200px; height:150px;">
-        <div class="swiper-wrapper">
-          ${validImages.map(img => `
-            <div class="swiper-slide">
-              <img src="${img}" style="width:100%; height:100%; object-fit:cover;">
-            </div>
-          `).join("")}
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
-    `;
-  }
-
-  // Dodanie nazwy miejsca
-  popupContent += `
-    <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">
-      ${name}
-    </div><br>
-  `;
-
-  // Numer telefonu
+  // Blokada kopiowania numeru telefonu
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
-  popupContent += `<strong>Kontakt:</strong> ${phone}<br>`;
+  const phoneLink =
+    phone !== "Brak numeru kontaktowego"
+      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;
+          user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+          ${phone}</a>`
+      : `<span style="font-size:10px;
+          user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+          ${phone}</span>`;
 
-  // Strona internetowa
-  if (websiteLinksMap[name]) {
-    popupContent += `<strong>Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank">${websiteLinksMap[name]}</a><br>`;
-  }
+  popupContent += `<strong style="font-size:12px;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+      Kontakt:</strong> ${phoneLink}<br>`;
 
-  // Opis
-  popupContent += `<strong>Opis:</strong> ${descriptionsMap[name] ? shortenText(descriptionsMap[name], `opis-${name}`) : "<i>Brak opisu</i>"}<br>`;
+  // Blokada kopiowania opisu
+  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+      Opis:</div><br>`;
+  popupContent += descriptionsMap[name] 
+    ? `<span style="font-size:10px;
+        user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+        ${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+    : `<span style="font-size:10px;
+        user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+        <i>Brak opisu</i></span>`;
 
-  // Infrastruktura
-  popupContent += `<strong>Infrastruktura:</strong> ${amenitiesMap[name] || "<i>Brak informacji</i>"}<br>`;
-
-  // Linki do Google Maps
-  popupContent += `
-    <br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank">Link do Map Google</a>
-    <br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank">Prowadź</a>
-  `;
-
+  popupContent += `</div>`; // Zamknięcie kontenera popupu
   return popupContent;
 }
 
+
+  // Numer telefonu
+  const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
+  const phoneLink =
+    phone !== "Brak numeru kontaktowego"
+      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px; user-select: none;">${phone}</a>`
+      : `<span style="font-size:10px; user-select: none;">${phone}</span>`;
+  popupContent += `<strong style="font-size:12px; user-select: none;">Kontakt:</strong> ${phoneLink}<br>`;
+
+  // Strona internetowa
+  if (websiteLinksMap[name]) {
+    popupContent += `<strong style="font-size:12px; user-select: none;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px; user-select: none;">${websiteLinksMap[name]}</a><br>`;
+  }
+
+  // Opis
+  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
+  popupContent += descriptionsMap[name] 
+    ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+    : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
+
+  // Infrastruktura
+  popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
+  popupContent += amenitiesMap[name] 
+    ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>` 
+    : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
+
+  // Linki
+  popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>`;
+  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px; user-select: none;">Prowadź</a>`;
+  popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px; user-select: none;">Dodaj Zdjęcię/Aktualizuj</a>`;
+
+  popupContent += `</div>`; // Zamknięcie kontenera popupu
+  return popupContent;
+}
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
 function updatePopups(markers) {
