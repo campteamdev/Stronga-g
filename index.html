@@ -424,56 +424,69 @@
     }
 }
 
+function initializeSearch(attempt = 0) {
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+    const suggestions = document.getElementById("suggestions");
 
-      function initializeSearch() {
-        const searchInput = document.getElementById("search-input");
-        const searchButton = document.getElementById("search-button");
-        const suggestions = document.getElementById("suggestions");
+    // Sprawdzamy, czy markery są już załadowane
+    if (allMarkers.length === 0) {
+        if (attempt < 10) {  // Maksymalnie 10 prób
+            console.warn(`🔄 Próba ${attempt + 1}: Czekam na załadowanie markerów...`);
+            setTimeout(() => initializeSearch(attempt + 1), 500);
+        } else {
+            console.error("❌ Nie udało się załadować markerów do wyszukiwania.");
+        }
+        return;
+    }
 
-        searchInput.addEventListener("input", () => {
-          const query = searchInput.value.toLowerCase().trim();
-          suggestions.innerHTML = "";
-          if (!query) {
+    console.log("✅ Wyszukiwanie gotowe. Załadowane markery:", allMarkers.length);
+
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase().trim();
+        suggestions.innerHTML = "";
+        if (!query) {
             suggestions.style.display = "none";
             return;
-          }
+        }
 
-          const matches = allMarkers
+        const matches = allMarkers
             .filter((m) => m.name.toLowerCase().includes(query))
             .slice(0, 4);
 
-          matches.forEach((match) => {
+        matches.forEach((match) => {
             const suggestion = document.createElement("div");
             suggestion.className = "suggestion";
-            suggestion.textContent = match.name; // Wyświetla nazwę z wielkimi literami
+            suggestion.textContent = match.name;
             suggestion.addEventListener("click", () => {
-              map.setView([match.lat, match.lon], 15);
-              match.marker.openPopup();
-              suggestions.style.display = "none";
-              searchInput.value = match.name;
+                map.setView([match.lat, match.lon], 15);
+                match.marker.openPopup();
+                suggestions.style.display = "none";
+                searchInput.value = match.name;
             });
             suggestions.appendChild(suggestion);
-          });
-
-          suggestions.style.display = matches.length > 0 ? "block" : "none";
         });
 
-        searchButton.addEventListener("click", () => {
-          const query = searchInput.value.toLowerCase().trim();
-          if (!query) return;
+        suggestions.style.display = matches.length > 0 ? "block" : "none";
+    });
 
-          const targetMarker = allMarkers.find((m) =>
+    searchButton.addEventListener("click", () => {
+        const query = searchInput.value.toLowerCase().trim();
+        if (!query) return;
+
+        const targetMarker = allMarkers.find((m) =>
             m.name.toLowerCase().includes(query)
-          );
+        );
 
-          if (targetMarker) {
+        if (targetMarker) {
             map.setView([targetMarker.lat, targetMarker.lon], 15);
             targetMarker.marker.openPopup();
-          } else {
+        } else {
             alert("Nie znaleziono obiektu.");
-          }
-        });
-      }
+        }
+    });
+}
+
 
       async function initializeMap() {
         await Promise.all([
