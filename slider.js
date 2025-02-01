@@ -1,7 +1,7 @@
 alert("✅ Slider.js załadowany!");
 
 async function showSlider(name) {
-    alert("🔍 Uruchamiam slider dla: " + name);
+    console.log("🔍 Uruchamiam slider dla: ", name);
 
     // Formatowanie nazwy pliku
     const formattedName = name
@@ -9,7 +9,7 @@ async function showSlider(name) {
         .replace(/\s+/g, "_") 
         .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-    alert("📷 Sprawdzam zdjęcia dla: " + formattedName);
+    console.log("📷 Sprawdzam zdjęcia dla: ", formattedName);
 
     // Ścieżki do zdjęć w formatach .jpeg i .jpg
     const images = [
@@ -21,7 +21,7 @@ async function showSlider(name) {
         `/foty/${formattedName}_3.jpeg`
     ];
 
-    alert("🔍 Szukam zdjęć: " + images.join(", "));
+    console.log("🔍 Szukam zdjęć: ", images);
 
     // Sprawdzamy, które zdjęcia faktycznie istnieją
     let validImages = [];
@@ -33,18 +33,15 @@ async function showSlider(name) {
                 validImages.push(img);
                 resolve();
             };
-            testImg.onerror = () => {
-                alert("❌ Brak zdjęcia: " + img);
-                resolve();
-            };
+            testImg.onerror = () => resolve();
         });
     }
 
-    alert("📷 Liczba znalezionych zdjęć: " + validImages.length);
+    console.log("📷 Liczba znalezionych zdjęć: ", validImages.length);
 
     // Jeśli brak zdjęć, nie pokazujemy slidera
     if (validImages.length === 0) {
-        alert("🚫 Brak zdjęć, slider nie zostanie pokazany.");
+        console.warn("🚫 Brak zdjęć, slider nie zostanie pokazany.");
         return;
     }
 
@@ -85,7 +82,7 @@ async function showSlider(name) {
       </div>
     `;
 
-    alert("✅ Generuję slider...");
+    console.log("✅ Generuję slider...");
 
     // Dodajemy zawartość do kontenera
     sliderContainer.innerHTML = sliderHTML;
@@ -100,35 +97,30 @@ async function showSlider(name) {
         });
     }, 200);
 
-    alert("🚀 Slider pokazany!");
+    console.log("🚀 Slider pokazany!");
 
-    // Obsługa zamykania slidera
-    document.getElementById("close-slider").addEventListener("click", () => {
-        sliderContainer.style.display = "none";
-    });
+    // Obsługa zamykania slidera (bez powtarzania eventów)
+    setTimeout(() => {
+        let closeBtn = document.getElementById("close-slider");
+        if (closeBtn) {
+            closeBtn.onclick = () => {
+                sliderContainer.style.display = "none";
+            };
+        }
+    }, 300);
 }
 
-// Obsługa kliknięcia na popup
+// Obsługa kliknięcia na popup (tylko jedno nasłuchiwanie)
 document.body.addEventListener("click", async function (event) {
-    if (event.target.closest(".leaflet-popup-content")) {
-        let popup = event.target.closest(".leaflet-popup-content");
+    let popup = event.target.closest(".leaflet-popup-content");
+    if (popup) {
         let popupTitle = popup.querySelector("div strong");
         if (popupTitle) {
-            alert("🟢 Kliknięto na marker: " + popupTitle.textContent.trim());
-            await showSlider(popupTitle.textContent.trim());
+            let campName = popupTitle.textContent.trim();
+            console.log("🟢 Kliknięto na marker: ", campName);
+            await showSlider(campName);
         } else {
-            alert("⚠️ Brak nazwy kempingu w popupie!");
-        }
-    }
-});
-document.body.addEventListener("click", function (event) {
-    if (event.target.closest(".leaflet-popup-content")) {
-        let popupTitle = event.target.closest(".leaflet-popup-content").querySelector("div strong");
-        if (popupTitle) {
-            alert("🟢 Kliknięto na marker: " + popupTitle.textContent.trim());
-            showSlider(popupTitle.textContent.trim());
-        } else {
-            alert("⚠️ Brak nazwy kempingu w popupie!");
+            console.warn("⚠️ Brak nazwy kempingu w popupie!");
         }
     }
 });
