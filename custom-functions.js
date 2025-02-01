@@ -25,11 +25,49 @@ async function loadDetails() {
   }
 }
 
+// Funkcja wczytująca dane z JSON
+async function loadJsonData() {
+  const jsonFiles = [
+    "/AtrakcjeKultorowe.json",
+    "/Kempingi.json",
+    "/Kempingi1.json",
+    "/Kempingiopen.json",
+    "/Miejscenabiwak.json",
+    "/Parkingilesne.json",
+    "/Polanamiotowe.json",
+    "/Polanamiotoweopen.json",
+  ];
+
+  for (const url of jsonFiles) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Nie udało się załadować: ${url}`);
+      const data = await response.json();
+
+      data.places.forEach((place) => {
+        const { name, lat, lon, description } = place;
+
+        if (name) {
+          if (description) {
+            const phone = extractPhoneNumber(description);
+            phoneNumbersMap[name] = phone || "Brak numeru kontaktowego";
+            const website = extractWebsite(description);
+            websiteLinksMap[name] = website || "";
+          }
+          descriptionsMap[name] = description || "Brak opisu";
+          amenitiesMap[name] = "Brak informacji"; // JSON nie zawiera infrastruktury, ale można dodać, jeśli jest w danych
+        }
+      });
+    } catch (error) {
+      console.error(`Błąd podczas przetwarzania pliku ${url}:`, error);
+    }
+  }
+}
+
 // Funkcja do wyodrębniania numerów telefonów
 function extractPhoneNumber(description) {
   const phoneRegex = /(?:Telefon:|Phone:)?\s*(\+?\d[\d\s\-()]{7,})/i;
-  const urlRegex = /https?:\/\/[^\s]+/gi;
-  const match = description.replace(urlRegex, "").match(phoneRegex);
+  const match = description.match(phoneRegex);
   return match ? match[1].replace(/\s+/g, "") : null;
 }
 
@@ -40,69 +78,11 @@ function extractWebsite(description) {
   return match ? match[1].trim() : null;
 }
 
-// Funkcja wczytująca dane z KML
-async function loadKmlData() {
-  const kmlFiles = [
-    "/Atrakcje.json",
-    "/Kempingi.json",
-    "/Kempingi1.json",
-    "/Kempingiopen.json",
-    "/Miejscenabiwak.json",
-    "/Parkingilesne.json",
-    "/Polanamiotowe.json",
-    "/Polanamiotoweopen.json",
-  ];
-
-  for (const url of kmlFiles) {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`Nie udało się załadować: ${url}`);
-      const kmlText = await response.text();
-      const parser = new DOMParser();
-      const kml = parser.parseFromString(kmlText, "application/xml");
-      const placemarks = kml.getElementsByTagName("Placemark");
-
-      for (const placemark of placemarks) {
-        const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
-        const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
-        const website = placemark.querySelector("Data[name='Strona www:'] > value")?.textContent.trim() || extractWebsite(description);
-
-        // Pobieranie danych Opis i Infrastruktura
-        const opisNode = placemark.querySelector("Data[name='Opis:'] > value");
-        const infrastrukturaNode = placemark.querySelector("Data[name='Udogodnienia:'] > value");
-
-        const opis = opisNode ? opisNode.textContent.trim() : "";
-        let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
-
-        // Usunięcie "nr: X" z infrastruktury
-        if (infrastruktura) {
-          infrastruktura = infrastruktura.replace(/- nr:? \d+/g, "").trim();
-          infrastruktura = infrastruktura.split("\n").join("<br>"); // Każdy element w nowej linii
-        }
-
-        if (name) {
-          if (description) {
-            const phone = extractPhoneNumber(description);
-            phoneNumbersMap[name] = phone || "Brak numeru kontaktowego";
-          }
-          if (website) {
-            websiteLinksMap[name] = website;
-          }
-          descriptionsMap[name] = opis;
-          amenitiesMap[name] = infrastruktura;
-        }
-      }
-    } catch (error) {
-      console.error(`Błąd podczas przetwarzania pliku ${url}:`, error);
-    }
-  }
-}
-
 // Funkcja skracająca tekst do 3 linijek
 function shortenText(text, id) {
-  if (!text) return ""; // Jeśli brak treści, zwróć pusty ciąg
+  if (!text) return "";
   const words = text.split(" ");
-  if (words.length > 30) { // Przybliżona liczba słów na 3 linijki
+  if (words.length > 30) {
     const shortText = words.slice(0, 30).join(" ") + "...";
     return `
       <span id="${id}-short">${shortText}</span>
@@ -118,78 +98,43 @@ function shortenText(text, id) {
 
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>`;
-// Funkcja generująca treść popupu z pełną blokadą kopiowania
-function generatePopupContent(name, lat, lon) {
   let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
-      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+      user-select: none;">
       ${name}</div><br>`;
 
   // Kontener popupu z blokadą kopiowania
-  popupContent += `<div style="max-width: 80%; word-wrap: break-word;
-      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">`;
+  popupContent += `<div style="max-width: 80%; word-wrap: break-word;">`;
 
   // Blokada kopiowania numeru telefonu
   const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
   const phoneLink =
     phone !== "Brak numeru kontaktowego"
-      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;
-          user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-          ${phone}</a>`
-      : `<span style="font-size:10px;
-          user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-          ${phone}</span>`;
+      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;">${phone}</a>`
+      : `<span style="font-size:10px;">${phone}</span>`;
 
-  popupContent += `<strong style="font-size:12px;
-      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-      Kontakt:</strong> ${phoneLink}<br>`;
-
-  // Blokada kopiowania opisu
-  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;
-      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-      Opis:</div><br>`;
-  popupContent += descriptionsMap[name] 
-    ? `<span style="font-size:10px;
-        user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-        ${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-    : `<span style="font-size:10px;
-        user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-        <i>Brak opisu</i></span>`;
-
-  popupContent += `</div>`; // Zamknięcie kontenera popupu
-  return popupContent;
-}
-
-
-  // Numer telefonu
-  const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
-  const phoneLink =
-    phone !== "Brak numeru kontaktowego"
-      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px; user-select: none;">${phone}</a>`
-      : `<span style="font-size:10px; user-select: none;">${phone}</span>`;
-  popupContent += `<strong style="font-size:12px; user-select: none;">Kontakt:</strong> ${phoneLink}<br>`;
+  popupContent += `<strong style="font-size:12px;">Kontakt:</strong> ${phoneLink}<br>`;
 
   // Strona internetowa
   if (websiteLinksMap[name]) {
-    popupContent += `<strong style="font-size:12px; user-select: none;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px; user-select: none;">${websiteLinksMap[name]}</a><br>`;
+    popupContent += `<strong style="font-size:12px;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px;">${websiteLinksMap[name]}</a><br>`;
   }
 
   // Opis
-  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
-  popupContent += descriptionsMap[name] 
-    ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-    : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
+  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Opis:</div><br>`;
+  popupContent += descriptionsMap[name]
+    ? `<span style="font-size:10px;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>`
+    : `<span style="font-size:10px;"><i>Brak opisu</i></span>`;
 
   // Infrastruktura
-  popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
-  popupContent += amenitiesMap[name] 
-    ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>` 
-    : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
+  popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;">Infrastruktura:</div><br>`;
+  popupContent += amenitiesMap[name]
+    ? `<span style="font-size:10px;">${amenitiesMap[name]}</span>`
+    : `<span style="font-size:10px;"><i>Brak informacji</i></span>`;
 
   // Linki
-  popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>`;
-  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px; user-select: none;">Prowadź</a>`;
-  popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px; user-select: none;">Dodaj Zdjęcię/Aktualizuj</a>`;
+  popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px;">Link do Map Google</a>`;
+  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px;">Prowadź</a>`;
+  popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px;">Dodaj Zdjęcię/Aktualizuj</a>`;
 
   popupContent += `</div>`; // Zamknięcie kontenera popupu
   return popupContent;
@@ -200,10 +145,10 @@ function updatePopups(markers) {
   markers.forEach(({ marker, name, lat, lon }) => {
     const popupContent = generatePopupContent(name, lat, lon);
     marker.bindPopup(popupContent, {
-      minWidth: 200,  // Minimalna szerokość popupu
-      maxWidth: 220,  // Maksymalna szerokość popupu
-      maxHeight: 300, // Maksymalna wysokość popupu
-      autoPan: true   // Automatyczne przesuwanie mapy, gdy popup wychodzi poza ekran
+      minWidth: 200,
+      maxWidth: 220,
+      maxHeight: 300,
+      autoPan: true
     });
   });
 }
@@ -211,11 +156,6 @@ function updatePopups(markers) {
 // Ładowanie danych i aktualizacja popupów
 async function loadDetailsAndUpdatePopups(markers) {
   await loadDetails();
-  await loadKmlData();
+  await loadJsonData();
   updatePopups(markers);
 }
-document.addEventListener("touchstart", function (event) {
-  if (event.target.closest(".leaflet-popup-content")) {
-    event.preventDefault();
-  }
-}, { passive: false });
