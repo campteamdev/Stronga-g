@@ -23,6 +23,28 @@ async function loadImages() {
     console.error("Błąd podczas wczytywania zdjęć:", error);
   }
 }
+function showImagesDebug() {
+  const debugDiv = document.createElement("div");
+  debugDiv.style.position = "fixed";
+  debugDiv.style.bottom = "10px";
+  debugDiv.style.left = "10px";
+  debugDiv.style.background = "white";
+  debugDiv.style.padding = "10px";
+  debugDiv.style.border = "1px solid black";
+  debugDiv.style.zIndex = "1000";
+  
+  debugDiv.innerHTML = "<strong>Załadowane zdjęcie testowe:</strong><br>";
+
+  // Testowe zdjęcie z Google Drive
+  const testImageUrl = "https://drive.google.com/uc?export=view&id=1F7TZvOLltQLlRPTzDFR4QCnZWc6xE-_z";
+  
+  debugDiv.innerHTML += `<img src="${testImageUrl}" width="100" height="100" style="border:2px solid red; margin:5px;">`;
+
+  document.body.appendChild(debugDiv);
+}
+
+// Uruchomienie funkcji po 3 sekundach
+setTimeout(showImagesDebug, 3000);
 
 // Wywołanie funkcji wczytującej zdjęcia
 loadImages();
