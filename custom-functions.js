@@ -74,11 +74,13 @@ async function loadKmlData() {
         const opis = opisNode ? opisNode.textContent.trim() : "";
         let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
 
-        // Usunięcie "nr: X" z infrastruktury
-        if (infrastruktura) {
-          infrastruktura = infrastruktura.replace(/- nr:? \d+/g, "").trim();
-          infrastruktura = infrastruktura.split("\n").join("<br>"); // Każdy element w nowej linii
-        }
+      if (infrastruktura) {
+  // Usunięcie wzorca "nr: X", także z różnymi spacjami
+  infrastruktura = infrastruktura.replace(/\s*-?\s*nr:?\s*\d+/gi, "").trim();
+  
+  // Każda linia w nowej linii HTML
+  infrastruktura = infrastruktura.replace(/\n/g, "<br>");
+}
 
         if (name) {
           if (description) {
