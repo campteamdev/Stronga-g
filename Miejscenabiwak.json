@@ -1,0 +1,1936 @@
+{
+    "places": [
+        {
+            "name": "Sowia Góra",
+            "lat": 52.34177,
+            "lon": 21.985271,
+            "description": "opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056321205778596/"
+        },
+        {
+            "name": "Wiślinka",
+            "lat": 54.344988,
+            "lon": 18.791734,
+            "description": "opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: FREE Miejsce na Biwak/Nocleg Rzeka,Spokój,Natura"
+        },
+        {
+            "name": "Plaża Stelchno",
+            "lat": 53.529492,
+            "lon": 18.476075,
+            "description": "opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: Toalety, Stoły/Wiata, W okresie letnim czynny bar są dmuchańce dla dzieci ale to wszystko na plaży"
+        },
+        {
+            "name": "Biwak Sucha Polana",
+            "lat": 49.783166,
+            "lon": 20.050858,
+            "description": "opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Biwak_Sucha_Polana<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj"
+        },
+        {
+            "name": "Pole biwakowe Cicha Soblówka",
+            "lat": 49.461693,
+            "lon": 19.144553,
+            "description": "opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Pole_Biwakowe_Cicha_Soblowka<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj"
+        },
+        {
+            "name": "Miejsce Biwakowania",
+            "lat": 52.989277,
+            "lon": 14.909073,
+            "description": "opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: "
+        },
+        {
+            "name": "Miejsce biwakowania Strychy",
+            "lat": 52.58701,
+            "lon": 15.82821,
+            "description": "opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Miejsce_Biwakowania_Strychy<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj"
+        },
+        {
+            "name": "Pole Biwakowe \"Wiaty\"",
+            "lat": 53.5929842,
+            "lon": 16.4816923,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe w Piławie",
+            "lat": 53.6168589,
+            "lon": 16.4776326,
+            "description": "opis: <br>Miejsce na biwak: <br>description: Opłata 15 zł od osoby .  Dostępna Woda do mycia naczyń.. Dwa pomosty, Woda w jeziorze czysta. Miejsca na ognisko. ToiToi"
+        },
+        {
+            "name": "Biwak Oseczno",
+            "lat": 53.0063267,
+            "lon": 15.9555433,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Piknik nad Osławą",
+            "lat": 49.5237922,
+            "lon": 22.2655793,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe Janicze",
+            "lat": 49.7391687,
+            "lon": 22.2357866,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe na szlaku kajakowym Wilgi",
+            "lat": 51.8590049,
+            "lon": 21.4288153,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Teren biwakowy-Wiata widokowa w Obiszowie",
+            "lat": 51.5718944,
+            "lon": 16.1125529,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce ogniskowe, wiaty i parking",
+            "lat": 50.3216527,
+            "lon": 16.4379266,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe kapielisko Karłów ul. Wesola",
+            "lat": 51.5090384,
+            "lon": 17.2852885,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 53.5380005,
+            "lon": 15.5904532,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak",
+            "lat": 52.8430927,
+            "lon": 14.8381144,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole Biwakowe Nadleśnictwa z dziką plażą",
+            "lat": 52.9668687,
+            "lon": 14.8566617,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole Biwakowe",
+            "lat": 53.4612369,
+            "lon": 17.523769,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 53.159305,
+            "lon": 17.1549333,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe j. Chomiąskie",
+            "lat": 52.7706916,
+            "lon": 17.8238502,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe, ognisko",
+            "lat": 51.1492413,
+            "lon": 16.987979,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 52.5084208,
+            "lon": 17.0799886,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Siśtang",
+            "lat": 50.7765279,
+            "lon": 18.6901239,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata biwakowa „Kajakarnia”",
+            "lat": 52.3240864,
+            "lon": 23.0478526,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Zagłębocze",
+            "lat": 51.4349116,
+            "lon": 23.0251307,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 53.906793,
+            "lon": 23.299788,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe Narwiańskiego Parku Narodowego",
+            "lat": 53.1047261,
+            "lon": 22.7974005,
+            "description": "opis: <br>Miejsce na biwak: <br>description: Phone: +48 85 7181417<br> Website:"
+        },
+        {
+            "name": "Pole biwakowe Zalewy Nadarzyckie",
+            "lat": 53.4844706,
+            "lon": 16.4935457,
+            "description": "opis: <br>Miejsce na biwak: <br>description: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?pole_biwakowe_zalewy_nadarzyckie<br>     Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>     Opis: <br>     Phone: +48 509 115 115<br>     Website:"
+        },
+        {
+            "name": "Polana",
+            "lat": 53.7144444,
+            "lon": 19.9066667,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Dzikie pole namiotowe im. św. Jana Gawła II",
+            "lat": 53.8752878,
+            "lon": 18.3200669,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Leśne Pole Biwakowe \"Tarnów\"",
+            "lat": 51.8544437,
+            "lon": 15.9882299,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 53.7810969,
+            "lon": 17.3318808,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole Biwakowe",
+            "lat": 53.814165,
+            "lon": 17.4103522,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole namiotowe Dolina Bystrego",
+            "lat": 50.2838611,
+            "lon": 17.449044,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole Biwakowe",
+            "lat": 54.047266,
+            "lon": 17.8719187,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 54.047203,
+            "lon": 21.6221629,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe z miejscem na ognisko.",
+            "lat": 53.9854028,
+            "lon": 22.5465635,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku - biwak",
+            "lat": 50.820798,
+            "lon": 19.228847,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Teren biwakowy-Wiata widokowa w Obiszowie",
+            "lat": 51.571894,
+            "lon": 16.112553,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na biwak",
+            "lat": 50.03386,
+            "lon": 19.883562,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na ognisko i biwak.",
+            "lat": 50.194758,
+            "lon": 20.038436,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "miejsce ogniskowe / biwakowe",
+            "lat": 49.426064,
+            "lon": 19.138027,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Sucha Polana",
+            "lat": 49.783166,
+            "lon": 20.050858,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak",
+            "lat": 52.843093,
+            "lon": 14.838114,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe z altanką",
+            "lat": 49.704678,
+            "lon": 18.786763,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na biwak",
+            "lat": 50.217668,
+            "lon": 18.750108,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowania \"Dawne Domki\"",
+            "lat": 51.045848,
+            "lon": 18.35279,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowania",
+            "lat": 52.989277,
+            "lon": 14.909073,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe nad Drwęcą",
+            "lat": 53.067254,
+            "lon": 18.850384,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe, ognisko",
+            "lat": 51.149241,
+            "lon": 16.987979,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowe",
+            "lat": 49.81331,
+            "lon": 20.771725,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak w Bystrej",
+            "lat": 49.760149,
+            "lon": 19.047105,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe na szlaku kajakowym Wilgi",
+            "lat": 51.859005,
+            "lon": 21.428815,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Pod Sosnami",
+            "lat": 53.796669,
+            "lon": 21.874198,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Siśtang",
+            "lat": 50.776528,
+            "lon": 18.690124,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak \"Radoszowy\"",
+            "lat": 50.234917,
+            "lon": 18.937032,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "BIWAK Wilcza Wola",
+            "lat": 50.327069,
+            "lon": 21.937004,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak za Szkołą",
+            "lat": 54.063361,
+            "lon": 23.184278,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata i miejsce biwakowe",
+            "lat": 52.924488,
+            "lon": 22.647311,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata - Miejsce na biwak",
+            "lat": 52.917252,
+            "lon": 23.522537,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak leśny",
+            "lat": 52.552679,
+            "lon": 17.10746,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 52.508421,
+            "lon": 17.079989,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 53.605688,
+            "lon": 16.411062,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Leśne Miejsce Biwakowania Okno",
+            "lat": 52.942684,
+            "lon": 15.251912,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowania",
+            "lat": 52.626859,
+            "lon": 15.871495,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Złotniczki Jez. Jerzyńskie",
+            "lat": 52.492434,
+            "lon": 17.246884,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsca biwakowe",
+            "lat": 53.892905,
+            "lon": 17.217644,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Przyjazne Rowerzystom",
+            "lat": 53.766034,
+            "lon": 19.834835,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Zagłębocze",
+            "lat": 51.434912,
+            "lon": 23.025131,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak im. sierż. Grzegorza Załogi",
+            "lat": 50.406055,
+            "lon": 19.492382,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak",
+            "lat": 52.843093,
+            "lon": 14.838114,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak/Rastplatz",
+            "lat": 53.643883,
+            "lon": 14.348464,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Jamrozówka - biwak",
+            "lat": 50.941841,
+            "lon": 21.496784,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejscówka na Dziko",
+            "lat": 52.144698,
+            "lon": 20.815633,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Kupolandia - przystań na dziko",
+            "lat": 53.949965,
+            "lon": 21.745645,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Camping na dziko",
+            "lat": 53.73381,
+            "lon": 21.735482,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Przy lesie",
+            "lat": 53.616409,
+            "lon": 18.661568,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 52.314618,
+            "lon": 16.742359,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe w Hańczowej",
+            "lat": 49.458944,
+            "lon": 21.155194,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe w Bielance",
+            "lat": 49.607162,
+            "lon": 21.116903,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowe i parking",
+            "lat": 49.781649,
+            "lon": 20.859408,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe przy wodospadzie",
+            "lat": 49.512695,
+            "lon": 19.220223,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 49.457154,
+            "lon": 19.02018,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 50.244539,
+            "lon": 16.63383,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowania",
+            "lat": 52.415254,
+            "lon": 15.84864,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata biwakowa „Kajakarnia”",
+            "lat": 52.324086,
+            "lon": 23.047853,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Łowisko,miejsce biwakowe",
+            "lat": 52.945906,
+            "lon": 23.766722,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku - biwak",
+            "lat": 50.820798,
+            "lon": 19.228847,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Teren biwakowy-Wiata widokowa w Obiszowie",
+            "lat": 51.571894,
+            "lon": 16.112553,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na biwak",
+            "lat": 50.03386,
+            "lon": 19.883562,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na ognisko i biwak.",
+            "lat": 50.194758,
+            "lon": 20.038436,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Sucha Polana",
+            "lat": 49.783166,
+            "lon": 20.050858,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak",
+            "lat": 52.843093,
+            "lon": 14.838114,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "miejsce ogniskowe / biwakowe",
+            "lat": 49.426064,
+            "lon": 19.138027,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe z altanką",
+            "lat": 49.704678,
+            "lon": 18.786763,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na biwak",
+            "lat": 50.217668,
+            "lon": 18.750108,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowania \"Dawne Domki\"",
+            "lat": 51.045848,
+            "lon": 18.35279,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowania",
+            "lat": 52.989277,
+            "lon": 14.909073,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe nad Drwęcą",
+            "lat": 53.067254,
+            "lon": 18.850384,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe, ognisko",
+            "lat": 51.149241,
+            "lon": 16.987979,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowe",
+            "lat": 49.81331,
+            "lon": 20.771725,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak w Bystrej",
+            "lat": 49.760149,
+            "lon": 19.047105,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe na szlaku kajakowym Wilgi",
+            "lat": 51.859005,
+            "lon": 21.428815,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Pod Sosnami",
+            "lat": 53.796669,
+            "lon": 21.874198,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Siśtang",
+            "lat": 50.776528,
+            "lon": 18.690124,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak \"Radoszowy\"",
+            "lat": 50.234917,
+            "lon": 18.937032,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "BIWAK Wilcza Wola",
+            "lat": 50.327069,
+            "lon": 21.937004,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe / namiotowe MOKOSZ",
+            "lat": 54.242956,
+            "lon": 22.058974,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak za Szkołą",
+            "lat": 54.063361,
+            "lon": 23.184278,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata i miejsce biwakowe",
+            "lat": 52.924488,
+            "lon": 22.647311,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata - Miejsce na biwak",
+            "lat": 52.917252,
+            "lon": 23.522537,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak leśny",
+            "lat": 52.552679,
+            "lon": 17.10746,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 52.508421,
+            "lon": 17.079989,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 53.605688,
+            "lon": 16.411062,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Leśne Miejsce Biwakowania Okno",
+            "lat": 52.942684,
+            "lon": 15.251912,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowania",
+            "lat": 52.626859,
+            "lon": 15.871495,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Złotniczki Jez. Jerzyńskie",
+            "lat": 52.492434,
+            "lon": 17.246884,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Lednica",
+            "lat": 52.556157,
+            "lon": 17.379579,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsca biwakowe",
+            "lat": 53.892905,
+            "lon": 17.217644,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Przyjazne Rowerzystom",
+            "lat": 53.766034,
+            "lon": 19.834835,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak Zagłębocze",
+            "lat": 51.434912,
+            "lon": 23.025131,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak im. sierż. Grzegorza Załogi",
+            "lat": 50.406055,
+            "lon": 19.492382,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak",
+            "lat": 52.843093,
+            "lon": 14.838114,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak/Rastplatz",
+            "lat": 53.643883,
+            "lon": 14.348464,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Jamrozówka - biwak",
+            "lat": 50.941841,
+            "lon": 21.496784,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejscówka na Dziko",
+            "lat": 52.144698,
+            "lon": 20.815633,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Kupolandia - przystań na dziko",
+            "lat": 53.949965,
+            "lon": 21.745645,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Camping na dziko",
+            "lat": 53.73381,
+            "lon": 21.735482,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Przy lesie",
+            "lat": 53.616409,
+            "lon": 18.661568,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 52.314618,
+            "lon": 16.742359,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe w Hańczowej",
+            "lat": 49.458944,
+            "lon": 21.155194,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe w Bielance",
+            "lat": 49.607162,
+            "lon": 21.116903,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowe i parking",
+            "lat": 49.781649,
+            "lon": 20.859408,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe przy wodospadzie",
+            "lat": 49.512695,
+            "lon": 19.220223,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 49.457154,
+            "lon": 19.02018,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 50.244539,
+            "lon": 16.63383,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowania",
+            "lat": 52.415254,
+            "lon": 15.84864,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata biwakowa „Kajakarnia”",
+            "lat": 52.324086,
+            "lon": 23.047853,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Łowisko,miejsce biwakowe",
+            "lat": 52.945906,
+            "lon": 23.766722,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata,miejsce biwakowe",
+            "lat": 52.903786,
+            "lon": 23.823186,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Parking leśny, wiata, miejsce biwakowe,informacja",
+            "lat": 52.81537,
+            "lon": 23.914611,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata i miejsce biwakowe",
+            "lat": 52.948434,
+            "lon": 22.955647,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Parking leśny, wiata, miejsce biwakowe",
+            "lat": 52.888052,
+            "lon": 23.682026,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Parking leśny, wiata, miejsce biwakowe",
+            "lat": 52.935955,
+            "lon": 23.664196,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Leśna plaża, i pole namiotowe. Jezioro Niegocin. Płatne",
+            "lat": 53.974149,
+            "lon": 21.794244,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce ogniskowe, wiaty i parking",
+            "lat": 50.321653,
+            "lon": 16.437927,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Polana Oberówka - Miejsce Biwakowe",
+            "lat": 49.57938,
+            "lon": 20.088638,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 53.951648,
+            "lon": 16.054945,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole Biwakowe dla Kajakarzy nad Iną",
+            "lat": 53.43535,
+            "lon": 14.906377,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Polana i wiaty",
+            "lat": 53.657052,
+            "lon": 17.92787,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 53.951648,
+            "lon": 16.054945,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Ujście rzeki Iławka",
+            "lat": 53.529193,
+            "lon": 19.682959,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Leśne miejsce biwakowe",
+            "lat": 52.907446,
+            "lon": 15.273987,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Parking, Pole Namiotowe, Biwak",
+            "lat": 51.255588,
+            "lon": 16.659578,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 51.538489,
+            "lon": 17.530348,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe Janicze",
+            "lat": 49.739169,
+            "lon": 22.235787,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Parking, Miejsce biwakowe",
+            "lat": 49.497418,
+            "lon": 20.861218,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Polana Trusiówka - miejsce biwakowe i parking",
+            "lat": 49.583732,
+            "lon": 20.222178,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe Szczawa Wiatrówki",
+            "lat": 49.607407,
+            "lon": 20.238247,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 49.491085,
+            "lon": 19.162823,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "miejsce ogniskowe / biwakowe",
+            "lat": 49.426064,
+            "lon": 19.138027,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowania",
+            "lat": 49.772248,
+            "lon": 19.068432,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 49.461693,
+            "lon": 19.144553,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowe",
+            "lat": 49.81331,
+            "lon": 20.771725,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 51.074434,
+            "lon": 15.979293,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na ognisko",
+            "lat": 49.971781,
+            "lon": 21.772766,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Parking leśny, wiata, miejsce biwakowe",
+            "lat": 52.850585,
+            "lon": 23.681912,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 54.228931,
+            "lon": 17.674027,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe, wiaty",
+            "lat": 54.287943,
+            "lon": 17.303144,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole Biwakowe",
+            "lat": 54.365362,
+            "lon": 16.687243,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Plac Biwakowy - Miejsce Na Ognisko",
+            "lat": 54.578962,
+            "lon": 16.84256,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce postoju / rekreacyjne",
+            "lat": 54.588303,
+            "lon": 16.915502,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole Biwakowe \"Zdunowice 1\" / Jezioro Sumino",
+            "lat": 54.169939,
+            "lon": 17.774637,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole Biwakowe Jezioro Dywańskie",
+            "lat": 54.03662,
+            "lon": 17.669452,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole Biwakowe \"Wiaty\"",
+            "lat": 53.592984,
+            "lon": 16.481692,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 53.068502,
+            "lon": 14.749599,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Leśne miejsce biwakowe",
+            "lat": 52.983585,
+            "lon": 15.372286,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe nad jeziorem Łubowo",
+            "lat": 52.890097,
+            "lon": 15.8883,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 53.19292,
+            "lon": 15.287608,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowania Leśnictwo Jaźwiny",
+            "lat": 53.162514,
+            "lon": 15.910696,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowania Dolmel",
+            "lat": 53.392047,
+            "lon": 15.865512,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowania",
+            "lat": 52.989277,
+            "lon": 14.909073,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe, ognisko",
+            "lat": 51.149241,
+            "lon": 16.987979,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe, ognisko",
+            "lat": 51.149241,
+            "lon": 16.987979,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 53.951648,
+            "lon": 16.054945,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe Ginawa",
+            "lat": 53.506369,
+            "lon": 15.683178,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 53.538,
+            "lon": 15.590453,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 53.296548,
+            "lon": 15.712588,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Gminne pole biwakowe",
+            "lat": 53.391988,
+            "lon": 21.790848,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe nad Drwęcą",
+            "lat": 53.067254,
+            "lon": 18.850384,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Gminne miejsce biwakowe",
+            "lat": 53.830315,
+            "lon": 18.107212,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowe",
+            "lat": 49.81331,
+            "lon": 20.771725,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 52.314618,
+            "lon": 16.742359,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowe Przesmyk",
+            "lat": 53.017061,
+            "lon": 14.907477,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole Biwakowe",
+            "lat": 52.682853,
+            "lon": 16.07952,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe z altanką",
+            "lat": 49.704678,
+            "lon": 18.786763,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "miejsce ogniskowe / biwakowe",
+            "lat": 49.426064,
+            "lon": 19.138027,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowania przy zielonym szlaku",
+            "lat": 49.419918,
+            "lon": 19.127482,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe",
+            "lat": 49.671666,
+            "lon": 19.443513,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowe",
+            "lat": 49.81331,
+            "lon": 20.771725,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Biwakowe",
+            "lat": 49.81331,
+            "lon": 20.771725,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce biwakowe",
+            "lat": 53.951648,
+            "lon": 16.054945,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata i miejsce biwakowe",
+            "lat": 53.21968,
+            "lon": 23.299618,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na ognisko",
+            "lat": 50.327871,
+            "lon": 18.894603,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Na Ognisko Miejsce Wypoczynku",
+            "lat": 49.605399,
+            "lon": 21.366002,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na ognisko",
+            "lat": 53.745542,
+            "lon": 20.426329,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na ognisko/ publiczne palenisko",
+            "lat": 52.235398,
+            "lon": 21.043415,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na Ognisko",
+            "lat": 52.054325,
+            "lon": 20.384649,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na ognisko",
+            "lat": 51.537612,
+            "lon": 20.136911,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na ognisko",
+            "lat": 54.324872,
+            "lon": 18.496601,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na ognisko",
+            "lat": 54.511213,
+            "lon": 18.389997,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 51.611562,
+            "lon": 17.257062,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku, piknik",
+            "lat": 52.173967,
+            "lon": 17.002315,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 52.362167,
+            "lon": 20.419134,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 52.253693,
+            "lon": 21.131009,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Odpoczynku",
+            "lat": 51.61198,
+            "lon": 21.144494,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 51.513694,
+            "lon": 21.964595,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 52.564815,
+            "lon": 21.49648,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 52.677159,
+            "lon": 21.423129,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku/ miejsce pamięci",
+            "lat": 52.663849,
+            "lon": 21.43569,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 54.128177,
+            "lon": 22.634346,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku, Drewniana wiata",
+            "lat": 50.059294,
+            "lon": 20.425092,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 50.258577,
+            "lon": 16.990996,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku, wiata",
+            "lat": 53.594168,
+            "lon": 18.284967,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 54.226233,
+            "lon": 15.794357,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 54.403412,
+            "lon": 17.046941,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Odpoczynku Turystów",
+            "lat": 53.395151,
+            "lon": 14.817289,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 53.354968,
+            "lon": 14.762339,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku w lesie nad jeziorem",
+            "lat": 53.737829,
+            "lon": 17.364424,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynkowe",
+            "lat": 49.552758,
+            "lon": 21.794094,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku. Drewniana ława.",
+            "lat": 49.41816,
+            "lon": 21.214615,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 49.466707,
+            "lon": 20.038539,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 49.463358,
+            "lon": 20.011645,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku",
+            "lat": 50.030861,
+            "lon": 20.401348,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na piknik",
+            "lat": 50.084347,
+            "lon": 20.632033,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Altana piknikowa z miejscem na ognisko",
+            "lat": 49.777936,
+            "lon": 20.96977,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na piknik",
+            "lat": 49.753157,
+            "lon": 20.660585,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Brzezowa - Diabelski Kamień",
+            "lat": 49.852028,
+            "lon": 20.069554,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na piknik",
+            "lat": 49.585651,
+            "lon": 19.619022,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Piknikowe",
+            "lat": 51.841523,
+            "lon": 19.470541,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Piknikowe",
+            "lat": 51.841523,
+            "lon": 19.470541,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata i miejsce na ognisko w Lesie Wiączyńskim",
+            "lat": 51.767155,
+            "lon": 19.656576,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Teren piknikowy",
+            "lat": 51.82395,
+            "lon": 19.488143,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Uroczysko",
+            "lat": 51.824304,
+            "lon": 19.490356,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na piknik",
+            "lat": 51.095017,
+            "lon": 18.789138,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "miejsce piknikowe",
+            "lat": 50.573508,
+            "lon": 18.547303,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na piknik",
+            "lat": 52.297464,
+            "lon": 21.058277,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce piknikowe nad stawem",
+            "lat": 53.088887,
+            "lon": 15.765383,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na ognisko",
+            "lat": 53.383064,
+            "lon": 14.403585,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Polana Czerwona",
+            "lat": 53.461388,
+            "lon": 14.503229,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na piknik",
+            "lat": 54.138065,
+            "lon": 17.229473,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Piknik nad Pisą",
+            "lat": 53.286144,
+            "lon": 21.86533,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Parking leśny, wiata",
+            "lat": 53.694927,
+            "lon": 20.51883,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Piknikowe",
+            "lat": 51.892311,
+            "lon": 19.317972,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce piknikowe",
+            "lat": 52.049443,
+            "lon": 21.020921,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Punkt piknikowy nad Sanem",
+            "lat": 49.536608,
+            "lon": 22.252351,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Szachty Miejsce Piknikowe",
+            "lat": 49.427285,
+            "lon": 21.868665,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata turystyczna z grillem - kultowe miejsce",
+            "lat": 49.451172,
+            "lon": 21.872649,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Piknik",
+            "lat": 50.014228,
+            "lon": 21.438779,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Teren Piknikowy",
+            "lat": 50.324647,
+            "lon": 21.743122,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce grillowo- piknikowe",
+            "lat": 50.33779,
+            "lon": 21.929823,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Na Piknik",
+            "lat": 49.454639,
+            "lon": 20.760535,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na piknik",
+            "lat": 50.601916,
+            "lon": 22.952859,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Polana Krucze Skały - miejsce piknikowe",
+            "lat": 50.768739,
+            "lon": 15.769047,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Polanka na piknik",
+            "lat": 50.54204,
+            "lon": 16.670276,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Piknikowa Łączka, miejsce do wynajęcia na ognisko, grilla i biwak",
+            "lat": 50.52959,
+            "lon": 16.733673,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata piknikowa",
+            "lat": 50.602826,
+            "lon": 17.570323,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "miejsce piknikowe",
+            "lat": 50.857162,
+            "lon": 15.407488,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "miejsce piknikowe",
+            "lat": 50.866407,
+            "lon": 15.8699,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Biwak pod Radogostem",
+            "lat": 50.998495,
+            "lon": 16.13503,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata piknikowa",
+            "lat": 51.023464,
+            "lon": 16.114854,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na piknik",
+            "lat": 51.036666,
+            "lon": 16.985252,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce ogniskowe, grill i wypoczynek, Bałagan",
+            "lat": 51.26022,
+            "lon": 16.790715,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "miejsce piknikowe",
+            "lat": 52.457928,
+            "lon": 15.943956,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata i miejsce piknikowe",
+            "lat": 51.244081,
+            "lon": 16.127876,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Ognisko Klasztorek",
+            "lat": 50.291264,
+            "lon": 17.56939,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Polana piknikowa",
+            "lat": 50.232189,
+            "lon": 19.025099,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce odpoczynku Słonka",
+            "lat": 50.650268,
+            "lon": 18.014743,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce piknikowe",
+            "lat": 49.567634,
+            "lon": 19.087203,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wiata turystyczna, miejsce piknikowe",
+            "lat": 52.201014,
+            "lon": 21.215516,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Punkt odpoczynku Koło Mostu",
+            "lat": 53.795738,
+            "lon": 20.463792,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Leśnictwo Zielony Dwór",
+            "lat": 54.04964,
+            "lon": 21.800427,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Piknikowy Punkt Z Widokiem Na Meandry Suminy",
+            "lat": 50.133806,
+            "lon": 18.401084,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Zadaszone miejsce do pikniku",
+            "lat": 50.006734,
+            "lon": 19.826148,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Piknik nad Osławą",
+            "lat": 49.523792,
+            "lon": 22.265579,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce na ognisko",
+            "lat": 52.251161,
+            "lon": 16.825012,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wypoczynek nad Warta",
+            "lat": 52.262663,
+            "lon": 16.875677,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Piknikowe",
+            "lat": 52.423294,
+            "lon": 15.934838,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce ogniskowe",
+            "lat": 51.259688,
+            "lon": 22.507748,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Polana rekreacyjna oraz piknikowa",
+            "lat": 54.561455,
+            "lon": 18.550143,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Piknik Jabłoniowa",
+            "lat": 54.331776,
+            "lon": 18.565312,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Piknik",
+            "lat": 54.294504,
+            "lon": 18.527651,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "miejsce do grillowania Wyspowo",
+            "lat": 54.562428,
+            "lon": 18.30227,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce wypoczynku Młynki",
+            "lat": 54.575056,
+            "lon": 18.288784,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Miejsce Piknikowe Krępa-Glażna",
+            "lat": 54.417882,
+            "lon": 17.043178,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Polana ogniskowa",
+            "lat": 53.481425,
+            "lon": 14.469451,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wieża widokowa Czartoria",
+            "lat": 50.773307,
+            "lon": 23.575492,
+            "description": "opis: Pkt1. Nazwa lokalizacji: Wieża widokowa w Czartorii<br><br>Pkt2. Opis: Urokliwa wieża położona przy czerwonym szlaku rowerowym gminy Miączyn, otoczona malowniczymi polami i lasami. Posiada dwa poziomy widokowe. W pobliżu znajduje się zadaszona wiata z ławkami, grillem i narzędziami do drobnego serwisu rowerowego. Idealne miejsce na odpoczynek, szczególnie dla rowerzystów.<br><br>Pkt3. Adres: brak informacji<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon: brak informacji<br><br>Pkt6. Strona internetowa: brak informacji<br><br>Pkt7. Czy dostęp jest płatny: brak informacji<br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wieża widokowa Borowa Góra",
+            "lat": 50.161096,
+            "lon": 23.220728,
+            "description": "opis: kt1. Nazwa lokalizacji: Wieża widokowa na Borowej Górze<br><br>Pkt2. Opis: Wieża widokowa oddalona o około 1,5 km od drogi głównej, dostępna samochodem od strony Baszni Dolnej utwardzoną drogą. Oferuje piękne widoki na pola, lasy oraz miasto w oddali, szczególnie urokliwe w czasie kwitnienia rzepaku. Popularne miejsce na krótki postój podczas wycieczek rowerowych lub motocyklowych.<br><br>Pkt3. Adres: 566C+C7, Basznia Dolna<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon: brak informacji<br><br>Pkt6. Strona internetowa: brak informacji<br><br>Pkt7. Czy dostęp jest płatny: brak informacji<br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Kaszubska Wieża Widokowa",
+            "lat": 54.223515,
+            "lon": 18.123432,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Taras Widokowy",
+            "lat": 53.554214,
+            "lon": 21.839642,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wieża widokowa",
+            "lat": 49.888865,
+            "lon": 22.512223,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wieża widokowa na Wielkiej Sowie",
+            "lat": 50.680319,
+            "lon": 16.485703,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wieża Widokowa Joanna",
+            "lat": 51.92203,
+            "lon": 15.950019,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Punkt widokowy Łężeczki Sierakowskiego Parku Krajobrazowego",
+            "lat": 52.601604,
+            "lon": 16.21474,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Punkt widokowy Sowia Góra",
+            "lat": 52.341285,
+            "lon": 21.98979,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Punkt widokowy Kanał Szczuczy",
+            "lat": 54.354446,
+            "lon": 16.271045,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wieża widokowa",
+            "lat": 54.682947,
+            "lon": 17.356976,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Punkt Widokowy Góra Markowca Rumia",
+            "lat": 54.564827,
+            "lon": 18.383063,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Punkt widokowy",
+            "lat": 53.854257,
+            "lon": 21.327794,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wieża obserwacyjna w Tuczkach",
+            "lat": 53.344018,
+            "lon": 19.953256,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Leśna wiata turystyczna",
+            "lat": 51.56437,
+            "lon": 18.545791,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Funzeum",
+            "lat": 50.267139,
+            "lon": 18.71544,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wieża widokowa Krynica-Zdrój",
+            "lat": 49.430578,
+            "lon": 20.925502,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wieża widokowa w Wiśle Małej",
+            "lat": 49.934166,
+            "lon": 18.808219,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Zamek Tenczyn w Rudnie",
+            "lat": 50.102526,
+            "lon": 19.581197,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Wieża widokowa we Wdzydzach Kiszewskich",
+            "lat": 54.013065,
+            "lon": 17.920963,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Stanica Nowa Brda",
+            "lat": 53.8774466,
+            "lon": 17.2032367,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Stanica Wodna Przyton /Folbryk /",
+            "lat": 53.8406276,
+            "lon": 17.1931958,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Pole biwakowe 4b",
+            "lat": 53.8806799,
+            "lon": 21.9152617,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        },
+        {
+            "name": "Altanka na Klimce (pole namiotowe, kajaki, ogniska)",
+            "lat": 50.4862859,
+            "lon": 22.6140678,
+            "description": "opis: <br>Miejsce na biwak: <br>description: "
+        }
+    ]
+}
