@@ -5,6 +5,16 @@ async function showSlider(name) {
 
     // Formatowanie nazwy pliku
     const formattedName = name.replace(/\s+/g, "_").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+   alert("📷 Sprawdzam zdjęcia dla: " + formattedName);
+
+const images = [
+    `/foty/${formattedName}_1.jpg`,
+    `/foty/${formattedName}_2.jpg`,
+    `/foty/${formattedName}_3.jpg`
+];
+
+alert("🔍 Szukam zdjęć: " + images.join(", "));
+
     const images = [
         `/foty/${formattedName}_1.jpg`,
         `/foty/${formattedName}_2.jpg`,
