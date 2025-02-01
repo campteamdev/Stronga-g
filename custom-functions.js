@@ -123,21 +123,36 @@ function generatePopupContent(name, lat, lon) {
   const formattedName = name.replace(/\s+/g, "_").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   const images = [1, 2, 3].map(num => `/foty/${formattedName}_${num}.jpg`);
 
-  // Generowanie slidera ze zdjęciami
-  let popupContent = `
-    <div class="swiper-container" style="width:200px; height:150px;">
-      <div class="swiper-wrapper">
-        ${images.map(img => `
-          <div class="swiper-slide">
-            <img src="${img}" onerror="this.parentElement.style.display='none';" style="width:100%; height:100%; object-fit:cover;">
-          </div>
-        `).join("")}
+  // Sprawdzamy, czy zdjęcia faktycznie istnieją
+  let validImages = [];
+  images.forEach((img, index) => {
+    let testImg = new Image();
+    testImg.src = img;
+    testImg.onload = () => { validImages.push(img); };
+  });
+
+  let popupContent = "";
+
+  // Dodajemy slider TYLKO jeśli istnieją zdjęcia
+  if (validImages.length > 0) {
+    popupContent += `
+      <div class="swiper-container" style="width:200px; height:150px;">
+        <div class="swiper-wrapper">
+          ${validImages.map(img => `
+            <div class="swiper-slide">
+              <img src="${img}" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+          `).join("")}
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
       </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-    
+    `;
+  }
+
+  // Dodanie nazwy miejsca
+  popupContent += `
     <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">
       ${name}
     </div><br>
@@ -166,6 +181,7 @@ function generatePopupContent(name, lat, lon) {
 
   return popupContent;
 }
+
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
 function updatePopups(markers) {
