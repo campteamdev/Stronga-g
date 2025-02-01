@@ -1,18 +1,9 @@
 alert("✅ Slider.js załadowany!");
 
-// Funkcja sprawdzająca, czy zdjęcie istnieje
-async function checkImageExists(url) {
-    return new Promise((resolve) => {
-        let img = new Image();
-        img.src = url;
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-    });
-}
-
-// Funkcja do tworzenia slidera nad popupem
 async function showSlider(name) {
-    // Formatowanie nazwy do użycia w ścieżkach zdjęć
+    alert("🔍 Uruchamiam slider dla: " + name);
+
+    // Formatowanie nazwy pliku
     const formattedName = name.replace(/\s+/g, "_").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     const images = [
         `/foty/${formattedName}_1.jpg`,
@@ -23,17 +14,26 @@ async function showSlider(name) {
     // Sprawdzamy, które zdjęcia faktycznie istnieją
     let validImages = [];
     for (let img of images) {
-        if (await checkImageExists(img)) {
-            validImages.push(img);
-        }
+        let testImg = new Image();
+        testImg.src = img;
+        await new Promise((resolve) => {
+            testImg.onload = () => {
+                validImages.push(img);
+                resolve();
+            };
+            testImg.onerror = () => resolve();
+        });
     }
 
-    // Jeśli nie ma żadnych zdjęć, nie pokazujemy slidera
+    alert("📷 Liczba znalezionych zdjęć: " + validImages.length);
+
+    // Jeśli brak zdjęć, nie pokazujemy slidera
     if (validImages.length === 0) {
+        alert("🚫 Brak zdjęć, slider nie zostanie pokazany.");
         return;
     }
 
-    // Sprawdzamy, czy slider już istnieje, jeśli nie - tworzymy go
+    // Tworzymy kontener slidera
     let sliderContainer = document.getElementById("campteam-slider");
     if (!sliderContainer) {
         sliderContainer = document.createElement("div");
@@ -70,6 +70,8 @@ async function showSlider(name) {
       </div>
     `;
 
+    alert("✅ Generuję slider...");
+
     // Dodajemy zawartość do kontenera
     sliderContainer.innerHTML = sliderHTML;
     sliderContainer.style.display = "block";
@@ -82,6 +84,15 @@ async function showSlider(name) {
             navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
         });
     }, 200);
+
+    alert("🚀 Slider pokazany!");
+
+    // Obsługa zamykania slidera
+    document.getElementById("close-slider").addEventListener("click", () => {
+        sliderContainer.style.display = "none";
+    });
+}
+
 
     // Obsługa zamykania slidera
     document.getElementById("close-slider").addEventListener("click", () => {
