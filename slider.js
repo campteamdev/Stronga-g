@@ -1,3 +1,5 @@
+alert("✅ Slider.js załadowany!");
+
 // Funkcja sprawdzająca, czy zdjęcie istnieje
 async function checkImageExists(url) {
     return new Promise((resolve) => {
