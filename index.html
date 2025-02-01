@@ -640,6 +640,21 @@ document.addEventListener("touchstart", function (event) {
         }
     });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!window.sliderLoaded) {
+      window.sliderLoaded = true; // Ustawia flagę, aby zapobiec wielokrotnemu ładowaniu
+      var script = document.createElement("script");
+      script.src = "/slider.js"; // Ścieżka do skryptu slidera
+      script.onload = function() {
+        console.log("✅ Slider.js załadowany poprawnie!");
+      };
+      document.body.appendChild(script);
+    } else {
+      console.warn("🚨 Slider.js już został załadowany, pomijam ponowne ładowanie.");
+    }
+  });
+</script>
 
 </body>
 </html>
