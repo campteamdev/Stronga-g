@@ -5,6 +5,28 @@ let websiteLinksMap = {};
 let descriptionsMap = {};
 let amenitiesMap = {};
 let excludedPlaces = new Set();
+// Obiekt przechowujący zdjęcia dla lokalizacji
+let imageMap = {};
+
+// Funkcja wczytująca zdjęcia z pliku images.json
+async function loadImages() {
+  try {
+    const response = await fetch("/images.json"); // Pobieranie pliku JSON
+    if (!response.ok) throw new Error("Nie udało się załadować images.json");
+
+    const data = await response.json();
+    imageMap = data; // Przypisujemy dane do globalnej zmiennej
+
+    console.log("Załadowano zdjęcia:", imageMap); // Debugowanie
+
+  } catch (error) {
+    console.error("Błąd podczas wczytywania zdjęć:", error);
+  }
+}
+
+// Wywołanie funkcji wczytującej zdjęcia
+loadImages();
+
 
 // Blokowanie prawego przycisku myszy
 document.addEventListener("contextmenu", (event) => event.preventDefault());
