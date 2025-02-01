@@ -1,10 +1,11 @@
+// Zapobieganie wielokrotnemu ładowaniu skryptu
 if (window.sliderLoadedScript) {
     console.warn("🚨 `slider.js` już jest załadowany! Pomijam ponowne ładowanie.");
     throw new Error("Slider.js już został załadowany!");
 }
 window.sliderLoadedScript = true;
 
-alert("✅ Slider.js załadowany!");
+console.log("✅ Slider.js załadowany!");
 
 async function showSlider(name) {
     console.log("🔍 Uruchamiam slider dla: ", name);
@@ -130,3 +131,4 @@ document.body.addEventListener("click", async function (event) {
         }
     }
 });
+
