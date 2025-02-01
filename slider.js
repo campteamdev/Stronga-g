@@ -11,6 +11,21 @@ const images = [
     `/foty/${formattedName}_1.jpg`,
     `/foty/${formattedName}_2.jpg`,
     `/foty/${formattedName}_3.jpg`
+    let validImages = [];
+for (let img of images) {
+    let testImg = new Image();
+    testImg.src = img;
+    await new Promise((resolve) => {
+        testImg.onload = () => {
+            validImages.push(img);
+            resolve();
+        };
+        testImg.onerror = () => resolve();
+    });
+}
+
+alert("📷 Znalezione zdjęcia: " + validImages.length);
+
 ];
 
 alert("🔍 Szukam zdjęć: " + images.join(", "));
