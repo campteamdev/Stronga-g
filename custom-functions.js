@@ -43,14 +43,14 @@ function extractWebsite(description) {
 // Funkcja wczytująca dane z KML
 async function loadKmlData() {
   const kmlFiles = [
-    "/Atrakcje.kml",
-    "/Kempingi.kml",
-    "/Kempingi1.kml",
-    "/Kempingiopen.kml",
-    "/Miejscenabiwak.kml",
-    "/Parkingilesne.kml",
-    "/Polanamiotowe.kml",
-    "/Polanamiotoweopen.kml",
+    "/Atrakcje.json",
+    "/Kempingi.json",
+    "/Kempingi1.json",
+    "/Kempingiopen.json",
+    "/Miejscenabiwak.json",
+    "/Parkingilesne.json",
+    "/Polanamiotowe.json",
+    "/Polanamiotoweopen.json",
   ];
 
   for (const url of kmlFiles) {
