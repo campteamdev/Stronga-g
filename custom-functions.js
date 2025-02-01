@@ -26,6 +26,30 @@ async function loadImages() {
 
 // Wywołanie funkcji wczytującej zdjęcia
 loadImages();
+// Funkcja do wyświetlenia zdjęć w HTML (tylko do testów)
+function showImagesDebug() {
+  const debugDiv = document.createElement("div");
+  debugDiv.style.position = "fixed";
+  debugDiv.style.bottom = "10px";
+  debugDiv.style.left = "10px";
+  debugDiv.style.background = "white";
+  debugDiv.style.padding = "10px";
+  debugDiv.style.border = "1px solid black";
+  debugDiv.style.zIndex = "1000";
+  debugDiv.innerHTML = "<strong>Załadowane zdjęcia:</strong><br>";
+
+  for (const place in imageMap) {
+    debugDiv.innerHTML += `<strong>${place}:</strong><br>`;
+    imageMap[place].forEach(img => {
+      debugDiv.innerHTML += `<img src="${img}" width="50" height="50" style="margin:5px;">`;
+    });
+  }
+
+  document.body.appendChild(debugDiv);
+}
+
+// Uruchomienie funkcji po wczytaniu zdjęć
+setTimeout(showImagesDebug, 3000);
 
 
 // Blokowanie prawego przycisku myszy
