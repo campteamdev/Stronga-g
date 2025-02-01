@@ -641,13 +641,18 @@ document.addEventListener("touchstart", function (event) {
     });
 </script>
 <script>
-  var script = document.createElement("script");
-  script.src = "/slider.js";
-  script.onload = function() {
-    alert("✅ Slider.js załadowany poprawnie!");
-  };
-  document.body.appendChild(script);
+  document.addEventListener("DOMContentLoaded", function () {
+    var script = document.createElement("script");
+    script.src = "/slider.js"; // Zmień, jeśli plik jest w innym katalogu
+    script.onload = function() {
+      alert("✅ Slider.js załadowany poprawnie!");
+    };
+    document.body.appendChild(script);
+  });
 </script>
+</body>
+</html>
+
 
 
 
