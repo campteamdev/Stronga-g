@@ -1,3 +1,9 @@
+if (window.sliderLoadedScript) {
+    console.warn("🚨 `slider.js` już jest załadowany! Pomijam ponowne ładowanie.");
+    throw new Error("Slider.js już został załadowany!");
+}
+window.sliderLoadedScript = true;
+
 alert("✅ Slider.js załadowany!");
 
 async function showSlider(name) {
