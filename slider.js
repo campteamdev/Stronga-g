@@ -7,46 +7,33 @@ window.sliderLoadedScript = true;
 
 console.log("✅ Slider.js załadowany!");
 
+// Pobranie danych z images.json
+let imagesData = {};
+
+async function loadImagesData() {
+    try {
+        const response = await fetch("/images.json");
+        if (!response.ok) throw new Error("Błąd pobierania images.json");
+        imagesData = await response.json();
+        console.log("📂 Załadowano images.json:", imagesData);
+    } catch (error) {
+        console.error("❌ Błąd ładowania images.json:", error);
+    }
+}
+
+// Funkcja do uruchomienia slidera
 async function showSlider(name) {
     console.log("🔍 Uruchamiam slider dla: ", name);
 
-    // Formatowanie nazwy pliku
-    const formattedName = name
-        .trim()
-        .replace(/\s+/g, "_") 
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-    console.log("📷 Sprawdzam zdjęcia dla: ", formattedName);
-
-    // Ścieżki do zdjęć w formatach .jpeg i .jpg
-    const images = [
-        `/foty/${formattedName}_1.jpg`,
-        `/foty/${formattedName}_1.jpeg`,
-        `/foty/${formattedName}_2.jpg`,
-        `/foty/${formattedName}_2.jpeg`,
-        `/foty/${formattedName}_3.jpg`,
-        `/foty/${formattedName}_3.jpeg`
-    ];
-
-    console.log("🔍 Szukam zdjęć: ", images);
-
-    // Sprawdzamy, które zdjęcia faktycznie istnieją
-    let validImages = [];
-    for (let img of images) {
-        let testImg = new Image();
-        testImg.src = img;
-        await new Promise((resolve) => {
-            testImg.onload = () => {
-                validImages.push(img);
-                resolve();
-            };
-            testImg.onerror = () => resolve();
-        });
+    if (!imagesData[name]) {
+        console.warn("🚫 Brak zdjęć dla:", name);
+        return;
     }
 
-    console.log("📷 Liczba znalezionych zdjęć: ", validImages.length);
+    const validImages = imagesData[name]; // Pobranie listy zdjęć z images.json
 
-    // Jeśli brak zdjęć, nie pokazujemy slidera
+    console.log("📷 Liczba znalezionych zdjęć:", validImages.length);
+
     if (validImages.length === 0) {
         console.warn("🚫 Brak zdjęć, slider nie zostanie pokazany.");
         return;
@@ -132,3 +119,5 @@ document.body.addEventListener("click", async function (event) {
     }
 });
 
+// Załaduj dane o zdjęciach na początku
+loadImagesData();
