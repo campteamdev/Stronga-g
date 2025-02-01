@@ -428,19 +428,38 @@ function initializeSearch(attempt = 0) {
     const searchInput = document.getElementById("search-input");
     const searchButton = document.getElementById("search-button");
     const suggestions = document.getElementById("suggestions");
+    const statusDiv = document.createElement("div");
+
+    statusDiv.id = "search-status";
+    statusDiv.style.position = "absolute";
+    statusDiv.style.top = "50px";
+    statusDiv.style.left = "50%";
+    statusDiv.style.transform = "translateX(-50%)";
+    statusDiv.style.background = "rgba(255,255,255,0.9)";
+    statusDiv.style.color = "black";
+    statusDiv.style.padding = "5px 10px";
+    statusDiv.style.border = "1px solid green";
+    statusDiv.style.borderRadius = "5px";
+    statusDiv.style.fontSize = "14px";
+    document.body.appendChild(statusDiv);
+
+    function updateStatus(message) {
+        statusDiv.textContent = message;
+    }
 
     // Sprawdzamy, czy markery są już załadowane
     if (allMarkers.length === 0) {
         if (attempt < 10) {  // Maksymalnie 10 prób
-            console.warn(`🔄 Próba ${attempt + 1}: Czekam na załadowanie markerów...`);
+            updateStatus(`🔄 Próba ${attempt + 1}: Czekam na dane...`);
             setTimeout(() => initializeSearch(attempt + 1), 500);
         } else {
-            console.error("❌ Nie udało się załadować markerów do wyszukiwania.");
+            updateStatus("❌ Nie udało się załadować danych.");
         }
         return;
     }
 
-    console.log("✅ Wyszukiwanie gotowe. Załadowane markery:", allMarkers.length);
+    updateStatus(`✅ Załadowano ${allMarkers.length} miejsc do wyszukiwania.`);
+    setTimeout(() => statusDiv.remove(), 3000); // Ukrywamy komunikat po 3 sekundach
 
     searchInput.addEventListener("input", () => {
         const query = searchInput.value.toLowerCase().trim();
