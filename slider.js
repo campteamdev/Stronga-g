@@ -121,3 +121,14 @@ document.body.addEventListener("click", async function (event) {
         }
     }
 });
+document.body.addEventListener("click", function (event) {
+    if (event.target.closest(".leaflet-popup-content")) {
+        let popupTitle = event.target.closest(".leaflet-popup-content").querySelector("div strong");
+        if (popupTitle) {
+            alert("🟢 Kliknięto na marker: " + popupTitle.textContent.trim());
+            showSlider(popupTitle.textContent.trim());
+        } else {
+            alert("⚠️ Brak nazwy kempingu w popupie!");
+        }
+    }
+});
