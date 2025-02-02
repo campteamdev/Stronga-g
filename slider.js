@@ -10,13 +10,21 @@ console.log("✅ Slider.js załadowany!");
 // Pobranie zdjęć z `images.json`
 async function fetchImages(name) {
     try {
+        console.log(`📥 Pobieranie images.json dla: ${name}`);
         const response = await fetch('/images.json');
-        if (!response.ok) throw new Error('❌ Nie udało się pobrać images.json');
-        
-        const data = await response.json();
-        const formattedName = name.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        if (!response.ok) throw new Error(`❌ Błąd pobierania images.json: ${response.status}`);
 
-        return data[formattedName] || []; // Zwracamy tablicę zdjęć lub pustą tablicę
+        const data = await response.json();
+        
+        // Usunięcie polskich znaków i formatowanie
+        const formattedName = name
+            .trim()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/\s+/g, "_"); // Zamiana spacji na `_`
+
+        console.log(`🔍 Wyszukiwanie zdjęć dla: ${formattedName}`);
+        return data[name] || data[formattedName] || []; // Wyszukujemy pod dwiema wersjami nazwy
     } catch (error) {
         console.error(error);
         return [];
@@ -30,12 +38,15 @@ async function showSlider(name) {
     const validImages = await fetchImages(name);
     
     if (validImages.length === 0) {
-        console.warn("🚫 Brak zdjęć dla:", name);
+        console.warn(`🚫 Brak zdjęć dla: ${name}`);
         return;
     }
 
     let popupContent = document.querySelector(".leaflet-popup-content");
-    if (!popupContent) return;
+    if (!popupContent) {
+        console.warn("⚠️ Popup nie znaleziony, nie można dodać slidera!");
+        return;
+    }
 
     let existingSlider = popupContent.querySelector(".swiper-container");
     if (existingSlider) {
@@ -68,7 +79,8 @@ async function showSlider(name) {
             pagination: { el: '.swiper-pagination', clickable: true },
             navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
         });
-    }, 100);
+        console.log(`🚀 Slider dla "${name}" załadowany!`);
+    }, 300);
 }
 
 // Obsługa kliknięcia w popup, aby wywołać slider
@@ -77,8 +89,9 @@ document.body.addEventListener("click", async function (event) {
     if (popup) {
         let popupTitle = popup.querySelector("div strong");
         if (popupTitle) {
-            console.log("🟢 Kliknięto na marker:", popupTitle.textContent.trim());
-            await showSlider(popupTitle.textContent.trim());
+            let campName = popupTitle.textContent.trim();
+            console.log(`🟢 Kliknięto na marker: ${campName}`);
+            await showSlider(campName);
         } else {
             console.warn("⚠️ Brak nazwy kempingu w popupie!");
         }
