@@ -195,16 +195,24 @@ map.on("popupopen", function (e) {
   if (!popupContent) return;
 
   let name = popupContent.querySelector("div").innerText.trim();
-  let sliderContainer = document.querySelector(`#slider-${name}`);
-  let sliderWrapper = sliderContainer.querySelector(".swiper-wrapper");
-  let sliderMessage = document.querySelector(`#slider-message-${name}`);
+  let safeName = name.replace(/\s+/g, "_").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-  if (!sliderWrapper) return;
+  let sliderContainer = document.querySelector(`#slider-${safeName}`);
+  let sliderWrapper = sliderContainer ? sliderContainer.querySelector(".swiper-wrapper") : null;
+  let sliderMessage = document.querySelector(`#slider-message-${safeName}`);
+
+  if (!sliderContainer || !sliderWrapper) {
+    console.warn(`Nie znaleziono kontenera slidera dla: ${safeName}`);
+    return;
+  }
 
   // Folder zdjęć odpowiada nazwie lokalizacji
   let imageFolder = `/zdjecia/${name}/`;
-  let maxImages = 5; // Maksymalnie 5 zdjęć
+  let maxImages = 5;
   let imagesLoaded = 0;
+
+  // Czyścimy poprzednie slajdy
+  sliderWrapper.innerHTML = "";
 
   for (let i = 1; i <= maxImages; i++) {
     let imgSrc = `${imageFolder}${i}.jpg`;
@@ -219,9 +227,9 @@ map.on("popupopen", function (e) {
       imagesLoaded++;
 
       if (imagesLoaded === 1) {
-        sliderContainer.style.display = "block"; // Pokazujemy slider
+        sliderContainer.style.display = "block"; 
         sliderMessage.innerHTML = "";
-        initializeSwiper(name);
+        initializeSwiper(safeName);
       }
     };
 
