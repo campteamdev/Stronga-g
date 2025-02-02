@@ -118,53 +118,82 @@ function shortenText(text, id) {
 
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
-  // Normalizacja nazwy, usunięcie spacji i polskich znaków do ID slidera
-  let safeName = name.replace(/\s+/g, "_").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-  let popupContent = `
-    <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
+  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>`;
+// Funkcja generująca treść popupu z pełną blokadą kopiowania
+function generatePopupContent(name, lat, lon) {
+  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
       user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-      ${name}
-    </div><br>
+      ${name}</div><br>`;
 
-    <!-- 🔹 Slider Swiper -->
-    <div class="swiper-container" id="slider-${safeName}" style="width:100%; max-width:300px; height:auto; display:none;">
-      <div class="swiper-wrapper"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-    <div id="slider-message-${safeName}" style="font-size:12px; color:red; text-align:center;"></div>
+  // Kontener popupu z blokadą kopiowania
+  popupContent += `<div style="max-width: 80%; word-wrap: break-word;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">`;
 
-    <!-- 🔹 Kontakt -->
-    <strong style="font-size:12px; user-select: none;">Kontakt:</strong> 
-    ${phoneNumbersMap[name] ? `<a href="tel:${phoneNumbersMap[name]}" style="color:blue; text-decoration:none; font-size:10px;">${phoneNumbersMap[name]}</a>` : "Brak numeru"}<br>
+  // Blokada kopiowania numeru telefonu
+  const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
+  const phoneLink =
+    phone !== "Brak numeru kontaktowego"
+      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;
+          user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+          ${phone}</a>`
+      : `<span style="font-size:10px;
+          user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+          ${phone}</span>`;
 
-    <!-- 🔹 Strona www -->
-    ${websiteLinksMap[name] ? `<strong style="font-size:12px; user-select: none;">Strona:</strong> 
-    <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px;">${websiteLinksMap[name]}</a><br>` : ""}
+  popupContent += `<strong style="font-size:12px;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+      Kontakt:</strong> ${phoneLink}<br>`;
 
-    <!-- 🔹 Opis -->
-    <div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>
-    ${descriptionsMap[name] 
-      ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], \`opis-${safeName}\`)}</span>` 
-      : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`}
+  // Blokada kopiowania opisu
+  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+      Opis:</div><br>`;
+  popupContent += descriptionsMap[name] 
+    ? `<span style="font-size:10px;
+        user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+        ${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+    : `<span style="font-size:10px;
+        user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+        <i>Brak opisu</i></span>`;
 
-    <!-- 🔹 Infrastruktura -->
-    <br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>
-    ${amenitiesMap[name] 
-      ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>` 
-      : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`}
-
-    <!-- 🔹 Linki do nawigacji -->
-    <br>
-    <a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button">Link do Map Google</a>
-    <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button">Prowadź</a>
-    <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button">Dodaj Zdjęcie/Aktualizuj</a>
-  `;
-
+  popupContent += `</div>`; // Zamknięcie kontenera popupu
   return popupContent;
 }
 
+
+  // Numer telefonu
+  const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
+  const phoneLink =
+    phone !== "Brak numeru kontaktowego"
+      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px; user-select: none;">${phone}</a>`
+      : `<span style="font-size:10px; user-select: none;">${phone}</span>`;
+  popupContent += `<strong style="font-size:12px; user-select: none;">Kontakt:</strong> ${phoneLink}<br>`;
+
+  // Strona internetowa
+  if (websiteLinksMap[name]) {
+    popupContent += `<strong style="font-size:12px; user-select: none;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px; user-select: none;">${websiteLinksMap[name]}</a><br>`;
+  }
+
+  // Opis
+  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
+  popupContent += descriptionsMap[name] 
+    ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+    : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
+
+  // Infrastruktura
+  popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
+  popupContent += amenitiesMap[name] 
+    ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>` 
+    : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
+
+  // Linki
+  popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>`;
+  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px; user-select: none;">Prowadź</a>`;
+  popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px; user-select: none;">Dodaj Zdjęcię/Aktualizuj</a>`;
+
+  popupContent += `</div>`; // Zamknięcie kontenera popupu
+  return popupContent;
+}
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
 function updatePopups(markers) {
@@ -190,65 +219,3 @@ document.addEventListener("touchstart", function (event) {
     event.preventDefault();
   }
 }, { passive: false });
-map.on("popupopen", function (e) {
-  let popupContent = e.popup._contentNode;
-  if (!popupContent) return;
-
-  let name = popupContent.querySelector("div").innerText.trim();
-  let safeName = name.replace(/\s+/g, "_").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-  let sliderContainer = document.querySelector(`#slider-${safeName}`);
-  let sliderWrapper = sliderContainer ? sliderContainer.querySelector(".swiper-wrapper") : null;
-  let sliderMessage = document.querySelector(`#slider-message-${safeName}`);
-
-  if (!sliderContainer || !sliderWrapper) {
-    console.warn(`Nie znaleziono kontenera slidera dla: ${safeName}`);
-    return;
-  }
-
-  // Folder zdjęć odpowiada nazwie lokalizacji
-  let imageFolder = `/zdjecia/${name}/`;
-  let maxImages = 5;
-  let imagesLoaded = 0;
-
-  // Czyścimy poprzednie slajdy
-  sliderWrapper.innerHTML = "";
-
-  for (let i = 1; i <= maxImages; i++) {
-    let imgSrc = `${imageFolder}${i}.jpg`;
-    let img = new Image();
-    img.src = imgSrc;
-
-    img.onload = function () {
-      let slide = document.createElement("div");
-      slide.className = "swiper-slide";
-      slide.innerHTML = `<img src="${imgSrc}" style="width:100%; height:auto; border-radius:10px;">`;
-      sliderWrapper.appendChild(slide);
-      imagesLoaded++;
-
-      if (imagesLoaded === 1) {
-        sliderContainer.style.display = "block"; 
-        sliderMessage.innerHTML = "";
-        initializeSwiper(safeName);
-      }
-    };
-
-    img.onerror = function () {
-      if (i === 1 && imagesLoaded === 0) {
-        sliderMessage.innerHTML = "Brak zdjęć dla tej lokalizacji.";
-        sliderContainer.style.display = "none";
-      }
-    };
-  }
-});
-
-// 🔹 Inicjalizacja Swiper
-function initializeSwiper(name) {
-  new Swiper(`#slider-${name}`, {
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    loop: true,
-  });
-}
