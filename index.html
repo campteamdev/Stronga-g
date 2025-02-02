@@ -216,30 +216,25 @@
         right: 20px;
         z-index: 2000;
       }
-   /* 🖼️ Stylowanie slidera */
+ /* 🖼️ Stylowanie slidera */
 .swiper-container {
     width: 100%;
-    max-width: 250px; /* ✅ Ograniczona szerokość */
-    height: auto; /* 🔥 Dynamiczna wysokość */
+    height: 180px; /* Zmniejszona wysokość dla lepszego wyglądu */
     position: relative;
     margin-bottom: 10px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .swiper-slide img {
     width: 100%;
-    height: auto; /* ✅ Zachowanie proporcji */
-    max-height: 150px; /* ✅ Maksymalna wysokość */
-    object-fit: contain; /* 🔥 Lepsze dopasowanie */
+    height: 100%;
+    object-fit: cover;
     border-radius: 8px;
 }
 
-/* 🔹 Ulepszona nawigacja Swipera */
+/* 🏹 Poprawne pozycjonowanie strzałek */
 .swiper-button-prev,
 .swiper-button-next {
     color: white !important;
@@ -251,23 +246,24 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 50%; /* ✅ Strzałki na środku obrazka */
+    top: 50%; /* Strzałki na środku slidera */
     transform: translateY(-50%);
+    z-index: 10;
 }
 
-.swiper-button-prev {
-    left: 5px; /* 🔥 Przesunięcie do lewej */
+/* 🔹 Strzałki muszą być nad obrazem */
+.swiper-container:hover .swiper-button-prev,
+.swiper-container:hover .swiper-button-next {
+    display: flex;
 }
 
-.swiper-button-next {
-    right: 5px; /* 🔥 Przesunięcie do prawej */
-}
-
+/* Poprawny wygląd strzałek */
 .swiper-button-prev::after,
 .swiper-button-next::after {
     font-size: 16px !important;
     font-weight: bold;
 }
+
 
     </style>
   </head>
