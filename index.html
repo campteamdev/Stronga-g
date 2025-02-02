@@ -622,30 +622,9 @@ document.addEventListener("touchstart", function (event) {
   }
 }, { passive: false });
 
-   
-      
-      document.addEventListener("keydown", function(event) {
-    if ((event.ctrlKey || event.metaKey) && event.key === "s") {
-        event.preventDefault();
-        console.log("Zapisywanie strony jest zablokowane!"); // Dla testów w konsoli (możesz usunąć)
-        return false; // Dodatkowa blokada
-    }
-});
-
-    </script>
 
 
 
-<script>
-    document.addEventListener("keydown", function(event) {
-        if (event.ctrlKey && event.key === "u") { // Blokowanie Ctrl + U
-            event.preventDefault();
-            let newWin = window.open();
-            newWin.document.write("<!-- Brak dostępu do kodu źródłowego -->");
-            newWin.document.close();
-        }
-    });
-</script>
 <script>
     let devToolsDetected = false;
 
@@ -661,38 +640,7 @@ document.addEventListener("touchstart", function (event) {
     setInterval(detectDevTools, 2000);
 </script>
 
-<script>
-   
 
-   
-    // Wykrywanie prób użycia narzędzi do zrzutów ekranu
-    setInterval(() => {
-        if (window.outerWidth - window.innerWidth > 50 || window.outerHeight - window.innerHeight > 50) {
-            detectScreenshot();
-        }
-    }, 1000);
-</script>
-<script>
-    document.addEventListener("visibilitychange", function () {
-        if (document.hidden) {
-            document.body.style.opacity = "0"; // Ukrywa stronę
-        } else {
-            setTimeout(() => document.body.style.opacity = "1", 500); // Przywraca po 0.5 sek.
-        }
-    });
-</script>
-<script>
-    function hidePageOnScreenshot() {
-        document.body.style.opacity = "0"; // Ukrywa stronę
-        setTimeout(() => document.body.style.opacity = "1", 3000); // Przywraca po 3 sek.
-    }
-
-    document.addEventListener("keydown", function (event) {
-        if ((event.metaKey && event.shiftKey && event.key === "4") || event.key === "PrintScreen") {
-            hidePageOnScreenshot();
-        }
-    });
-</script>
 <div id="imagePopup" class="image-popup" onclick="closePopup()">
     <span class="close-btn" onclick="closePopup()">&times;</span>
     <img id="popupImage" src="" alt="Powiększone zdjęcie">
