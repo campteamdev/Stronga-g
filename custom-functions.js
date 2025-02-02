@@ -10,20 +10,27 @@ let excludedPlaces = new Set();
 document.addEventListener("contextmenu", (event) => event.preventDefault());
 
 // Funkcja wczytująca dane z pliku szczegóły.json
-async function loadDetails() {
-  try {
-    const response = await fetch("/szczegoly.json");
-    if (!response.ok) throw new Error("Nie udało się załadować szczegóły.json");
-    const data = await response.json();
-    detailsMap = data.reduce((map, item) => {
-      const [name, link] = item.split(",");
-      map[name.trim()] = link.trim();
-      return map;
-    }, {});
-  } catch (error) {
-    console.error("Błąd podczas wczytywania szczegółów:", error);
-  }
+async function fetchImages(name) {
+    try {
+        const response = await fetch('/images.json');
+        if (!response.ok) throw new Error('❌ Nie udało się pobrać images.json');
+
+        const data = await response.json();
+
+        // Normalizacja nazwy (usunięcie polskich znaków, spacje na "_")
+        const formattedName = name
+            .trim()
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            .replace(/\s+/g, "_");
+
+        // Sprawdzenie obu wariantów nazwy w pliku JSON
+        return data[name] || data[formattedName] || [];
+    } catch (error) {
+        console.error("⚠️ Błąd pobierania zdjęć:", error);
+        return [];
+    }
 }
+
 
 // Funkcja do wyodrębniania numerów telefonów
 function extractPhoneNumber(description) {
