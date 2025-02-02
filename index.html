@@ -56,10 +56,10 @@
 
 .slider-images {
     display: flex;
-    overflow: hidden; /* Ukrycie obrazków poza widocznym obszarem */
+    overflow-x: auto; /* Pozwól przewijać, zamiast całkowicie ukrywać */
+    scroll-behavior: smooth;
     width: 150px; /* Dopasowane do slidera */
     height: 100px;
-    scroll-behavior: smooth;
     white-space: nowrap;
 }
 
