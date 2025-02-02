@@ -53,23 +53,27 @@
     padding: 5px;
     background: white;
 }
-
 .slider-images {
     display: flex;
-    overflow-x: auto; /* Pozwól przewijać, zamiast całkowicie ukrywać */
+    overflow-x: auto;
     scroll-behavior: smooth;
-    width: 150px; /* Dopasowane do slidera */
+    width: 150px; /* Dopasowanie do kontenera */
     height: 100px;
     white-space: nowrap;
+    align-items: center; /* Wycentrowanie obrazków w pionie */
+    justify-content: center; /* Wycentrowanie obrazków */
 }
 
 .slider-images img {
-    width: 100%; /* Szerokość 100% kontenera */
-    height: 100%; /* Wysokość 100% kontenera */
-    object-fit: contain; /* Nie ucina zdjęcia, ale może zostawić marginesy */
+    width: 100%; /* Szerokość całego kontenera */
+    height: 100%; /* Dopasowanie wysokości */
+    object-fit: cover; /* Dopasowanie bez obcinania */
+    min-height: 100px; /* Zapewnienie pełnej wysokości */
+    border-radius: 5px;
+    background-color: white; /* Dla debugowania */
     display: block;
-    background-color: white; /* Zapobiega czarnemu tłu */
 }
+
 
 .slider-prev, .slider-next {
     background-color: rgba(0, 0, 0, 0.5);
