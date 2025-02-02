@@ -140,43 +140,38 @@ async function fetchImages(name) {
     }
 }
 
-// Funkcja generująca treść popupu
-// Funkcja generująca treść popupu (zachowuje wszystkie dotychczasowe funkcje)
 async function generatePopupContent(name, lat, lon) {
-    let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
-        user-select: none;">${name}</div><br>`;
-// **Dodajemy slider tylko dla "Górska Sadyba"**
-let sliderHTML = "";
-if (name === "Górska Sadyba") {
-    const images = await fetchImages(name);
-
-    if (images.length > 0) {
-        sliderHTML = `
-            <div class="swiper-container" style="width:100%; height:160px; margin-bottom: 10px; position: relative;">
-                <div class="swiper-wrapper">
-                    ${images.map(img => `
-                        <div class="swiper-slide">
-                            <img src="${img}" class="slider-img" 
-                                style="width:100%; height:100%; object-fit:cover; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0,0,0,0.3);">
-                        </div>
-                    `).join("")}
+    let sliderHTML = "";
+    
+    // **Dodajemy slider tylko dla "Górska Sadyba"**
+    if (name === "Górska Sadyba") {
+        const images = await fetchImages(name);
+        if (images.length > 0) {
+            sliderHTML = `
+                <div class="swiper-container" style="width:100%; height:160px; margin-bottom: 10px; position: relative;">
+                    <div class="swiper-wrapper">
+                        ${images.map(img => `
+                            <div class="swiper-slide">
+                                <img src="${img}" class="slider-img" 
+                                    style="width:100%; height:100%; object-fit:cover; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0,0,0,0.3);">
+                            </div>
+                        `).join("")}
+                    </div>
+                    <div class="swiper-button-prev" style="left: 5px; color: white;"></div>
+                    <div class="swiper-button-next" style="right: 5px; color: white;"></div>
+                    <div class="swiper-pagination" style="bottom: 5px;"></div>
                 </div>
-                <div class="swiper-button-prev" style="left: 5px; color: white;"></div>
-                <div class="swiper-button-next" style="right: 5px; color: white;"></div>
-                <div class="swiper-pagination" style="bottom: 5px;"></div>
-            </div>
-        `;
+            `;
+        }
     }
-}
 
-// **Zmieniamy kolejność – teraz slider pojawia się nad nazwą**
-let popupContent = sliderHTML + `
-    <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
-        user-select: none;">${name}</div><br>`;
-
-
-    // **Zawartość popupu**
-    popupContent += `<div style="max-width: 80%; word-wrap: break-word; user-select: none;">`;
+    // **Treść popupu**
+    let popupContent = `
+        ${sliderHTML} <!-- Najpierw slider -->
+        <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
+            user-select: none;">${name}</div><br>
+        <div style="max-width: 80%; word-wrap: break-word; user-select: none;">
+    `;
 
     // **Numer telefonu**
     const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
@@ -211,14 +206,14 @@ let popupContent = sliderHTML + `
     popupContent += `
         <br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>
         <br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px; user-select: none;">Prowadź</a>
-        <br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px; user-select: none;">Dodaj Zdjęcie/Aktualizuj</a>
+        <br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px; user-select: none;">Dodaj Zdjęcię/Aktualizuj</a>
     `;
 
     popupContent += `</div>`; // Zamknięcie kontenera popupu
 
-    // ✅ **Dodajemy slider na początek treści popupu, jeśli istnieje**
-    return sliderHTML + popupContent;
+    return popupContent;
 }
+
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
 async function updatePopups(markers) {
