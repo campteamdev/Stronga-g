@@ -536,27 +536,36 @@
       }
 
       initializeMap();
-    map.on("popupopen", function (e) {
+  map.on("popupopen", function (e) {
     let popupContent = e.popup._contentNode; // Pobranie aktualnie otwartego popupu
-    if (!popupContent) return; // Sprawdzenie, czy popupContent istnieje
+    if (!popupContent) return;
 
     function adjustPopupSize() {
-        let zoomLevel = map.getZoom(); // Pobranie aktualnego zoomu
-
+        let zoomLevel = map.getZoom();
         if (zoomLevel > 12) {
-            popupContent.style.maxWidth = "80vw"; // Duży popup przy dużym zoomie
+            popupContent.style.maxWidth = "80vw";
         } else if (zoomLevel > 9) {
-            popupContent.style.maxWidth = "60vw"; // Średni zoom
+            popupContent.style.maxWidth = "60vw";
         } else {
-            popupContent.style.maxWidth = "40vw"; // Mały popup przy oddaleniu
+            popupContent.style.maxWidth = "40vw";
         }
     }
 
-    adjustPopupSize(); // Ustawienie szerokości przy otwarciu
-
-    // 🔹 Aktualizacja szerokości popupu po każdej zmianie zoomu
+    adjustPopupSize();
     map.on("zoomend", adjustPopupSize);
+
+    // **🔹 Pobranie nazwy miejsca i ponowne załadowanie zdjęć do slidera**
+    let popupTitleElement = popupContent.querySelector("div[style*='font-size:14px']");
+    let popupTitle = popupTitleElement ? popupTitleElement.innerText.trim() : null;
+
+    if (popupTitle) {
+        console.log(`🔄 Ponowne ładowanie zdjęć dla: ${popupTitle}`);
+        loadImagesForSlider(popupTitle);
+    } else {
+        console.warn("⚠️ Nie znaleziono nazwy miejsca w popupie.");
+    }
 });
+
 // Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
 document.addEventListener("copy", (event) => {
   event.preventDefault();
