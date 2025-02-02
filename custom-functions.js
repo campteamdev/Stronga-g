@@ -145,15 +145,14 @@ async function fetchImages(name) {
 async function generatePopupContent(name, lat, lon) {
     let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
         user-select: none;">${name}</div><br>`;
-
-  // **Dodajemy slider tylko dla "Górska Sadyba"**
+// **Dodajemy slider tylko dla "Górska Sadyba"**
 let sliderHTML = "";
 if (name === "Górska Sadyba") {
     const images = await fetchImages(name);
 
     if (images.length > 0) {
         sliderHTML = `
-            <div class="swiper-container" style="width:100%; height:150px; margin-bottom: 15px;">
+            <div class="swiper-container" style="width:100%; height:160px; margin-bottom: 10px; position: relative;">
                 <div class="swiper-wrapper">
                     ${images.map(img => `
                         <div class="swiper-slide">
@@ -162,13 +161,18 @@ if (name === "Górska Sadyba") {
                         </div>
                     `).join("")}
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-prev" style="left: 5px; color: white;"></div>
+                <div class="swiper-button-next" style="right: 5px; color: white;"></div>
+                <div class="swiper-pagination" style="bottom: 5px;"></div>
             </div>
         `;
     }
 }
+
+// **Zmieniamy kolejność – teraz slider pojawia się nad nazwą**
+let popupContent = sliderHTML + `
+    <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
+        user-select: none;">${name}</div><br>`;
 
 
     // **Zawartość popupu**
