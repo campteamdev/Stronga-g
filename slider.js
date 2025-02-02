@@ -7,7 +7,7 @@ window.sliderLoadedScript = true;
 
 console.log("✅ Slider.js załadowany!");
 
-// **TESTOWE zdjęcia dla każdej lokalizacji**
+// **TESTOWE zdjęcia dla KAŻDEJ lokalizacji**
 const testImages = [
     "/foty/Gorska_Sadyba_1.jpeg",
     "/foty/Gorska_Sadyba_2.jpg"
@@ -15,9 +15,9 @@ const testImages = [
 
 // **Tworzenie i wyświetlanie slidera w popupie**
 async function showSlider(name) {
-    console.log("🔍 Wywołano slider dla:", name);
+    console.log("🔍 Próba dodania slidera dla:", name);
 
-    // **ZAMIENIAMY POBIERANIE Z images.json NA TESTOWE**
+    // **Wymuszamy testowe zdjęcia dla każdej lokalizacji**
     const validImages = testImages;
     
     if (validImages.length === 0) {
@@ -25,8 +25,15 @@ async function showSlider(name) {
         return;
     }
 
+    // **Spróbuj pobrać zawartość popupu**
     let popupContent = document.querySelector(".leaflet-popup-content");
-    if (!popupContent) return;
+    
+    if (!popupContent) {
+        console.error("❌ Brak `.leaflet-popup-content` - popup się nie wyświetlił?");
+        return;
+    }
+
+    console.log("✅ Popup znaleziony!");
 
     let existingSlider = popupContent.querySelector(".swiper-container");
     if (existingSlider) {
@@ -34,6 +41,8 @@ async function showSlider(name) {
         return;
     }
 
+    console.log("🛠️ Tworzenie slidera...");
+    
     let sliderHTML = `
       <div class="swiper-container" style="width:100%; height:200px; margin-bottom: 10px;">
         <div class="swiper-wrapper">
@@ -53,21 +62,22 @@ async function showSlider(name) {
     sliderContainer.innerHTML = sliderHTML;
     popupContent.prepend(sliderContainer);
 
+    console.log("🚀 Slider dodany do popupu!");
+
     setTimeout(() => {
         new Swiper('.swiper-container', {
             loop: true,
             pagination: { el: '.swiper-pagination', clickable: true },
             navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
         });
+        console.log("✅ Swiper zainicjalizowany!");
     }, 100);
-
-    console.log("🚀 Slider dodany!");
 
     // **Obsługa błędów ładowania obrazów**
     document.querySelectorAll('.slider-img').forEach(img => {
         img.onerror = function () {
             console.error(`❌ Błąd ładowania zdjęcia: ${this.src}`);
-            this.src = "/foty/default.jpg"; // Fallback na zdjęcie zastępcze
+            this.src = "https://via.placeholder.com/300x200?text=Brak+zdjęcia"; // Zdjęcie zastępcze
         };
     });
 }
@@ -84,5 +94,7 @@ document.body.addEventListener("click", async function (event) {
         } else {
             console.warn("⚠️ Brak nazwy kempingu w popupie!");
         }
+    } else {
+        console.log("❌ Kliknięcie poza popupem");
     }
 });
