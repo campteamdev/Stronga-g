@@ -146,27 +146,30 @@ async function generatePopupContent(name, lat, lon) {
     let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
         user-select: none;">${name}</div><br>`;
 
-    // **Dodajemy slider tylko dla "Górska Sadyba"**
-    let sliderHTML = "";
-    if (name === "Górska Sadyba") {
-        const images = await fetchImages(name);
-        if (images.length > 0) {
-            sliderHTML = `
-                <div class="swiper-container" style="width:100%; height:200px; margin-bottom: 10px;">
-                    <div class="swiper-wrapper">
-                        ${images.map(img => `
-                            <div class="swiper-slide">
-                                <img src="${img}" class="slider-img" style="width:100%; height:100%; object-fit:cover; border-radius: 10px;">
-                            </div>
-                        `).join("")}
-                    </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+  // **Dodajemy slider tylko dla "Górska Sadyba"**
+let sliderHTML = "";
+if (name === "Górska Sadyba") {
+    const images = await fetchImages(name);
+
+    if (images.length > 0) {
+        sliderHTML = `
+            <div class="swiper-container" style="width:100%; height:150px; margin-bottom: 15px;">
+                <div class="swiper-wrapper">
+                    ${images.map(img => `
+                        <div class="swiper-slide">
+                            <img src="${img}" class="slider-img" 
+                                style="width:100%; height:100%; object-fit:cover; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0,0,0,0.3);">
+                        </div>
+                    `).join("")}
                 </div>
-            `;
-        }
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        `;
     }
+}
+
 
     // **Zawartość popupu**
     popupContent += `<div style="max-width: 80%; word-wrap: break-word; user-select: none;">`;
