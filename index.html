@@ -578,17 +578,6 @@ document.addEventListener("touchstart", function (event) {
         delete keyPressed[event.key];
     });
 
-    // 🔹 Wykrywanie otwarcia narzędzi deweloperskich 🔹
-    setInterval(function() {
-        let before = new Date().getTime();
-        debugger; // Zatrzymuje kod, jeśli otwarta konsola
-        let after = new Date().getTime();
-        if (after - before > 100) {
-            window.stop(); // Zatrzymuje ładowanie strony
-            window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-        }
-    }, 1000); // Sprawdzaj co 1 sekundę
-</script>
 
 <script>
     document.addEventListener("keydown", function(event) {
