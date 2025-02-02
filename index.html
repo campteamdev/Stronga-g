@@ -64,10 +64,13 @@
 }
 
 .slider-images img {
-    width: 150px; /* Szerokość dostosowana do slidera */
-    height: 100px; /* Wysokość zachowana */
-    object-fit: cover; /* Przycięcie do rozmiaru */
+    width: 100%; /* Szerokość 100% kontenera */
+    height: 100%; /* Wysokość 100% kontenera */
+    object-fit: contain; /* Nie ucina zdjęcia, ale może zostawić marginesy */
     display: block;
+    background-color: white; /* Zapobiega czarnemu tłu */
+}
+
 }
 
 .slider-prev, .slider-next {
