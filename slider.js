@@ -7,15 +7,15 @@ window.sliderLoadedScript = true;
 
 console.log("✅ Slider.js załadowany!");
 
-// **TESTOWE zdjęcia dla KAŻDEJ lokalizacji**
+// TESTOWE zdjęcia dla każdej lokalizacji (dla sprawdzenia działania)
 const testImages = [
     "/foty/Gorska_Sadyba_1.jpeg",
     "/foty/Gorska_Sadyba_2.jpg"
 ];
 
-// **Tworzenie i wyświetlanie slidera w popupie**
-async function showSlider(name) {
-    console.log("🔍 Próba dodania slidera dla:", name);
+// **Funkcja dodająca slider do popupu (automatycznie po otwarciu)**
+async function addSliderToPopup(name, popupContent) {
+    console.log("🔍 Dodaję slider do popupu:", name);
 
     // **Wymuszamy testowe zdjęcia dla każdej lokalizacji**
     const validImages = testImages;
@@ -24,16 +24,6 @@ async function showSlider(name) {
         console.warn("🚫 Brak zdjęć (TESTOWE)", name);
         return;
     }
-
-    // **Spróbuj pobrać zawartość popupu**
-    let popupContent = document.querySelector(".leaflet-popup-content");
-    
-    if (!popupContent) {
-        console.error("❌ Brak `.leaflet-popup-content` - popup się nie wyświetlił?");
-        return;
-    }
-
-    console.log("✅ Popup znaleziony!");
 
     let existingSlider = popupContent.querySelector(".swiper-container");
     if (existingSlider) {
@@ -82,19 +72,21 @@ async function showSlider(name) {
     });
 }
 
-// **Obsługa kliknięcia w popup, aby wywołać slider**
-document.body.addEventListener("click", async function (event) {
-    let popup = event.target.closest(".leaflet-popup-content");
-    if (popup) {
-        let popupTitle = popup.querySelector("div strong");
-        if (popupTitle) {
-            let campName = popupTitle.textContent.trim();
-            console.log("🟢 Kliknięto na marker:", campName);
-            await showSlider(campName);
-        } else {
-            console.warn("⚠️ Brak nazwy kempingu w popupie!");
-        }
+// **Nowa obsługa otwierania popupów**
+map.on("popupopen", async function (e) {
+    let popupContent = e.popup._contentNode;
+    
+    if (!popupContent) {
+        console.error("❌ Brak `.leaflet-popup-content` - popup się nie wyświetlił?");
+        return;
+    }
+
+    let popupTitle = popupContent.querySelector("div strong");
+    if (popupTitle) {
+        let campName = popupTitle.textContent.trim();
+        console.log("🟢 Otworzono popup dla:", campName);
+        await addSliderToPopup(campName, popupContent);
     } else {
-        console.log("❌ Kliknięcie poza popupem");
+        console.warn("⚠️ Brak nazwy kempingu w popupie!");
     }
 });
