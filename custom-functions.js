@@ -147,7 +147,7 @@ async function generatePopupContent(name, lat, lon) {
     if (images.length > 0) {
         let sliderClass = `slider-${name.replace(/\s+/g, "_")}`;
         sliderHTML = `
-            <div class="swiper-container ${sliderClass}" style="width:100%; height:180px; margin-bottom: 10px;">
+            <div class="swiper-container ${sliderClass}" style="width:100%; height:200px; margin-bottom: 10px;">
                 <div class="swiper-wrapper">
                     ${images.map(img => `
                         <div class="swiper-slide">
@@ -228,7 +228,6 @@ async function generatePopupContent(name, lat, lon) {
 
     return popupContent;
 }
-
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
 async function updatePopups(markers) {
