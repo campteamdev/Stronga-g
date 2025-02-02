@@ -142,27 +142,25 @@ async function fetchImages(name) {
 async function generatePopupContent(name, lat, lon) {
     let sliderHTML = "";
 
-    // ✅ **Dodajemy slider tylko dla "Górska Sadyba"**
-    if (name === "Górska Sadyba") {
-        const images = await fetchImages(name);
-        if (images.length > 0) {
-            let sliderClass = `slider-${name.replace(/\s+/g, "_")}`;
-            sliderHTML = `
-                <div class="swiper-container ${sliderClass}" style="width:100%; height:180px; margin-bottom: 10px;">
-                    <div class="swiper-wrapper">
-                        ${images.map(img => `
-                            <div class="swiper-slide">
-                                <img src="${img}" class="slider-img">
-                            </div>
-                        `).join("")}
-                    </div>
-                    <!-- Strzałki nawigacyjne -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-pagination"></div>
+    // Pobieranie zdjęć dla obiektu
+    const images = await fetchImages(name);
+    if (images.length > 0) {
+        let sliderClass = `slider-${name.replace(/\s+/g, "_")}`;
+        sliderHTML = `
+            <div class="swiper-container ${sliderClass}" style="width:100%; height:180px; margin-bottom: 10px;">
+                <div class="swiper-wrapper">
+                    ${images.map(img => `
+                        <div class="swiper-slide">
+                            <img src="${img}" class="slider-img">
+                        </div>
+                    `).join("")}
                 </div>
-            `;
-        }
+                <!-- Strzałki nawigacyjne -->
+                <div class="swiper-button-prev ${sliderClass}-prev"></div>
+                <div class="swiper-button-next ${sliderClass}-next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        `;
     }
 
     let popupContent = `
@@ -207,26 +205,26 @@ async function generatePopupContent(name, lat, lon) {
     popupContent += `
         <br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px;">Link do Map Google</a>
         <br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px;">Prowadź</a>
-        <br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px;">Dodaj Zdjęcię/Aktualizuj</a>
+        <br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px;">Dodaj Zdjęcie/Aktualizuj</a>
     `;
 
     popupContent += `</div>`; // Zamknięcie kontenera popupu
 
     // 📌 **Inicjalizacja Swipera po otwarciu popupu**
     setTimeout(() => {
-        new Swiper(`.slider-${name.replace(/\s+/g, "_")}`, {
+        new Swiper(`.${sliderClass}`, {
             loop: true,
             pagination: { el: `.${sliderClass} .swiper-pagination`, clickable: true },
             navigation: { 
-                nextEl: `.${sliderClass} .swiper-button-next`, 
-                prevEl: `.${sliderClass} .swiper-button-prev` 
+                nextEl: `.${sliderClass}-next`, 
+                prevEl: `.${sliderClass}-prev` 
             },
             spaceBetween: 10,
             slidesPerView: 1,
             centeredSlides: true,
-            autoplay: { delay: 3000 }, // Automatyczna zmiana co 3 sekundy
+            autoplay: { delay: 3000 },
         });
-    }, 500); // ✅ Poczekajmy trochę dłużej, żeby Swiper się poprawnie załadował
+    }, 500);
 
     return popupContent;
 }
