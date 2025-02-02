@@ -205,28 +205,43 @@ document.addEventListener("touchstart", function (event) {
 }, { passive: false });
 async function loadImagesForSlider(name) {
     try {
+        console.log(`🔍 Ładowanie zdjęć dla: ${name}`);
+
         const response = await fetch('/images.json');
         if (!response.ok) throw new Error("Błąd ładowania images.json");
         const imagesData = await response.json();
 
-        const formattedName = name.replace(/\s/g, '_');
-        const sliderContainer = document.getElementById(`slider-${formattedName}`);
+        const formattedName = name.replace(/\s/g, '_'); // Upewnij się, że nazwa pasuje do klucza
+        console.log(`📂 Oczekiwany klucz: ${formattedName}`, imagesData);
 
-        if (sliderContainer && imagesData[name]) {
-            // Usuwamy stare obrazki przed dodaniem nowych
+        const sliderContainer = document.getElementById(`slider-${formattedName}`);
+        if (!sliderContainer) {
+            console.warn(`⚠️ Nie znaleziono slidera: slider-${formattedName}`);
+            return;
+        }
+
+        if (imagesData[name] || imagesData[formattedName]) {
+            const images = imagesData[name] || imagesData[formattedName];
             sliderContainer.innerHTML = "";
 
-            imagesData[name].forEach((imageSrc) => {
+            images.forEach((imageSrc, index) => {
                 const imgElement = document.createElement("img");
                 imgElement.src = imageSrc;
                 imgElement.classList.add("slider-image");
+                imgElement.style.display = index === 0 ? "block" : "none"; // Pokazuj tylko 1 obrazek
                 sliderContainer.appendChild(imgElement);
             });
+
+            sliderContainer.dataset.currentIndex = 0; // Ustawienie indeksu pierwszego obrazka
+            console.log(`✅ Załadowano ${images.length} zdjęć dla ${name}`);
+        } else {
+            console.warn(`⚠️ Brak zdjęć w images.json dla: ${name}`);
         }
     } catch (error) {
-        console.error("Błąd ładowania zdjęć:", error);
+        console.error("❌ Błąd ładowania zdjęć:", error);
     }
 }
+
 
 
 function prevSlide(event) {
