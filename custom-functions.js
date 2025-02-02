@@ -147,8 +147,10 @@ async function generatePopupContent(name, lat, lon) {
     if (name === "Górska Sadyba") {
         const images = await fetchImages(name);
         if (images.length > 0) {
+            const sliderClass = `slider-${name.replace(/\s+/g, "_")}`;
+            
             sliderHTML = `
-                <div class="swiper-container slider-${name.replace(/\s+/g, "_")}" style="width:100%; height:150px; margin-bottom: 10px;">
+                <div class="swiper ${sliderClass}" style="width:100%; height:150px; margin-bottom: 10px;">
                     <div class="swiper-wrapper">
                         ${images.map(img => `
                             <div class="swiper-slide">
@@ -165,16 +167,16 @@ async function generatePopupContent(name, lat, lon) {
 
             // **✅ Dynamiczna inicjalizacja Swipera po otwarciu popupu**
             setTimeout(() => {
-                new Swiper(`.slider-${name.replace(/\s+/g, "_")}`, {
+                new Swiper(`.${sliderClass}`, {
                     loop: true,
-                    pagination: { el: `.slider-${name.replace(/\s+/g, "_")} .swiper-pagination`, clickable: true },
-                    navigation: { nextEl: `.slider-${name.replace(/\s+/g, "_")} .swiper-button-next`, prevEl: `.slider-${name.replace(/\s+/g, "_")} .swiper-button-prev` },
+                    pagination: { el: `.${sliderClass} .swiper-pagination`, clickable: true },
+                    navigation: { nextEl: `.${sliderClass} .swiper-button-next`, prevEl: `.${sliderClass} .swiper-button-prev` },
                     spaceBetween: 10,
                     slidesPerView: 1,
                     centeredSlides: true,
                     autoplay: { delay: 3000 }, // Automatyczna zmiana co 3 sekundy
                 });
-            }, 100);
+            }, 300); // Opóźnienie inicjalizacji po dodaniu do DOM
         }
     }
 
