@@ -146,6 +146,8 @@ async function generatePopupContent(name, lat, lon) {
     const images = await fetchImages(name);
     if (images.length > 0) {
         let sliderClass = `slider-${name.replace(/\s+/g, "_")}`;
+        let prevBtnClass = `prev-${name.replace(/\s+/g, "_")}`;
+        let nextBtnClass = `next-${name.replace(/\s+/g, "_")}`;
         sliderHTML = `
             <div class="swiper-container ${sliderClass}" style="width:100%; height:200px; margin-bottom: 10px;">
                 <div class="swiper-wrapper">
@@ -156,8 +158,8 @@ async function generatePopupContent(name, lat, lon) {
                     `).join("")}
                 </div>
                 <!-- Strzałki nawigacyjne -->
-                <div class="swiper-button-prev ${sliderClass}-prev"></div>
-                <div class="swiper-button-next ${sliderClass}-next"></div>
+                <div class="swiper-button-prev ${prevBtnClass}"></div>
+                <div class="swiper-button-next ${nextBtnClass}"></div>
                 <div class="swiper-pagination"></div>
             </div>
         `;
@@ -216,8 +218,8 @@ async function generatePopupContent(name, lat, lon) {
             loop: true,
             pagination: { el: `.${sliderClass} .swiper-pagination`, clickable: true },
             navigation: { 
-                nextEl: `.${sliderClass}-next`, 
-                prevEl: `.${sliderClass}-prev` 
+                nextEl: `.${nextBtnClass}`, 
+                prevEl: `.${prevBtnClass}` 
             },
             spaceBetween: 10,
             slidesPerView: 1,
