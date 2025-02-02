@@ -211,48 +211,47 @@ async function loadImagesForSlider(name) {
         if (!response.ok) throw new Error("Błąd ładowania images.json");
         const imagesData = await response.json();
 
-        const formattedName = name.replace(/\s/g, '_'); // Dopasowanie nazwy do klucza
-        console.log(`📂 Oczekiwany klucz: ${formattedName}`, imagesData);
+        // 🚀 Nowość: Spróbuj znaleźć nazwę w 2 wersjach (z i bez podkreślników)
+        const formattedName = name.replace(/\s/g, '_');
+        const originalName = name;
 
-        const sliderContainer = document.getElementById(`slider-${formattedName}`);
-        if (!sliderContainer) {
-            console.warn(`⚠️ Nie znaleziono slidera: slider-${formattedName}`);
+        let images = imagesData[formattedName] || imagesData[originalName];
+
+        if (!images) {
+            console.warn(`⚠️ Brak zdjęć dla: ${name} (${formattedName})`);
             return;
         }
 
-        if (sliderContainer.dataset.loaded === "true") {
-            console.log("⏩ Zdjęcia już załadowane, pomijam ponowne dodanie.");
-            return; // Jeśli zdjęcia już istnieją, nie ładujemy ich ponownie
+        const sliderContainer = document.getElementById(`slider-${formattedName}`);
+        if (!sliderContainer) {
+            console.warn(`⚠️ Nie znaleziono slidera dla: slider-${formattedName}`);
+            return;
         }
 
-        if (imagesData[name] || imagesData[formattedName]) {
-            const images = imagesData[name] || imagesData[formattedName];
-            sliderContainer.innerHTML = ""; // Wyczyść zawartość przed dodaniem nowych zdjęć
+        // 🚀 **Nowość**: Usuń stare zdjęcia, aby załadować nowe
+        sliderContainer.innerHTML = "";
 
-            images.forEach((imageSrc, index) => {
-                const imgElement = document.createElement("img");
-                imgElement.src = imageSrc;
-                imgElement.classList.add("slider-image");
-                imgElement.style.display = index === 0 ? "block" : "none"; // Pokazuj tylko 1 obrazek
+        images.forEach((imageSrc, index) => {
+            const imgElement = document.createElement("img");
+            imgElement.src = imageSrc;
+            imgElement.classList.add("slider-image");
+            imgElement.style.display = index === 0 ? "block" : "none"; // Pokazuj tylko pierwszy obrazek
 
-                // **Nowość**: Dodaj nasłuchiwanie kliknięcia na zdjęcie
-                imgElement.addEventListener("click", function () {
-                    openPopup(this.src);
-                });
-
-                sliderContainer.appendChild(imgElement);
+            // **Dodaj event click do powiększenia zdjęcia**
+            imgElement.addEventListener("click", function () {
+                openPopup(this.src);
             });
 
-            sliderContainer.dataset.currentIndex = 0; // Ustawienie indeksu pierwszego obrazka
-            sliderContainer.dataset.loaded = "true"; // Flaga, że zdjęcia już zostały załadowane
-            console.log(`✅ Załadowano ${images.length} zdjęć dla ${name}`);
-        } else {
-            console.warn(`⚠️ Brak zdjęć w images.json dla: ${name}`);
-        }
+            sliderContainer.appendChild(imgElement);
+        });
+
+        sliderContainer.dataset.currentIndex = 0; // Reset indeksu zdjęcia
+        console.log(`✅ Załadowano ${images.length} zdjęć dla ${name}`);
     } catch (error) {
         console.error("❌ Błąd ładowania zdjęć:", error);
     }
 }
+
 
 function prevSlide(event) {
     const slider = event.target.nextElementSibling;
