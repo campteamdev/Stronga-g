@@ -7,24 +7,48 @@ window.sliderLoadedScript = true;
 
 console.log("✅ Slider.js załadowany!");
 
-// 🟢 **Funkcja do dodania slidera do popupu – TERAZ NA GÓRZE!**
-async function addSliderToPopup(name, popupElement) {
-    console.log("🔍 Tworzę slider w popupie dla: ", name);
+// Pobranie zdjęć z `images.json`
+async function fetchImages(name) {
+    try {
+        const response = await fetch('/images.json');
+        if (!response.ok) throw new Error('❌ Nie udało się pobrać images.json');
+        
+        const data = await response.json();
+        const formattedName = name.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-    // **Testowe zdjęcia - zamiast obrazków dajemy napisy**
-    const testImages = [
-        `SLIDER: ${name} (1)`,
-        `SLIDER: ${name} (2)`,
-        `SLIDER: ${name} (3)`
-    ];
+        return data[formattedName] || []; // Zwracamy tablicę zdjęć lub pustą tablicę
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+}
 
-    // 🔹 **Tworzymy slider wewnątrz popupu - TERAZ NA GÓRZE!**
+// Tworzenie i wyświetlanie slidera w popupie
+async function showSlider(name) {
+    console.log("🔍 Pobieram zdjęcia dla:", name);
+    
+    const validImages = await fetchImages(name);
+    
+    if (validImages.length === 0) {
+        console.warn("🚫 Brak zdjęć dla:", name);
+        return;
+    }
+
+    let popupContent = document.querySelector(".leaflet-popup-content");
+    if (!popupContent) return;
+
+    let existingSlider = popupContent.querySelector(".swiper-container");
+    if (existingSlider) {
+        console.log("⚠️ Slider już istnieje w popupie.");
+        return;
+    }
+
     let sliderHTML = `
-      <div class="swiper-container" style="width:100%; height:150px; text-align:center; margin-bottom: 10px;">
+      <div class="swiper-container" style="width:100%; height:200px; margin-bottom: 10px;">
         <div class="swiper-wrapper">
-          ${testImages.map(txt => `
-            <div class="swiper-slide" style="display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:bold; color:white; background:black;">
-              ${txt}
+          ${validImages.map(img => `
+            <div class="swiper-slide">
+              <img src="${img}" style="width:100%; height:100%; object-fit:cover; border-radius: 10px;">
             </div>
           `).join("")}
         </div>
@@ -34,31 +58,29 @@ async function addSliderToPopup(name, popupElement) {
       </div>
     `;
 
-    // **Dodajemy slider NA GÓRĘ popupu**
-    popupElement.insertAdjacentHTML("afterbegin", sliderHTML);
+    let sliderContainer = document.createElement("div");
+    sliderContainer.innerHTML = sliderHTML;
+    popupContent.prepend(sliderContainer);
 
-    // **Inicjalizacja Swiper.js**
     setTimeout(() => {
         new Swiper('.swiper-container', {
             loop: true,
             pagination: { el: '.swiper-pagination', clickable: true },
             navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
         });
-    }, 200);
-
-    console.log("🚀 Slider dodany do popupu – TERAZ NA GÓRZE!");
+    }, 100);
 }
 
-// 🟢 **Event otwierania popupu – dodajemy slider na górę popupu**
-map.on("popupopen", function (e) {
-    let popupElement = e.popup._contentNode;
-    let popupTitle = popupElement.querySelector("strong");
-
-    if (popupTitle) {
-        let campName = popupTitle.textContent.trim();
-        console.log("🟢 Otworzono popup dla: ", campName);
-        addSliderToPopup(campName, popupElement);
-    } else {
-        console.warn("⚠️ Brak nazwy w popupie!");
+// Obsługa kliknięcia w popup, aby wywołać slider
+document.body.addEventListener("click", async function (event) {
+    let popup = event.target.closest(".leaflet-popup-content");
+    if (popup) {
+        let popupTitle = popup.querySelector("div strong");
+        if (popupTitle) {
+            console.log("🟢 Kliknięto na marker:", popupTitle.textContent.trim());
+            await showSlider(popupTitle.textContent.trim());
+        } else {
+            console.warn("⚠️ Brak nazwy kempingu w popupie!");
+        }
     }
 });
