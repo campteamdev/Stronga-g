@@ -13,9 +13,9 @@ async function showSlider(name) {
 
     // Testowe dane - zamiast zdjęć dajemy napisy
     const testImages = [
-        "SLIDER DZIAŁA! (1)",
-        "SLIDER DZIAŁA! (2)",
-        "SLIDER DZIAŁA! (3)"
+        `SLIDER DLA: ${name} (1)`,
+        `SLIDER DLA: ${name} (2)`,
+        `SLIDER DLA: ${name} (3)`
     ];
 
     console.log("📷 Tworzę slider z testowymi obrazkami.");
@@ -57,7 +57,7 @@ async function showSlider(name) {
       </div>
     `;
 
-    console.log("✅ Generuję slider...");
+    console.log("✅ Generuję slider dla: ", name);
 
     // Dodajemy zawartość do kontenera
     sliderContainer.innerHTML = sliderHTML;
@@ -85,17 +85,17 @@ async function showSlider(name) {
     }, 300);
 }
 
-// 🟢 TEST AUTOMATYCZNEGO POKAZANIA SLIDERA PO 5 SEKUNDACH
-setTimeout(() => {
-    console.log("⏳ Test: uruchamiam slider po 5 sekundach...");
-    showSlider("Testowe miejsce");
-}, 5000);
-
-// Obsługa kliknięcia na popup
+// 🟢 **Teraz wymusimy otwarcie slidera, gdy użytkownik kliknie w popup**
 document.body.addEventListener("click", async function (event) {
     let popup = event.target.closest(".leaflet-popup-content");
     if (popup) {
-        console.log("🟢 Kliknięto na popup, uruchamiam slider!");
-        await showSlider("Testowe miejsce");
+        let popupTitle = popup.querySelector("strong");
+        if (popupTitle) {
+            let campName = popupTitle.textContent.trim();
+            console.log("🟢 Kliknięto na popup: ", campName);
+            await showSlider(campName);
+        } else {
+            console.warn("⚠️ Brak nazwy w popupie!");
+        }
     }
 });
