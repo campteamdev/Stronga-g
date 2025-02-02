@@ -647,6 +647,64 @@ document.addEventListener("touchstart", function (event) {
         }
     });
 </script>
+<script>
+  // 🔹 Tu jest Twój obecny kod JavaScript, np. obsługa mapy...
+
+  map.on("popupopen", function (e) {
+    let popupContent = e.popup._contentNode;
+    if (!popupContent) return;
+
+    let name = popupContent.querySelector("div").innerText.trim();
+    let sliderContainer = document.querySelector(`#slider-${name}`);
+    let sliderWrapper = sliderContainer.querySelector(".swiper-wrapper");
+    let sliderMessage = document.querySelector(`#slider-message-${name}`);
+
+    if (!sliderWrapper) return;
+
+    // Folder zdjęć odpowiada nazwie lokalizacji
+    let imageFolder = `/zdjecia/${name}/`;
+    let maxImages = 5; // Maksymalnie 5 zdjęć
+    let imagesLoaded = 0;
+
+    for (let i = 1; i <= maxImages; i++) {
+      let imgSrc = `${imageFolder}${i}.jpg`;
+      let img = new Image();
+      img.src = imgSrc;
+
+      img.onload = function () {
+        let slide = document.createElement("div");
+        slide.className = "swiper-slide";
+        slide.innerHTML = `<img src="${imgSrc}" style="width:100%; height:auto; border-radius:10px;">`;
+        sliderWrapper.appendChild(slide);
+        imagesLoaded++;
+
+        if (imagesLoaded === 1) {
+          sliderContainer.style.display = "block"; // Pokazujemy slider
+          sliderMessage.innerHTML = "";
+          initializeSwiper(name);
+        }
+      };
+
+      img.onerror = function () {
+        if (i === 1 && imagesLoaded === 0) {
+          sliderMessage.innerHTML = "Brak zdjęć dla tej lokalizacji.";
+          sliderContainer.style.display = "none";
+        }
+      };
+    }
+  });
+
+  // 🔹 Inicjalizacja Swiper
+  function initializeSwiper(name) {
+    new Swiper(`#slider-${name}`, {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      loop: true,
+    });
+  }
+</script>
 
 
   </body>
