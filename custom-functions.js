@@ -210,34 +210,19 @@ async function loadImagesForSlider(name) {
         const imagesData = await response.json();
 
         const formattedName = name.replace(/\s/g, '_');
-        const alternativeName = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s/g, '_');
         const sliderContainer = document.getElementById(`slider-${formattedName}`);
 
-        if (!sliderContainer) {
-            console.warn(`Nie znaleziono kontenera slidera dla: ${formattedName}`);
-            return;
+        if (sliderContainer && imagesData[name]) {
+            // Usuwamy stare obrazki przed dodaniem nowych
+            sliderContainer.innerHTML = "";
+
+            imagesData[name].forEach((imageSrc) => {
+                const imgElement = document.createElement("img");
+                imgElement.src = imageSrc;
+                imgElement.classList.add("slider-image");
+                sliderContainer.appendChild(imgElement);
+            });
         }
-
-        const imageList = imagesData[name] || imagesData[formattedName] || imagesData[alternativeName];
-
-        if (!imageList || imageList.length === 0) {
-            console.warn(`Brak zdjęć dla: ${name}`);
-            return;
-        }
-
-        sliderContainer.innerHTML = ""; // Czyścimy poprzednie zdjęcia
-
-        imageList.forEach((imageSrc, index) => {
-            const imgElement = document.createElement("img");
-            imgElement.src = imageSrc;
-            imgElement.classList.add("slider-image");
-            imgElement.style.display = index === 0 ? "block" : "none"; // Pokazuje tylko pierwsze zdjęcie
-            sliderContainer.appendChild(imgElement);
-        });
-
-        // Zapisywanie indeksu aktywnego zdjęcia
-        sliderContainer.dataset.currentIndex = "0";
-
     } catch (error) {
         console.error("Błąd ładowania zdjęć:", error);
     }
