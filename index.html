@@ -40,61 +40,6 @@
         margin: 0;
         padding: 0;
       }
-    .slider-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 150px; /* Mały slider */
-    height: 180px; /* Mała wysokość */
-    overflow: hidden;
-    border: 2px solid green;
-    border-radius: 5px;
-    padding: 5px;
-    background: white;
-}
-.slider-images {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    width: 150px; /* Dopasowanie do kontenera */
-    height: 180px;
-    white-space: nowrap;
-    align-items: center; /* Wycentrowanie obrazków w pionie */
-    justify-content: center; /* Wycentrowanie obrazków */
-}
-
-.slider-images img {
-    width: 100%; /* Szerokość całego kontenera */
-    height: 100%; /* Dopasowanie wysokości */
-    object-fit: cover; /* Dopasowanie bez obcinania */
-    min-height: 100px; /* Zapewnienie pełnej wysokości */
-    border-radius: 5px;
-    background-color: white; /* Dla debugowania */
-    display: block;
-}
-
-
-.slider-prev, .slider-next {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-}
-
-.slider-prev {
-    left: 5px;
-}
-
-.slider-next {
-    right: 5px;
-}
-
       /* 🔹 Styl popupa - dynamiczna szerokość */
 .leaflet-popup-content {
     max-width: 80vw; /* Maksymalna szerokość popupa - 80% szerokości ekranu */
@@ -271,38 +216,7 @@
         right: 20px;
         z-index: 2000;
       }
-     .image-popup {
-    display: none !important; /* Ukrycie domyślnie */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Ciemne tło */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-}
-
-.image-popup img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
-}
-
-.image-popup .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-}
-
     </style>
-   
   </head>
   <body class="" oncontextmenu="return false;">
     <!-- Google Tag Manager (noscript) -->
@@ -566,36 +480,27 @@
       }
 
       initializeMap();
-  map.on("popupopen", function (e) {
+    map.on("popupopen", function (e) {
     let popupContent = e.popup._contentNode; // Pobranie aktualnie otwartego popupu
-    if (!popupContent) return;
+    if (!popupContent) return; // Sprawdzenie, czy popupContent istnieje
 
     function adjustPopupSize() {
-        let zoomLevel = map.getZoom();
+        let zoomLevel = map.getZoom(); // Pobranie aktualnego zoomu
+
         if (zoomLevel > 12) {
-            popupContent.style.maxWidth = "80vw";
+            popupContent.style.maxWidth = "80vw"; // Duży popup przy dużym zoomie
         } else if (zoomLevel > 9) {
-            popupContent.style.maxWidth = "60vw";
+            popupContent.style.maxWidth = "60vw"; // Średni zoom
         } else {
-            popupContent.style.maxWidth = "40vw";
+            popupContent.style.maxWidth = "40vw"; // Mały popup przy oddaleniu
         }
     }
 
-    adjustPopupSize();
+    adjustPopupSize(); // Ustawienie szerokości przy otwarciu
+
+    // 🔹 Aktualizacja szerokości popupu po każdej zmianie zoomu
     map.on("zoomend", adjustPopupSize);
-
-    // **🔹 Pobranie nazwy miejsca i ponowne załadowanie zdjęć do slidera**
-    let popupTitleElement = popupContent.querySelector("div[style*='font-size:14px']");
-    let popupTitle = popupTitleElement ? popupTitleElement.innerText.trim() : null;
-
-    if (popupTitle) {
-        console.log(`🔄 Ponowne ładowanie zdjęć dla: ${popupTitle}`);
-        loadImagesForSlider(popupTitle);
-    } else {
-        console.warn("⚠️ Nie znaleziono nazwy miejsca w popupie.");
-    }
 });
-
 // Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
 document.addEventListener("copy", (event) => {
   event.preventDefault();
@@ -622,16 +527,120 @@ document.addEventListener("touchstart", function (event) {
   }
 }, { passive: false });
 
+   // Blokowanie F12 (narzędzia deweloperskie)
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I") || (event.ctrlKey && event.key === "U")) {
+            event.preventDefault();
+            alert("Podgląd kodu źródłowego jest zablokowany!");
+        }
+    }); 
+
+
+      
+      document.addEventListener("keydown", function(event) {
+    if ((event.ctrlKey || event.metaKey) && event.key === "s") {
+        event.preventDefault();
+        console.log("Zapisywanie strony jest zablokowane!"); // Dla testów w konsoli (możesz usunąć)
+        return false; // Dodatkowa blokada
+    }
+});
+
+    </script>
+
+ <script>
+    let keyPressed = {}; // Obiekt do śledzenia wciśniętych klawiszy
+
+    document.addEventListener("keydown", function (event) {
+        if (keyPressed[event.key]) return; // Ignoruj, jeśli klawisz już wciśnięty
+        keyPressed[event.key] = true; // Oznacz klawisz jako wciśnięty
+
+        if (
+            event.key === "F12" || 
+            (event.ctrlKey && event.shiftKey && event.key === "I") ||  // Windows: Ctrl + Shift + I
+            (event.ctrlKey && event.key === "U") ||  // Windows: Ctrl + U
+            (event.metaKey && event.altKey && event.key === "I") ||  // Mac: ⌘ + Option + I
+            (event.metaKey && event.key === "U")  // Mac: ⌘ + U
+        ) {
+            event.preventDefault();
+            console.clear(); // Czyści konsolę, jeśli otwarta
+            window.location.href = "about:blank"; // Przekierowanie na pustą stronę
+        }
+    });
+
+    // Resetowanie statusu klawiszy po ich puszczeniu
+    document.addEventListener("keyup", function (event) {
+        delete keyPressed[event.key];
+    });
+
+    // 🔹 Wykrywanie otwarcia narzędzi deweloperskich 🔹
+    setInterval(function() {
+        let before = new Date().getTime();
+        debugger; // Zatrzymuje kod, jeśli otwarta konsola
+        let after = new Date().getTime();
+        if (after - before > 100) {
+            window.stop(); // Zatrzymuje ładowanie strony
+            window.location.href = "about:blank"; // Przekierowanie na pustą stronę
+        }
+    }, 1000); // Sprawdzaj co 1 sekundę
 </script>
 
+<script>
+    document.addEventListener("keydown", function(event) {
+        if (event.ctrlKey && event.key === "u") { // Blokowanie Ctrl + U
+            event.preventDefault();
+            let newWin = window.open();
+            newWin.document.write("<!-- Brak dostępu do kodu źródłowego -->");
+            newWin.document.close();
+        }
+    });
+</script>
+<script>
+    let devToolsDetected = false;
 
+    function detectDevTools() {
+        const threshold = 160;
+        if (!devToolsDetected && (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold)) {
+            devToolsDetected = true;
+            alert("Wykryto narzędzia deweloperskie! Strona zostanie ukryta.");
+            document.body.innerHTML = "<h2 style='text-align:center; padding-top:50px;'>Strona została zablokowana.</h2>";
+        }
+    }
 
+    setInterval(detectDevTools, 2000);
+</script>
 
+<script>
+   
 
-<div id="imagePopup" class="image-popup" onclick="closePopup()">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
-    <img id="popupImage" src="" alt="Powiększone zdjęcie">
-</div>
+   
+    // Wykrywanie prób użycia narzędzi do zrzutów ekranu
+    setInterval(() => {
+        if (window.outerWidth - window.innerWidth > 50 || window.outerHeight - window.innerHeight > 50) {
+            detectScreenshot();
+        }
+    }, 1000);
+</script>
+<script>
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            document.body.style.opacity = "0"; // Ukrywa stronę
+        } else {
+            setTimeout(() => document.body.style.opacity = "1", 500); // Przywraca po 0.5 sek.
+        }
+    });
+</script>
+<script>
+    function hidePageOnScreenshot() {
+        document.body.style.opacity = "0"; // Ukrywa stronę
+        setTimeout(() => document.body.style.opacity = "1", 3000); // Przywraca po 3 sek.
+    }
+
+    document.addEventListener("keydown", function (event) {
+        if ((event.metaKey && event.shiftKey && event.key === "4") || event.key === "PrintScreen") {
+            hidePageOnScreenshot();
+        }
+    });
+</script>
 
 
   </body>
