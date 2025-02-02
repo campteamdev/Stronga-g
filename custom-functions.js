@@ -120,7 +120,8 @@ function generatePopupContent(name, lat, lon) {
     let popupContent = `
         <div class="slider-container">
             <button class="slider-prev" onclick="prevSlide(event)">&#10094;</button>
-            <div class="slider-images" id="slider-${name.replace(/\s/g, '_')}"></div>
+           <div class="slider-images" id="slider-${name}"></div>
+
             <button class="slider-next" onclick="nextSlide(event)">&#10095;</button>
         </div>
         <br>
