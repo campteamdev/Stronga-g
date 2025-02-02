@@ -160,7 +160,9 @@ function generatePopupContent(name, lat, lon) {
         <i>Brak opisu</i></span>`;
 
   popupContent += `</div>`; // Zamknięcie kontenera popupu
-  return popupContent;
+setTimeout(() => loadImagesForSlider(name), 100);
+return popupContent;
+
 }
 
 
