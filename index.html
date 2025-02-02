@@ -216,11 +216,11 @@
         right: 20px;
         z-index: 2000;
       }
-      /* 🖼️ Stylowanie slidera */
+   /* 🖼️ Stylowanie slidera */
 .swiper-container {
     width: 100%;
     max-width: 250px; /* ✅ Ograniczona szerokość */
-    height: 150px; /* ✅ Mniejsza wysokość */
+    height: auto; /* 🔥 Dynamiczna wysokość */
     position: relative;
     margin-bottom: 10px;
     border-radius: 8px;
@@ -235,11 +235,11 @@
     width: 100%;
     height: auto; /* ✅ Zachowanie proporcji */
     max-height: 150px; /* ✅ Maksymalna wysokość */
-    object-fit: cover;
+    object-fit: contain; /* 🔥 Lepsze dopasowanie */
     border-radius: 8px;
 }
 
-/* 🏹 Poprawne pozycjonowanie strzałek */
+/* 🔹 Ulepszona nawigacja Swipera */
 .swiper-button-prev,
 .swiper-button-next {
     color: white !important;
@@ -250,6 +250,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 50%; /* ✅ Strzałki na środku obrazka */
+    transform: translateY(-50%);
+}
+
+.swiper-button-prev {
+    left: 5px; /* 🔥 Przesunięcie do lewej */
+}
+
+.swiper-button-next {
+    right: 5px; /* 🔥 Przesunięcie do prawej */
 }
 
 .swiper-button-prev::after,
