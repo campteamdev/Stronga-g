@@ -625,20 +625,7 @@ document.addEventListener("touchstart", function (event) {
 </script>
 
 
-<script>
-    let devToolsDetected = false;
 
-    function detectDevTools() {
-        const threshold = 160;
-        if (!devToolsDetected && (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold)) {
-            devToolsDetected = true;
-            alert("Wykryto narzędzia deweloperskie! Strona zostanie ukryta.");
-            document.body.innerHTML = "<h2 style='text-align:center; padding-top:50px;'>Strona została zablokowana.</h2>";
-        }
-    }
-
-    setInterval(detectDevTools, 2000);
-</script>
 
 
 <div id="imagePopup" class="image-popup" onclick="closePopup()">
