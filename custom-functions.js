@@ -222,3 +222,25 @@ document.addEventListener("touchstart", function (event) {
     event.preventDefault();
   }
 }, { passive: false });
+async function loadImagesForSlider(name) {
+    try {
+        const response = await fetch('/images.json');
+        if (!response.ok) throw new Error("Błąd ładowania images.json");
+        const imagesData = await response.json();
+
+        const formattedName = name.replace(/\s/g, '_');
+        const sliderContainer = document.getElementById(`slider-${formattedName}`);
+
+        if (sliderContainer && imagesData[name]) {
+            imagesData[name].forEach((imageSrc) => {
+                const imgElement = document.createElement("img");
+                imgElement.src = imageSrc;
+                imgElement.classList.add("slider-image");
+                sliderContainer.appendChild(imgElement);
+            });
+        }
+    } catch (error) {
+        console.error("Błąd ładowania zdjęć:", error);
+    }
+}
+
