@@ -163,74 +163,72 @@ async function generatePopupContent(name, lat, lon) {
                     <div class="swiper-pagination"></div>
                 </div>
             `;
-
-            // **✅ Dynamiczna inicjalizacja Swipera po otwarciu popupu**
-            setTimeout(() => {
-                new Swiper(`.${sliderClass}`, {
-                    loop: true,
-                    pagination: { el: `.${sliderClass} .swiper-pagination`, clickable: true },
-                    navigation: { 
-                        nextEl: `.${sliderClass} .swiper-button-next`, 
-                        prevEl: `.${sliderClass} .swiper-button-prev` 
-                    },
-                    spaceBetween: 10,
-                    slidesPerView: 1,
-                    centeredSlides: true,
-                    autoplay: { delay: 3000 }, // Automatyczna zmiana co 3 sekundy
-                });
-            }, 100);
         }
     }
 
-    return sliderHTML;
-}
-
-    // ✅ **Treść popupu (slider na górze)**
+    // ✅ **Dodajemy resztę treści popupu (inaczej popup może się nie wyświetlać!)**
     let popupContent = `
-        ${sliderHTML} <!-- Slider powyżej nazwy -->
-        <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">
+        ${sliderHTML} <!-- ✅ Slider jest dodany na górze -->
+        <div style="border:2px solid green; padding:3px; font-size:14px; font-weight:bold; max-width:80%;">
             ${name}
-        </div><br>
-        <div style="max-width: 80%; word-wrap: break-word; user-select: none;">
+        </div>
+        <br>
+        <div style="max-width: 80%; word-wrap: break-word;">
     `;
 
-    // ✅ **Numer telefonu**
+    // 📌 **Numer telefonu**
     const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
     const phoneLink = phone !== "Brak numeru kontaktowego"
-        ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px; user-select: none;">${phone}</a>`
-        : `<span style="font-size:10px; user-select: none;">${phone}</span>`;
+        ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;">${phone}</a>`
+        : `<span style="font-size:10px;">${phone}</span>`;
 
-    popupContent += `<strong style="font-size:12px; user-select: none;">Kontakt:</strong> ${phoneLink}<br>`;
+    popupContent += `<strong style="font-size:12px;">Kontakt:</strong> ${phoneLink}<br>`;
 
-    // ✅ **Strona internetowa**
+    // 📌 **Strona internetowa**
     if (websiteLinksMap[name]) {
         popupContent += `
-            <strong style="font-size:12px; user-select: none;">Strona:</strong> 
-            <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px; user-select: none;">
+            <strong style="font-size:12px;">Strona:</strong> 
+            <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px;">
                 ${websiteLinksMap[name]}
             </a><br>`;
     }
 
-    // ✅ **Opis**
-    popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
+    // 📌 **Opis**
+    popupContent += `<div style="border:2px solid green; padding:2px; font-size:12px;">Opis:</div><br>`;
     popupContent += descriptionsMap[name]
-        ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>`
-        : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
+        ? `<span style="font-size:10px;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>`
+        : `<span style="font-size:10px;"><i>Brak opisu</i></span>`;
 
-    // ✅ **Infrastruktura**
-    popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
+    // 📌 **Infrastruktura**
+    popupContent += `<br><div style="border:2px solid green; padding:2px; font-size:12px;">Infrastruktura:</div><br>`;
     popupContent += amenitiesMap[name]
-        ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>`
-        : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
+        ? `<span style="font-size:10px;">${amenitiesMap[name]}</span>`
+        : `<span style="font-size:10px;"><i>Brak informacji</i></span>`;
 
-    // ✅ **Linki**
+    // 📌 **Linki**
     popupContent += `
-        <br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>
-        <br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px; user-select: none;">Prowadź</a>
-        <br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px; user-select: none;">Dodaj Zdjęcię/Aktualizuj</a>
+        <br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px;">Link do Map Google</a>
+        <br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px;">Prowadź</a>
+        <br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px;">Dodaj Zdjęcię/Aktualizuj</a>
     `;
 
     popupContent += `</div>`; // Zamknięcie kontenera popupu
+
+    // **✅ Zwracamy pełną treść popupu**
+    setTimeout(() => {
+        new Swiper(`.slider-${name.replace(/\s+/g, "_")}`, {
+            loop: true,
+            pagination: { el: `.slider-${name.replace(/\s+/g, "_")} .swiper-pagination`, clickable: true },
+            navigation: { 
+                nextEl: `.slider-${name.replace(/\s+/g, "_")} .swiper-button-next`, 
+                prevEl: `.slider-${name.replace(/\s+/g, "_")} .swiper-button-prev` 
+            },
+            spaceBetween: 10,
+            slidesPerView: 1,
+            centeredSlides: true,
+            autoplay: { delay: 3000 }, // Automatyczna zmiana co 3 sekundy
+        });
+    }, 300); // ✅ Poczekajmy trochę dłużej, żeby Swiper się poprawnie załadował
 
     return popupContent;
 }
