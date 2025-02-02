@@ -234,6 +234,12 @@ async function loadImagesForSlider(name) {
                 imgElement.src = imageSrc;
                 imgElement.classList.add("slider-image");
                 imgElement.style.display = index === 0 ? "block" : "none"; // Pokazuj tylko 1 obrazek
+
+                // **Nowość**: Dodaj nasłuchiwanie kliknięcia na zdjęcie
+                imgElement.addEventListener("click", function () {
+                    openPopup(this.src);
+                });
+
                 sliderContainer.appendChild(imgElement);
             });
 
@@ -247,6 +253,7 @@ async function loadImagesForSlider(name) {
         console.error("❌ Błąd ładowania zdjęć:", error);
     }
 }
+
 function prevSlide(event) {
     const slider = event.target.nextElementSibling;
     if (!slider) return;
