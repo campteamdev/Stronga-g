@@ -242,32 +242,18 @@ async function loadImagesForSlider(name) {
     }
 }
 
-
-
-function prevSlide(event) {
-    const slider = event.target.nextElementSibling;
-    if (slider) {
-        slider.scrollLeft -= slider.clientWidth;
-    }
-}
-
-function nextSlide(event) {
-    const slider = event.target.previousElementSibling;
-    if (slider) {
-        slider.scrollLeft += slider.clientWidth;
-    }
-}
 function prevSlide(event) {
     const slider = event.target.nextElementSibling;
     if (!slider) return;
 
     let images = slider.getElementsByClassName("slider-image");
-    let currentIndex = parseInt(slider.dataset.currentIndex);
+    let currentIndex = parseInt(slider.dataset.currentIndex) || 0;
 
-    images[currentIndex].style.display = "none"; // Ukryj obecne zdjęcie
-    currentIndex = (currentIndex - 1 + images.length) % images.length; // Cofnij indeks
-    images[currentIndex].style.display = "block"; // Pokaż poprzednie zdjęcie
-    slider.dataset.currentIndex = currentIndex; // Zapisz nowy indeks
+    images[currentIndex].style.display = "none";
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    images[currentIndex].style.display = "block";
+
+    slider.dataset.currentIndex = currentIndex;
 }
 
 function nextSlide(event) {
@@ -275,11 +261,11 @@ function nextSlide(event) {
     if (!slider) return;
 
     let images = slider.getElementsByClassName("slider-image");
-    let currentIndex = parseInt(slider.dataset.currentIndex);
+    let currentIndex = parseInt(slider.dataset.currentIndex) || 0;
 
-    images[currentIndex].style.display = "none"; // Ukryj obecne zdjęcie
-    currentIndex = (currentIndex + 1) % images.length; // Przesuń indeks do przodu
-    images[currentIndex].style.display = "block"; // Pokaż nowe zdjęcie
-    slider.dataset.currentIndex = currentIndex; // Zapisz nowy indeks
+    images[currentIndex].style.display = "none";
+    currentIndex = (currentIndex + 1) % images.length;
+    images[currentIndex].style.display = "block";
+
+    slider.dataset.currentIndex = currentIndex;
 }
-
