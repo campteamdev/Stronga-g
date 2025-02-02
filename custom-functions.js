@@ -116,8 +116,6 @@ function shortenText(text, id) {
   return text.replace(/\n/g, "<br>");
 }
 
-// Funkcja generująca treść popupu
-// ✅ Zmodyfikowana funkcja generująca treść popupu, zawierająca slider
 async function generatePopupContent(name, lat, lon) {
     let popupContent = `
         <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
@@ -126,11 +124,12 @@ async function generatePopupContent(name, lat, lon) {
         </div><br>`;
 
     // **Slider tylko dla `Górska Sadyba`**
+    let sliderHTML = "";
     if (name === "Górska Sadyba") {
         const images = await fetchImages(name); // Pobranie zdjęć
 
         if (images.length > 0) {
-            popupContent += `
+            sliderHTML = `
                 <div class="swiper-container" style="width:100%; height:200px; margin-bottom: 10px;">
                     <div class="swiper-wrapper">
                         ${images.map(img => `
@@ -187,9 +186,23 @@ async function generatePopupContent(name, lat, lon) {
     `;
 
     popupContent += `</div>`; // Zamknięcie kontenera popupu
-    return popupContent;
+
+    // ✅ **Dodajemy slider na początek treści popupu, jeśli istnieje**
+    return sliderHTML + popupContent;
 }
 
+// Aktualizacja popupów z ustawioną szerokością i wysokością
+function updatePopups(markers) {
+  markers.forEach(({ marker, name, lat, lon }) => {
+    const popupContent = generatePopupContent(name, lat, lon);
+    marker.bindPopup(popupContent, {
+      minWidth: 200,  // Minimalna szerokość popupu
+      maxWidth: 220,  // Maksymalna szerokość popupu
+      maxHeight: 300, // Maksymalna wysokość popupu
+      autoPan: true   // Automatyczne przesuwanie mapy, gdy popup wychodzi poza ekran
+    });
+  });
+}
 
 // Ładowanie danych i aktualizacja popupów
 async function loadDetailsAndUpdatePopups(markers) {
