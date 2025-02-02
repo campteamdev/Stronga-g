@@ -40,31 +40,34 @@
         margin: 0;
         padding: 0;
       }
-       .slider-container {
+    .slider-container {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 200px;
+    width: 150px; /* Mały slider */
+    height: 100px; /* Mała wysokość */
     overflow: hidden;
     border: 2px solid green;
     border-radius: 5px;
     padding: 5px;
+    background: white;
 }
 
 .slider-images {
     display: flex;
-    overflow-x: auto;
+    overflow: hidden; /* Ukrycie obrazków poza widocznym obszarem */
+    width: 150px; /* Dopasowane do slidera */
+    height: 100px;
     scroll-behavior: smooth;
-    width: 180px;
-    max-height: 120px;
+    white-space: nowrap;
 }
 
 .slider-images img {
-    width: 180px;
-    height: auto;
-    margin-right: 5px;
-    border-radius: 5px;
+    width: 150px; /* Szerokość dostosowana do slidera */
+    height: 100px; /* Wysokość zachowana */
+    object-fit: cover; /* Przycięcie do rozmiaru */
+    display: block;
 }
 
 .slider-prev, .slider-next {
