@@ -590,19 +590,28 @@ document.addEventListener("touchstart", function (event) {
     });
 </script>
 <script>
-    let devToolsDetected = false;
+   let devToolsOpen = false;
 
-    function detectDevTools() {
-        const threshold = 160;
-        if (!devToolsDetected && (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold)) {
-            devToolsDetected = true;
-            alert("Wykryto narzędzia deweloperskie! Strona zostanie ukryta.");
-            document.body.innerHTML = "<h2 style='text-align:center; padding-top:50px;'>Strona została zablokowana.</h2>";
-        }
+function detectDevTools() {
+    const threshold = 200; // Zmieniamy wartość, aby uniknąć fałszywych alarmów
+    const widthDifference = window.outerWidth - window.innerWidth;
+    const heightDifference = window.outerHeight - window.innerHeight;
+
+    if (widthDifference > threshold || heightDifference > threshold) {
+        devToolsOpen = true;
+    } else {
+        devToolsOpen = false;
     }
+}
 
-    setInterval(detectDevTools, 2000);
-</script>
+// ✅ Poprawione wykrywanie DevTools (nie spamuje użytkownika)
+setInterval(() => {
+    detectDevTools();
+    if (devToolsOpen) {
+        console.warn("🛑 Wykryto narzędzia deweloperskie. Proszę je zamknąć.");
+    }
+}, 3000);
+
 
 <script>
    
