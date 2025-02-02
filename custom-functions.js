@@ -117,92 +117,67 @@ function shortenText(text, id) {
 }
 
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `
-    <div class="slider-container">
-        <button class="slider-prev" onclick="prevSlide(event)">&#10094;</button>
-        <div class="slider-images" id="slider-${name.replace(/\s/g, '_')}"></div>
-        <button class="slider-next" onclick="nextSlide(event)">&#10095;</button>
-    </div>
-    <br>
-    <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>
-  `;
+    let popupContent = `
+        <div class="slider-container">
+            <button class="slider-prev" onclick="prevSlide(event)">&#10094;</button>
+            <div class="slider-images" id="slider-${name.replace(/\s/g, '_')}"></div>
+            <button class="slider-next" onclick="nextSlide(event)">&#10095;</button>
+        </div>
+        <br>
+        <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">
+            ${name}
+        </div><br>
+    `;
 
+    // Kontener popupu z blokadą kopiowania
+    popupContent += `<div style="max-width: 80%; word-wrap: break-word;
+        user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">`;
 
-  // Kontener popupu z blokadą kopiowania
-  popupContent += `<div style="max-width: 80%; word-wrap: break-word;
-      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">`;
+    // Blokada kopiowania numeru telefonu
+    const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
+    const phoneLink = phone !== "Brak numeru kontaktowego"
+        ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;
+            user-select: none;">${phone}</a>`
+        : `<span style="font-size:10px; user-select: none;">${phone}</span>`;
 
-  // Blokada kopiowania numeru telefonu
-  const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
-  const phoneLink =
-    phone !== "Brak numeru kontaktowego"
-      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;
-          user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-          ${phone}</a>`
-      : `<span style="font-size:10px;
-          user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-          ${phone}</span>`;
+    popupContent += `<strong style="font-size:12px; user-select: none;">Kontakt:</strong> ${phoneLink}<br>`;
 
-  popupContent += `<strong style="font-size:12px;
-      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-      Kontakt:</strong> ${phoneLink}<br>`;
-
-  // Blokada kopiowania opisu
-  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;
-      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-      Opis:</div><br>`;
-  popupContent += descriptionsMap[name] 
-    ? `<span style="font-size:10px;
-        user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-        ${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-    : `<span style="font-size:10px;
-        user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-        <i>Brak opisu</i></span>`;
-
-  popupContent += `</div>`; // Zamknięcie kontenera popupu
-setTimeout(() => {
-    if (document.getElementById(`slider-${name.replace(/\s/g, '_')}`)) {
-        loadImagesForSlider(name);
+    // Strona internetowa
+    if (websiteLinksMap[name]) {
+        popupContent += `<strong style="font-size:12px; user-select: none;">Strona:</strong> 
+        <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px; user-select: none;">
+        ${websiteLinksMap[name]}</a><br>`;
     }
-}, 300);
-return popupContent;
 
+    // Opis
+    popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
+    popupContent += descriptionsMap[name] 
+        ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+        : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
+
+    // Infrastruktura
+    popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
+    popupContent += amenitiesMap[name] 
+        ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>` 
+        : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
+
+    // Linki
+    popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>`;
+    popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px; user-select: none;">Prowadź</a>`;
+    popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px; user-select: none;">Dodaj Zdjęcię/Aktualizuj</a>`;
+
+    popupContent += `</div>`; // Zamknięcie kontenera popupu
+
+    // Opóźnione ładowanie zdjęć do slidera
+    setTimeout(() => {
+        if (document.getElementById(`slider-${name.replace(/\s/g, '_')}`)) {
+            loadImagesForSlider(name);
+        }
+    }, 300);
+
+    return popupContent;
 }
 
-
-  // Numer telefonu
-  const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
-  const phoneLink =
-    phone !== "Brak numeru kontaktowego"
-      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px; user-select: none;">${phone}</a>`
-      : `<span style="font-size:10px; user-select: none;">${phone}</span>`;
-  popupContent += `<strong style="font-size:12px; user-select: none;">Kontakt:</strong> ${phoneLink}<br>`;
-
-  // Strona internetowa
-  if (websiteLinksMap[name]) {
-    popupContent += `<strong style="font-size:12px; user-select: none;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px; user-select: none;">${websiteLinksMap[name]}</a><br>`;
-  }
-
-  // Opis
-  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
-  popupContent += descriptionsMap[name] 
-    ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-    : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
-
-  // Infrastruktura
-  popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
-  popupContent += amenitiesMap[name] 
-    ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>` 
-    : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
-
-  // Linki
-  popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>`;
-  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px; user-select: none;">Prowadź</a>`;
-  popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px; user-select: none;">Dodaj Zdjęcię/Aktualizuj</a>`;
-
-  popupContent += `</div>`; // Zamknięcie kontenera popupu
-  return popupContent;
-}
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
 function updatePopups(markers) {
