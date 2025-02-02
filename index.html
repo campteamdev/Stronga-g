@@ -216,10 +216,9 @@
         right: 20px;
         z-index: 2000;
       }
-/* 📌 Stylowanie slidera */
 .swiper-container {
     width: 100%;
-    height: 200px; /* ✅ Upewniamy się, że zdjęcie nie jest ucinane */
+    height: 200px;
     position: relative;
     margin-bottom: 10px;
     border-radius: 8px;
@@ -236,11 +235,10 @@
 .swiper-slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* ✅ Zapobiega ucinaniu obrazu */
+    object-fit: cover; /* 🟢 Lepsze dopasowanie */
     border-radius: 8px;
 }
 
-/* 📌 Poprawienie działania strzałek */
 .swiper-button-prev,
 .swiper-button-next {
     color: white !important;
@@ -255,7 +253,7 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    cursor: pointer; /* ✅ Poprawka: dodanie kursora */
+    cursor: pointer;
 }
 
 .swiper-button-prev {
@@ -272,6 +270,7 @@
     font-weight: bold;
     color: white;
 }
+
 
 
     </style>
