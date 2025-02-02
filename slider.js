@@ -7,7 +7,7 @@ window.sliderLoadedScript = true;
 
 console.log("✅ Slider.js załadowany!");
 
-// 🟢 Funkcja do dodania slidera do popupu
+// 🟢 **Funkcja do dodania slidera do popupu – TERAZ NA GÓRZE!**
 async function addSliderToPopup(name, popupElement) {
     console.log("🔍 Tworzę slider w popupie dla: ", name);
 
@@ -18,9 +18,9 @@ async function addSliderToPopup(name, popupElement) {
         `SLIDER: ${name} (3)`
     ];
 
-    // 🔹 **Tworzymy slider wewnątrz popupu**
+    // 🔹 **Tworzymy slider wewnątrz popupu - TERAZ NA GÓRZE!**
     let sliderHTML = `
-      <div class="swiper-container" style="width:100%; height:150px; text-align:center;">
+      <div class="swiper-container" style="width:100%; height:150px; text-align:center; margin-bottom: 10px;">
         <div class="swiper-wrapper">
           ${testImages.map(txt => `
             <div class="swiper-slide" style="display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:bold; color:white; background:black;">
@@ -34,8 +34,8 @@ async function addSliderToPopup(name, popupElement) {
       </div>
     `;
 
-    // **Dodajemy slider do popupu**
-    popupElement.insertAdjacentHTML("beforeend", sliderHTML);
+    // **Dodajemy slider NA GÓRĘ popupu**
+    popupElement.insertAdjacentHTML("afterbegin", sliderHTML);
 
     // **Inicjalizacja Swiper.js**
     setTimeout(() => {
@@ -46,10 +46,10 @@ async function addSliderToPopup(name, popupElement) {
         });
     }, 200);
 
-    console.log("🚀 Slider dodany do popupu!");
+    console.log("🚀 Slider dodany do popupu – TERAZ NA GÓRZE!");
 }
 
-// 🟢 **Event otwierania popupu – wstawiamy slider do popupu**
+// 🟢 **Event otwierania popupu – dodajemy slider na górę popupu**
 map.on("popupopen", function (e) {
     let popupElement = e.popup._contentNode;
     let popupTitle = popupElement.querySelector("strong");
