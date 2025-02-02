@@ -278,3 +278,23 @@ function nextSlide(event) {
 
     slider.dataset.currentIndex = currentIndex;
 }
+function openPopup(imageSrc) {
+    let popup = document.getElementById("imagePopup");
+    let popupImg = document.getElementById("popupImage");
+
+    popupImg.src = imageSrc;
+    popup.style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("imagePopup").style.display = "none";
+}
+
+// Dodaj nasłuchiwanie kliknięcia dla obrazków w sliderze
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".slider-images img").forEach(img => {
+        img.addEventListener("click", function () {
+            openPopup(this.src);
+        });
+    });
+});
