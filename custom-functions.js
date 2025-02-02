@@ -257,4 +257,29 @@ function nextSlide(event) {
         slider.scrollLeft += slider.clientWidth;
     }
 }
+function prevSlide(event) {
+    const slider = event.target.nextElementSibling;
+    if (!slider) return;
+
+    let images = slider.getElementsByClassName("slider-image");
+    let currentIndex = parseInt(slider.dataset.currentIndex);
+
+    images[currentIndex].style.display = "none"; // Ukryj obecne zdjęcie
+    currentIndex = (currentIndex - 1 + images.length) % images.length; // Cofnij indeks
+    images[currentIndex].style.display = "block"; // Pokaż poprzednie zdjęcie
+    slider.dataset.currentIndex = currentIndex; // Zapisz nowy indeks
+}
+
+function nextSlide(event) {
+    const slider = event.target.previousElementSibling;
+    if (!slider) return;
+
+    let images = slider.getElementsByClassName("slider-image");
+    let currentIndex = parseInt(slider.dataset.currentIndex);
+
+    images[currentIndex].style.display = "none"; // Ukryj obecne zdjęcie
+    currentIndex = (currentIndex + 1) % images.length; // Przesuń indeks do przodu
+    images[currentIndex].style.display = "block"; // Pokaż nowe zdjęcie
+    slider.dataset.currentIndex = currentIndex; // Zapisz nowy indeks
+}
 
