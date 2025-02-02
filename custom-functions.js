@@ -220,6 +220,10 @@ async function loadImagesForSlider(name) {
             console.warn(`⚠️ Nie znaleziono elementu: slider-${formattedName}`);
             return;
         }
+if (!sliderContainer) {
+    console.warn(`⚠️ Nie znaleziono elementu: slider-${formattedName}`);
+    return;
+}
 
         // Czyszczenie starej zawartości
         sliderContainer.innerHTML = ""; 
