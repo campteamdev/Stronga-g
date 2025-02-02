@@ -296,10 +296,8 @@ function closePopup() {
 }
 
 // Dodaj nasłuchiwanie kliknięcia dla obrazków w sliderze
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".slider-images img").forEach(img => {
-        img.addEventListener("click", function () {
-            openPopup(this.src);
-        });
-    });
+document.body.addEventListener("click", function (event) {
+    if (event.target.classList.contains("slider-image")) {
+        openPopup(event.target.src);
+    }
 });
