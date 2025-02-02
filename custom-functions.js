@@ -116,14 +116,17 @@ function shortenText(text, id) {
   return text.replace(/\n/g, "<br>");
 }
 
-// Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>`;
-// Funkcja generująca treść popupu z pełną blokadą kopiowania
-function generatePopupContent(name, lat, lon) {
-  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
-      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-      ${name}</div><br>`;
+  let popupContent = `
+    <div class="slider-container">
+        <button class="slider-prev" onclick="prevSlide(event)">&#10094;</button>
+        <div class="slider-images" id="slider-${name.replace(/\s/g, '_')}"></div>
+        <button class="slider-next" onclick="nextSlide(event)">&#10095;</button>
+    </div>
+    <br>
+    <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>
+  `;
+
 
   // Kontener popupu z blokadą kopiowania
   popupContent += `<div style="max-width: 80%; word-wrap: break-word;
