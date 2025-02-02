@@ -116,72 +116,84 @@ function shortenText(text, id) {
   return text.replace(/\n/g, "<br>");
 }
 
+// Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
-  console.log(`📸 Sprawdzam slider dla: ${name}`);
-console.log(document.getElementById(`slider-${name.replace(/\s/g, '_')}`));
- 
-  let popupContent = `
-        <div class="slider-container">
-            <button class="slider-prev" onclick="prevSlide(event)">&#10094;</button>
-           <div class="slider-images" id="slider-${name}"></div>
+  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>`;
+// Funkcja generująca treść popupu z pełną blokadą kopiowania
+function generatePopupContent(name, lat, lon) {
+  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+      ${name}</div><br>`;
 
-            <button class="slider-next" onclick="nextSlide(event)">&#10095;</button>
-        </div>
-        <br>
-        <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">
-            ${name}
-        </div><br>
-    `;
+  // Kontener popupu z blokadą kopiowania
+  popupContent += `<div style="max-width: 80%; word-wrap: break-word;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">`;
 
-    // Kontener popupu z blokadą kopiowania
-    popupContent += `<div style="max-width: 80%; word-wrap: break-word;
-        user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">`;
+  // Blokada kopiowania numeru telefonu
+  const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
+  const phoneLink =
+    phone !== "Brak numeru kontaktowego"
+      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;
+          user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+          ${phone}</a>`
+      : `<span style="font-size:10px;
+          user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+          ${phone}</span>`;
 
-    // Blokada kopiowania numeru telefonu
-    const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
-    const phoneLink = phone !== "Brak numeru kontaktowego"
-        ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;
-            user-select: none;">${phone}</a>`
-        : `<span style="font-size:10px; user-select: none;">${phone}</span>`;
+  popupContent += `<strong style="font-size:12px;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+      Kontakt:</strong> ${phoneLink}<br>`;
 
-    popupContent += `<strong style="font-size:12px; user-select: none;">Kontakt:</strong> ${phoneLink}<br>`;
+  // Blokada kopiowania opisu
+  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+      Opis:</div><br>`;
+  popupContent += descriptionsMap[name] 
+    ? `<span style="font-size:10px;
+        user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+        ${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+    : `<span style="font-size:10px;
+        user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+        <i>Brak opisu</i></span>`;
 
-    // Strona internetowa
-    if (websiteLinksMap[name]) {
-        popupContent += `<strong style="font-size:12px; user-select: none;">Strona:</strong> 
-        <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px; user-select: none;">
-        ${websiteLinksMap[name]}</a><br>`;
-    }
-
-    // Opis
-    popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
-    popupContent += descriptionsMap[name] 
-        ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-        : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
-
-    // Infrastruktura
-    popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
-    popupContent += amenitiesMap[name] 
-        ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>` 
-        : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
-
-    // Linki
-    popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>`;
-    popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px; user-select: none;">Prowadź</a>`;
-    popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px; user-select: none;">Dodaj Zdjęcię/Aktualizuj</a>`;
-
-    popupContent += `</div>`; // Zamknięcie kontenera popupu
-
-    // Opóźnione ładowanie zdjęć do slidera
-    setTimeout(() => {
-        if (document.getElementById(`slider-${name.replace(/\s/g, '_')}`)) {
-            loadImagesForSlider(name);
-        }
-    }, 300);
-
-    return popupContent;
+  popupContent += `</div>`; // Zamknięcie kontenera popupu
+  return popupContent;
 }
 
+
+  // Numer telefonu
+  const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
+  const phoneLink =
+    phone !== "Brak numeru kontaktowego"
+      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px; user-select: none;">${phone}</a>`
+      : `<span style="font-size:10px; user-select: none;">${phone}</span>`;
+  popupContent += `<strong style="font-size:12px; user-select: none;">Kontakt:</strong> ${phoneLink}<br>`;
+
+  // Strona internetowa
+  if (websiteLinksMap[name]) {
+    popupContent += `<strong style="font-size:12px; user-select: none;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px; user-select: none;">${websiteLinksMap[name]}</a><br>`;
+  }
+
+  // Opis
+  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
+  popupContent += descriptionsMap[name] 
+    ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+    : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
+
+  // Infrastruktura
+  popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
+  popupContent += amenitiesMap[name] 
+    ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>` 
+    : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
+
+  // Linki
+  popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>`;
+  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px; user-select: none;">Prowadź</a>`;
+  popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px; user-select: none;">Dodaj Zdjęcię/Aktualizuj</a>`;
+
+  popupContent += `</div>`; // Zamknięcie kontenera popupu
+  return popupContent;
+}
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
 function updatePopups(markers) {
@@ -207,86 +219,3 @@ document.addEventListener("touchstart", function (event) {
     event.preventDefault();
   }
 }, { passive: false });
-async function loadImagesForSlider(name) {
-    try {
-        console.log(`🔍 Próba załadowania zdjęć dla: ${name}`);
-
-        const response = await fetch('/images.json');
-        if (!response.ok) throw new Error("Błąd ładowania images.json");
-        const imagesData = await response.json();
-
-        const formattedName = name.replace(/\s/g, '_'); // Zamiana spacji na _
-        console.log(`📂 Oczekiwany klucz w images.json: ${formattedName}`, imagesData);
-
-   const sliderContainer = document.getElementById(`slider-${formattedName}`);
-if (!sliderContainer) {
-    console.warn(`⚠️ Nie znaleziono slidera: slider-${formattedName}`);
-    return;
-}
-
-        }
-if (!sliderContainer) {
-    console.warn(`⚠️ Nie znaleziono elementu: slider-${formattedName}`);
-    return;
-}
-
-        // Czyszczenie starej zawartości
-        sliderContainer.innerHTML = ""; 
-
-        // Pobieranie zdjęć - sprawdzamy różne wersje kluczy
-        const images = imagesData[formattedName] || imagesData[name] || [];
-        
-        if (images.length === 0) {
-            console.warn(`⚠️ Brak zdjęć w images.json dla: ${formattedName}`);
-            return;
-        }
-
-        images.forEach((imageSrc, index) => {
-            const imgElement = document.createElement("img");
-            imgElement.src = imageSrc;
-            imgElement.classList.add("slider-image");
-            imgElement.style.display = index === 0 ? "block" : "none"; // Pokazuj tylko 1 obrazek
-
-            // Obsługa kliknięcia – otwieranie w popupie
-            imgElement.addEventListener("click", function () {
-                openPopup(this.src);
-            });
-
-            sliderContainer.appendChild(imgElement);
-        });
-
-        sliderContainer.dataset.currentIndex = 0;
-        sliderContainer.dataset.loaded = "true";
-
-        console.log(`✅ Załadowano ${images.length} zdjęć dla ${formattedName}`);
-    } catch (error) {
-        console.error("❌ Błąd ładowania zdjęć:", error);
-    }
-}
-
-
-// Funkcja otwierająca popup
-function openPopup(imageSrc) {
-    let popup = document.getElementById("imagePopup");
-    let popupImg = document.getElementById("popupImage");
-
-    if (!imageSrc || imageSrc.trim() === "") {
-        console.warn("⚠️ Błąd: Brak poprawnego linku do zdjęcia!");
-        return;
-    }
-
-    popupImg.src = imageSrc;
-    popup.style.display = "flex";
-}
-
-// Funkcja zamykająca popup
-function closePopup() {
-    document.getElementById("imagePopup").style.display = "none";
-}
-
-// Dodanie obsługi kliknięcia na slider
-document.body.addEventListener("click", function (event) {
-    if (event.target.classList.contains("slider-image")) {
-        openPopup(event.target.src);
-    }
-});
