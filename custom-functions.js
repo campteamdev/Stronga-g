@@ -211,7 +211,7 @@ async function loadImagesForSlider(name) {
         if (!response.ok) throw new Error("Błąd ładowania images.json");
         const imagesData = await response.json();
 
-        const formattedName = name.replace(/\s/g, '_'); // Upewnij się, że nazwa pasuje do klucza
+        const formattedName = name.replace(/\s/g, '_'); // Dopasowanie nazwy do klucza
         console.log(`📂 Oczekiwany klucz: ${formattedName}`, imagesData);
 
         const sliderContainer = document.getElementById(`slider-${formattedName}`);
@@ -220,9 +220,14 @@ async function loadImagesForSlider(name) {
             return;
         }
 
+        if (sliderContainer.dataset.loaded === "true") {
+            console.log("⏩ Zdjęcia już załadowane, pomijam ponowne dodanie.");
+            return; // Jeśli zdjęcia już istnieją, nie ładujemy ich ponownie
+        }
+
         if (imagesData[name] || imagesData[formattedName]) {
             const images = imagesData[name] || imagesData[formattedName];
-            sliderContainer.innerHTML = "";
+            sliderContainer.innerHTML = ""; // Wyczyść zawartość przed dodaniem nowych zdjęć
 
             images.forEach((imageSrc, index) => {
                 const imgElement = document.createElement("img");
@@ -233,6 +238,7 @@ async function loadImagesForSlider(name) {
             });
 
             sliderContainer.dataset.currentIndex = 0; // Ustawienie indeksu pierwszego obrazka
+            sliderContainer.dataset.loaded = "true"; // Flaga, że zdjęcia już zostały załadowane
             console.log(`✅ Załadowano ${images.length} zdjęć dla ${name}`);
         } else {
             console.warn(`⚠️ Brak zdjęć w images.json dla: ${name}`);
@@ -241,15 +247,16 @@ async function loadImagesForSlider(name) {
         console.error("❌ Błąd ładowania zdjęć:", error);
     }
 }
-
 function prevSlide(event) {
     const slider = event.target.nextElementSibling;
     if (!slider) return;
 
     let images = slider.getElementsByClassName("slider-image");
-    let currentIndex = parseInt(slider.dataset.currentIndex) || 0;
+    if (!images.length) return;
 
+    let currentIndex = parseInt(slider.dataset.currentIndex) || 0;
     images[currentIndex].style.display = "none";
+
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     images[currentIndex].style.display = "block";
 
@@ -261,9 +268,11 @@ function nextSlide(event) {
     if (!slider) return;
 
     let images = slider.getElementsByClassName("slider-image");
-    let currentIndex = parseInt(slider.dataset.currentIndex) || 0;
+    if (!images.length) return;
 
+    let currentIndex = parseInt(slider.dataset.currentIndex) || 0;
     images[currentIndex].style.display = "none";
+
     currentIndex = (currentIndex + 1) % images.length;
     images[currentIndex].style.display = "block";
 
