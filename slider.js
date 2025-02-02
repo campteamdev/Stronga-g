@@ -10,6 +10,7 @@ console.log("✅ Slider.js załadowany!");
 // **Pobieranie zdjęć z `images.json` tylko dla Górska Sadyba**
 async function fetchImages(name) {
     try {
+        console.log("📡 Pobieram `images.json`...");
         const response = await fetch('/images.json');
         if (!response.ok) throw new Error('❌ Nie udało się pobrać images.json');
 
@@ -22,10 +23,15 @@ async function fetchImages(name) {
             .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
             .replace(/\s+/g, "_");
 
-        console.log("🔎 Sprawdzam klucze:", name, formattedName);
+        console.log("🔎 Szukam zdjęć dla:", name, `(Formatowana: ${formattedName})`);
+
+        // **Debugging – wypiszmy dostępne klucze w images.json**
+        console.log("🔍 Dostępne klucze w images.json:", Object.keys(data));
 
         // **Zwracamy tylko jeśli Górska Sadyba istnieje w bazie**
-        return data[name] || data[formattedName] || [];
+        let images = data[name] || data[formattedName] || [];
+        console.log("📸 Zdjęcia znalezione:", images);
+        return images;
     } catch (error) {
         console.error(error);
         return [];
