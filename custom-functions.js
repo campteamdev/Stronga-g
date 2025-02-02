@@ -206,29 +206,29 @@ document.addEventListener("touchstart", function (event) {
 }, { passive: false });
 async function loadImagesForSlider(name) {
     try {
-        console.log(`🔍 Ładowanie zdjęć dla: ${name}`);
+        console.log(`🔍 Próba załadowania zdjęć dla: ${name}`);
 
         const response = await fetch('/images.json');
         if (!response.ok) throw new Error("Błąd ładowania images.json");
         const imagesData = await response.json();
 
-        const formattedName = name.replace(/\s/g, '_'); // Dopasowanie nazwy do klucza
-        console.log(`📂 Oczekiwany klucz: ${formattedName}`, imagesData);
+        const formattedName = name.replace(/\s/g, '_'); // Zamiana spacji na _
+        console.log(`📂 Oczekiwany klucz w images.json: ${formattedName}`, imagesData);
 
         const sliderContainer = document.getElementById(`slider-${formattedName}`);
         if (!sliderContainer) {
-            console.warn(`⚠️ Nie znaleziono slidera: slider-${formattedName}`);
+            console.warn(`⚠️ Nie znaleziono elementu: slider-${formattedName}`);
             return;
         }
 
-        // Usunięcie poprzednich zdjęć, aby uniknąć duplikatów
+        // Czyszczenie starej zawartości
         sliderContainer.innerHTML = ""; 
 
-        // Pobranie zdjęć z images.json
-        const images = imagesData[name] || imagesData[formattedName] || [];
+        // Pobieranie zdjęć - sprawdzamy różne wersje kluczy
+        const images = imagesData[formattedName] || imagesData[name] || [];
         
         if (images.length === 0) {
-            console.warn(`⚠️ Brak zdjęć w images.json dla: ${name}`);
+            console.warn(`⚠️ Brak zdjęć w images.json dla: ${formattedName}`);
             return;
         }
 
@@ -246,15 +246,15 @@ async function loadImagesForSlider(name) {
             sliderContainer.appendChild(imgElement);
         });
 
-        // Zapisywanie aktualnego indeksu
         sliderContainer.dataset.currentIndex = 0;
-        sliderContainer.dataset.loaded = "true"; // Flaga, że zdjęcia już załadowane
+        sliderContainer.dataset.loaded = "true";
 
-        console.log(`✅ Załadowano ${images.length} zdjęć dla ${name}`);
+        console.log(`✅ Załadowano ${images.length} zdjęć dla ${formattedName}`);
     } catch (error) {
         console.error("❌ Błąd ładowania zdjęć:", error);
     }
 }
+
 
 // Funkcja otwierająca popup
 function openPopup(imageSrc) {
