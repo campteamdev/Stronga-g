@@ -141,34 +141,48 @@ async function fetchImages(name) {
 }
 async function generatePopupContent(name, lat, lon) {
     let sliderHTML = "";
-    
+
     // ✅ **Dodajemy slider tylko dla "Górska Sadyba"**
     if (name === "Górska Sadyba") {
         const images = await fetchImages(name);
         if (images.length > 0) {
+            const sliderClass = `slider-${name.replace(/\s+/g, "_")}`;
             sliderHTML = `
-                <div class="swiper-container slider-${name.replace(/\s+/g, "_")}" style="width:100%; height:150px; margin-bottom: 10px;">
+                <div class="swiper-container ${sliderClass}">
                     <div class="swiper-wrapper">
-                        ${images.map(img => ` 
+                        ${images.map(img => `
                             <div class="swiper-slide">
-                                <img src="${img}" class="slider-img"
-                                    style="width:100%; height:100%; object-fit:cover; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0,0,0,0.3);">
+                                <img src="${img}" class="slider-img">
                             </div>
                         `).join("")}
                     </div>
-                    <div class="swiper-pagination"></div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             `;
+
+            // ✅ **Dynamiczna inicjalizacja Swipera po otwarciu popupu**
+            setTimeout(() => {
+                new Swiper(`.${sliderClass}`, {
+                    loop: true,
+                    pagination: { el: `.${sliderClass} .swiper-pagination`, clickable: true },
+                    navigation: { nextEl: `.${sliderClass} .swiper-button-next`, prevEl: `.${sliderClass} .swiper-button-prev` },
+                    spaceBetween: 10,
+                    slidesPerView: 1,
+                    centeredSlides: true,
+                    autoplay: { delay: 3000 },
+                });
+            }, 100);
         }
     }
 
     // ✅ **Treść popupu (slider na górze)**
     let popupContent = `
-        ${sliderHTML} <!-- ✅ Slider powyżej nazwy -->
-        <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
-            user-select: none;">${name}</div><br>
+        ${sliderHTML} <!-- Slider powyżej nazwy -->
+        <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">
+            ${name}
+        </div><br>
         <div style="max-width: 80%; word-wrap: break-word; user-select: none;">
     `;
 
@@ -210,21 +224,9 @@ async function generatePopupContent(name, lat, lon) {
 
     popupContent += `</div>`; // Zamknięcie kontenera popupu
 
-    // ✅ **Opóźniona inicjalizacja Swiper.js, aby uniknąć błędów**
-    setTimeout(() => {
-        new Swiper(`.slider-${name.replace(/\s+/g, "_")}`, {
-            loop: true,
-            pagination: { el: `.slider-${name.replace(/\s+/g, "_")} .swiper-pagination`, clickable: true },
-            navigation: { nextEl: `.slider-${name.replace(/\s+/g, "_")} .swiper-button-next`, prevEl: `.slider-${name.replace(/\s+/g, "_")} .swiper-button-prev` },
-            spaceBetween: 10,
-            slidesPerView: 1,
-            centeredSlides: true,
-            autoplay: { delay: 3000 }, // Automatyczna zmiana co 3 sekundy
-        });
-    }, 500); // Opóźnienie, aby popup się załadował
-
     return popupContent;
 }
+
 
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
