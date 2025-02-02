@@ -85,7 +85,13 @@ async function showSlider(name) {
     }, 300);
 }
 
-// Obsługa kliknięcia na popup (test - wymuszenie slidera)
+// 🟢 TEST AUTOMATYCZNEGO POKAZANIA SLIDERA PO 5 SEKUNDACH
+setTimeout(() => {
+    console.log("⏳ Test: uruchamiam slider po 5 sekundach...");
+    showSlider("Testowe miejsce");
+}, 5000);
+
+// Obsługa kliknięcia na popup
 document.body.addEventListener("click", async function (event) {
     let popup = event.target.closest(".leaflet-popup-content");
     if (popup) {
