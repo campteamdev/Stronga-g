@@ -697,13 +697,113 @@ document.addEventListener("touchstart", function (event) {
             hidePageOnScreenshot();
         }
     });
-</script>
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+<script>
+async function generatePopupContent(name, lat, lon) {
+    let sliderHTML = "";
+
+    // Pobranie zdjęć dla danego miejsca
+    const images = await fetchImages(name);
+    if (images.length > 0) {
+        let sliderId = `slider-${name.replace(/\s+/g, "_")}`;
+        let prevBtnId = `prev-${name.replace(/\s+/g, "_")}`;
+        let nextBtnId = `next-${name.replace(/\s+/g, "_")}`;
+        let paginationId = `pagination-${name.replace(/\s+/g, "_")}`;
+
+        sliderHTML = `
+            <div class="swiper-container" id="${sliderId}">
+                <div class="swiper-wrapper">
+                    ${images.map(img => `
+                        <div class="swiper-slide">
+                            <img src="${img}" class="slider-img">
+                        </div>
+                    `).join("")}
+                </div>
+                <div class="swiper-button-prev" id="${prevBtnId}"></div>
+                <div class="swiper-button-next" id="${nextBtnId}"></div>
+                <div class="swiper-pagination" id="${paginationId}"></div>
+            </div>
+        `;
+    }
+
+    let popupContent = `
+        ${sliderHTML}
+        <div style="border:2px solid green; padding:3px; font-size:14px; font-weight:bold; max-width:80%;">
+            ${name}
+        </div>
+        <br>
+        <div style="max-width: 80%; word-wrap: break-word;">
+    `;
+
+    // 📌 **Numer telefonu**
+    const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
+    const phoneLink = phone !== "Brak numeru kontaktowego"
+        ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px;">${phone}</a>`
+        : `<span style="font-size:10px;">${phone}</span>`;
+
+    popupContent += `<strong style="font-size:12px;">Kontakt:</strong> ${phoneLink}<br>`;
+
+    // 📌 **Strona internetowa**
+    if (websiteLinksMap[name]) {
+        popupContent += `
+            <strong style="font-size:12px;">Strona:</strong> 
+            <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px;">
+                ${websiteLinksMap[name]}
+            </a><br>`;
+    }
+
+    // 📌 **Opis**
+    popupContent += `<div style="border:2px solid green; padding:2px; font-size:12px;">Opis:</div><br>`;
+    popupContent += descriptionsMap[name]
+        ? `<span style="font-size:10px;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>`
+        : `<span style="font-size:10px;"><i>Brak opisu</i></span>`;
+
+    // 📌 **Infrastruktura**
+    popupContent += `<br><div style="border:2px solid green; padding:2px; font-size:12px;">Infrastruktura:</div><br>`;
+    popupContent += amenitiesMap[name]
+        ? `<span style="font-size:10px;">${amenitiesMap[name]}</span>`
+        : `<span style="font-size:10px;"><i>Brak informacji</i></span>`;
+
+    // 📌 **Linki**
+    popupContent += `
+        <br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px;">Link do Map Google</a>
+        <br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px;">Prowadź</a>
+        <br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px;">Dodaj Zdjęcie/Aktualizuj</a>
+    `;
+
+    popupContent += `</div>`; // Zamknięcie kontenera popupu
+
+    // 📌 **Opóźniona inicjalizacja Swipera po dodaniu popupu do DOM**
+    setTimeout(() => {
+        let sliderElement = document.getElementById(sliderId);
+        if (sliderElement) {
+            let swiper = new Swiper(`#${sliderId}`, {
+                loop: true,
+                pagination: { el: `#${paginationId}`, clickable: true },
+                navigation: { 
+                    nextEl: `#${nextBtnId}`, 
+                    prevEl: `#${prevBtnId}` 
+                },
+                spaceBetween: 10,
+                slidesPerView: 1,
+                centeredSlides: true,
+                autoplay: { delay: 3000 },
+            });
+
+            console.log("✅ Swiper zainicjalizowany dla:", sliderId);
+        } else {
+            console.warn("⚠️ Swiper nie został zainicjalizowany – brak elementu slidera.");
+        }
+    }, 1000);
+
+    return popupContent;
+}
+</script>
 
   </body>
 </html>
