@@ -7,38 +7,18 @@ window.sliderLoadedScript = true;
 
 console.log("✅ Slider.js załadowany!");
 
-// Pobranie danych z images.json
-let imagesData = {};
-
-async function loadImagesData() {
-    try {
-        const response = await fetch("/images.json");
-        if (!response.ok) throw new Error("Błąd pobierania images.json");
-        imagesData = await response.json();
-        console.log("📂 Załadowano images.json:", imagesData);
-    } catch (error) {
-        console.error("❌ Błąd ładowania images.json:", error);
-    }
-}
-
-// Funkcja do uruchomienia slidera
+// 🟢 Funkcja do tworzenia slidera
 async function showSlider(name) {
-    console.log("🔍 Sprawdzam nazwę miejsca:", name);
-    console.log("📂 Lista dostępnych miejsc:", Object.keys(imagesData));
+    console.log("🔍 Uruchamiam slider dla: ", name);
 
-    // Dopasowanie nazwy (uwzględnia różne wielkości liter)
-    const matchingKey = Object.keys(imagesData).find(key => 
-        key.toLowerCase() === name.toLowerCase()
-    );
+    // Testowe dane - zamiast zdjęć dajemy napisy
+    const testImages = [
+        "SLIDER DZIAŁA! (1)",
+        "SLIDER DZIAŁA! (2)",
+        "SLIDER DZIAŁA! (3)"
+    ];
 
-    let images = matchingKey ? imagesData[matchingKey] : [];
-
-    console.log("📷 Liczba znalezionych zdjęć:", images.length);
-
-    // Jeśli brak zdjęć, dodajemy placeholder
-    if (images.length === 0) {
-        images = ["/foty/placeholder.jpg"]; // Możesz dodać własny placeholder
-    }
+    console.log("📷 Tworzę slider z testowymi obrazkami.");
 
     // Tworzymy kontener slidera, jeśli nie istnieje
     let sliderContainer = document.getElementById("campteam-slider");
@@ -46,9 +26,9 @@ async function showSlider(name) {
         sliderContainer = document.createElement("div");
         sliderContainer.id = "campteam-slider";
         sliderContainer.style.position = "fixed";
-        sliderContainer.style.top = "10px";
+        sliderContainer.style.top = "50%";
         sliderContainer.style.left = "50%";
-        sliderContainer.style.transform = "translateX(-50%)";
+        sliderContainer.style.transform = "translate(-50%, -50%)";
         sliderContainer.style.width = "300px";
         sliderContainer.style.height = "200px";
         sliderContainer.style.zIndex = "1000";
@@ -60,13 +40,13 @@ async function showSlider(name) {
         document.body.appendChild(sliderContainer);
     }
 
-    // Generujemy zawartość slidera
+    // Generujemy zawartość slidera z testowym napisem
     let sliderHTML = `
-      <div class="swiper-container" style="width:100%; height:100%;">
+      <div class="swiper-container" style="width:100%; height:100%; text-align:center;">
         <div class="swiper-wrapper">
-          ${images.map(img => `
-            <div class="swiper-slide" style="display:flex; align-items:center; justify-content:center; background:#ddd;">
-              ${img.includes("placeholder") ? `<p style="font-size:18px; font-weight:bold;">Brak zdjęcia dla ${name}</p>` : `<img src="${img}" style="width:100%; height:100%; object-fit:cover;">`}
+          ${testImages.map(txt => `
+            <div class="swiper-slide" style="display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:bold; color:white; background:black;">
+              ${txt}
             </div>
           `).join("")}
         </div>
@@ -105,20 +85,11 @@ async function showSlider(name) {
     }, 300);
 }
 
-// Obsługa kliknięcia na popup
+// Obsługa kliknięcia na popup (test - wymuszenie slidera)
 document.body.addEventListener("click", async function (event) {
     let popup = event.target.closest(".leaflet-popup-content");
     if (popup) {
-        let popupTitle = popup.querySelector("div strong");
-        if (popupTitle) {
-            let campName = popupTitle.textContent.trim();
-            console.log("🟢 Kliknięto na marker: ", campName);
-            await showSlider(campName);
-        } else {
-            console.warn("⚠️ Brak nazwy kempingu w popupie!");
-        }
+        console.log("🟢 Kliknięto na popup, uruchamiam slider!");
+        await showSlider("Testowe miejsce");
     }
 });
-
-// Załaduj dane o zdjęciach na początku
-loadImagesData();
