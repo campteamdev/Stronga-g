@@ -209,21 +209,35 @@ async function loadImagesForSlider(name) {
         if (!response.ok) throw new Error("Błąd ładowania images.json");
         const imagesData = await response.json();
 
-        const formattedName = name.replace(/\s/g, '_');
+        const formattedName = name.replace(/\s/g, '_');  // Zamiana spacji na '_'
+        const alternativeName = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s/g, '_'); // Usunięcie polskich znaków
         const sliderContainer = document.getElementById(`slider-${formattedName}`);
 
-        if (sliderContainer && imagesData[name]) {
-            imagesData[name].forEach((imageSrc) => {
-                const imgElement = document.createElement("img");
-                imgElement.src = imageSrc;
-                imgElement.classList.add("slider-image");
-                sliderContainer.appendChild(imgElement);
-            });
+        if (!sliderContainer) {
+            console.warn(`Nie znaleziono kontenera slidera dla: ${formattedName}`);
+            return;
         }
+
+        // Sprawdzamy, czy istnieją zdjęcia dla obu wersji nazwy
+        const imageList = imagesData[name] || imagesData[formattedName] || imagesData[alternativeName];
+
+        if (!imageList || imageList.length === 0) {
+            console.warn(`Brak zdjęć dla: ${name}`);
+            return;
+        }
+
+        sliderContainer.innerHTML = ""; // Czyścimy poprzednie zdjęcia
+        imageList.forEach((imageSrc) => {
+            const imgElement = document.createElement("img");
+            imgElement.src = imageSrc;
+            imgElement.classList.add("slider-image");
+            sliderContainer.appendChild(imgElement);
+        });
     } catch (error) {
         console.error("Błąd ładowania zdjęć:", error);
     }
 }
+
 function prevSlide(event) {
     const slider = event.target.nextElementSibling;
     if (slider) {
