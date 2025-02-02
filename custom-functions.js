@@ -152,8 +152,7 @@ async function generatePopupContent(name, lat, lon) {
                     <div class="swiper-wrapper">
                         ${images.map(img => `
                             <div class="swiper-slide">
-                                <img src="${img}" class="slider-img"
-                                    style="width:100%; height:100%; object-fit:cover; border-radius: 8px;">
+                                <img src="${img}" class="slider-img">
                             </div>
                         `).join("")}
                     </div>
@@ -166,9 +165,8 @@ async function generatePopupContent(name, lat, lon) {
         }
     }
 
-    // ✅ **Dodajemy resztę treści popupu (inaczej popup może się nie wyświetlać!)**
     let popupContent = `
-        ${sliderHTML} <!-- ✅ Slider jest dodany na górze -->
+        ${sliderHTML}
         <div style="border:2px solid green; padding:3px; font-size:14px; font-weight:bold; max-width:80%;">
             ${name}
         </div>
@@ -214,25 +212,24 @@ async function generatePopupContent(name, lat, lon) {
 
     popupContent += `</div>`; // Zamknięcie kontenera popupu
 
-    // **✅ Zwracamy pełną treść popupu**
+    // 📌 **Inicjalizacja Swipera po otwarciu popupu**
     setTimeout(() => {
         new Swiper(`.slider-${name.replace(/\s+/g, "_")}`, {
             loop: true,
-            pagination: { el: `.slider-${name.replace(/\s+/g, "_")} .swiper-pagination`, clickable: true },
+            pagination: { el: `.${sliderClass} .swiper-pagination`, clickable: true },
             navigation: { 
-                nextEl: `.slider-${name.replace(/\s+/g, "_")} .swiper-button-next`, 
-                prevEl: `.slider-${name.replace(/\s+/g, "_")} .swiper-button-prev` 
+                nextEl: `.${sliderClass} .swiper-button-next`, 
+                prevEl: `.${sliderClass} .swiper-button-prev` 
             },
             spaceBetween: 10,
             slidesPerView: 1,
             centeredSlides: true,
             autoplay: { delay: 3000 }, // Automatyczna zmiana co 3 sekundy
         });
-    }, 300); // ✅ Poczekajmy trochę dłużej, żeby Swiper się poprawnie załadował
+    }, 500); // ✅ Poczekajmy trochę dłużej, żeby Swiper się poprawnie załadował
 
     return popupContent;
 }
-
 
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
