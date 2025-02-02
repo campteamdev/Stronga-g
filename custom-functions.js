@@ -146,6 +146,9 @@ async function generatePopupContent(name, lat, lon) {
     const images = await fetchImages(name);
     if (images.length > 0) {
         let sliderId = `slider-${name.replace(/\s+/g, "_")}`;
+        let prevButtonId = `prev-${sliderId}`;
+        let nextButtonId = `next-${sliderId}`;
+
         sliderHTML = `
             <div class="swiper-container" id="${sliderId}">
                 <div class="swiper-wrapper">
@@ -155,8 +158,8 @@ async function generatePopupContent(name, lat, lon) {
                         </div>
                     `).join("")}
                 </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev" id="${prevButtonId}"></div>
+                <div class="swiper-button-next" id="${nextButtonId}"></div>
                 <div class="swiper-pagination"></div>
             </div>
         `;
@@ -209,7 +212,7 @@ async function generatePopupContent(name, lat, lon) {
 
     popupContent += `</div>`; // Zamknięcie kontenera popupu
 
-    // 📌 **Opóźniona inicjalizacja Swipera po dodaniu popupu do DOM**
+    // 📌 **Poprawiona inicjalizacja Swipera**
     setTimeout(() => {
         let sliderElement = document.getElementById(sliderId);
         if (sliderElement) {
@@ -217,8 +220,8 @@ async function generatePopupContent(name, lat, lon) {
                 loop: true,
                 pagination: { el: `#${sliderId} .swiper-pagination`, clickable: true },
                 navigation: { 
-                    nextEl: `#${sliderId} .swiper-button-next`, 
-                    prevEl: `#${sliderId} .swiper-button-prev` 
+                    nextEl: `#${nextButtonId}`, 
+                    prevEl: `#${prevButtonId}` 
                 },
                 spaceBetween: 10,
                 slidesPerView: 1,
