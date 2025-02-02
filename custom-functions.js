@@ -142,14 +142,12 @@ async function fetchImages(name) {
 async function generatePopupContent(name, lat, lon) {
     let sliderHTML = "";
 
-    // Pobieranie zdjęć dla obiektu
+    // Pobranie zdjęć dla danego miejsca
     const images = await fetchImages(name);
     if (images.length > 0) {
-        let sliderClass = `slider-${name.replace(/\s+/g, "_")}`;
-        let prevBtnClass = `prev-${name.replace(/\s+/g, "_")}`;
-        let nextBtnClass = `next-${name.replace(/\s+/g, "_")}`;
+        let sliderId = `slider-${name.replace(/\s+/g, "_")}`;
         sliderHTML = `
-            <div class="swiper-container ${sliderClass}" style="width:100%; height:200px; margin-bottom: 10px;">
+            <div class="swiper-container" id="${sliderId}">
                 <div class="swiper-wrapper">
                     ${images.map(img => `
                         <div class="swiper-slide">
@@ -157,9 +155,8 @@ async function generatePopupContent(name, lat, lon) {
                         </div>
                     `).join("")}
                 </div>
-                <!-- Strzałki nawigacyjne -->
-                <div class="swiper-button-prev ${prevBtnClass}"></div>
-                <div class="swiper-button-next ${nextBtnClass}"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
                 <div class="swiper-pagination"></div>
             </div>
         `;
@@ -212,20 +209,25 @@ async function generatePopupContent(name, lat, lon) {
 
     popupContent += `</div>`; // Zamknięcie kontenera popupu
 
-    // 📌 **Inicjalizacja Swipera po otwarciu popupu**
+    // 📌 **Opóźniona inicjalizacja Swipera po dodaniu popupu do DOM**
     setTimeout(() => {
-        new Swiper(`.${sliderClass}`, {
-            loop: true,
-            pagination: { el: `.${sliderClass} .swiper-pagination`, clickable: true },
-            navigation: { 
-                nextEl: `.${nextBtnClass}`, 
-                prevEl: `.${prevBtnClass}` 
-            },
-            spaceBetween: 10,
-            slidesPerView: 1,
-            centeredSlides: true,
-            autoplay: { delay: 3000 },
-        });
+        let sliderElement = document.getElementById(sliderId);
+        if (sliderElement) {
+            new Swiper(`#${sliderId}`, {
+                loop: true,
+                pagination: { el: `#${sliderId} .swiper-pagination`, clickable: true },
+                navigation: { 
+                    nextEl: `#${sliderId} .swiper-button-next`, 
+                    prevEl: `#${sliderId} .swiper-button-prev` 
+                },
+                spaceBetween: 10,
+                slidesPerView: 1,
+                centeredSlides: true,
+                autoplay: { delay: 3000 },
+            });
+        } else {
+            console.warn("⚠️ Swiper nie został zainicjalizowany – brak elementu slidera.");
+        }
     }, 500);
 
     return popupContent;
