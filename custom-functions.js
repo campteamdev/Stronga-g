@@ -117,7 +117,10 @@ function shortenText(text, id) {
 }
 
 function generatePopupContent(name, lat, lon) {
-    let popupContent = `
+  console.log(`📸 Sprawdzam slider dla: ${name}`);
+console.log(document.getElementById(`slider-${name.replace(/\s/g, '_')}`));
+ 
+  let popupContent = `
         <div class="slider-container">
             <button class="slider-prev" onclick="prevSlide(event)">&#10094;</button>
            <div class="slider-images" id="slider-${name}"></div>
