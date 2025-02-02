@@ -142,15 +142,14 @@ async function fetchImages(name) {
 
 async function generatePopupContent(name, lat, lon) {
     let sliderHTML = "";
-    
+    let sliderClass = `slider-${name.replace(/\s+/g, "_")}`;
+
     // ✅ **Dodajemy slider tylko dla "Górska Sadyba"**
     if (name === "Górska Sadyba") {
         const images = await fetchImages(name);
         if (images.length > 0) {
-            const sliderClass = `slider-${name.replace(/\s+/g, "_")}`;
-            
             sliderHTML = `
-                <div class="swiper ${sliderClass}" style="width:100%; height:150px; margin-bottom: 10px;">
+                <div class="swiper-container ${sliderClass}" style="width:100%; height:150px; margin-bottom: 10px; overflow: hidden;">
                     <div class="swiper-wrapper">
                         ${images.map(img => `
                             <div class="swiper-slide">
@@ -213,21 +212,38 @@ async function generatePopupContent(name, lat, lon) {
 
     popupContent += `</div>`; // Zamknięcie kontenera popupu
 
-    // ✅ **Zwracamy popupContent i inicjalizujemy Swiper po otwarciu popupu**
-    setTimeout(() => {
-        new Swiper(`.swiper`, {
-            loop: true,
-            pagination: { el: ".swiper-pagination", clickable: true },
-            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-            spaceBetween: 10,
-            slidesPerView: 1,
-            centeredSlides: true,
-            autoplay: { delay: 3000 }, // Automatyczna zmiana co 3 sekundy
-        });
-    }, 500); // Opóźnienie inicjalizacji po otwarciu popupu
-
     return popupContent;
 }
+
+// ✅ **Poprawiona inicjalizacja Swiper po otwarciu popupu**
+async function updatePopups(markers) {
+    for (const { marker, name, lat, lon } of markers) {
+        const content = await generatePopupContent(name, lat, lon);
+        marker.bindPopup(content, {
+            minWidth: 200,  // Minimalna szerokość popupu
+            maxWidth: 220,  // Maksymalna szerokość popupu
+            maxHeight: 300, // Maksymalna wysokość popupu
+            autoPan: true   // Automatyczne przesuwanie mapy, gdy popup wychodzi poza ekran
+        });
+
+        marker.on("popupopen", () => {
+            setTimeout(() => {
+                if (document.querySelector(".swiper")) {
+                    new Swiper(".swiper", {
+                        loop: true,
+                        pagination: { el: ".swiper-pagination", clickable: true },
+                        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+                        spaceBetween: 10,
+                        slidesPerView: 1,
+                        centeredSlides: true,
+                        autoplay: { delay: 3000 }, // Automatyczna zmiana co 3 sekundy
+                    });
+                }
+            }, 300);
+        });
+    }
+}
+
 
 
 
