@@ -37,7 +37,8 @@ async function showSlider(name) {
     console.log("🔍 Pobieram zdjęcia dla:", name);
     
     const validImages = await fetchImages(name);
-    
+    console.log("📸 Zdjęcia znalezione:", validImages);
+
     if (validImages.length === 0) {
         console.warn("🚫 Brak zdjęć dla:", name);
         return;
@@ -57,7 +58,7 @@ async function showSlider(name) {
         <div class="swiper-wrapper">
           ${validImages.map(img => `
             <div class="swiper-slide">
-              <img src="${img}" style="width:100%; height:100%; object-fit:cover; border-radius: 10px;">
+              <img src="${img}" class="slider-img" style="width:100%; height:100%; object-fit:cover; border-radius: 10px;">
             </div>
           `).join("")}
         </div>
@@ -78,6 +79,16 @@ async function showSlider(name) {
             navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
         });
     }, 100);
+
+    // **Obsługa błędów ładowania obrazów**
+    document.querySelectorAll('.slider-img').forEach(img => {
+        img.onerror = function () {
+            console.error(`❌ Błąd ładowania zdjęcia: ${this.src}`);
+            this.src = "/foty/default.jpg"; // Fallback na zdjęcie zastępcze
+        };
+    });
+
+    console.log("🚀 Slider dodany!");
 }
 
 // Obsługa kliknięcia w popup, aby wywołać slider
