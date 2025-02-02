@@ -143,49 +143,50 @@ async function fetchImages(name) {
 async function generatePopupContent(name, lat, lon) {
     let sliderHTML = "";
     
-    // **Dodajemy slider tylko dla "Górska Sadyba"**
+    // ✅ **Dodajemy slider tylko dla "Górska Sadyba"**
     if (name === "Górska Sadyba") {
         const images = await fetchImages(name);
         if (images.length > 0) {
             sliderHTML = `
-                <div class="swiper-container slider-${name.replace(/\s+/g, "_")}" style="width:100%; height:160px; margin-bottom: 10px; position: relative;">
+                <div class="swiper-container slider-${name.replace(/\s+/g, "_")}" style="width:100%; height:150px; margin-bottom: 10px;">
                     <div class="swiper-wrapper">
                         ${images.map(img => `
                             <div class="swiper-slide">
-                                <img src="${img}" class="slider-img" 
+                                <img src="${img}" class="slider-img"
                                     style="width:100%; height:100%; object-fit:cover; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0,0,0,0.3);">
                             </div>
                         `).join("")}
                     </div>
+                    <div class="swiper-pagination"></div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
-                    <div class="swiper-pagination"></div>
                 </div>
-                <script>
-                    setTimeout(() => {
-                        new Swiper('.slider-${name.replace(/\s+/g, "_")}', {
-                            loop: true,
-                            pagination: { el: '.swiper-pagination', clickable: true },
-                            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-                            spaceBetween: 10,
-                            slidesPerView: 1,
-                            centeredSlides: true,
-                        });
-                    }, 500);
-                </script>
             `;
+
+            // **✅ Dynamiczna inicjalizacja Swipera po otwarciu popupu**
+            setTimeout(() => {
+                new Swiper(`.slider-${name.replace(/\s+/g, "_")}`, {
+                    loop: true,
+                    pagination: { el: `.slider-${name.replace(/\s+/g, "_")} .swiper-pagination`, clickable: true },
+                    navigation: { nextEl: `.slider-${name.replace(/\s+/g, "_")} .swiper-button-next`, prevEl: `.slider-${name.replace(/\s+/g, "_")} .swiper-button-prev` },
+                    spaceBetween: 10,
+                    slidesPerView: 1,
+                    centeredSlides: true,
+                    autoplay: { delay: 3000 }, // Automatyczna zmiana co 3 sekundy
+                });
+            }, 100);
         }
     }
 
-    // **Treść popupu**
+    // ✅ **Treść popupu (slider na górze)**
     let popupContent = `
-        ${sliderHTML} <!-- Najpierw slider -->
+        ${sliderHTML} <!-- ✅ Slider powyżej nazwy -->
         <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
             user-select: none;">${name}</div><br>
         <div style="max-width: 80%; word-wrap: break-word; user-select: none;">
     `;
 
-    // **Numer telefonu**
+    // ✅ **Numer telefonu**
     const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
     const phoneLink = phone !== "Brak numeru kontaktowego"
         ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px; user-select: none;">${phone}</a>`
@@ -193,7 +194,7 @@ async function generatePopupContent(name, lat, lon) {
 
     popupContent += `<strong style="font-size:12px; user-select: none;">Kontakt:</strong> ${phoneLink}<br>`;
 
-    // **Strona internetowa**
+    // ✅ **Strona internetowa**
     if (websiteLinksMap[name]) {
         popupContent += `
             <strong style="font-size:12px; user-select: none;">Strona:</strong> 
@@ -202,19 +203,19 @@ async function generatePopupContent(name, lat, lon) {
             </a><br>`;
     }
 
-    // **Opis**
+    // ✅ **Opis**
     popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
     popupContent += descriptionsMap[name]
         ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>`
         : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
 
-    // **Infrastruktura**
+    // ✅ **Infrastruktura**
     popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
     popupContent += amenitiesMap[name]
         ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>`
         : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
 
-    // **Linki**
+    // ✅ **Linki**
     popupContent += `
         <br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>
         <br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px; user-select: none;">Prowadź</a>
