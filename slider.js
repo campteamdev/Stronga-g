@@ -7,40 +7,21 @@ window.sliderLoadedScript = true;
 
 console.log("✅ Slider.js załadowany!");
 
-// Pobranie zdjęć z `images.json`
-async function fetchImages(name) {
-    try {
-        const response = await fetch('/images.json');
-        if (!response.ok) throw new Error('❌ Nie udało się pobrać images.json');
-        
-        const data = await response.json();
-        console.log("📂 Załadowano images.json:", data);
+// **TESTOWE zdjęcia dla każdej lokalizacji**
+const testImages = [
+    "/foty/Gorska_Sadyba_1.jpeg",
+    "/foty/Gorska_Sadyba_2.jpg"
+];
 
-        // Formatowanie nazwy: usunięcie polskich znaków, spacje na "_"
-        const formattedName = name
-            .trim()
-            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-            .replace(/\s+/g, "_");
-
-        console.log("🔎 Sprawdzam klucze:", name, formattedName);
-
-        // Sprawdzamy oba warianty nazwy w pliku JSON
-        return data[name] || data[formattedName] || []; 
-    } catch (error) {
-        console.error(error);
-        return [];
-    }
-}
-
-// Tworzenie i wyświetlanie slidera w popupie
+// **Tworzenie i wyświetlanie slidera w popupie**
 async function showSlider(name) {
-    console.log("🔍 Pobieram zdjęcia dla:", name);
-    
-    const validImages = await fetchImages(name);
-    console.log("📸 Zdjęcia znalezione:", validImages);
+    console.log("🔍 Wywołano slider dla:", name);
 
+    // **ZAMIENIAMY POBIERANIE Z images.json NA TESTOWE**
+    const validImages = testImages;
+    
     if (validImages.length === 0) {
-        console.warn("🚫 Brak zdjęć dla:", name);
+        console.warn("🚫 Brak zdjęć (TESTOWE)", name);
         return;
     }
 
@@ -80,6 +61,8 @@ async function showSlider(name) {
         });
     }, 100);
 
+    console.log("🚀 Slider dodany!");
+
     // **Obsługa błędów ładowania obrazów**
     document.querySelectorAll('.slider-img').forEach(img => {
         img.onerror = function () {
@@ -87,11 +70,9 @@ async function showSlider(name) {
             this.src = "/foty/default.jpg"; // Fallback na zdjęcie zastępcze
         };
     });
-
-    console.log("🚀 Slider dodany!");
 }
 
-// Obsługa kliknięcia w popup, aby wywołać slider
+// **Obsługa kliknięcia w popup, aby wywołać slider**
 document.body.addEventListener("click", async function (event) {
     let popup = event.target.closest(".leaflet-popup-content");
     if (popup) {
