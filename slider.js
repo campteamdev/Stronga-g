@@ -96,7 +96,7 @@ async function addSliderToPopup(name, popupContent) {
     });
 }
 
-// **Obsługa otwierania popupów**
+// **Dodaj slider już podczas generowania popupu**
 map.on("popupopen", async function (e) {
     let popupContent = e.popup._contentNode;
 
