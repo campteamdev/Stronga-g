@@ -118,6 +118,9 @@ function shortenText(text, id) {
 
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
+  // Normalizacja nazwy, usunięcie spacji i polskich znaków do ID slidera
+  let safeName = name.replace(/\s+/g, "_").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
   let popupContent = `
     <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
       user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
@@ -125,12 +128,12 @@ function generatePopupContent(name, lat, lon) {
     </div><br>
 
     <!-- 🔹 Slider Swiper -->
-    <div class="swiper-container" id="slider-${name}" style="width:100%; max-width:300px; height:auto; display:none;">
+    <div class="swiper-container" id="slider-${safeName}" style="width:100%; max-width:300px; height:auto; display:none;">
       <div class="swiper-wrapper"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
-    <div id="slider-message-${name}" style="font-size:12px; color:red; text-align:center;"></div>
+    <div id="slider-message-${safeName}" style="font-size:12px; color:red; text-align:center;"></div>
 
     <!-- 🔹 Kontakt -->
     <strong style="font-size:12px; user-select: none;">Kontakt:</strong> 
@@ -143,7 +146,7 @@ function generatePopupContent(name, lat, lon) {
     <!-- 🔹 Opis -->
     <div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>
     ${descriptionsMap[name] 
-      ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+      ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], \`opis-${safeName}\`)}</span>` 
       : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`}
 
     <!-- 🔹 Infrastruktura -->
@@ -162,41 +165,6 @@ function generatePopupContent(name, lat, lon) {
   return popupContent;
 }
 
-
-
-  // Numer telefonu
-  const phone = phoneNumbersMap[name] || "Brak numeru kontaktowego";
-  const phoneLink =
-    phone !== "Brak numeru kontaktowego"
-      ? `<a href="tel:${phone}" style="color:blue; text-decoration:none; font-size:10px; user-select: none;">${phone}</a>`
-      : `<span style="font-size:10px; user-select: none;">${phone}</span>`;
-  popupContent += `<strong style="font-size:12px; user-select: none;">Kontakt:</strong> ${phoneLink}<br>`;
-
-  // Strona internetowa
-  if (websiteLinksMap[name]) {
-    popupContent += `<strong style="font-size:12px; user-select: none;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px; user-select: none;">${websiteLinksMap[name]}</a><br>`;
-  }
-
-  // Opis
-  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
-  popupContent += descriptionsMap[name] 
-    ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-    : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
-
-  // Infrastruktura
-  popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
-  popupContent += amenitiesMap[name] 
-    ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>` 
-    : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
-
-  // Linki
-  popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>`;
-  popupContent += `<br><a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button" style="font-size:12px; user-select: none;">Prowadź</a>`;
-  popupContent += `<br><a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="update-button" style="font-size:12px; user-select: none;">Dodaj Zdjęcię/Aktualizuj</a>`;
-
-  popupContent += `</div>`; // Zamknięcie kontenera popupu
-  return popupContent;
-}
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
 function updatePopups(markers) {
