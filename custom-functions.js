@@ -282,6 +282,11 @@ function openPopup(imageSrc) {
     let popup = document.getElementById("imagePopup");
     let popupImg = document.getElementById("popupImage");
 
+    if (!imageSrc || imageSrc.trim() === "") {
+        console.warn("⚠️ Błąd: Brak poprawnego linku do zdjęcia!");
+        return;
+    }
+
     popupImg.src = imageSrc;
     popup.style.display = "flex";
 }
