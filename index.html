@@ -634,42 +634,7 @@ document.addEventListener("touchstart", function (event) {
 
     </script>
 
- <script>
-    let keyPressed = {}; // Obiekt do śledzenia wciśniętych klawiszy
 
-    document.addEventListener("keydown", function (event) {
-        if (keyPressed[event.key]) return; // Ignoruj, jeśli klawisz już wciśnięty
-        keyPressed[event.key] = true; // Oznacz klawisz jako wciśnięty
-
-        if (
-            event.key === "F12" || 
-            (event.ctrlKey && event.shiftKey && event.key === "I") ||  // Windows: Ctrl + Shift + I
-            (event.ctrlKey && event.key === "U") ||  // Windows: Ctrl + U
-            (event.metaKey && event.altKey && event.key === "I") ||  // Mac: ⌘ + Option + I
-            (event.metaKey && event.key === "U")  // Mac: ⌘ + U
-        ) {
-            event.preventDefault();
-            console.clear(); // Czyści konsolę, jeśli otwarta
-            window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-        }
-    });
-
-    // Resetowanie statusu klawiszy po ich puszczeniu
-    document.addEventListener("keyup", function (event) {
-        delete keyPressed[event.key];
-    });
-
-    // 🔹 Wykrywanie otwarcia narzędzi deweloperskich 🔹
-    setInterval(function() {
-        let before = new Date().getTime();
-        debugger; // Zatrzymuje kod, jeśli otwarta konsola
-        let after = new Date().getTime();
-        if (after - before > 100) {
-            window.stop(); // Zatrzymuje ładowanie strony
-            window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-        }
-    }, 1000); // Sprawdzaj co 1 sekundę
-</script>
 
 <script>
     document.addEventListener("keydown", function(event) {
