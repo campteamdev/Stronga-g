@@ -148,7 +148,7 @@ async function generatePopupContent(name, lat, lon) {
         const images = await fetchImages(name);
         if (images.length > 0) {
             sliderHTML = `
-                <div class="swiper-container" style="width:100%; height:160px; margin-bottom: 10px; position: relative;">
+                <div class="swiper-container slider-${name.replace(/\s+/g, "_")}" style="width:100%; height:160px; margin-bottom: 10px; position: relative;">
                     <div class="swiper-wrapper">
                         ${images.map(img => `
                             <div class="swiper-slide">
@@ -157,10 +157,22 @@ async function generatePopupContent(name, lat, lon) {
                             </div>
                         `).join("")}
                     </div>
-                    <div class="swiper-button-prev" style="left: 5px; color: white;"></div>
-                    <div class="swiper-button-next" style="right: 5px; color: white;"></div>
-                    <div class="swiper-pagination" style="bottom: 5px;"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
+                <script>
+                    setTimeout(() => {
+                        new Swiper('.slider-${name.replace(/\s+/g, "_")}', {
+                            loop: true,
+                            pagination: { el: '.swiper-pagination', clickable: true },
+                            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                            spaceBetween: 10,
+                            slidesPerView: 1,
+                            centeredSlides: true,
+                        });
+                    }, 500);
+                </script>
             `;
         }
     }
