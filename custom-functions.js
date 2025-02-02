@@ -224,4 +224,17 @@ async function loadImagesForSlider(name) {
         console.error("Błąd ładowania zdjęć:", error);
     }
 }
+function prevSlide(event) {
+    const slider = event.target.nextElementSibling;
+    if (slider) {
+        slider.scrollLeft -= slider.clientWidth;
+    }
+}
+
+function nextSlide(event) {
+    const slider = event.target.previousElementSibling;
+    if (slider) {
+        slider.scrollLeft += slider.clientWidth;
+    }
+}
 
