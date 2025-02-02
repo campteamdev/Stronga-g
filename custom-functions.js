@@ -212,33 +212,33 @@ async function loadImagesForSlider(name) {
         if (!response.ok) throw new Error("Błąd ładowania images.json");
         const imagesData = await response.json();
 
-        // 🚀 Nowość: Spróbuj znaleźć nazwę w 2 wersjach (z i bez podkreślników)
-        const formattedName = name.replace(/\s/g, '_');
-        const originalName = name;
-
-        let images = imagesData[formattedName] || imagesData[originalName];
-
-        if (!images) {
-            console.warn(`⚠️ Brak zdjęć dla: ${name} (${formattedName})`);
-            return;
-        }
+        const formattedName = name.replace(/\s/g, '_'); // Dopasowanie nazwy do klucza
+        console.log(`📂 Oczekiwany klucz: ${formattedName}`, imagesData);
 
         const sliderContainer = document.getElementById(`slider-${formattedName}`);
         if (!sliderContainer) {
-            console.warn(`⚠️ Nie znaleziono slidera dla: slider-${formattedName}`);
+            console.warn(`⚠️ Nie znaleziono slidera: slider-${formattedName}`);
             return;
         }
 
-        // 🚀 **Nowość**: Usuń stare zdjęcia, aby załadować nowe
-        sliderContainer.innerHTML = "";
+        // Usunięcie poprzednich zdjęć, aby uniknąć duplikatów
+        sliderContainer.innerHTML = ""; 
+
+        // Pobranie zdjęć z images.json
+        const images = imagesData[name] || imagesData[formattedName] || [];
+        
+        if (images.length === 0) {
+            console.warn(`⚠️ Brak zdjęć w images.json dla: ${name}`);
+            return;
+        }
 
         images.forEach((imageSrc, index) => {
             const imgElement = document.createElement("img");
             imgElement.src = imageSrc;
             imgElement.classList.add("slider-image");
-            imgElement.style.display = index === 0 ? "block" : "none"; // Pokazuj tylko pierwszy obrazek
+            imgElement.style.display = index === 0 ? "block" : "none"; // Pokazuj tylko 1 obrazek
 
-            // **Dodaj event click do powiększenia zdjęcia**
+            // Obsługa kliknięcia – otwieranie w popupie
             imgElement.addEventListener("click", function () {
                 openPopup(this.src);
             });
@@ -246,45 +246,17 @@ async function loadImagesForSlider(name) {
             sliderContainer.appendChild(imgElement);
         });
 
-        sliderContainer.dataset.currentIndex = 0; // Reset indeksu zdjęcia
+        // Zapisywanie aktualnego indeksu
+        sliderContainer.dataset.currentIndex = 0;
+        sliderContainer.dataset.loaded = "true"; // Flaga, że zdjęcia już załadowane
+
         console.log(`✅ Załadowano ${images.length} zdjęć dla ${name}`);
     } catch (error) {
         console.error("❌ Błąd ładowania zdjęć:", error);
     }
 }
 
-
-function prevSlide(event) {
-    const slider = event.target.nextElementSibling;
-    if (!slider) return;
-
-    let images = slider.getElementsByClassName("slider-image");
-    if (!images.length) return;
-
-    let currentIndex = parseInt(slider.dataset.currentIndex) || 0;
-    images[currentIndex].style.display = "none";
-
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    images[currentIndex].style.display = "block";
-
-    slider.dataset.currentIndex = currentIndex;
-}
-
-function nextSlide(event) {
-    const slider = event.target.previousElementSibling;
-    if (!slider) return;
-
-    let images = slider.getElementsByClassName("slider-image");
-    if (!images.length) return;
-
-    let currentIndex = parseInt(slider.dataset.currentIndex) || 0;
-    images[currentIndex].style.display = "none";
-
-    currentIndex = (currentIndex + 1) % images.length;
-    images[currentIndex].style.display = "block";
-
-    slider.dataset.currentIndex = currentIndex;
-}
+// Funkcja otwierająca popup
 function openPopup(imageSrc) {
     let popup = document.getElementById("imagePopup");
     let popupImg = document.getElementById("popupImage");
@@ -298,11 +270,12 @@ function openPopup(imageSrc) {
     popup.style.display = "flex";
 }
 
+// Funkcja zamykająca popup
 function closePopup() {
     document.getElementById("imagePopup").style.display = "none";
 }
 
-// Dodaj nasłuchiwanie kliknięcia dla obrazków w sliderze
+// Dodanie obsługi kliknięcia na slider
 document.body.addEventListener("click", function (event) {
     if (event.target.classList.contains("slider-image")) {
         openPopup(event.target.src);
