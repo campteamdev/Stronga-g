@@ -164,25 +164,12 @@ async function generatePopupContent(name, lat, lon) {
                     <div class="swiper-button-next"></div>
                 </div>
             `;
-
-            // **✅ Dynamiczna inicjalizacja Swipera po otwarciu popupu**
-            setTimeout(() => {
-                new Swiper(`.${sliderClass}`, {
-                    loop: true,
-                    pagination: { el: `.${sliderClass} .swiper-pagination`, clickable: true },
-                    navigation: { nextEl: `.${sliderClass} .swiper-button-next`, prevEl: `.${sliderClass} .swiper-button-prev` },
-                    spaceBetween: 10,
-                    slidesPerView: 1,
-                    centeredSlides: true,
-                    autoplay: { delay: 3000 }, // Automatyczna zmiana co 3 sekundy
-                });
-            }, 300); // Opóźnienie inicjalizacji po dodaniu do DOM
         }
     }
 
-    // ✅ **Treść popupu (slider na górze)**
+    // ✅ **Treść popupu**
     let popupContent = `
-        ${sliderHTML} <!-- ✅ Slider powyżej nazwy -->
+        ${sliderHTML}
         <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
             user-select: none;">${name}</div><br>
         <div style="max-width: 80%; word-wrap: break-word; user-select: none;">
@@ -226,8 +213,22 @@ async function generatePopupContent(name, lat, lon) {
 
     popupContent += `</div>`; // Zamknięcie kontenera popupu
 
+    // ✅ **Zwracamy popupContent i inicjalizujemy Swiper po otwarciu popupu**
+    setTimeout(() => {
+        new Swiper(`.swiper`, {
+            loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+            spaceBetween: 10,
+            slidesPerView: 1,
+            centeredSlides: true,
+            autoplay: { delay: 3000 }, // Automatyczna zmiana co 3 sekundy
+        });
+    }, 500); // Opóźnienie inicjalizacji po otwarciu popupu
+
     return popupContent;
 }
+
 
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
