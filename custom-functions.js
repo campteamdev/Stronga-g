@@ -146,36 +146,44 @@ async function generatePopupContent(name, lat, lon) {
     if (name === "Górska Sadyba") {
         const images = await fetchImages(name);
         if (images.length > 0) {
-            const sliderClass = `slider-${name.replace(/\s+/g, "_")}`;
+            let sliderClass = `slider-${name.replace(/\s+/g, "_")}`;
             sliderHTML = `
-                <div class="swiper-container ${sliderClass}">
+                <div class="swiper-container ${sliderClass}" style="width:100%; height:180px; margin-bottom: 10px;">
                     <div class="swiper-wrapper">
                         ${images.map(img => `
                             <div class="swiper-slide">
-                                <img src="${img}" class="slider-img">
+                                <img src="${img}" class="slider-img"
+                                    style="width:100%; height:100%; object-fit:cover; border-radius: 8px;">
                             </div>
                         `).join("")}
                     </div>
+                    <!-- Strzałki nawigacyjne -->
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-pagination"></div>
                 </div>
             `;
 
-            // ✅ **Dynamiczna inicjalizacja Swipera po otwarciu popupu**
+            // **✅ Dynamiczna inicjalizacja Swipera po otwarciu popupu**
             setTimeout(() => {
                 new Swiper(`.${sliderClass}`, {
                     loop: true,
                     pagination: { el: `.${sliderClass} .swiper-pagination`, clickable: true },
-                    navigation: { nextEl: `.${sliderClass} .swiper-button-next`, prevEl: `.${sliderClass} .swiper-button-prev` },
+                    navigation: { 
+                        nextEl: `.${sliderClass} .swiper-button-next`, 
+                        prevEl: `.${sliderClass} .swiper-button-prev` 
+                    },
                     spaceBetween: 10,
                     slidesPerView: 1,
                     centeredSlides: true,
-                    autoplay: { delay: 3000 },
+                    autoplay: { delay: 3000 }, // Automatyczna zmiana co 3 sekundy
                 });
             }, 100);
         }
     }
+
+    return sliderHTML;
+}
 
     // ✅ **Treść popupu (slider na górze)**
     let popupContent = `
