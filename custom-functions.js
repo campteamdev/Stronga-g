@@ -147,10 +147,9 @@ async function fetchImages(name) {
     }
 }
 async function generatePopupContent(name, lat, lon) {
+    let images = await fetchImages(name); // Pobranie zdjęć dla danego miejsca
     let sliderHTML = "";
 
-    // Pobranie zdjęć dla danego miejsca
-    const images = await fetchImages(name);
     if (images.length > 0) {
         let sliderId = `slider-${name.replace(/\s+/g, "_")}`;
         let prevButtonId = `prev-${sliderId}`;
@@ -165,11 +164,27 @@ async function generatePopupContent(name, lat, lon) {
                         </div>
                     `).join("")}
                 </div>
-                <div class="swiper-button-prev" id="${prevButtonId}"></div>
-                <div class="swiper-button-next" id="${nextButtonId}"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
                 <div class="swiper-pagination"></div>
             </div>
         `;
+
+        // Opóźnienie inicjalizacji Swipera, aby zapewnić, że slider jest już w DOM
+        setTimeout(() => {
+            new Swiper(`#${sliderId}`, {
+                loop: true,
+                pagination: { el: `#${sliderId} .swiper-pagination`, clickable: true },
+                navigation: { 
+                    nextEl: `#${sliderId} .swiper-button-next`, 
+                    prevEl: `#${sliderId} .swiper-button-prev` 
+                },
+                spaceBetween: 10,
+                slidesPerView: 1,
+                centeredSlides: true,
+                autoplay: { delay: 3000 },
+            });
+        }, 500);
     }
 
     let popupContent = `
@@ -218,27 +233,6 @@ async function generatePopupContent(name, lat, lon) {
     `;
 
     popupContent += `</div>`; // Zamknięcie kontenera popupu
-
-    // 📌 **Poprawiona inicjalizacja Swipera**
-    setTimeout(() => {
-        let sliderElement = document.getElementById(sliderId);
-        if (sliderElement) {
-            new Swiper(`#${sliderId}`, {
-                loop: true,
-                pagination: { el: `#${sliderId} .swiper-pagination`, clickable: true },
-                navigation: { 
-                    nextEl: `#${nextButtonId}`, 
-                    prevEl: `#${prevButtonId}` 
-                },
-                spaceBetween: 10,
-                slidesPerView: 1,
-                centeredSlides: true,
-                autoplay: { delay: 3000 },
-            });
-        } else {
-            console.warn("⚠️ Swiper nie został zainicjalizowany – brak elementu slidera.");
-        }
-    }, 500);
 
     return popupContent;
 }
