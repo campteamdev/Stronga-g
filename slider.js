@@ -7,8 +7,8 @@ window.sliderLoadedScript = true;
 
 console.log("✅ Slider.js załadowany!");
 
-// 🟢 Funkcja do tworzenia slidera
-async function showSlider(name) {
+// 🟢 Funkcja do tworzenia slidera w miejscu markera
+async function showSlider(name, lat, lon) {
     console.log("🔍 Uruchamiam slider dla: ", name);
 
     // Testowe dane - zamiast zdjęć dajemy napisy
@@ -25,10 +25,7 @@ async function showSlider(name) {
     if (!sliderContainer) {
         sliderContainer = document.createElement("div");
         sliderContainer.id = "campteam-slider";
-        sliderContainer.style.position = "fixed";
-        sliderContainer.style.top = "50%";
-        sliderContainer.style.left = "50%";
-        sliderContainer.style.transform = "translate(-50%, -50%)";
+        sliderContainer.style.position = "absolute";
         sliderContainer.style.width = "300px";
         sliderContainer.style.height = "200px";
         sliderContainer.style.zIndex = "1000";
@@ -37,7 +34,19 @@ async function showSlider(name) {
         sliderContainer.style.borderRadius = "10px";
         sliderContainer.style.padding = "10px";
         sliderContainer.style.display = "none";
+        sliderContainer.style.transform = "translate(-50%, -100%)";
         document.body.appendChild(sliderContainer);
+    }
+
+    // Ustawienie pozycji nad markerem
+    const map = document.getElementById("map");
+    if (map) {
+        const rect = map.getBoundingClientRect();
+        const x = rect.left + (lon * rect.width / 360) + 180;
+        const y = rect.top + (lat * rect.height / 180) + 90;
+
+        sliderContainer.style.left = `${x}px`;
+        sliderContainer.style.top = `${y}px`;
     }
 
     // Generujemy zawartość slidera z testowym napisem
@@ -85,17 +94,24 @@ async function showSlider(name) {
     }, 300);
 }
 
-// 🟢 **Teraz wymusimy otwarcie slidera, gdy użytkownik kliknie w popup**
+// 🟢 **Event kliknięcia na popup – pobieranie koordynatów markera**
 document.body.addEventListener("click", async function (event) {
     let popup = event.target.closest(".leaflet-popup-content");
     if (popup) {
         let popupTitle = popup.querySelector("strong");
-        if (popupTitle) {
+        let marker = event.target.closest(".leaflet-marker-icon");
+
+        if (popupTitle && marker) {
             let campName = popupTitle.textContent.trim();
+            let lat = parseFloat(marker.dataset.lat);
+            let lon = parseFloat(marker.dataset.lon);
+
             console.log("🟢 Kliknięto na popup: ", campName);
-            await showSlider(campName);
+            console.log("📍 Lokalizacja: ", lat, lon);
+
+            await showSlider(campName, lat, lon);
         } else {
-            console.warn("⚠️ Brak nazwy w popupie!");
+            console.warn("⚠️ Brak nazwy lub marker nie został znaleziony!");
         }
     }
 });
