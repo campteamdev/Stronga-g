@@ -7,7 +7,7 @@ window.sliderLoadedScript = true;
 
 console.log("✅ Slider.js załadowany!");
 
-// **Pobieranie zdjęć z `images.json` tylko dla Górska Sadyba**
+// **Pobranie zdjęć z `images.json` dla `Górska Sadyba`**
 async function fetchImages(name) {
     try {
         console.log("📡 Pobieram `images.json`...");
@@ -17,7 +17,7 @@ async function fetchImages(name) {
         const data = await response.json();
         console.log("📂 Załadowano images.json:", data);
 
-        // **Formatowanie nazwy kempingu**
+        // **Formatowanie nazwy**
         const formattedName = name
             .trim()
             .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -25,20 +25,14 @@ async function fetchImages(name) {
 
         console.log("🔎 Szukam zdjęć dla:", name, `(Formatowana: ${formattedName})`);
 
-        // **Debugging – wypiszmy dostępne klucze w images.json**
-        console.log("🔍 Dostępne klucze w images.json:", Object.keys(data));
-
-        // **Zwracamy tylko jeśli Górska Sadyba istnieje w bazie**
-        let images = data[name] || data[formattedName] || [];
-        console.log("📸 Zdjęcia znalezione:", images);
-        return images;
+        return data[name] || data[formattedName] || []; 
     } catch (error) {
         console.error(error);
         return [];
     }
 }
 
-// **Funkcja dodająca slider do popupu (tylko dla Górska Sadyba)**
+// **Dodawanie slidera do popupu dla `Górska Sadyba`**
 async function addSliderToPopup(name, popupContent) {
     console.log("🔍 Sprawdzam, czy dodać slider dla:", name);
 
@@ -96,7 +90,19 @@ async function addSliderToPopup(name, popupContent) {
     });
 }
 
-// **Dodaj slider już podczas generowania popupu**
+// **Dodawanie slidera już w momencie generowania popupu**
+async function modifyPopupContent(name, popupContent) {
+    console.log("🛠️ Modyfikuję treść popupu dla:", name);
+
+    // **Dodaj slider tylko dla `Górska Sadyba`**
+    if (name === "Górska Sadyba") {
+        await addSliderToPopup(name, popupContent);
+    } else {
+        console.warn(`⚠️ ${name} nie ma zdjęć w images.json - pomijam slider`);
+    }
+}
+
+// **Modyfikacja popupu natychmiast po jego wygenerowaniu**
 map.on("popupopen", async function (e) {
     let popupContent = e.popup._contentNode;
 
@@ -109,13 +115,9 @@ map.on("popupopen", async function (e) {
     if (popupTitle) {
         let campName = popupTitle.textContent.trim();
         console.log("🟢 Otworzono popup dla:", campName);
-        
-        // **Dodaj slider tylko dla Górska Sadyba**
-        if (campName === "Górska Sadyba") {
-            await addSliderToPopup(campName, popupContent);
-        } else {
-            console.warn(`⚠️ ${campName} nie ma zdjęć w images.json - pomijam slider`);
-        }
+
+        // **Od razu dodaj slider do popupu**
+        await modifyPopupContent(campName, popupContent);
     } else {
         console.warn("⚠️ Brak nazwy kempingu w popupie!");
     }
