@@ -37,6 +37,29 @@ async function getLocationImages(name) {
     return images;
 }
 
+// 🔹 Funkcja inicjalizująca Swiper (musi być przed jej użyciem!)
+function initializeSwiper(name) {
+    const sliderId = `.swiper-container-${name.replace(/\s/g, "_")}`;
+    const prevBtnId = `#swiper-prev-${name.replace(/\s/g, "_")}`;
+    const nextBtnId = `#swiper-next-${name.replace(/\s/g, "_")}`;
+
+    setTimeout(() => {
+        const swiper = new Swiper(sliderId, {
+            loop: false,  // ❌ WYŁĄCZAMY PĘTLĘ
+            autoplay: false,  // ❌ WYŁĄCZAMY AUTOMATYCZNĄ ZMIANĘ
+            pagination: { el: `${sliderId} .swiper-pagination`, clickable: true },
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: nextBtnId,
+                prevEl: prevBtnId
+            }
+        });
+
+        console.log(`✅ Swiper zainicjalizowany dla ${name}`);
+    }, 500);
+}
+
 // 🔹 Funkcja generująca slider zdjęć
 async function generateImageSlider(name) {
     const images = await getLocationImages(name);
@@ -61,64 +84,9 @@ async function generateImageSlider(name) {
             <div class="swiper-pagination" style="position:absolute; bottom:5px; left:50%; transform:translateX(-50%);"></div>
 
             <!-- 🔹 Strzałki do zmiany zdjęć -->
-            <div id="${prevBtnId}" class="custom-swiper-prev" style="
-                position:absolute; 
-                top:50%; 
-                left:5px; 
-                transform:translateY(-50%);
-                width:30px; 
-                height:30px;
-                background-color: rgba(0, 0, 0, 0.6); 
-                border-radius:50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                z-index: 10;
-            ">
-                <span style="color:white; font-size:20px; font-weight:bold;">❮</span>
-            </div>
-
-            <div id="${nextBtnId}" class="custom-swiper-next" style="
-                position:absolute; 
-                top:50%; 
-                right:5px; 
-                transform:translateY(-50%);
-                width:30px; 
-                height:30px;
-                background-color: rgba(0, 0, 0, 0.6); 
-                border-radius:50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                z-index: 10;
-            ">
-                <span style="color:white; font-size:20px; font-weight:bold;">❯</span>
-            </div>
+            <div id="${prevBtnId}" class="swiper-button-prev"></div>
+            <div id="${nextBtnId}" class="swiper-button-next"></div>
         </div>
-
-        <script>
-            setTimeout(() => {
-                const swiper = new Swiper('.${sliderId}', {
-                    loop: false,  // ❌ WYŁĄCZAMY PĘTLĘ
-                    autoplay: false,  // ❌ WYŁĄCZAMY AUTOMATYCZNĄ ZMIANĘ
-                    pagination: { el: '.swiper-pagination', clickable: true },
-                    slidesPerView: 1,
-                    spaceBetween: 10,
-                    navigation: false
-                });
-
-                // 🔹 Obsługa strzałek
-                document.getElementById('${prevBtnId}').addEventListener('click', () => swiper.slidePrev());
-                document.getElementById('${nextBtnId}').addEventListener('click', () => swiper.slideNext());
-
-                // 🔹 Obsługa powiększenia zdjęcia
-                document.querySelectorAll('.${sliderId} .zoomable-image').forEach(img => {
-                    img.addEventListener('click', () => openFullscreen(img.src));
-                });
-            }, 500);
-        </script>
     `;
 }
 
