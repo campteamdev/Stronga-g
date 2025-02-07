@@ -8,43 +8,40 @@ setTimeout(() => {
 
 // 🔹 Pobieranie zdjęć z GitHuba
 async function getLocationImages(name) {
-    const githubRepo = "https://raw.githubusercontent.com/campteamdev/Stronga-g/main/";
-    const folderName = name.replace(/\s/g, "_"); // Zamiana spacji na podkreślniki
-    const folderUrl = `${githubRepo}${encodeURIComponent(folderName)}/`;
-    const imageExtensions = ["jpg", "jpeg", "webp"];
+    const githubRepo = "https://api.github.com/repos/campteamdev/Stronga-g/contents/";
+    const folderName = encodeURIComponent(name.replace(/\s/g, "_")); 
     let images = [];
 
     console.log(`📂 Sprawdzanie folderu: ${folderName}`);
 
     try {
-        const response = await fetch(`https://api.github.com/repos/campteamdev/Stronga-g/contents/${encodeURIComponent(folderName)}`);
-        
+        const response = await fetch(`${githubRepo}${folderName}`);
         if (!response.ok) {
             console.warn(`⚠️ Folder nie znaleziony: ${folderName}`);
             return [];
         }
 
         const data = await response.json();
-        images = data
-            .filter(file => imageExtensions.includes(file.name.split('.').pop().toLowerCase()))
-            .slice(0, 5) // Maksymalnie 5 zdjęć
-            .map(file => {
-                console.log(`✅ Znaleziono obraz: ${file.download_url}`);
-                return file.download_url;
-            });
+        console.log(`📂 Lista plików w folderze ${name}:`, data);
 
+        images = data
+            .filter(file => file.download_url && /\.(jpg|jpeg|webp)$/i.test(file.name))
+            .map(file => file.download_url)
+            .slice(0, 5);  // Maksymalnie 5 zdjęć
+
+        console.log(`✅ Zdjęcia dla ${name}:`, images);
     } catch (error) {
-        console.error("❌ Błąd pobierania zdjęć z GitHuba:", error);
+        console.error(`❌ Błąd pobierania zdjęć z GitHuba dla ${name}:`, error);
     }
 
     return images;
 }
 
+
 // 🔹 Funkcja generująca slider zdjęć
 async function generateImageSlider(name) {
     const images = await getLocationImages(name);
-
-    if (images.length === 0) return ""; // Jeśli brak zdjęć, nie dodajemy slidera
+    if (images.length === 0) return "";
 
     console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);
 
@@ -60,16 +57,16 @@ async function generateImageSlider(name) {
                     </div>
                 `).join("")}
             </div>
-            <div class="swiper-pagination" style="position:absolute; bottom:5px; left:50%; transform:translateX(-50%);"></div>
-            <div class="swiper-button-prev" style="position:absolute; top:50%; left:10px; transform:translateY(-50%); color:white;"></div>
-            <div class="swiper-button-next" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); color:white;"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
         <script>
             setTimeout(() => {
                 new Swiper('.${sliderId}', {
                     loop: true,
-                    pagination: { el: '.swiper-pagination', clickable: true },
-                    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                    pagination: { el: '.${sliderId} .swiper-pagination', clickable: true },
+                    navigation: { nextEl: '.${sliderId} .swiper-button-next', prevEl: '.${sliderId} .swiper-button-prev' },
                     autoplay: { delay: 3000 },
                     slidesPerView: 1,
                     spaceBetween: 10
@@ -83,16 +80,23 @@ async function generateImageSlider(name) {
 
 // 🔹 Dodawanie zdjęć do popupu po otwarciu
 async function updatePopupWithImages(popup) {
-    const nameElement = popup.querySelector("div");  
-    if (!nameElement) return;  
+    // Usuń istniejący slider, jeśli już jest w popupie
+    const existingSlider = popup.querySelector(".swiper-container");
+    if (existingSlider) {
+        existingSlider.remove();
+    }
 
-    const name = nameElement.textContent.trim();  
-    const imageSlider = await generateImageSlider(name);  
+    const nameElement = popup.querySelector("div");
+    if (!nameElement) return;
+
+    const name = nameElement.textContent.trim();
+    const imageSlider = await generateImageSlider(name);
 
     if (imageSlider) {
         popup.insertAdjacentHTML("afterbegin", imageSlider);
     }
 }
+
 map.on("popupopen", async function (e) {
     const popup = e.popup._contentNode;
     console.log("🔍 Otwarto popup dla:", popup.innerHTML); 
