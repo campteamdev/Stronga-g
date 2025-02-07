@@ -88,27 +88,7 @@ async function updatePopupWithImages(popup) {
 }
 
 
-map.on("popupopen", async function (e) {
-    const popup = e.popup._contentNode;
-    console.log("🔍 Otwarto popup dla:", popup.innerHTML); 
 
-    const nameElement = popup.querySelector("div");
-    if (!nameElement) {
-        console.error("❌ Nie znaleziono nazwy lokalizacji w popupie!");
-        return;
-    }
-
-    const name = nameElement.textContent.trim();
-    console.log("🔍 Nazwa lokalizacji w popupie:", name);
-
-    const imageSlider = await generateImageSlider(name);
-    if (imageSlider) {
-        console.log("✅ Slider generowany dla:", name);
-        popup.insertAdjacentHTML("afterbegin", imageSlider);
-    } else {
-        console.warn("⚠️ Brak zdjęć dla:", name);
-    }
-});
 
 // 🔹 Nasłuchiwanie otwarcia popupu i dodawanie zdjęć
 map.on("popupopen", async function (e) {
