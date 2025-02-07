@@ -238,12 +238,5 @@ async function updatePopupsWithImages() {
 // 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
 map.on("popupopen", async function () {
     await updatePopupsWithImages();
-  if (typeof map !== "undefined") {
-    map.on("popupopen", async function () {
-        await updatePopupsWithImages();
-    });
-} else {
-    console.error("❌ Błąd: `map` nie została zainicjalizowana.");
-}
 
 });
