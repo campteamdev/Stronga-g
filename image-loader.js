@@ -5,6 +5,18 @@ setTimeout(() => {
         console.log("✅ Mapa poprawnie załadowana.");
     }
 }, 1000);
+// 🔹 Normalizacja nazw dla CSS i ID HTML
+function sanitizeName(name) {
+    return name
+        .trim()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Usunięcie polskich znaków
+        .replace(/&/g, "and") // Zamiana `&` na "and"
+        .replace(/[–—]/g, "-") // Zamiana długiego i krótkiego myślnika na zwykły "-"
+        .replace(/[_\s,./]+/g, "-") // Zamiana `_`, spacji, `,`, `.`, `/` na "-"
+        .replace(/[^a-zA-Z0-9-]/g, "") // Usunięcie pozostałych znaków specjalnych
+        .replace(/-+/g, "-") // Usunięcie wielokrotnych myślników
+        .toLowerCase(); // Zamiana na małe litery
+}
 
 // 🔹 Pobieranie zdjęć z GitHuba
 async function getLocationImages(name) {
@@ -93,10 +105,12 @@ async function getLocationImages(name) {
 
 // 🔹 Funkcja inicjalizująca Swiper
 function initializeSwiper(name, images) {
-    const sliderId = `.swiper-container-${name.replace(/\s/g, "_")}`;
-    const prevBtnId = `#swiper-prev-${name.replace(/\s/g, "_")}`;
-    const nextBtnId = `#swiper-next-${name.replace(/\s/g, "_")}`;
+    const safeName = sanitizeName(name);
+const sliderId = `.swiper-container-${safeName}`;
+const prevBtnId = `#swiper-prev-${safeName}`;
+const nextBtnId = `#swiper-next-${safeName}`;
 
+    
     setTimeout(() => {
         const swiper = new Swiper(sliderId, {
             loop: false,
@@ -126,9 +140,11 @@ async function generateImageSlider(name) {
 
     console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);
 
-    const sliderId = `swiper-container-${name.replace(/\s/g, "_")}`;
-    const prevBtnId = `swiper-prev-${name.replace(/\s/g, "_")}`;
-    const nextBtnId = `swiper-next-${name.replace(/\s/g, "_")}`;
+    // Użycie funkcji normalizeName do bezpiecznych identyfikatorów HTML/CSS
+    const safeName = sanitizeName(name);
+    const sliderId = `swiper-container-${safeName}`;
+    const prevBtnId = `swiper-prev-${safeName}`;
+    const nextBtnId = `swiper-next-${safeName}`;
 
     const sliderHTML = `
         <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative; overflow: hidden;">
@@ -149,6 +165,7 @@ async function generateImageSlider(name) {
     
     return { sliderHTML, images };
 }
+
 
 
 // 🔹 Funkcja do powiększania zdjęcia i zmiany
@@ -294,7 +311,16 @@ map.on("popupopen", async function (e) {
 
             // Wymuszenie sprawdzenia obecności slidera
             setTimeout(() => {
-                console.log(`📂 📌 Sprawdzam obecność slidera:`, document.querySelector(`.swiper-container-${name.replace(/\s/g, "_")}`));
+                const safeSliderId = `swiper-container-${name
+                    .trim()
+                    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Usunięcie polskich znaków
+                    .replace(/[–—]/g, "-") // Zamiana długiego myślnika na zwykły myślnik
+                    .replace(/[\s_]+/g, "-") // Zamiana spacji i podkreśleń na myślnik
+                    .replace(/[^a-zA-Z0-9-]/g, "") // Usunięcie innych znaków specjalnych
+                    .toLowerCase()}`;
+                
+                console.log(`📂 📌 Sprawdzam obecność slidera:`, document.querySelector(`.${safeSliderId}`));
+                
             }, 500);
 
             initializeSwiper(name, images);
