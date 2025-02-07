@@ -47,6 +47,8 @@ async function generateImageSlider(name) {
 
     // Unikalny identyfikator dla Swiper
     const sliderId = `swiper-container-${name.replace(/\s/g, "_")}`;
+    const prevBtnId = `swiper-prev-${name.replace(/\s/g, "_")}`;
+    const nextBtnId = `swiper-next-${name.replace(/\s/g, "_")}`;
 
     return `
         <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative; overflow: hidden;">
@@ -59,8 +61,8 @@ async function generateImageSlider(name) {
             </div>
             <div class="swiper-pagination" style="position:absolute; bottom:5px; left:50%; transform:translateX(-50%);"></div>
 
-            <!-- 🔹 Nowe, poprawione strzałki -->
-            <div class="swiper-button-prev custom-swiper-prev" style="
+            <!-- 🔹 Tylko nasze strzałki -->
+            <div id="${prevBtnId}" class="custom-swiper-prev" style="
                 position:absolute; 
                 top:50%; 
                 left:5px; 
@@ -74,11 +76,12 @@ async function generateImageSlider(name) {
                 justify-content: center;
                 cursor: pointer;
                 transition: opacity 0.3s;
+                z-index: 10;
             " onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">
                 <span style="color:white; font-size:16px; font-weight:bold;">❮</span>
             </div>
 
-            <div class="swiper-button-next custom-swiper-next" style="
+            <div id="${nextBtnId}" class="custom-swiper-next" style="
                 position:absolute; 
                 top:50%; 
                 right:5px; 
@@ -92,10 +95,28 @@ async function generateImageSlider(name) {
                 justify-content: center;
                 cursor: pointer;
                 transition: opacity 0.3s;
+                z-index: 10;
             " onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">
                 <span style="color:white; font-size:16px; font-weight:bold;">❯</span>
             </div>
         </div>
+
+        <script>
+            setTimeout(() => {
+                const swiper = new Swiper('.${sliderId}', {
+                    loop: true,
+                    pagination: { el: '.swiper-pagination', clickable: true },
+                    autoplay: { delay: 3000 },
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    navigation: false  // ⬅️ WYŁĄCZAMY DOMYŚLNE STRZAŁKI SWIPER
+                });
+
+                // 🔹 Obsługa naszych własnych strzałek
+                document.getElementById('${prevBtnId}').addEventListener('click', () => swiper.slidePrev());
+                document.getElementById('${nextBtnId}').addEventListener('click', () => swiper.slideNext());
+            }, 500);
+        </script>
     `;
 }
 
