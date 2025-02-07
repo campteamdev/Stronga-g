@@ -46,7 +46,7 @@ function initializeSwiper(name) {
     setTimeout(() => {
         const swiper = new Swiper(sliderId, {
             loop: false,
-            autoplay: false,  // ❌ WYŁĄCZAMY AUTOMATYCZNĄ ZMIANĘ
+            autoplay: false,  
             pagination: { el: `${sliderId} .swiper-pagination`, clickable: true },
             slidesPerView: 1,
             spaceBetween: 10,
@@ -60,7 +60,7 @@ function initializeSwiper(name) {
 
         // 🔹 Obsługa powiększenia zdjęcia
         document.querySelectorAll(`${sliderId} .zoomable-image`).forEach(img => {
-            img.addEventListener("click", () => openFullscreen(img.src));
+            img.addEventListener("click", () => openFullscreen(images, images.indexOf(img.src)));
         });
 
     }, 500);
@@ -96,10 +96,11 @@ async function generateImageSlider(name) {
     `;
 }
 
-// 🔹 Funkcja do otwierania zdjęcia w pełnym ekranie
-function openFullscreen(imageUrl) {
-    // Jeśli już istnieje powiększenie, nie twórz nowego
+// 🔹 Funkcja do otwierania zdjęcia w pełnym ekranie z możliwością zmiany zdjęć
+function openFullscreen(images, index) {
     if (document.getElementById("fullscreen-view")) return;
+
+    let currentIndex = index;
 
     const fullscreenContainer = document.createElement("div");
     fullscreenContainer.id = "fullscreen-view";
@@ -116,42 +117,62 @@ function openFullscreen(imageUrl) {
     fullscreenContainer.style.cursor = "pointer";
 
     const img = document.createElement("img");
-    img.src = imageUrl;
+    img.src = images[currentIndex];
     img.style.maxWidth = "95%";
     img.style.maxHeight = "95%";
     img.style.borderRadius = "10px";
     img.style.boxShadow = "0px 4px 10px rgba(255,255,255,0.5)";
     img.style.transition = "transform 0.3s ease-in-out";
 
+    // Funkcja do zmiany zdjęcia
+    function changeImage(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        if (currentIndex >= images.length) currentIndex = 0;
+        img.src = images[currentIndex];
+    }
+
+    // 🔹 Strzałki do zmiany zdjęć
+    const prevBtn = document.createElement("div");
+    prevBtn.innerHTML = "❮";
+    prevBtn.style.position = "absolute";
+    prevBtn.style.left = "10px";
+    prevBtn.style.top = "50%";
+    prevBtn.style.transform = "translateY(-50%)";
+    prevBtn.style.color = "white";
+    prevBtn.style.fontSize = "40px";
+    prevBtn.style.cursor = "pointer";
+    prevBtn.addEventListener("click", () => changeImage(-1));
+
+    const nextBtn = document.createElement("div");
+    nextBtn.innerHTML = "❯";
+    nextBtn.style.position = "absolute";
+    nextBtn.style.right = "10px";
+    nextBtn.style.top = "50%";
+    nextBtn.style.transform = "translateY(-50%)";
+    nextBtn.style.color = "white";
+    nextBtn.style.fontSize = "40px";
+    nextBtn.style.cursor = "pointer";
+    nextBtn.addEventListener("click", () => changeImage(1));
+
+    fullscreenContainer.appendChild(prevBtn);
+    fullscreenContainer.appendChild(nextBtn);
     fullscreenContainer.appendChild(img);
     document.body.appendChild(fullscreenContainer);
 
-    // Kliknięcie w zdjęcie zamyka widok
-    fullscreenContainer.addEventListener("click", () => {
-        document.body.removeChild(fullscreenContainer);
+    // Zamknięcie po kliknięciu poza obrazek
+    fullscreenContainer.addEventListener("click", (e) => {
+        if (e.target === fullscreenContainer) document.body.removeChild(fullscreenContainer);
     });
 
-    console.log("✅ Powiększenie zdjęcia otwarte:", imageUrl);
-}
+    // Obsługa klawiatury
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") changeImage(-1);
+        if (e.key === "ArrowRight") changeImage(1);
+        if (e.key === "Escape") document.body.removeChild(fullscreenContainer);
+    });
 
-// 🔹 Dodawanie zdjęć do popupu po otwarciu
-async function updatePopupWithImages(popup) {
-    // Usunięcie istniejącego slidera (zapobiega podwójnemu wyświetlaniu)
-    const existingSlider = popup.querySelector(".swiper-container");
-    if (existingSlider) {
-        existingSlider.remove();
-    }
-
-    const nameElement = popup.querySelector("div");
-    if (!nameElement) return;
-
-    const name = nameElement.textContent.trim();
-    const imageSlider = await generateImageSlider(name);
-
-    if (imageSlider) {
-        popup.insertAdjacentHTML("afterbegin", imageSlider);
-        initializeSwiper(name);
-    }
+    console.log("✅ Powiększenie zdjęcia otwarte:", images[currentIndex]);
 }
 
 // 🔹 Nasłuchiwanie otwarcia popupu i dodawanie zdjęć
