@@ -45,11 +45,10 @@ async function generateImageSlider(name) {
 
     console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);
 
-    // Unikalny identyfikator slidera
     const sliderId = `swiper-container-${name.replace(/\s/g, "_")}`;
 
     return `
-        <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative;">
+        <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative; overflow: hidden;">
             <div class="swiper-wrapper">
                 ${images.map(img => `
                     <div class="swiper-slide">
@@ -57,24 +56,13 @@ async function generateImageSlider(name) {
                     </div>
                 `).join("")}
             </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination" style="position:absolute; bottom:5px; left:50%; transform:translateX(-50%);"></div>
+            <div class="swiper-button-prev" style="position:absolute; top:50%; left:5px; transform:translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color:white; padding:5px; border-radius:50%;"></div>
+            <div class="swiper-button-next" style="position:absolute; top:50%; right:5px; transform:translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color:white; padding:5px; border-radius:50%;"></div>
         </div>
-        <script>
-            setTimeout(() => {
-                new Swiper('.${sliderId}', {
-                    loop: true,
-                    pagination: { el: '.${sliderId} .swiper-pagination', clickable: true },
-                    navigation: { nextEl: '.${sliderId} .swiper-button-next', prevEl: '.${sliderId} .swiper-button-prev' },
-                    autoplay: { delay: 3000 },
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                });
-            }, 500);
-        </script>
     `;
 }
+
 
 
 
@@ -94,6 +82,7 @@ async function updatePopupWithImages(popup) {
 
     if (imageSlider) {
         popup.insertAdjacentHTML("afterbegin", imageSlider);
+        initializeSwiper(name); // Dodajemy inicjalizację Swiper po dodaniu HTML
     }
 }
 
