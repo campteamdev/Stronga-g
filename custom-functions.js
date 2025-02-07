@@ -28,7 +28,7 @@ async function loadDetails() {
 // 🔹 Funkcja pobierająca zdjęcia z GitHuba
 async function getLocationImages(name) {
     const githubRepo = "https://raw.githubusercontent.com/NAZWA_UŻYTKOWNIKA/NAZWA_REPOZYTORIUM/main/";
-    const folderName = name.replace(/\s/g, "_"); // Zamiana spacji na podkreślniki
+    const folderName = name.replace(/\s/g, "_");
     const folderUrl = `${githubRepo}${encodeURIComponent(folderName)}/`;
     const imageExtensions = ["jpg", "jpeg", "webp"];
     let images = [];
@@ -39,7 +39,7 @@ async function getLocationImages(name) {
             const data = await response.json();
             images = data
                 .filter(file => imageExtensions.includes(file.name.split('.').pop().toLowerCase()))
-                .slice(0, 5) // Maksymalnie 5 zdjęć
+                .slice(0, 5)
                 .map(file => `${folderUrl}${file.name}`);
         }
     } catch (error) {
@@ -84,9 +84,23 @@ async function generatePopupContent(name, lat, lon) {
     `;
 }
 
-// 🔹 Funkcja aktualizująca popupy (poprawiona obsługa asynchroniczna)
-async function updatePopups(markers) {
-    for (let { marker, name, lat, lon } of markers) {
+// 🔹 Funkcja dodająca markery i poprawnie obsługująca popupy
+async function loadMarkers(url, icon) {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
+    const kmlText = await response.text();
+    const parser = new DOMParser();
+    const kml = parser.parseFromString(kmlText, "application/xml");
+    const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+
+    for (const placemark of placemarks) {
+        const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
+        const coordinates = placemark.getElementsByTagName("coordinates")[0]?.textContent.trim();
+        if (!coordinates) continue;
+
+        const [lon, lat] = coordinates.split(",");
+
+        const marker = L.marker([lat, lon], { icon }).addTo(markerCluster);
         marker.bindPopup("Ładowanie...", { minWidth: 200, maxWidth: 220, maxHeight: 300, autoPan: true });
 
         marker.on("click", async function () {
@@ -98,45 +112,14 @@ async function updatePopups(markers) {
 
 // 🔹 Funkcja wczytująca dane z KML
 async function loadKmlData() {
-    const kmlFiles = [
-        "/Atrakcje.kml",
-        "/Kempingi.kml",
-        "/Kempingi1.kml",
-        "/Kempingiopen.kml",
-        "/Miejscenabiwak.kml",
-        "/Parkingilesne.kml",
-        "/Polanamiotowe.kml",
-        "/Polanamiotoweopen.kml",
-    ];
-
-    for (const url of kmlFiles) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) throw new Error(`Nie udało się załadować: ${url}`);
-            const kmlText = await response.text();
-            const parser = new DOMParser();
-            const kml = parser.parseFromString(kmlText, "application/xml");
-            const placemarks = kml.getElementsByTagName("Placemark");
-
-            for (const placemark of placemarks) {
-                const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
-                const coordinates = placemark.getElementsByTagName("coordinates")[0]?.textContent.trim();
-                if (!coordinates) continue;
-
-                const [lon, lat] = coordinates.split(",");
-
-                const marker = L.marker([lat, lon]).addTo(markerCluster);
-                marker.bindPopup("Ładowanie...", { minWidth: 200, maxWidth: 220, maxHeight: 300, autoPan: true });
-
-                marker.on("click", async function () {
-                    const popupContent = await generatePopupContent(name, lat, lon);
-                    marker.setPopupContent(popupContent);
-                });
-            }
-        } catch (error) {
-            console.error(`Błąd podczas przetwarzania pliku ${url}:`, error);
-        }
-    }
+    await Promise.all([
+        loadMarkers("/Kempingi.kml", icons.kempingi),
+        loadMarkers("/Polanamiotowe.kml", icons.polanamiotowe),
+        loadMarkers("/Kempingiopen.kml", icons.kempingiopen),
+        loadMarkers("/Polanamiotoweopen.kml", icons.polanamiotoweopen),
+        loadMarkers("/Parkingilesne.kml", icons.parkingilesne),
+        loadMarkers("/Miejscenabiwak.kml", icons.miejscenabiwak),
+    ]);
 }
 
 // 🔹 Funkcja inicjalizująca mapę i ładująca punkty
