@@ -1,4 +1,4 @@
-// 🔹 Funkcja pobierająca zdjęcia z GitHuba
+// 🔹 Pobieranie zdjęć z GitHuba
 async function getLocationImages(name) {
     const githubRepo = "https://raw.githubusercontent.com/NAZWA_UŻYTKOWNIKA/NAZWA_REPOZYTORIUM/main/";
     const folderName = name.replace(/\s/g, "_"); // Zamiana spacji na podkreślniki
@@ -22,7 +22,7 @@ async function getLocationImages(name) {
     return images;
 }
 
-// 🔹 Funkcja generująca slider dla popupu
+// 🔹 Funkcja generująca slider zdjęć
 async function generateImageSlider(name) {
     const images = await getLocationImages(name);
 
@@ -46,3 +46,21 @@ async function generateImageSlider(name) {
         </script>
     `;
 }
+
+// 🔹 Dodawanie zdjęć do popupu po otwarciu
+async function updatePopupWithImages(popup) {
+    const nameElement = popup.querySelector("div");  
+    if (!nameElement) return;  
+
+    const name = nameElement.textContent.trim();  
+    const imageSlider = await generateImageSlider(name);  
+
+    if (imageSlider) {
+        popup.insertAdjacentHTML("afterbegin", imageSlider);
+    }
+}
+
+// 🔹 Nasłuchiwanie otwarcia popupu i dodawanie zdjęć
+map.on("popupopen", async function (e) {
+    await updatePopupWithImages(e.popup._contentNode);
+});
