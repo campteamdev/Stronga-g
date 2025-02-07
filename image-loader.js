@@ -7,65 +7,88 @@ setTimeout(() => {
 }, 1000);
 
 // 🔹 Pobieranie zdjęć z GitHuba
-// 🔹 Pobieranie zdjęć z GitHuba
 async function getLocationImages(name) {
+    const cacheKey = `images_${name}`;
+    const cacheTimeKey = `cache_time_${name}`;
+
+    const cachedData = localStorage.getItem(cacheKey);
+    const cacheTime = localStorage.getItem(cacheTimeKey);
+    const now = Date.now();
+
+    if (cachedData && cacheTime && now - cacheTime < 15 * 60 * 1000) {
+        console.log(`📂 📥 Ładowanie zdjęć z cache: ${name}`);
+        return JSON.parse(cachedData);
+    }
+
     const githubRepo = "https://api.github.com/repos/campteamdev/Stronga-g/contents/";
 
-    // 🔹 Funkcja normalizująca nazwę folderu
+    // 🔹 Pobranie listy folderów z repozytorium
+    let folders = [];
+    try {
+        const repoResponse = await fetch(githubRepo);
+        if (!repoResponse.ok) {
+            console.error("❌ Błąd pobierania folderów z GitHuba:", repoResponse.statusText);
+            return [];
+        }
+        folders = await repoResponse.json();
+        folders = folders.filter(item => item.type === "dir").map(item => item.name);
+        console.log("📂 ✅ Lista folderów w repozytorium:", folders);
+    } catch (error) {
+        console.error("❌ Błąd pobierania folderów:", error);
+        return [];
+    }
+
+    // 🔹 Funkcja normalizująca nazwę folderu do porównywania
     function normalizeName(str) {
         return str
             .trim() // Usunięcie spacji na początku i końcu
             .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Usunięcie polskich znaków
             .replace(/[–-]+/g, " ") // Zamiana długiego i krótkiego myślnika na spację
-            .replace(/\.+$/, "") // Usunięcie kropek na końcu
-            .replace(/\s+/g, "_"); // Zamiana wszystkich spacji na `_`
+            .replace(/_/g, " ") // Zamiana podkreślenia `_` na spację
+            .replace(/\s+/g, " ") // Usunięcie podwójnych spacji
+            .toLowerCase(); // Zamiana na małe litery
     }
 
     const baseName = normalizeName(name);
-    const folderVariants = [
-        encodeURIComponent(baseName),                        // "Pole_biwakowe_Liwiec_com"
-        encodeURIComponent(baseName.replace(/_/g, "-")),    // "Pole-biwakowe-Liwiec-com"
-        encodeURIComponent(baseName.replace(/_/g, " ")),    // "Pole biwakowe Liwiec com"
-        encodeURIComponent(baseName.replace(/_/g, "")),     // "PolebiwakoweLiwieccom"
-        encodeURIComponent(baseName.toLowerCase()),         // "pole_biwakowe_liwiec_com"
-        encodeURIComponent(baseName.toUpperCase()),         // "POLE_BIWAKOWE_LIWIEC_COM"
-    ];
+
+    // 🔹 Znalezienie najlepszego dopasowania folderu w repozytorium
+    let matchedFolder = folders.find(folder => normalizeName(folder) === baseName);
+
+    if (!matchedFolder) {
+        console.warn(`⚠️ Folder dla "${name}" nie znaleziony.`);
+        return [];
+    }
+
+    console.log(`📂 🔍 Używam folderu: "${matchedFolder}"`);
 
     let images = [];
 
-    console.log(`📂 Sprawdzanie folderów dla: "${name}"`);
-
-    for (let folderName of folderVariants) {
-        try {
-            console.log(`📂 Sprawdzam folder: "${folderName}"`);
-            const response = await fetch(`${githubRepo}${folderName}`);
-
-            if (response.ok) {
-                const data = await response.json();
-                console.log(`📂 Znaleziono folder: "${folderName}"`);
-
-                images = data
-                    .filter(file => file.download_url && /\.(jpg|jpeg|webp)$/i.test(file.name))
-                    .map(file => file.download_url)
-                    .slice(0, 10); // Maksymalnie 10 zdjęć
-
-                if (images.length > 0) {
-                    console.log(`✅ Zdjęcia dla "${name}":`, images);
-                    break; // Znaleziono pasujący folder, nie szukamy dalej
-                }
-            }
-        } catch (error) {
-            console.warn(`⚠️ Błąd pobierania z folderu: "${folderName}"`, error);
+    try {
+        const response = await fetch(`${githubRepo}${encodeURIComponent(matchedFolder)}`);
+        if (!response.ok) {
+            console.warn(`⚠️ Folder "${matchedFolder}" nie został znaleziony.`);
+            return [];
         }
-    }
 
-    if (images.length === 0) {
-        console.warn(`⚠️ Brak zdjęć dla "${name}" w żadnym z folderów.`);
+        const data = await response.json();
+        images = data
+            .filter(file => file.download_url && /\.(jpg|jpeg|webp)$/i.test(file.name))
+            .map(file => file.download_url)
+            .slice(0, 10);
+
+        if (images.length > 0) {
+            console.log(`✅ Zdjęcia dla "${name}":`, images);
+            localStorage.setItem(cacheKey, JSON.stringify(images));
+            localStorage.setItem(cacheTimeKey, Date.now());
+        } else {
+            console.warn(`⚠️ Brak zdjęć w folderze "${matchedFolder}".`);
+        }
+    } catch (error) {
+        console.error(`❌ Błąd pobierania zdjęć z folderu "${matchedFolder}":`, error);
     }
 
     return images;
 }
-
 
 
 // 🔹 Funkcja inicjalizująca Swiper
@@ -97,7 +120,6 @@ function initializeSwiper(name, images) {
     }, 500);
 }
 
-// 🔹 Funkcja generująca slider zdjęć
 async function generateImageSlider(name) {
     const images = await getLocationImages(name);
     if (images.length === 0) return "";
@@ -108,29 +130,24 @@ async function generateImageSlider(name) {
     const prevBtnId = `swiper-prev-${name.replace(/\s/g, "_")}`;
     const nextBtnId = `swiper-next-${name.replace(/\s/g, "_")}`;
 
-    return {
-        sliderHTML: `
-            <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative; overflow: hidden;">
-                <div class="swiper-wrapper">
-                    ${images.map(img => `
-                        <div class="swiper-slide">
-                            <img src="${img}" class="zoomable-image" style="width:100%; height:150px; object-fit:cover; border-radius:8px; cursor:pointer;">
-                        </div>
-                    `).join("")}
-                </div>
-                <div class="swiper-pagination"></div>
-
-                <!-- 🔹 Nowe Mniejsze i Estetyczne Strzałki -->
-                <div id="${prevBtnId}" class="custom-swiper-prev">
-                    ❮
-                </div>
-                <div id="${nextBtnId}" class="custom-swiper-next">
-                    ❯
-                </div>
+    const sliderHTML = `
+        <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative; overflow: hidden;">
+            <div class="swiper-wrapper">
+                ${images.map(img => `
+                    <div class="swiper-slide">
+                        <img src="${img}" class="zoomable-image" style="width:100%; height:150px; object-fit:cover; border-radius:8px; cursor:pointer;">
+                    </div>
+                `).join("")}
             </div>
-        `,
-        images
-    };
+            <div class="swiper-pagination"></div>
+            <div id="${prevBtnId}" class="custom-swiper-prev">❮</div>
+            <div id="${nextBtnId}" class="custom-swiper-next">❯</div>
+        </div>
+    `;
+
+    console.log(`📂 ✅ Wygenerowany kod HTML dla ${name}:`, sliderHTML);
+    
+    return { sliderHTML, images };
 }
 
 
@@ -261,15 +278,27 @@ function openFullscreen(images, index) {
 
 // 🔹 Nasłuchiwanie otwarcia popupu i dodawanie zdjęć
 map.on("popupopen", async function (e) {
-    const popup = e.popup._contentNode;
-    const nameElement = popup.querySelector("div");
-    if (!nameElement) return;
+    setTimeout(async () => {
+        const popup = e.popup._contentNode;
+        const nameElement = popup.querySelector("div");
+        if (!nameElement) return;
 
-    const name = nameElement.textContent.trim();
-    const { sliderHTML, images } = await generateImageSlider(name);
+        const name = nameElement.textContent.trim();
+        console.log(`📂 🔍 Otwieranie popupu dla: ${name}`);
 
-    if (sliderHTML) {
-        popup.insertAdjacentHTML("afterbegin", sliderHTML);
-        initializeSwiper(name, images);
-    }
+        const { sliderHTML, images } = await generateImageSlider(name);
+
+        if (sliderHTML) {
+            popup.insertAdjacentHTML("afterbegin", sliderHTML);
+            console.log(`📂 ✅ HTML slidera dodany do popupu dla: ${name}`);
+
+            // Wymuszenie sprawdzenia obecności slidera
+            setTimeout(() => {
+                console.log(`📂 📌 Sprawdzam obecność slidera:`, document.querySelector(`.swiper-container-${name.replace(/\s/g, "_")}`));
+            }, 500);
+
+            initializeSwiper(name, images);
+        }
+    }, 300); // Drobne opóźnienie na wygenerowanie popupu
 });
+
