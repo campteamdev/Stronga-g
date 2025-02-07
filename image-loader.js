@@ -38,7 +38,7 @@ async function getLocationImages(name) {
 }
 
 // 🔹 Funkcja inicjalizująca Swiper
-function initializeSwiper(name) {
+function initializeSwiper(name, images) {
     const sliderId = `.swiper-container-${name.replace(/\s/g, "_")}`;
     const prevBtnId = `#swiper-prev-${name.replace(/\s/g, "_")}`;
     const nextBtnId = `#swiper-next-${name.replace(/\s/g, "_")}`;
@@ -58,7 +58,7 @@ function initializeSwiper(name) {
 
         console.log(`✅ Swiper zainicjalizowany dla ${name}`);
 
-        // Obsługa powiększenia zdjęcia
+        // 🔹 Obsługa powiększenia zdjęcia
         document.querySelectorAll(`${sliderId} .zoomable-image`).forEach((img, index) => {
             img.addEventListener("click", () => openFullscreen(images, index));
         });
@@ -77,20 +77,23 @@ async function generateImageSlider(name) {
     const prevBtnId = `swiper-prev-${name.replace(/\s/g, "_")}`;
     const nextBtnId = `swiper-next-${name.replace(/\s/g, "_")}`;
 
-    return `
-        <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative; overflow: hidden;">
-            <div class="swiper-wrapper">
-                ${images.map(img => `
-                    <div class="swiper-slide">
-                        <img src="${img}" class="zoomable-image" style="width:100%; height:150px; object-fit:cover; border-radius:8px; cursor:pointer;">
-                    </div>
-                `).join("")}
+    return {
+        sliderHTML: `
+            <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative; overflow: hidden;">
+                <div class="swiper-wrapper">
+                    ${images.map(img => `
+                        <div class="swiper-slide">
+                            <img src="${img}" class="zoomable-image" style="width:100%; height:150px; object-fit:cover; border-radius:8px; cursor:pointer;">
+                        </div>
+                    `).join("")}
+                </div>
+                <div class="swiper-pagination"></div>
+                <div id="${prevBtnId}" class="swiper-button-prev"></div>
+                <div id="${nextBtnId}" class="swiper-button-next"></div>
             </div>
-            <div class="swiper-pagination"></div>
-            <div id="${prevBtnId}" class="swiper-button-prev"></div>
-            <div id="${nextBtnId}" class="swiper-button-next"></div>
-        </div>
-    `;
+        `,
+        images
+    };
 }
 
 // 🔹 Funkcja do powiększania zdjęcia i zmiany
@@ -121,7 +124,7 @@ function openFullscreen(images, index) {
     fullscreenContainer.appendChild(img);
     document.body.appendChild(fullscreenContainer);
 
-    // Obsługa strzałek klawiatury
+    // 🔹 Obsługa strzałek klawiatury
     document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowRight") {
             currentIndex = (currentIndex + 1) % images.length;
@@ -134,7 +137,7 @@ function openFullscreen(images, index) {
         }
     });
 
-    // Obsługa gestów dotykowych (swipe)
+    // 🔹 Obsługa gestów dotykowych (swipe)
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -144,7 +147,7 @@ function openFullscreen(images, index) {
 
     img.addEventListener("touchend", (e) => {
         touchEndX = e.changedTouches[0].screenX;
-        if (touchStartX - touchEndX > 50) currentIndex = (currentIndex + 1) % images.length;  // Swipe left
+        if (touchStartX - touchEndX > 50) currentIndex = (currentIndex + 1) % images.length; // Swipe left
         if (touchEndX - touchStartX > 50) currentIndex = (currentIndex - 1 + images.length) % images.length; // Swipe right
         img.src = images[currentIndex];
     });
@@ -163,10 +166,10 @@ map.on("popupopen", async function (e) {
     if (!nameElement) return;
 
     const name = nameElement.textContent.trim();
-    const imageSlider = await generateImageSlider(name);
+    const { sliderHTML, images } = await generateImageSlider(name);
 
-    if (imageSlider) {
-        popup.insertAdjacentHTML("afterbegin", imageSlider);
-        initializeSwiper(name);
+    if (sliderHTML) {
+        popup.insertAdjacentHTML("afterbegin", sliderHTML);
+        initializeSwiper(name, images);
     }
 });
