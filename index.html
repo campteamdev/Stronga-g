@@ -529,120 +529,15 @@ document.addEventListener("touchstart", function (event) {
   }
 }, { passive: false });
 
-   // Blokowanie F12 (narzędzia deweloperskie)
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I") || (event.ctrlKey && event.key === "U")) {
-            event.preventDefault();
-            alert("Podgląd kodu źródłowego jest zablokowany!");
-        }
-    }); 
-
-
-      
-      document.addEventListener("keydown", function(event) {
-    if ((event.ctrlKey || event.metaKey) && event.key === "s") {
-        event.preventDefault();
-        console.log("Zapisywanie strony jest zablokowane!"); // Dla testów w konsoli (możesz usunąć)
-        return false; // Dodatkowa blokada
-    }
-});
-
+  
     </script>
 
- <script>
-    let keyPressed = {}; // Obiekt do śledzenia wciśniętych klawiszy
 
-    document.addEventListener("keydown", function (event) {
-        if (keyPressed[event.key]) return; // Ignoruj, jeśli klawisz już wciśnięty
-        keyPressed[event.key] = true; // Oznacz klawisz jako wciśnięty
 
-        if (
-            event.key === "F12" || 
-            (event.ctrlKey && event.shiftKey && event.key === "I") ||  // Windows: Ctrl + Shift + I
-            (event.ctrlKey && event.key === "U") ||  // Windows: Ctrl + U
-            (event.metaKey && event.altKey && event.key === "I") ||  // Mac: ⌘ + Option + I
-            (event.metaKey && event.key === "U")  // Mac: ⌘ + U
-        ) {
-            event.preventDefault();
-            console.clear(); // Czyści konsolę, jeśli otwarta
-            window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-        }
-    });
-
-    // Resetowanie statusu klawiszy po ich puszczeniu
-    document.addEventListener("keyup", function (event) {
-        delete keyPressed[event.key];
-    });
-
-    // 🔹 Wykrywanie otwarcia narzędzi deweloperskich 🔹
-    setInterval(function() {
-        let before = new Date().getTime();
-        debugger; // Zatrzymuje kod, jeśli otwarta konsola
-        let after = new Date().getTime();
-        if (after - before > 100) {
-            window.stop(); // Zatrzymuje ładowanie strony
-            window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-        }
-    }, 1000); // Sprawdzaj co 1 sekundę
-</script>
-
-<script>
-    document.addEventListener("keydown", function(event) {
-        if (event.ctrlKey && event.key === "u") { // Blokowanie Ctrl + U
-            event.preventDefault();
-            let newWin = window.open();
-            newWin.document.write("<!-- Brak dostępu do kodu źródłowego -->");
-            newWin.document.close();
-        }
-    });
-</script>
-<script>
-    let devToolsDetected = false;
-
-    function detectDevTools() {
-        const threshold = 160;
-        if (!devToolsDetected && (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold)) {
-            devToolsDetected = true;
-            alert("Wykryto narzędzia deweloperskie! Strona zostanie ukryta.");
-            document.body.innerHTML = "<h2 style='text-align:center; padding-top:50px;'>Strona została zablokowana.</h2>";
-        }
-    }
-
-    setInterval(detectDevTools, 2000);
-</script>
-
-<script>
    
 
    
-    // Wykrywanie prób użycia narzędzi do zrzutów ekranu
-    setInterval(() => {
-        if (window.outerWidth - window.innerWidth > 50 || window.outerHeight - window.innerHeight > 50) {
-            detectScreenshot();
-        }
-    }, 1000);
-</script>
-<script>
-    document.addEventListener("visibilitychange", function () {
-        if (document.hidden) {
-            document.body.style.opacity = "0"; // Ukrywa stronę
-        } else {
-            setTimeout(() => document.body.style.opacity = "1", 500); // Przywraca po 0.5 sek.
-        }
-    });
-</script>
-<script>
-    function hidePageOnScreenshot() {
-        document.body.style.opacity = "0"; // Ukrywa stronę
-        setTimeout(() => document.body.style.opacity = "1", 3000); // Przywraca po 3 sek.
-    }
-
-    document.addEventListener("keydown", function (event) {
-        if ((event.metaKey && event.shiftKey && event.key === "4") || event.key === "PrintScreen") {
-            hidePageOnScreenshot();
-        }
-    });
-</script>
+   
 
 <script src="image-loader.js"></script>
 
