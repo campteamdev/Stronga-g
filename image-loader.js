@@ -9,46 +9,61 @@ setTimeout(() => {
 // 🔹 Pobieranie zdjęć z GitHuba
 async function getLocationImages(name) {
     const githubRepo = "https://api.github.com/repos/campteamdev/Stronga-g/contents/";
-    
-    // 🔹 Dwie wersje nazw folderów: ze spacją i z podkreśleniem
-    const folderNameWithSpaces = encodeURIComponent(name.trim()); // Oryginalna nazwa ze spacjami
-    const folderNameWithUnderscores = encodeURIComponent(name.replace(/\s/g, "_")); // Nazwa z podkreśleniami
-    
+
+    // 🔹 Funkcja do normalizacji nazw (usunięcie polskich znaków, spacji)
+    function normalizeName(str) {
+        return str
+            .trim() // Usunięcie spacji na początku i końcu
+            .normalize("NFD") // Usunięcie polskich znaków
+            .replace(/[\u0300-\u036f]/g, ""); // Usuwa akcenty
+    }
+
+    // 🔹 Generowanie różnych wersji nazw folderów
+    const baseName = normalizeName(name);
+    const folderVariants = [
+        encodeURIComponent(baseName),                        // Oryginalna nazwa (bez polskich znaków)
+        encodeURIComponent(baseName.replace(/\s+/g, "_")),  // Zamiana wszystkich spacji na `_`
+        encodeURIComponent(baseName.replace(/_/g, " ")),    // Zamiana `_` na spację
+        encodeURIComponent(baseName.toLowerCase()),        // Małe litery
+        encodeURIComponent(baseName.toUpperCase()),        // Wielkie litery
+        encodeURIComponent(baseName.replace(/\s+/g, "")),  // Usunięcie wszystkich spacji
+    ];
+
     let images = [];
 
-    console.log(`📂 Sprawdzanie folderów: "${folderNameWithSpaces}" i "${folderNameWithUnderscores}"`);
+    console.log(`📂 Sprawdzanie folderów dla: "${name}"`);
 
-    try {
-        // 🔹 Najpierw próbujemy pobrać zdjęcia z folderu ze spacjami
-        let response = await fetch(`${githubRepo}${folderNameWithSpaces}`);
-        
-        // 🔹 Jeśli pierwszy folder nie istnieje, próbujemy z podkreśleniem
-        if (!response.ok) {
-            console.warn(`⚠️ Folder ze spacjami nie znaleziony: ${folderNameWithSpaces}, sprawdzam wersję z podkreśleniem.`);
-            response = await fetch(`${githubRepo}${folderNameWithUnderscores}`);
+    for (let folderName of folderVariants) {
+        try {
+            console.log(`📂 Sprawdzam folder: "${folderName}"`);
+            const response = await fetch(`${githubRepo}${folderName}`);
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log(`📂 Znaleziono folder: "${folderName}"`);
+
+                images = data
+                    .filter(file => file.download_url && /\.(jpg|jpeg|webp)$/i.test(file.name))
+                    .map(file => file.download_url)
+                    .slice(0, 10); // Maksymalnie 10 zdjęć
+
+                if (images.length > 0) {
+                    console.log(`✅ Zdjęcia dla "${name}":`, images);
+                    break; // Znaleziono pasujący folder, nie szukamy dalej
+                }
+            }
+        } catch (error) {
+            console.warn(`⚠️ Błąd pobierania z folderu: "${folderName}"`, error);
         }
+    }
 
-        // 🔹 Jeśli nadal błąd - brak folderu
-        if (!response.ok) {
-            console.warn(`⚠️ Folder nie znaleziony: ${folderNameWithSpaces} ani ${folderNameWithUnderscores}`);
-            return [];
-        }
-
-        const data = await response.json();
-        console.log(`📂 Lista plików w folderze ${name}:`, data);
-
-        images = data
-            .filter(file => file.download_url && /\.(jpg|jpeg|webp)$/i.test(file.name))
-            .map(file => file.download_url)
-            .slice(0, 10); // Maksymalnie 10 zdjęć
-
-        console.log(`✅ Zdjęcia dla ${name}:`, images);
-    } catch (error) {
-        console.error(`❌ Błąd pobierania zdjęć z GitHuba dla ${name}:`, error);
+    if (images.length === 0) {
+        console.warn(`⚠️ Brak zdjęć dla "${name}" w żadnym z folderów.`);
     }
 
     return images;
 }
+
 
 
 // 🔹 Funkcja inicjalizująca Swiper
