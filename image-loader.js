@@ -45,7 +45,7 @@ function initializeSwiper(name) {
 
     setTimeout(() => {
         const swiper = new Swiper(sliderId, {
-            loop: false,  // ❌ WYŁĄCZAMY PĘTLĘ
+            loop: false,
             autoplay: false,  // ❌ WYŁĄCZAMY AUTOMATYCZNĄ ZMIANĘ
             pagination: { el: `${sliderId} .swiper-pagination`, clickable: true },
             slidesPerView: 1,
@@ -57,6 +57,12 @@ function initializeSwiper(name) {
         });
 
         console.log(`✅ Swiper zainicjalizowany dla ${name}`);
+
+        // 🔹 Obsługa powiększenia zdjęcia
+        document.querySelectorAll(`${sliderId} .zoomable-image`).forEach(img => {
+            img.addEventListener("click", () => openFullscreen(img.src));
+        });
+
     }, 500);
 }
 
@@ -92,7 +98,11 @@ async function generateImageSlider(name) {
 
 // 🔹 Funkcja do otwierania zdjęcia w pełnym ekranie
 function openFullscreen(imageUrl) {
+    // Jeśli już istnieje powiększenie, nie twórz nowego
+    if (document.getElementById("fullscreen-view")) return;
+
     const fullscreenContainer = document.createElement("div");
+    fullscreenContainer.id = "fullscreen-view";
     fullscreenContainer.style.position = "fixed";
     fullscreenContainer.style.top = "0";
     fullscreenContainer.style.left = "0";
@@ -110,13 +120,18 @@ function openFullscreen(imageUrl) {
     img.style.maxWidth = "95%";
     img.style.maxHeight = "95%";
     img.style.borderRadius = "10px";
+    img.style.boxShadow = "0px 4px 10px rgba(255,255,255,0.5)";
+    img.style.transition = "transform 0.3s ease-in-out";
 
     fullscreenContainer.appendChild(img);
     document.body.appendChild(fullscreenContainer);
 
+    // Kliknięcie na zdjęcie zamyka powiększenie
     fullscreenContainer.addEventListener("click", () => {
         document.body.removeChild(fullscreenContainer);
     });
+
+    console.log("✅ Powiększenie zdjęcia otwarte:", imageUrl);
 }
 
 // 🔹 Dodawanie zdjęć do popupu po otwarciu
@@ -135,7 +150,7 @@ async function updatePopupWithImages(popup) {
 
     if (imageSlider) {
         popup.insertAdjacentHTML("afterbegin", imageSlider);
-        initializeSwiper(name); // ⬅️ Dodane tutaj
+        initializeSwiper(name);
     }
 }
 
