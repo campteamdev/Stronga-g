@@ -48,53 +48,57 @@ async function generateImageSlider(name) {
     // Unikalny identyfikator dla Swiper
     const sliderId = `swiper-container-${name.replace(/\s/g, "_")}`;
 
-  return `
-    <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative; overflow: hidden;">
-        <div class="swiper-wrapper">
-            ${images.map(img => `
-                <div class="swiper-slide">
-                    <img src="${img}" style="width:100%; height:150px; object-fit:cover; border-radius:8px;">
-                </div>
-            `).join("")}
-        </div>
-        <div class="swiper-pagination" style="position:absolute; bottom:5px; left:50%; transform:translateX(-50%);"></div>
+    return `
+        <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative; overflow: hidden;">
+            <div class="swiper-wrapper">
+                ${images.map(img => `
+                    <div class="swiper-slide">
+                        <img src="${img}" style="width:100%; height:150px; object-fit:cover; border-radius:8px;">
+                    </div>
+                `).join("")}
+            </div>
+            <div class="swiper-pagination" style="position:absolute; bottom:5px; left:50%; transform:translateX(-50%);"></div>
 
-        <!-- 🔹 Nowe strzałki -->
-        <div class="swiper-button-prev" style="
-            position:absolute; 
-            top:50%; 
-            left:5px; 
-            transform:translateY(-50%);
-            width:30px; 
-            height:30px;
-            background-color: rgba(0, 0, 0, 0.5); 
-            border-radius:50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        ">
-            <span style="color:white; font-size:20px; font-weight:bold;">❮</span>
-        </div>
+            <!-- 🔹 Nowe, poprawione strzałki -->
+            <div class="swiper-button-prev custom-swiper-prev" style="
+                position:absolute; 
+                top:50%; 
+                left:5px; 
+                transform:translateY(-50%);
+                width:25px; 
+                height:25px;
+                background-color: rgba(0, 0, 0, 0.6); 
+                border-radius:50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: opacity 0.3s;
+            " onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">
+                <span style="color:white; font-size:16px; font-weight:bold;">❮</span>
+            </div>
 
-        <div class="swiper-button-next" style="
-            position:absolute; 
-            top:50%; 
-            right:5px; 
-            transform:translateY(-50%);
-            width:30px; 
-            height:30px;
-            background-color: rgba(0, 0, 0, 0.5); 
-            border-radius:50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        ">
-            <span style="color:white; font-size:20px; font-weight:bold;">❯</span>
+            <div class="swiper-button-next custom-swiper-next" style="
+                position:absolute; 
+                top:50%; 
+                right:5px; 
+                transform:translateY(-50%);
+                width:25px; 
+                height:25px;
+                background-color: rgba(0, 0, 0, 0.6); 
+                border-radius:50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: opacity 0.3s;
+            " onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">
+                <span style="color:white; font-size:16px; font-weight:bold;">❯</span>
+            </div>
         </div>
-    </div>
-`;
-
+    `;
 }
+
 
 
 
