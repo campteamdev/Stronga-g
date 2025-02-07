@@ -263,6 +263,39 @@
   .swiper-container {
     margin-bottom: 20px !important; /* Dodaje odstęp pod sliderem */
 }
+/* 🔹 Styl dla wysuwanego popupu */
+#custom-popup {
+    position: fixed;
+    bottom: -100%; /* Domyślnie ukryty */
+    left: 0;
+    width: 100%;
+    height: 80vh; /* Wysokość popupa */
+    background: white;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px 15px 0 0;
+    padding: 15px;
+    overflow-y: auto;
+    transition: bottom 0.3s ease-in-out;
+    z-index: 10000;
+}
+
+/* 🔹 Nagłówek popupa */
+#custom-popup-header {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #66cc66;
+    text-align: center;
+}
+
+/* 🔹 Zamknięcie popupa */
+#close-popup {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
 
 </style>
 
@@ -588,6 +621,11 @@ document.addEventListener("touchstart", function (event) {
 
 <script src="image-loader.js"></script>
 
+<!-- 🔹 Panel wysuwanego popupu -->
+<div id="custom-popup">
+  <span id="close-popup">&times;</span> <!-- Przycisk zamknięcia -->
+  <div id="custom-popup-content"></div> <!-- Tu będą treści -->
+</div>
 
   </body>
 </html>
