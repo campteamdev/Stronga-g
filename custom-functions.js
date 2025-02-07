@@ -1,4 +1,4 @@
-var map = L.map("map").setView([52.2297, 21.0122], 6);
+
 
 // Obiekty do przechowywania danych
 let detailsMap = {};
