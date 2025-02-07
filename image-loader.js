@@ -37,7 +37,6 @@ async function getLocationImages(name) {
     return images;
 }
 
-
 // 🔹 Funkcja generująca slider zdjęć
 async function generateImageSlider(name) {
     const images = await getLocationImages(name);
@@ -123,49 +122,7 @@ async function generateImageSlider(name) {
     `;
 }
 
-
-
-// 🔹 Dodawanie zdjęć do popupu po otwarciu
-async function updatePopupWithImages(popup) {
-    // Usunięcie istniejącego slidera (zapobiega podwójnemu wyświetlaniu)
-    const existingSlider = popup.querySelector(".swiper-container");
-    if (existingSlider) {
-        existingSlider.remove();
-    }
-
-    const nameElement = popup.querySelector("div");
-    if (!nameElement) return;
-
-    const name = nameElement.textContent.trim();
-    const imageSlider = await generateImageSlider(name);
-
-    if (imageSlider) {
-        popup.insertAdjacentHTML("afterbegin", imageSlider);
-        initializeSwiper(name); // ⬅️ Dodane tutaj
-    }
-}
-
-
-
-
-// 🔹 Nasłuchiwanie otwarcia popupu i dodawanie zdjęć
-map.on("popupopen", async function (e) {
-    await updatePopupWithImages(e.popup._contentNode);
-});
-function initializeSwiper(name) {
-    const sliderId = `swiper-container-${name.replace(/\s/g, "_")}`;
-
-    setTimeout(() => {
-        new Swiper(`.${sliderId}`, {
-            loop: true,
-            pagination: { el: `.${sliderId} .swiper-pagination`, clickable: true },
-            navigation: { nextEl: `.${sliderId} .swiper-button-next`, prevEl: `.${sliderId} .swiper-button-prev` },
-            autoplay: { delay: 3000 },
-            slidesPerView: 1,
-            spaceBetween: 10
-        });
-    }, 500);
-}
+// 🔹 Funkcja do otwierania zdjęcia w pełnym ekranie
 function openFullscreen(imageUrl) {
     const fullscreenContainer = document.createElement("div");
     fullscreenContainer.style.position = "fixed";
@@ -194,3 +151,27 @@ function openFullscreen(imageUrl) {
     });
 }
 
+// 🔹 Dodawanie zdjęć do popupu po otwarciu
+async function updatePopupWithImages(popup) {
+    // Usunięcie istniejącego slidera (zapobiega podwójnemu wyświetlaniu)
+    const existingSlider = popup.querySelector(".swiper-container");
+    if (existingSlider) {
+        existingSlider.remove();
+    }
+
+    const nameElement = popup.querySelector("div");
+    if (!nameElement) return;
+
+    const name = nameElement.textContent.trim();
+    const imageSlider = await generateImageSlider(name);
+
+    if (imageSlider) {
+        popup.insertAdjacentHTML("afterbegin", imageSlider);
+        initializeSwiper(name); // ⬅️ Dodane tutaj
+    }
+}
+
+// 🔹 Nasłuchiwanie otwarcia popupu i dodawanie zdjęć
+map.on("popupopen", async function (e) {
+    await updatePopupWithImages(e.popup._contentNode);
+});
