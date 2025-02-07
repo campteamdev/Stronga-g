@@ -98,8 +98,13 @@ async function generateImageSlider(name) {
 
 // 🔹 Funkcja do powiększania zdjęcia i zmiany
 // 🔹 Funkcja do powiększania zdjęcia i zmiany za pomocą strzałek
+// 🔹 Funkcja do powiększania zdjęcia i zmiany za pomocą strzałek
 function openFullscreen(images, index) {
-    if (document.getElementById("fullscreen-view")) return;
+    // Upewniamy się, że nie tworzymy wielu pełnoekranowych widoków
+    let existingFullscreen = document.getElementById("fullscreen-view");
+    if (existingFullscreen) {
+        existingFullscreen.remove(); // Usunięcie starego widoku przed utworzeniem nowego
+    }
 
     let currentIndex = index;
 
@@ -137,7 +142,8 @@ function openFullscreen(images, index) {
     prevArrow.style.padding = "10px";
     prevArrow.style.borderRadius = "50%";
 
-    prevArrow.addEventListener("click", () => {
+    prevArrow.addEventListener("click", (event) => {
+        event.stopPropagation(); // Zapobiega zamknięciu pełnego ekranu na kliknięcie strzałki
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         img.src = images[currentIndex];
     });
@@ -157,20 +163,22 @@ function openFullscreen(images, index) {
     nextArrow.style.padding = "10px";
     nextArrow.style.borderRadius = "50%";
 
-    nextArrow.addEventListener("click", () => {
+    nextArrow.addEventListener("click", (event) => {
+        event.stopPropagation();
         currentIndex = (currentIndex + 1) % images.length;
         img.src = images[currentIndex];
     });
 
     // 🔹 Zamknięcie na kliknięcie poza obraz
-    fullscreenContainer.addEventListener("click", (event) => {
-        if (event.target === fullscreenContainer) {
-            document.body.removeChild(fullscreenContainer);
+    fullscreenContainer.addEventListener("click", () => {
+        let existingFullscreen = document.getElementById("fullscreen-view");
+        if (existingFullscreen && document.body.contains(existingFullscreen)) {
+            document.body.removeChild(existingFullscreen);
         }
     });
 
     // 🔹 Obsługa klawiatury (strzałki + Escape)
-    document.addEventListener("keydown", (event) => {
+    const keyHandler = (event) => {
         if (event.key === "ArrowRight") {
             currentIndex = (currentIndex + 1) % images.length;
             img.src = images[currentIndex];
@@ -178,9 +186,14 @@ function openFullscreen(images, index) {
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             img.src = images[currentIndex];
         } else if (event.key === "Escape") {
-            document.body.removeChild(fullscreenContainer);
+            let existingFullscreen = document.getElementById("fullscreen-view");
+            if (existingFullscreen && document.body.contains(existingFullscreen)) {
+                document.body.removeChild(existingFullscreen);
+            }
+            document.removeEventListener("keydown", keyHandler); // Usuwamy nasłuchiwanie po zamknięciu
         }
-    });
+    };
+    document.addEventListener("keydown", keyHandler);
 
     // 🔹 Obsługa gestów dotykowych (swipe)
     let touchStartX = 0;
@@ -207,7 +220,6 @@ function openFullscreen(images, index) {
 
     console.log("✅ Powiększenie zdjęcia otwarte:", images[currentIndex]);
 }
-
 
 // 🔹 Nasłuchiwanie otwarcia popupu i dodawanie zdjęć
 map.on("popupopen", async function (e) {
