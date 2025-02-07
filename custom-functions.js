@@ -219,3 +219,21 @@ document.addEventListener("touchstart", function (event) {
     event.preventDefault();
   }
 }, { passive: false });
+// 🔹 Modyfikujemy popupy, aby dodawać zdjęcia
+async function updatePopupsWithImages() {
+    const popups = document.querySelectorAll(".leaflet-popup-content");
+
+    for (const popup of popups) {
+        const name = popup.querySelector("div").textContent.trim(); // Pobranie nazwy lokalizacji
+        const imageSlider = await generateImageSlider(name);
+
+        if (imageSlider) {
+            popup.insertAdjacentHTML("afterbegin", imageSlider);
+        }
+    }
+}
+
+// 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
+map.on("popupopen", async function () {
+    await updatePopupsWithImages();
+});
