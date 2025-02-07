@@ -28,7 +28,7 @@ async function loadDetails() {
 // 🔹 Funkcja pobierająca zdjęcia z GitHuba
 async function getLocationImages(name) {
     const githubRepo = "https://raw.githubusercontent.com/NAZWA_UŻYTKOWNIKA/NAZWA_REPOZYTORIUM/main/";
-    const folderName = name.replace(/\s/g, "_");
+    const folderName = name.replace(/\s/g, "_"); // Zamiana spacji na podkreślniki
     const folderUrl = `${githubRepo}${encodeURIComponent(folderName)}/`;
     const imageExtensions = ["jpg", "jpeg", "webp"];
     let images = [];
@@ -39,7 +39,7 @@ async function getLocationImages(name) {
             const data = await response.json();
             images = data
                 .filter(file => imageExtensions.includes(file.name.split('.').pop().toLowerCase()))
-                .slice(0, 5)
+                .slice(0, 5) // Maksymalnie 5 zdjęć
                 .map(file => `${folderUrl}${file.name}`);
         }
     } catch (error) {
@@ -47,6 +47,24 @@ async function getLocationImages(name) {
     }
 
     return images;
+}
+
+// 🔹 Funkcja skracająca tekst do 3 linijek
+function shortenText(text, id) {
+  if (!text) return "";
+  const words = text.split(" ");
+  if (words.length > 30) {
+    const shortText = words.slice(0, 30).join(" ") + "...";
+    return `
+      <span id="${id}-short">${shortText}</span>
+      <span id="${id}-full" style="display:none;">${text.replace(/\n/g, "<br>")}</span>
+      <a href="#" onclick="document.getElementById('${id}-short').style.display='none';
+                          document.getElementById('${id}-full').style.display='inline';
+                          this.style.display='none'; return false;">
+        Pokaż więcej
+      </a>`;
+  }
+  return text.replace(/\n/g, "<br>");
 }
 
 // 🔹 Funkcja generująca treść popupu
@@ -79,19 +97,19 @@ async function generatePopupContent(name, lat, lon) {
         <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;">${name}</div><br>
         <strong>Kontakt:</strong> ${phoneNumbersMap[name] || "Brak numeru kontaktowego"}<br>
         ${websiteLinksMap[name] ? `<strong>Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank">${websiteLinksMap[name]}</a><br>` : ""}
-        <strong>Opis:</strong> ${descriptionsMap[name] ? descriptionsMap[name] : "<i>Brak opisu</i>"}<br>
+        <strong>Opis:</strong> ${descriptionsMap[name] ? shortenText(descriptionsMap[name], `opis-${name}`) : "<i>Brak opisu</i>"}<br>
         <strong>Infrastruktura:</strong> ${amenitiesMap[name] || "<i>Brak informacji</i>"}<br>
     `;
 }
 
-// 🔹 Funkcja dodająca markery i poprawnie obsługująca popupy
-async function loadMarkers(url, icon) {
+// 🔹 Funkcja wczytująca dane z KML i dodająca markery
+async function loadMarkers(url) {
     const response = await fetch(url);
-    if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
+    if (!response.ok) throw new Error(`Nie udało się załadować: ${url}`);
     const kmlText = await response.text();
     const parser = new DOMParser();
     const kml = parser.parseFromString(kmlText, "application/xml");
-    const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+    const placemarks = kml.getElementsByTagName("Placemark");
 
     for (const placemark of placemarks) {
         const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
@@ -100,7 +118,7 @@ async function loadMarkers(url, icon) {
 
         const [lon, lat] = coordinates.split(",");
 
-        const marker = L.marker([lat, lon], { icon }).addTo(markerCluster);
+        const marker = L.marker([lat, lon]).addTo(markerCluster);
         marker.bindPopup("Ładowanie...", { minWidth: 200, maxWidth: 220, maxHeight: 300, autoPan: true });
 
         marker.on("click", async function () {
@@ -110,22 +128,19 @@ async function loadMarkers(url, icon) {
     }
 }
 
-// 🔹 Funkcja wczytująca dane z KML
-async function loadKmlData() {
-    await Promise.all([
-        loadMarkers("/Kempingi.kml", icons.kempingi),
-        loadMarkers("/Polanamiotowe.kml", icons.polanamiotowe),
-        loadMarkers("/Kempingiopen.kml", icons.kempingiopen),
-        loadMarkers("/Polanamiotoweopen.kml", icons.polanamiotoweopen),
-        loadMarkers("/Parkingilesne.kml", icons.parkingilesne),
-        loadMarkers("/Miejscenabiwak.kml", icons.miejscenabiwak),
-    ]);
-}
-
-// 🔹 Funkcja inicjalizująca mapę i ładująca punkty
+// 🔹 Funkcja inicjalizująca mapę
 async function initializeMap() {
     await loadDetails();
-    await loadKmlData();
+    await Promise.all([
+        loadMarkers("/Atrakcje.kml"),
+        loadMarkers("/Kempingi.kml"),
+        loadMarkers("/Kempingi1.kml"),
+        loadMarkers("/Kempingiopen.kml"),
+        loadMarkers("/Miejscenabiwak.kml"),
+        loadMarkers("/Parkingilesne.kml"),
+        loadMarkers("/Polanamiotowe.kml"),
+        loadMarkers("/Polanamiotoweopen.kml"),
+    ]);
 }
 
 // 🔹 Uruchomienie mapy
