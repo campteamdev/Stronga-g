@@ -7,29 +7,28 @@ setTimeout(() => {
 }, 1000);
 
 // 🔹 Pobieranie zdjęć z GitHuba
+// 🔹 Pobieranie zdjęć z GitHuba
 async function getLocationImages(name) {
     const githubRepo = "https://api.github.com/repos/campteamdev/Stronga-g/contents/";
-    
-    // 🔹 Funkcja normalizująca nazwę kempingu (usuwa polskie znaki, nadmiarowe spacje i myślniki)
+
+    // 🔹 Funkcja normalizująca nazwę folderu
     function normalizeName(str) {
         return str
             .trim() // Usunięcie spacji na początku i końcu
-            .normalize("NFD") // Usunięcie polskich znaków
-            .replace(/[\u0300-\u036f]/g, "") // Usunięcie akcentów
-            .replace(/\s+/g, " ") // Zamiana wielokrotnych spacji na pojedynczą spację
-            .replace(/[-]+/g, " ") // Zamiana myślników na spacje
-            .trim(); // Ponowne usunięcie spacji na początku i końcu
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Usunięcie polskich znaków
+            .replace(/[–-]+/g, " ") // Zamiana długiego i krótkiego myślnika na spację
+            .replace(/\.+$/, "") // Usunięcie kropek na końcu
+            .replace(/\s+/g, "_"); // Zamiana wszystkich spacji na `_`
     }
 
-    // 🔹 Generowanie wariantów nazw folderów
     const baseName = normalizeName(name);
     const folderVariants = [
-        encodeURIComponent(baseName),                        // Oryginalna nazwa (bez polskich znaków, z jedną spacją)
-        encodeURIComponent(baseName.replace(/\s+/g, "_")),  // Zamiana wszystkich spacji na `_`
-        encodeURIComponent(baseName.replace(/\s+/g, "-")),  // Zamiana wszystkich spacji na `-`
-        encodeURIComponent(baseName.replace(/\s+/g, "")),   // Usunięcie wszystkich spacji
-        encodeURIComponent(baseName.toLowerCase()),        // Małe litery
-        encodeURIComponent(baseName.toUpperCase()),        // Wielkie litery
+        encodeURIComponent(baseName),                        // "Pole_biwakowe_Liwiec_com"
+        encodeURIComponent(baseName.replace(/_/g, "-")),    // "Pole-biwakowe-Liwiec-com"
+        encodeURIComponent(baseName.replace(/_/g, " ")),    // "Pole biwakowe Liwiec com"
+        encodeURIComponent(baseName.replace(/_/g, "")),     // "PolebiwakoweLiwieccom"
+        encodeURIComponent(baseName.toLowerCase()),         // "pole_biwakowe_liwiec_com"
+        encodeURIComponent(baseName.toUpperCase()),         // "POLE_BIWAKOWE_LIWIEC_COM"
     ];
 
     let images = [];
@@ -66,6 +65,7 @@ async function getLocationImages(name) {
 
     return images;
 }
+
 
 
 // 🔹 Funkcja inicjalizująca Swiper
