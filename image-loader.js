@@ -55,7 +55,7 @@ async function generateImageSlider(name) {
             <div class="swiper-wrapper">
                 ${images.map(img => `
                     <div class="swiper-slide">
-                        <img src="${img}" style="width:100%; height:150px; object-fit:cover; border-radius:8px;">
+                        <img src="${img}" class="zoomable-image" style="width:100%; height:150px; object-fit:cover; border-radius:8px; cursor:pointer;">
                     </div>
                 `).join("")}
             </div>
@@ -106,20 +106,23 @@ async function generateImageSlider(name) {
                 const swiper = new Swiper('.${sliderId}', {
                     loop: true,
                     pagination: { el: '.swiper-pagination', clickable: true },
-                    autoplay: { delay: 3000 },
                     slidesPerView: 1,
                     spaceBetween: 10,
-                    navigation: false  // ⬅️ WYŁĄCZAMY DOMYŚLNE STRZAŁKI SWIPER
+                    navigation: false // ⬅️ WYŁĄCZAMY DOMYŚLNE STRZAŁKI SWIPER
                 });
 
                 // 🔹 Obsługa naszych własnych strzałek
                 document.getElementById('${prevBtnId}').addEventListener('click', () => swiper.slidePrev());
                 document.getElementById('${nextBtnId}').addEventListener('click', () => swiper.slideNext());
+
+                // 🔹 Powiększanie zdjęcia po kliknięciu
+                document.querySelectorAll('.${sliderId} .zoomable-image').forEach(img => {
+                    img.addEventListener('click', () => openFullscreen(img.src));
+                });
             }, 500);
         </script>
     `;
 }
-
 
 
 
