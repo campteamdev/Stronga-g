@@ -44,26 +44,35 @@ async function getLocationImages(name) {
 async function generateImageSlider(name) {
     const images = await getLocationImages(name);
 
-    if (images.length === 0) return ""; // Brak zdjęć – nie dodajemy slidera
+    if (images.length === 0) return ""; // Jeśli brak zdjęć, nie dodajemy slidera
+
+    console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);
 
     return `
-        <div class="swiper-container" style="width:100%; height: 150px;">
+        <div class="swiper-container-${name.replace(/\s/g, "_")}" style="width:100%; height: 150px;">
             <div class="swiper-wrapper">
-                ${images.map(img => `<div class="swiper-slide"><img src="${img}" style="width:100%; height:150px; object-fit:cover; border-radius:8px;"></div>`).join("")}
+                ${images.map(img => `
+                    <div class="swiper-slide">
+                        <img src="${img}" style="width:100%; height:150px; object-fit:cover; border-radius:8px;">
+                    </div>
+                `).join("")}
             </div>
             <div class="swiper-pagination"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
         <script>
-            new Swiper('.swiper-container', {
-                loop: true,
-                pagination: { el: '.swiper-pagination', clickable: true },
-                navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
-            });
+            setTimeout(() => {
+                new Swiper('.swiper-container-${name.replace(/\s/g, "_")}', {
+                    loop: true,
+                    pagination: { el: '.swiper-pagination', clickable: true },
+                    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+                });
+            }, 500);
         </script>
     `;
 }
+
 
 // 🔹 Dodawanie zdjęć do popupu po otwarciu
 async function updatePopupWithImages(popup) {
