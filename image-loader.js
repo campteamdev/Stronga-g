@@ -112,3 +112,18 @@ map.on("popupopen", async function (e) {
 map.on("popupopen", async function (e) {
     await updatePopupWithImages(e.popup._contentNode);
 });
+function initializeSwiper(name) {
+    const sliderId = `swiper-container-${name.replace(/\s/g, "_")}`;
+
+    setTimeout(() => {
+        new Swiper(`.${sliderId}`, {
+            loop: true,
+            pagination: { el: `.${sliderId} .swiper-pagination`, clickable: true },
+            navigation: { nextEl: `.${sliderId} .swiper-button-next`, prevEl: `.${sliderId} .swiper-button-prev` },
+            autoplay: { delay: 3000 },
+            slidesPerView: 1,
+            spaceBetween: 10
+        });
+    }, 500);
+}
+
