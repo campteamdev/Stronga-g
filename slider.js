@@ -52,7 +52,9 @@ async function addSliderToPopup(name, popupContent) {
     console.log("🛠️ Tworzenie slidera dla:", name);
 
     let sliderHTML = `
-      <div class="swiper-container" style="width:100%; height:200px; margin-bottom: 10px;">
+    let sliderHTML = `
+  <div class="swiper-container" style="width:100%; height:200px; margin-top: 50px; margin-bottom: 10px;">
+
         <div class="swiper-wrapper">
           ${validImages.map(img => `
             <div class="swiper-slide">

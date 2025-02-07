@@ -119,7 +119,11 @@ function shortenText(text, id) {
 
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>`;
+  let popupContent = `<div style="border:2px solid #66cc66; padding:5px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
+  user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
+  border-radius: 8px; background-color: #eaffea;">
+  ${name}</div><br>`;
+
 // Funkcja generująca treść popupu z pełną blokadą kopiowania
 function generatePopupContent(name, lat, lon) {
   let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
@@ -146,9 +150,11 @@ function generatePopupContent(name, lat, lon) {
       Kontakt:</strong> ${phoneLink}<br>`;
 
   // Blokada kopiowania opisu
-  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px;
-      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+ popupContent += `<div style="border:2px solidrgb(31, 235, 31); padding:4px; display:inline-block; font-size:12px;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
+      border-radius: 8px; background-color: #eaffea;">
       Opis:</div><br>`;
+
   popupContent += descriptionsMap[name] 
     ? `<span style="font-size:10px;
         user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
@@ -176,13 +182,20 @@ function generatePopupContent(name, lat, lon) {
   }
 
   // Opis
-  popupContent += `<div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Opis:</div><br>`;
+  popupContent += `<div style="border:2px solidrgb(18, 161, 18); padding:4px; display:inline-block; font-size:12px;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
+      border-radius: 8px; background-color: #eaffea;">
+      Opis:</div><br>`;
+
   popupContent += descriptionsMap[name] 
     ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
     : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
 
   // Infrastruktura
-  popupContent += `<br><div style="border:2px solid green; padding:2px; display:inline-block; font-size:12px; user-select: none;">Infrastruktura:</div><br>`;
+  popupContent += `<br><div style="border:2px solidrgb(184, 19, 25); padding:4px; display:inline-block; font-size:12px; 
+      user-select: none; border-radius: 8px; background-color: #eaffea;">
+      Infrastruktura:</div><br>`;
+
   popupContent += amenitiesMap[name] 
     ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>` 
     : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;

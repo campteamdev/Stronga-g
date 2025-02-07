@@ -255,6 +255,18 @@
     right: 5px;
 }
 </style>
+.leaflet-popup-content .swiper-container {
+  margin-top: 30px !important;
+}
+<style>
+  .leaflet-popup-content {
+      padding-top: 15px;
+  }
+  .swiper-container {
+    margin-bottom: 20px !important; /* Dodaje odstęp pod sliderem */
+}
+
+</style>
 
   </head>
   <body class="" oncontextmenu="return false;">
@@ -343,7 +355,7 @@
         }),
         polanamiotoweopen: L.icon({
           iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
-          iconSize: [30, 30],
+          iconSize: [40, 40],
           iconAnchor: [15, 15],
           popupAnchor: [0, -10],
         }),
