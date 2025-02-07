@@ -7,8 +7,7 @@ window.sliderLoadedScript = true;
 
 console.log("✅ Slider.js załadowany!");
 
-// **Pobranie zdjęć z `images.json` dla `Górska Sadyba`**
-async function fetchImages(name) {
+/async function fetchImages(name) {
     try {
         console.log("📡 Pobieram `images.json`...");
         const response = await fetch('/images.json');
@@ -25,18 +24,36 @@ async function fetchImages(name) {
 
         console.log("🔎 Szukam zdjęć dla:", name, `(Formatowana: ${formattedName})`);
 
-        return data[name] || data[formattedName] || []; 
+        let imageLinks = data[name] || data[formattedName] || [];
+
+        // 🔹 Zamiana API GitHub na raw.githubusercontent.com
+        imageLinks = imageLinks.map(img => img.replace(
+            'https://api.github.com/repos/campteamdev/Stronga-g/contents/',
+            'https://raw.githubusercontent.com/campteamdev/Stronga-g/main/'
+        ).split('?')[0]);
+
+        console.log("✅ Ostateczne linki do zdjęć:", imageLinks);
+
+        return imageLinks;
     } catch (error) {
         console.error(error);
         return [];
     }
 }
 
-// **Dodawanie slidera do popupu dla `Górska Sadyba`**
+
 async function addSliderToPopup(name, popupContent) {
     console.log("🔍 Sprawdzam, czy dodać slider dla:", name);
 
     const validImages = await fetchImages(name);
+
+    // **Dodanie zdjęcia z przyciskiem "+" na końcu**
+    const addPhotoButton = `
+        <div class="swiper-slide add-photo-slide">
+            <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" target="_blank" class="add-photo-link">
+                <div class="add-photo-circle">+</div>
+            </a>
+        </div>`;
 
     if (validImages.length === 0) {
         console.warn(`🚫 Brak zdjęć dla: ${name} - Slider nie zostanie dodany`);
@@ -52,21 +69,19 @@ async function addSliderToPopup(name, popupContent) {
     console.log("🛠️ Tworzenie slidera dla:", name);
 
     let sliderHTML = `
-    let sliderHTML = `
-  <div class="swiper-container" style="width:100%; height:200px; margin-top: 50px; margin-bottom: 10px;">
-
-        <div class="swiper-wrapper">
-          ${validImages.map(img => `
-            <div class="swiper-slide">
-              <img src="${img}" class="slider-img" style="width:100%; height:100%; object-fit:cover; border-radius: 10px;">
+        <div class="swiper-container" style="width:100%; height:200px; margin-top: 50px; margin-bottom: 10px;">
+            <div class="swiper-wrapper">
+                ${validImages.map(img => `
+                    <div class="swiper-slide">
+                        <img src="${img}" class="slider-img" style="width:100%; height:100%; object-fit:cover; border-radius: 10px;">
+                    </div>
+                `).join("")}
+                ${addPhotoButton} <!-- 🔹 Dodanie kółka z plusem na końcu -->
             </div>
-          `).join("")}
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
-    `;
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>`;
 
     let sliderContainer = document.createElement("div");
     sliderContainer.innerHTML = sliderHTML;
@@ -76,7 +91,7 @@ async function addSliderToPopup(name, popupContent) {
 
     setTimeout(() => {
         new Swiper('.swiper-container', {
-            loop: true,
+            loop: false, // 🔹 Wyłączamy zapętlenie, żeby "+" było zawsze na końcu
             pagination: { el: '.swiper-pagination', clickable: true },
             navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
         });
@@ -92,16 +107,12 @@ async function addSliderToPopup(name, popupContent) {
     });
 }
 
+
+
 // **Dodawanie slidera już w momencie generowania popupu**
 async function modifyPopupContent(name, popupContent) {
     console.log("🛠️ Modyfikuję treść popupu dla:", name);
-
-    // **Dodaj slider tylko dla `Górska Sadyba`**
-    if (name === "Górska Sadyba") {
-        await addSliderToPopup(name, popupContent);
-    } else {
-        console.warn(`⚠️ ${name} nie ma zdjęć w images.json - pomijam slider`);
-    }
+    await addSliderToPopup(name, popupContent);
 }
 
 // **Modyfikacja popupu natychmiast po jego wygenerowaniu**
