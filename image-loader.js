@@ -9,7 +9,7 @@ setTimeout(() => {
 // 🔹 Pobieranie zdjęć z GitHuba
 async function getLocationImages(name) {
     const githubRepo = "https://api.github.com/repos/campteamdev/Stronga-g/contents/";
-    const folderName = encodeURIComponent(name.replace(/\s/g, "_")); 
+    const folderName = encodeURIComponent(name.replace(/\s/g, "_"));
     let images = [];
 
     console.log(`📂 Sprawdzanie folderu: ${folderName}`);
@@ -27,7 +27,7 @@ async function getLocationImages(name) {
         images = data
             .filter(file => file.download_url && /\.(jpg|jpeg|webp)$/i.test(file.name))
             .map(file => file.download_url)
-            .slice(0, 5);  // Maksymalnie 5 zdjęć
+            .slice(0, 5); // Maksymalnie 5 zdjęć
 
         console.log(`✅ Zdjęcia dla ${name}:`, images);
     } catch (error) {
@@ -38,7 +38,7 @@ async function getLocationImages(name) {
 }
 
 // 🔹 Funkcja inicjalizująca Swiper
-function initializeSwiper(name, images) {
+function initializeSwiper(name) {
     const sliderId = `.swiper-container-${name.replace(/\s/g, "_")}`;
     const prevBtnId = `#swiper-prev-${name.replace(/\s/g, "_")}`;
     const nextBtnId = `#swiper-next-${name.replace(/\s/g, "_")}`;
@@ -86,8 +86,7 @@ async function generateImageSlider(name) {
                     </div>
                 `).join("")}
             </div>
-            <div class="swiper-pagination" style="position:absolute; bottom:5px; left:50%; transform:translateX(-50%);"></div>
-
+            <div class="swiper-pagination"></div>
             <div id="${prevBtnId}" class="swiper-button-prev"></div>
             <div id="${nextBtnId}" class="swiper-button-next"></div>
         </div>
@@ -117,9 +116,38 @@ function openFullscreen(images, index) {
     img.src = images[currentIndex];
     img.style.maxWidth = "95%";
     img.style.maxHeight = "95%";
+    img.style.cursor = "pointer";
 
     fullscreenContainer.appendChild(img);
     document.body.appendChild(fullscreenContainer);
+
+    // Obsługa strzałek klawiatury
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") {
+            currentIndex = (currentIndex + 1) % images.length;
+            img.src = images[currentIndex];
+        } else if (event.key === "ArrowLeft") {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            img.src = images[currentIndex];
+        } else if (event.key === "Escape") {
+            document.body.removeChild(fullscreenContainer);
+        }
+    });
+
+    // Obsługa gestów dotykowych (swipe)
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    img.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    img.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) currentIndex = (currentIndex + 1) % images.length;  // Swipe left
+        if (touchEndX - touchStartX > 50) currentIndex = (currentIndex - 1 + images.length) % images.length; // Swipe right
+        img.src = images[currentIndex];
+    });
 
     fullscreenContainer.addEventListener("click", () => {
         document.body.removeChild(fullscreenContainer);
@@ -130,5 +158,15 @@ function openFullscreen(images, index) {
 
 // 🔹 Nasłuchiwanie otwarcia popupu i dodawanie zdjęć
 map.on("popupopen", async function (e) {
-    await updatePopupWithImages(e.popup._contentNode);
+    const popup = e.popup._contentNode;
+    const nameElement = popup.querySelector("div");
+    if (!nameElement) return;
+
+    const name = nameElement.textContent.trim();
+    const imageSlider = await generateImageSlider(name);
+
+    if (imageSlider) {
+        popup.insertAdjacentHTML("afterbegin", imageSlider);
+        initializeSwiper(name);
+    }
 });
