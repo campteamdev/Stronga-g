@@ -97,6 +97,7 @@ async function generateImageSlider(name) {
 }
 
 // 🔹 Funkcja do powiększania zdjęcia i zmiany
+// 🔹 Funkcja do powiększania zdjęcia i zmiany za pomocą strzałek
 function openFullscreen(images, index) {
     if (document.getElementById("fullscreen-view")) return;
 
@@ -121,10 +122,54 @@ function openFullscreen(images, index) {
     img.style.maxHeight = "95%";
     img.style.cursor = "pointer";
 
-    fullscreenContainer.appendChild(img);
-    document.body.appendChild(fullscreenContainer);
+    // 🔹 Strzałka do poprzedniego zdjęcia
+    const prevArrow = document.createElement("div");
+    prevArrow.innerHTML = "❮";
+    prevArrow.style.position = "absolute";
+    prevArrow.style.left = "20px";
+    prevArrow.style.top = "50%";
+    prevArrow.style.transform = "translateY(-50%)";
+    prevArrow.style.fontSize = "30px";
+    prevArrow.style.color = "white";
+    prevArrow.style.cursor = "pointer";
+    prevArrow.style.zIndex = "10000";
+    prevArrow.style.background = "rgba(0,0,0,0.5)";
+    prevArrow.style.padding = "10px";
+    prevArrow.style.borderRadius = "50%";
 
-    // 🔹 Obsługa strzałek klawiatury
+    prevArrow.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        img.src = images[currentIndex];
+    });
+
+    // 🔹 Strzałka do następnego zdjęcia
+    const nextArrow = document.createElement("div");
+    nextArrow.innerHTML = "❯";
+    nextArrow.style.position = "absolute";
+    nextArrow.style.right = "20px";
+    nextArrow.style.top = "50%";
+    nextArrow.style.transform = "translateY(-50%)";
+    nextArrow.style.fontSize = "30px";
+    nextArrow.style.color = "white";
+    nextArrow.style.cursor = "pointer";
+    nextArrow.style.zIndex = "10000";
+    nextArrow.style.background = "rgba(0,0,0,0.5)";
+    nextArrow.style.padding = "10px";
+    nextArrow.style.borderRadius = "50%";
+
+    nextArrow.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        img.src = images[currentIndex];
+    });
+
+    // 🔹 Zamknięcie na kliknięcie poza obraz
+    fullscreenContainer.addEventListener("click", (event) => {
+        if (event.target === fullscreenContainer) {
+            document.body.removeChild(fullscreenContainer);
+        }
+    });
+
+    // 🔹 Obsługa klawiatury (strzałki + Escape)
     document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowRight") {
             currentIndex = (currentIndex + 1) % images.length;
@@ -147,17 +192,22 @@ function openFullscreen(images, index) {
 
     img.addEventListener("touchend", (e) => {
         touchEndX = e.changedTouches[0].screenX;
-        if (touchStartX - touchEndX > 50) currentIndex = (currentIndex + 1) % images.length; // Swipe left
-        if (touchEndX - touchStartX > 50) currentIndex = (currentIndex - 1 + images.length) % images.length; // Swipe right
+        if (touchStartX - touchEndX > 50) {
+            currentIndex = (currentIndex + 1) % images.length; // Swipe left
+        } else if (touchEndX - touchStartX > 50) {
+            currentIndex = (currentIndex - 1 + images.length) % images.length; // Swipe right
+        }
         img.src = images[currentIndex];
     });
 
-    fullscreenContainer.addEventListener("click", () => {
-        document.body.removeChild(fullscreenContainer);
-    });
+    fullscreenContainer.appendChild(prevArrow);
+    fullscreenContainer.appendChild(img);
+    fullscreenContainer.appendChild(nextArrow);
+    document.body.appendChild(fullscreenContainer);
 
     console.log("✅ Powiększenie zdjęcia otwarte:", images[currentIndex]);
 }
+
 
 // 🔹 Nasłuchiwanie otwarcia popupu i dodawanie zdjęć
 map.on("popupopen", async function (e) {
