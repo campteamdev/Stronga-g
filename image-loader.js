@@ -126,7 +126,7 @@ function openFullscreen(imageUrl) {
     fullscreenContainer.appendChild(img);
     document.body.appendChild(fullscreenContainer);
 
-    // Kliknięcie na zdjęcie zamyka powiększenie
+    // Kliknięcie w zdjęcie zamyka widok
     fullscreenContainer.addEventListener("click", () => {
         document.body.removeChild(fullscreenContainer);
     });
