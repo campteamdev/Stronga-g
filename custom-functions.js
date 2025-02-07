@@ -25,66 +25,10 @@ async function loadDetails() {
   }
 }
 
-// 🔹 Funkcja wczytująca dane z KML
-async function loadKmlData() {
-  const kmlFiles = [
-    "/Atrakcje.kml",
-    "/Kempingi.kml",
-    "/Kempingi1.kml",
-    "/Kempingiopen.kml",
-    "/Miejscenabiwak.kml",
-    "/Parkingilesne.kml",
-    "/Polanamiotowe.kml",
-    "/Polanamiotoweopen.kml",
-  ];
-
-  for (const url of kmlFiles) {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`Nie udało się załadować: ${url}`);
-      const kmlText = await response.text();
-      const parser = new DOMParser();
-      const kml = parser.parseFromString(kmlText, "application/xml");
-      const placemarks = kml.getElementsByTagName("Placemark");
-
-      for (const placemark of placemarks) {
-        const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
-        const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
-        const website = placemark.querySelector("Data[name='Strona www:'] > value")?.textContent.trim() || extractWebsite(description);
-
-        const opisNode = placemark.querySelector("Data[name='Opis:'] > value");
-        const infrastrukturaNode = placemark.querySelector("Data[name='Udogodnienia:'] > value");
-
-        const opis = opisNode ? opisNode.textContent.trim() : "";
-        let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
-
-        if (infrastruktura) {
-          infrastruktura = infrastruktura.replace(/- nr:? \d+/g, "").trim();
-          infrastruktura = infrastruktura.split("\n").join("<br>");
-        }
-
-        if (name) {
-          if (description) {
-            const phone = extractPhoneNumber(description);
-            phoneNumbersMap[name] = phone || "Brak numeru kontaktowego";
-          }
-          if (website) {
-            websiteLinksMap[name] = website;
-          }
-          descriptionsMap[name] = opis;
-          amenitiesMap[name] = infrastruktura;
-        }
-      }
-    } catch (error) {
-      console.error(`Błąd podczas przetwarzania pliku ${url}:`, error);
-    }
-  }
-}
-
 // 🔹 Funkcja pobierająca zdjęcia z GitHuba
 async function getLocationImages(name) {
     const githubRepo = "https://raw.githubusercontent.com/NAZWA_UŻYTKOWNIKA/NAZWA_REPOZYTORIUM/main/";
-    const folderName = name.replace(/\s/g, "_"); 
+    const folderName = name.replace(/\s/g, "_"); // Zamiana spacji na podkreślniki
     const folderUrl = `${githubRepo}${encodeURIComponent(folderName)}/`;
     const imageExtensions = ["jpg", "jpeg", "webp"];
     let images = [];
@@ -95,7 +39,7 @@ async function getLocationImages(name) {
             const data = await response.json();
             images = data
                 .filter(file => imageExtensions.includes(file.name.split('.').pop().toLowerCase()))
-                .slice(0, 5)
+                .slice(0, 5) // Maksymalnie 5 zdjęć
                 .map(file => `${folderUrl}${file.name}`);
         }
     } catch (error) {
@@ -105,7 +49,7 @@ async function getLocationImages(name) {
     return images;
 }
 
-// 🔹 Funkcja generująca popupy
+// 🔹 Funkcja generująca treść popupu
 async function generatePopupContent(name, lat, lon) {
     const images = await getLocationImages(name);
 
@@ -132,4 +76,74 @@ async function generatePopupContent(name, lat, lon) {
 
     return `
         ${imageSlider}
-        <div style="border:2px solid green; padding:3px; display:inline-block; font
+        <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;">${name}</div><br>
+        <strong>Kontakt:</strong> ${phoneNumbersMap[name] || "Brak numeru kontaktowego"}<br>
+        ${websiteLinksMap[name] ? `<strong>Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank">${websiteLinksMap[name]}</a><br>` : ""}
+        <strong>Opis:</strong> ${descriptionsMap[name] ? descriptionsMap[name] : "<i>Brak opisu</i>"}<br>
+        <strong>Infrastruktura:</strong> ${amenitiesMap[name] || "<i>Brak informacji</i>"}<br>
+    `;
+}
+
+// 🔹 Funkcja aktualizująca popupy (poprawiona obsługa asynchroniczna)
+async function updatePopups(markers) {
+    for (let { marker, name, lat, lon } of markers) {
+        marker.bindPopup("Ładowanie...", { minWidth: 200, maxWidth: 220, maxHeight: 300, autoPan: true });
+
+        marker.on("click", async function () {
+            const popupContent = await generatePopupContent(name, lat, lon);
+            marker.setPopupContent(popupContent);
+        });
+    }
+}
+
+// 🔹 Funkcja wczytująca dane z KML
+async function loadKmlData() {
+    const kmlFiles = [
+        "/Atrakcje.kml",
+        "/Kempingi.kml",
+        "/Kempingi1.kml",
+        "/Kempingiopen.kml",
+        "/Miejscenabiwak.kml",
+        "/Parkingilesne.kml",
+        "/Polanamiotowe.kml",
+        "/Polanamiotoweopen.kml",
+    ];
+
+    for (const url of kmlFiles) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`Nie udało się załadować: ${url}`);
+            const kmlText = await response.text();
+            const parser = new DOMParser();
+            const kml = parser.parseFromString(kmlText, "application/xml");
+            const placemarks = kml.getElementsByTagName("Placemark");
+
+            for (const placemark of placemarks) {
+                const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
+                const coordinates = placemark.getElementsByTagName("coordinates")[0]?.textContent.trim();
+                if (!coordinates) continue;
+
+                const [lon, lat] = coordinates.split(",");
+
+                const marker = L.marker([lat, lon]).addTo(markerCluster);
+                marker.bindPopup("Ładowanie...", { minWidth: 200, maxWidth: 220, maxHeight: 300, autoPan: true });
+
+                marker.on("click", async function () {
+                    const popupContent = await generatePopupContent(name, lat, lon);
+                    marker.setPopupContent(popupContent);
+                });
+            }
+        } catch (error) {
+            console.error(`Błąd podczas przetwarzania pliku ${url}:`, error);
+        }
+    }
+}
+
+// 🔹 Funkcja inicjalizująca mapę i ładująca punkty
+async function initializeMap() {
+    await loadDetails();
+    await loadKmlData();
+}
+
+// 🔹 Uruchomienie mapy
+initializeMap();
