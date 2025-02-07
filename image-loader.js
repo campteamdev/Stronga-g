@@ -48,8 +48,11 @@ async function generateImageSlider(name) {
 
     console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);
 
+    // Unikalny identyfikator slidera
+    const sliderId = `swiper-container-${name.replace(/\s/g, "_")}`;
+
     return `
-        <div class="swiper-container-${name.replace(/\s/g, "_")}" style="width:100%; height: 150px;">
+        <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative;">
             <div class="swiper-wrapper">
                 ${images.map(img => `
                     <div class="swiper-slide">
@@ -57,21 +60,25 @@ async function generateImageSlider(name) {
                     </div>
                 `).join("")}
             </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination" style="position:absolute; bottom:5px; left:50%; transform:translateX(-50%);"></div>
+            <div class="swiper-button-prev" style="position:absolute; top:50%; left:10px; transform:translateY(-50%); color:white;"></div>
+            <div class="swiper-button-next" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); color:white;"></div>
         </div>
         <script>
             setTimeout(() => {
-                new Swiper('.swiper-container-${name.replace(/\s/g, "_")}', {
+                new Swiper('.${sliderId}', {
                     loop: true,
                     pagination: { el: '.swiper-pagination', clickable: true },
-                    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+                    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                    autoplay: { delay: 3000 },
+                    slidesPerView: 1,
+                    spaceBetween: 10
                 });
             }, 500);
         </script>
     `;
 }
+
 
 
 // 🔹 Dodawanie zdjęć do popupu po otwarciu
