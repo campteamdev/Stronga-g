@@ -166,4 +166,31 @@ function initializeSwiper(name) {
         });
     }, 500);
 }
+function openFullscreen(imageUrl) {
+    const fullscreenContainer = document.createElement("div");
+    fullscreenContainer.style.position = "fixed";
+    fullscreenContainer.style.top = "0";
+    fullscreenContainer.style.left = "0";
+    fullscreenContainer.style.width = "100%";
+    fullscreenContainer.style.height = "100%";
+    fullscreenContainer.style.background = "rgba(0, 0, 0, 0.9)";
+    fullscreenContainer.style.display = "flex";
+    fullscreenContainer.style.justifyContent = "center";
+    fullscreenContainer.style.alignItems = "center";
+    fullscreenContainer.style.zIndex = "9999";
+    fullscreenContainer.style.cursor = "pointer";
+
+    const img = document.createElement("img");
+    img.src = imageUrl;
+    img.style.maxWidth = "95%";
+    img.style.maxHeight = "95%";
+    img.style.borderRadius = "10px";
+
+    fullscreenContainer.appendChild(img);
+    document.body.appendChild(fullscreenContainer);
+
+    fullscreenContainer.addEventListener("click", () => {
+        document.body.removeChild(fullscreenContainer);
+    });
+}
 
