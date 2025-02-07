@@ -1,3 +1,11 @@
+setTimeout(() => {
+    if (typeof map === "undefined") {
+        console.error("❌ Zmienna 'map' nie została zainicjalizowana przed użyciem.");
+    } else {
+        console.log("✅ Mapa poprawnie załadowana.");
+    }
+}, 1000);
+
 // 🔹 Pobieranie zdjęć z GitHuba
 async function getLocationImages(name) {
     const githubRepo = "https://raw.githubusercontent.com/campteamdev/Stronga-g/main/";
