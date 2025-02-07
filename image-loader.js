@@ -61,24 +61,23 @@ async function generateImageSlider(name) {
             </div>
             <div class="swiper-pagination" style="position:absolute; bottom:5px; left:50%; transform:translateX(-50%);"></div>
 
-            <!-- 🔹 Tylko nasze strzałki -->
+            <!-- 🔹 Strzałki do zmiany zdjęć -->
             <div id="${prevBtnId}" class="custom-swiper-prev" style="
                 position:absolute; 
                 top:50%; 
                 left:5px; 
                 transform:translateY(-50%);
-                width:25px; 
-                height:25px;
+                width:30px; 
+                height:30px;
                 background-color: rgba(0, 0, 0, 0.6); 
                 border-radius:50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
-                transition: opacity 0.3s;
                 z-index: 10;
-            " onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">
-                <span style="color:white; font-size:16px; font-weight:bold;">❮</span>
+            ">
+                <span style="color:white; font-size:20px; font-weight:bold;">❮</span>
             </div>
 
             <div id="${nextBtnId}" class="custom-swiper-next" style="
@@ -86,36 +85,36 @@ async function generateImageSlider(name) {
                 top:50%; 
                 right:5px; 
                 transform:translateY(-50%);
-                width:25px; 
-                height:25px;
+                width:30px; 
+                height:30px;
                 background-color: rgba(0, 0, 0, 0.6); 
                 border-radius:50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
-                transition: opacity 0.3s;
                 z-index: 10;
-            " onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">
-                <span style="color:white; font-size:16px; font-weight:bold;">❯</span>
+            ">
+                <span style="color:white; font-size:20px; font-weight:bold;">❯</span>
             </div>
         </div>
 
         <script>
             setTimeout(() => {
                 const swiper = new Swiper('.${sliderId}', {
-                    loop: true,
+                    loop: false,  // ❌ WYŁĄCZAMY PĘTLĘ
+                    autoplay: false,  // ❌ WYŁĄCZAMY AUTOMATYCZNĄ ZMIANĘ
                     pagination: { el: '.swiper-pagination', clickable: true },
                     slidesPerView: 1,
                     spaceBetween: 10,
-                    navigation: false // ⬅️ WYŁĄCZAMY DOMYŚLNE STRZAŁKI SWIPER
+                    navigation: false
                 });
 
-                // 🔹 Obsługa naszych własnych strzałek
+                // 🔹 Obsługa strzałek
                 document.getElementById('${prevBtnId}').addEventListener('click', () => swiper.slidePrev());
                 document.getElementById('${nextBtnId}').addEventListener('click', () => swiper.slideNext());
 
-                // 🔹 Powiększanie zdjęcia po kliknięciu
+                // 🔹 Obsługa powiększenia zdjęcia
                 document.querySelectorAll('.${sliderId} .zoomable-image').forEach(img => {
                     img.addEventListener('click', () => openFullscreen(img.src));
                 });
@@ -123,6 +122,7 @@ async function generateImageSlider(name) {
         </script>
     `;
 }
+
 
 
 // 🔹 Dodawanie zdjęć do popupu po otwarciu
