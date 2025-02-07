@@ -125,8 +125,6 @@ async function generateImageSlider(name) {
 }
 
 
-
-
 // 🔹 Dodawanie zdjęć do popupu po otwarciu
 async function updatePopupWithImages(popup) {
     // Usunięcie istniejącego slidera (zapobiega podwójnemu wyświetlaniu)
