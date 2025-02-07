@@ -27,7 +27,7 @@ async function getLocationImages(name) {
         images = data
             .filter(file => file.download_url && /\.(jpg|jpeg|webp)$/i.test(file.name))
             .map(file => file.download_url)
-            .slice(0, 5); // Maksymalnie 5 zdjęć
+            .slice(0, 10); // Maksymalnie 5 zdjęć
 
         console.log(`✅ Zdjęcia dla ${name}:`, images);
     } catch (error) {
