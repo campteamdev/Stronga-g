@@ -9,15 +9,28 @@ setTimeout(() => {
 // 🔹 Pobieranie zdjęć z GitHuba
 async function getLocationImages(name) {
     const githubRepo = "https://api.github.com/repos/campteamdev/Stronga-g/contents/";
-    const folderName = encodeURIComponent(name.replace(/\s/g, "_"));
+    
+    // 🔹 Dwie wersje nazw folderów: ze spacją i z podkreśleniem
+    const folderNameWithSpaces = encodeURIComponent(name.trim()); // Oryginalna nazwa ze spacjami
+    const folderNameWithUnderscores = encodeURIComponent(name.replace(/\s/g, "_")); // Nazwa z podkreśleniami
+    
     let images = [];
 
-    console.log(`📂 Sprawdzanie folderu: ${folderName}`);
+    console.log(`📂 Sprawdzanie folderów: "${folderNameWithSpaces}" i "${folderNameWithUnderscores}"`);
 
     try {
-        const response = await fetch(`${githubRepo}${folderName}`);
+        // 🔹 Najpierw próbujemy pobrać zdjęcia z folderu ze spacjami
+        let response = await fetch(`${githubRepo}${folderNameWithSpaces}`);
+        
+        // 🔹 Jeśli pierwszy folder nie istnieje, próbujemy z podkreśleniem
         if (!response.ok) {
-            console.warn(`⚠️ Folder nie znaleziony: ${folderName}`);
+            console.warn(`⚠️ Folder ze spacjami nie znaleziony: ${folderNameWithSpaces}, sprawdzam wersję z podkreśleniem.`);
+            response = await fetch(`${githubRepo}${folderNameWithUnderscores}`);
+        }
+
+        // 🔹 Jeśli nadal błąd - brak folderu
+        if (!response.ok) {
+            console.warn(`⚠️ Folder nie znaleziony: ${folderNameWithSpaces} ani ${folderNameWithUnderscores}`);
             return [];
         }
 
@@ -27,7 +40,7 @@ async function getLocationImages(name) {
         images = data
             .filter(file => file.download_url && /\.(jpg|jpeg|webp)$/i.test(file.name))
             .map(file => file.download_url)
-            .slice(0, 10); // Maksymalnie 5 zdjęć
+            .slice(0, 10); // Maksymalnie 10 zdjęć
 
         console.log(`✅ Zdjęcia dla ${name}:`, images);
     } catch (error) {
@@ -36,6 +49,7 @@ async function getLocationImages(name) {
 
     return images;
 }
+
 
 // 🔹 Funkcja inicjalizująca Swiper
 function initializeSwiper(name, images) {
