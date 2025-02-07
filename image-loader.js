@@ -45,6 +45,7 @@ async function generateImageSlider(name) {
 
     console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);
 
+    // Unikalny identyfikator dla Swiper
     const sliderId = `swiper-container-${name.replace(/\s/g, "_")}`;
 
     return `
@@ -68,7 +69,7 @@ async function generateImageSlider(name) {
 
 // 🔹 Dodawanie zdjęć do popupu po otwarciu
 async function updatePopupWithImages(popup) {
-    // Usuń istniejący slider, jeśli już jest w popupie
+    // Usunięcie istniejącego slidera (zapobiega podwójnemu wyświetlaniu)
     const existingSlider = popup.querySelector(".swiper-container");
     if (existingSlider) {
         existingSlider.remove();
@@ -82,9 +83,10 @@ async function updatePopupWithImages(popup) {
 
     if (imageSlider) {
         popup.insertAdjacentHTML("afterbegin", imageSlider);
-        initializeSwiper(name); // Dodajemy inicjalizację Swiper po dodaniu HTML
+        initializeSwiper(name); // ⬅️ Dodane tutaj
     }
 }
+
 
 map.on("popupopen", async function (e) {
     const popup = e.popup._contentNode;
