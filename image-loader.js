@@ -88,13 +88,20 @@ async function generateImageSlider(name) {
                     `).join("")}
                 </div>
                 <div class="swiper-pagination"></div>
-                <div id="${prevBtnId}" class="swiper-button-prev"></div>
-                <div id="${nextBtnId}" class="swiper-button-next"></div>
+
+                <!-- 🔹 Nowe Mniejsze i Estetyczne Strzałki -->
+                <div id="${prevBtnId}" class="custom-swiper-prev">
+                    ❮
+                </div>
+                <div id="${nextBtnId}" class="custom-swiper-next">
+                    ❯
+                </div>
             </div>
         `,
         images
     };
 }
+
 
 // 🔹 Funkcja do powiększania zdjęcia i zmiany
 // 🔹 Funkcja do powiększania zdjęcia i zmiany za pomocą strzałek
