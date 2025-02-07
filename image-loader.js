@@ -1,22 +1,32 @@
 // 🔹 Pobieranie zdjęć z GitHuba
 async function getLocationImages(name) {
-    const githubRepo = "https://raw.githubusercontent.com/NAZWA_UŻYTKOWNIKA/NAZWA_REPOZYTORIUM/main/";
+    const githubRepo = "https://raw.githubusercontent.com/campteamdev/Stronga-g/main/";
     const folderName = name.replace(/\s/g, "_"); // Zamiana spacji na podkreślniki
     const folderUrl = `${githubRepo}${encodeURIComponent(folderName)}/`;
     const imageExtensions = ["jpg", "jpeg", "webp"];
     let images = [];
 
+    console.log(`📂 Sprawdzanie folderu: ${folderName}`);
+
     try {
-        const response = await fetch(`https://api.github.com/repos/NAZWA_UŻYTKOWNIKA/NAZWA_REPOZYTORIUM/contents/${encodeURIComponent(folderName)}`);
-        if (response.ok) {
-            const data = await response.json();
-            images = data
-                .filter(file => imageExtensions.includes(file.name.split('.').pop().toLowerCase()))
-                .slice(0, 5) // Maksymalnie 5 zdjęć
-                .map(file => `${folderUrl}${file.name}`);
+        const response = await fetch(`https://api.github.com/repos/campteamdev/Stronga-g/contents/${encodeURIComponent(folderName)}`);
+        
+        if (!response.ok) {
+            console.warn(`⚠️ Folder nie znaleziony: ${folderName}`);
+            return [];
         }
+
+        const data = await response.json();
+        images = data
+            .filter(file => imageExtensions.includes(file.name.split('.').pop().toLowerCase()))
+            .slice(0, 5) // Maksymalnie 5 zdjęć
+            .map(file => {
+                console.log(`✅ Znaleziono obraz: ${file.download_url}`);
+                return file.download_url;
+            });
+
     } catch (error) {
-        console.warn(`Brak folderu ze zdjęciami dla: ${name}`);
+        console.error("❌ Błąd pobierania zdjęć z GitHuba:", error);
     }
 
     return images;
