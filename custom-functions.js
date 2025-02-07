@@ -6,7 +6,18 @@ let descriptionsMap = {};
 let amenitiesMap = {};
 let excludedPlaces = new Set();
 
-// 🔹 Definicja ikon (przywrócona!)
+// 🔹 Inicjalizacja mapy
+const map = L.map("map").setView([52.392681, 19.275023], 6);
+const markerCluster = L.markerClusterGroup({
+    showCoverageOnHover: false,
+    maxClusterRadius: 50,
+});
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "&copy; OpenStreetMap contributors",
+}).addTo(map);
+
+// 🔹 Definicja ikon
 const icons = {
     kempingi: L.icon({
         iconUrl: "/ikony/Ikona_Kempingi_Polecane.png",
@@ -100,40 +111,48 @@ async function generatePopupContent(name, lat, lon) {
         <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>
         <strong>Kontakt:</strong> ${phoneNumbersMap[name] || "Brak numeru kontaktowego"}<br>
         ${websiteLinksMap[name] ? `<strong>Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank">${websiteLinksMap[name]}</a><br>` : ""}
-        <strong>Opis:</strong> ${descriptionsMap[name] ? shortenText(descriptionsMap[name], `opis-${name}`) : "<i>Brak opisu</i>"}<br>
+        <strong>Opis:</strong> ${descriptionsMap[name] ? descriptionsMap[name] : "<i>Brak opisu</i>"}<br>
         <strong>Infrastruktura:</strong> ${amenitiesMap[name] || "<i>Brak informacji</i>"}<br>
         <a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button">Link do Map Google</a>
         <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button">Prowadź</a>
     `;
 }
 
-// 🔹 Nowa funkcja aktualizująca popupy
-async function updatePopups(markers) {
-    for (let { marker, name, lat, lon } of markers) {
+// 🔹 Funkcja dodająca markery na mapę
+async function loadMarkers(url, icon) {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
+    const kmlText = await response.text();
+    const parser = new DOMParser();
+    const kml = parser.parseFromString(kmlText, "application/xml");
+    const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+
+    for (const placemark of placemarks) {
+        const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
+        const coordinates = placemark.getElementsByTagName("coordinates")[0]?.textContent.trim();
+        if (!coordinates) continue;
+
+        const [lon, lat] = coordinates.split(",");
+
+        const marker = L.marker([lat, lon], { icon }).addTo(markerCluster);
         const popupContent = await generatePopupContent(name, lat, lon);
-        marker.bindPopup(popupContent, {
-            minWidth: 200,
-            maxWidth: 220,
-            maxHeight: 300,
-            autoPan: true
-        });
+        marker.bindPopup(popupContent);
     }
 }
 
-// 🔹 Nowa funkcja ładowania danych i aktualizacji popupów
-async function loadDetailsAndUpdatePopups(markers) {
-    await loadDetails();
-    await loadKmlData();
-    await updatePopups(markers);
+// 🔹 Funkcja ładująca wszystkie warstwy mapy
+async function initializeMap() {
+    await Promise.all([
+        loadMarkers("/Kempingi.kml", icons.kempingi),
+        loadMarkers("/Polanamiotowe.kml", icons.polanamiotowe),
+        loadMarkers("/Kempingiopen.kml", icons.kempingiopen),
+        loadMarkers("/Polanamiotoweopen.kml", icons.polanamiotoweopen),
+        loadMarkers("/Parkingilesne.kml", icons.parkingilesne),
+        loadMarkers("/Miejscenabiwak.kml", icons.miejscenabiwak),
+    ]);
+
+    map.addLayer(markerCluster);
 }
 
-// 🔹 Blokowanie prawego przycisku myszy
-document.addEventListener("contextmenu", (event) => event.preventDefault());
-
-// 🔹 Blokada dotyku na popupie
-document.addEventListener("touchstart", function (event) {
-    if (event.target.closest(".leaflet-popup-content")) {
-        event.preventDefault();
-    }
-}, { passive: false });
-
+// 🔹 Uruchomienie mapy
+initializeMap();
