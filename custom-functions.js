@@ -6,61 +6,85 @@ let descriptionsMap = {};
 let amenitiesMap = {};
 let excludedPlaces = new Set();
 
-// 🔹 Inicjalizacja mapy
-const map = L.map("map").setView([52.392681, 19.275023], 6);
-const markerCluster = L.markerClusterGroup({
-    showCoverageOnHover: false,
-    maxClusterRadius: 50,
-});
+// 🔹 Blokowanie prawego przycisku myszy
+document.addEventListener("contextmenu", (event) => event.preventDefault());
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "&copy; OpenStreetMap contributors",
-}).addTo(map);
+// 🔹 Funkcja wczytująca dane z pliku szczegóły.json
+async function loadDetails() {
+  try {
+    const response = await fetch("/szczegoly.json");
+    if (!response.ok) throw new Error("Nie udało się załadować szczegóły.json");
+    const data = await response.json();
+    detailsMap = data.reduce((map, item) => {
+      const [name, link] = item.split(",");
+      map[name.trim()] = link.trim();
+      return map;
+    }, {});
+  } catch (error) {
+    console.error("Błąd podczas wczytywania szczegółów:", error);
+  }
+}
 
-// 🔹 Definicja ikon
-const icons = {
-    kempingi: L.icon({
-        iconUrl: "/ikony/Ikona_Kempingi_Polecane.png",
-        iconSize: [40, 40],
-        iconAnchor: [20, 20],
-        popupAnchor: [0, -20],
-    }),
-    polanamiotowe: L.icon({
-        iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
-        iconSize: [40, 40],
-        iconAnchor: [20, 20],
-        popupAnchor: [0, -20],
-    }),
-    kempingiopen: L.icon({
-        iconUrl: "/ikony/Ikona_Kempingi.png",
-        iconSize: [30, 30],
-        iconAnchor: [15, 15],
-        popupAnchor: [0, -10],
-    }),
-    polanamiotoweopen: L.icon({
-        iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
-        iconSize: [30, 30],
-        iconAnchor: [15, 15],
-        popupAnchor: [0, -10],
-    }),
-    parkingilesne: L.icon({
-        iconUrl: "/ikony/Ikona_Parking_Le%C5%9Bny.png",
-        iconSize: [30, 30],
-        iconAnchor: [15, 15],
-        popupAnchor: [0, -10],
-    }),
-    miejscenabiwak: L.icon({
-        iconUrl: "/ikony/Ikona_Miejsce_Biwakowe.png",
-        iconSize: [30, 30],
-        iconAnchor: [15, 15],
-        popupAnchor: [0, -10],
-    }),
-};
+// 🔹 Funkcja wczytująca dane z KML
+async function loadKmlData() {
+  const kmlFiles = [
+    "/Atrakcje.kml",
+    "/Kempingi.kml",
+    "/Kempingi1.kml",
+    "/Kempingiopen.kml",
+    "/Miejscenabiwak.kml",
+    "/Parkingilesne.kml",
+    "/Polanamiotowe.kml",
+    "/Polanamiotoweopen.kml",
+  ];
+
+  for (const url of kmlFiles) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Nie udało się załadować: ${url}`);
+      const kmlText = await response.text();
+      const parser = new DOMParser();
+      const kml = parser.parseFromString(kmlText, "application/xml");
+      const placemarks = kml.getElementsByTagName("Placemark");
+
+      for (const placemark of placemarks) {
+        const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
+        const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
+        const website = placemark.querySelector("Data[name='Strona www:'] > value")?.textContent.trim() || extractWebsite(description);
+
+        const opisNode = placemark.querySelector("Data[name='Opis:'] > value");
+        const infrastrukturaNode = placemark.querySelector("Data[name='Udogodnienia:'] > value");
+
+        const opis = opisNode ? opisNode.textContent.trim() : "";
+        let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
+
+        if (infrastruktura) {
+          infrastruktura = infrastruktura.replace(/- nr:? \d+/g, "").trim();
+          infrastruktura = infrastruktura.split("\n").join("<br>");
+        }
+
+        if (name) {
+          if (description) {
+            const phone = extractPhoneNumber(description);
+            phoneNumbersMap[name] = phone || "Brak numeru kontaktowego";
+          }
+          if (website) {
+            websiteLinksMap[name] = website;
+          }
+          descriptionsMap[name] = opis;
+          amenitiesMap[name] = infrastruktura;
+        }
+      }
+    } catch (error) {
+      console.error(`Błąd podczas przetwarzania pliku ${url}:`, error);
+    }
+  }
+}
 
 // 🔹 Funkcja pobierająca zdjęcia z GitHuba
 async function getLocationImages(name) {
     const githubRepo = "https://raw.githubusercontent.com/NAZWA_UŻYTKOWNIKA/NAZWA_REPOZYTORIUM/main/";
-    const folderName = name.replace(/\s/g, "_"); // Zamiana spacji na podkreślniki
+    const folderName = name.replace(/\s/g, "_"); 
     const folderUrl = `${githubRepo}${encodeURIComponent(folderName)}/`;
     const imageExtensions = ["jpg", "jpeg", "webp"];
     let images = [];
@@ -71,7 +95,7 @@ async function getLocationImages(name) {
             const data = await response.json();
             images = data
                 .filter(file => imageExtensions.includes(file.name.split('.').pop().toLowerCase()))
-                .slice(0, 5) // Maksymalnie 5 zdjęć
+                .slice(0, 5)
                 .map(file => `${folderUrl}${file.name}`);
         }
     } catch (error) {
@@ -108,51 +132,4 @@ async function generatePopupContent(name, lat, lon) {
 
     return `
         ${imageSlider}
-        <div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%; user-select: none;">${name}</div><br>
-        <strong>Kontakt:</strong> ${phoneNumbersMap[name] || "Brak numeru kontaktowego"}<br>
-        ${websiteLinksMap[name] ? `<strong>Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank">${websiteLinksMap[name]}</a><br>` : ""}
-        <strong>Opis:</strong> ${descriptionsMap[name] ? descriptionsMap[name] : "<i>Brak opisu</i>"}<br>
-        <strong>Infrastruktura:</strong> ${amenitiesMap[name] || "<i>Brak informacji</i>"}<br>
-        <a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button">Link do Map Google</a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" target="_blank" class="navigate-button">Prowadź</a>
-    `;
-}
-
-// 🔹 Funkcja dodająca markery na mapę
-async function loadMarkers(url, icon) {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
-    const kmlText = await response.text();
-    const parser = new DOMParser();
-    const kml = parser.parseFromString(kmlText, "application/xml");
-    const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
-
-    for (const placemark of placemarks) {
-        const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
-        const coordinates = placemark.getElementsByTagName("coordinates")[0]?.textContent.trim();
-        if (!coordinates) continue;
-
-        const [lon, lat] = coordinates.split(",");
-
-        const marker = L.marker([lat, lon], { icon }).addTo(markerCluster);
-        const popupContent = await generatePopupContent(name, lat, lon);
-        marker.bindPopup(popupContent);
-    }
-}
-
-// 🔹 Funkcja ładująca wszystkie warstwy mapy
-async function initializeMap() {
-    await Promise.all([
-        loadMarkers("/Kempingi.kml", icons.kempingi),
-        loadMarkers("/Polanamiotowe.kml", icons.polanamiotowe),
-        loadMarkers("/Kempingiopen.kml", icons.kempingiopen),
-        loadMarkers("/Polanamiotoweopen.kml", icons.polanamiotoweopen),
-        loadMarkers("/Parkingilesne.kml", icons.parkingilesne),
-        loadMarkers("/Miejscenabiwak.kml", icons.miejscenabiwak),
-    ]);
-
-    map.addLayer(markerCluster);
-}
-
-// 🔹 Uruchomienie mapy
-initializeMap();
+        <div style="border:2px solid green; padding:3px; display:inline-block; font
