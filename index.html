@@ -219,6 +219,43 @@
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <style>
+/* 🔹 Styl dla nowych strzałek */
+.custom-swiper-prev,
+.custom-swiper-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s ease-in-out;
+}
+
+.custom-swiper-prev:hover,
+.custom-swiper-next:hover {
+    background: rgba(255, 255, 255, 0.6);
+    color: black;
+}
+
+.custom-swiper-prev {
+    left: 5px;
+}
+
+.custom-swiper-next {
+    right: 5px;
+}
+</style>
+
   </head>
   <body class="" oncontextmenu="return false;">
     <!-- Google Tag Manager (noscript) -->
