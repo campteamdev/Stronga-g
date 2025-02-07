@@ -1,11 +1,3 @@
-// Inicjalizacja mapy Leaflet
-var map = L.map("map").setView([52.2297, 21.0122], 6);
-
-// Dodanie warstwy kafelkowej OpenStreetMap
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
 
 // Obiekty do przechowywania danych
 let detailsMap = {};
