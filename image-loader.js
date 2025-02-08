@@ -185,20 +185,15 @@ async function generateImageSlider(name) {
 
     // ✅ Przygotowanie przycisku "Dodaj zdjęcie"
     let addPhotoButton = `
-        <div style="text-align: left; margin-top: 8px; margin-bottom: 12px;">
-            <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
-               target="_blank" 
-               style="background-color: #4CAF50; border-radius: 12px; 
-                      padding: 6px 10px; text-align: center; display: inline-block;
-                      width: 50%; height: auto; max-width: 140px;
-                      text-decoration: none; color: white; font-size: 12px;
-                      font-weight: bold; display: flex; align-items: center; justify-content: center;">
-                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" 
-                     alt="Dodaj zdjęcie" 
-                     style="width: 18px; height: 18px; vertical-align: middle; margin-right: 6px;">
-                Dodaj zdjęcie
-            </a>
-        </div>`;
+    <div style="text-align: center; margin-top: 10px;">
+        <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
+           target="_blank"
+           style="display: inline-block; width: 40px; height: 40px;">
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add-photo.png" 
+                 alt="Dodaj zdjęcie"
+                 style="width: 40px; height: 40px; cursor: pointer;">
+        </a>
+    </div>`;
 
     // ✅ Tworzymy slider, jeśli są zdjęcia
     let sliderHTML = images.length > 0 ? `
