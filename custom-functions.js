@@ -212,7 +212,7 @@ function updatePopups(markers) {
     marker.bindPopup(popupContent, {
       minWidth: 200,  // Minimalna szerokość popupu
       maxWidth: 220,  // Maksymalna szerokość popupu
-      maxHeight: 400, // Maksymalna wysokość popupu
+      maxHeight: 350, // Maksymalna wysokość popupu
       autoPan: true   // Automatyczne przesuwanie mapy, gdy popup wychodzi poza ekran
     });
   });
