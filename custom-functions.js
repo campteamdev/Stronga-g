@@ -216,8 +216,8 @@ function updatePopups(markers) {
 
     const popupOptions = {
       minWidth: 200, // Minimalna szerokość dla obu urządzeń
-      maxWidth: isMobile ? window.innerWidth * 0.9 : 230, // 90% szerokości ekranu na telefonie, 220px na komputerze
-      maxHeight: isMobile ? window.innerHeight * 0.6 : 390, // 60% wysokości ekranu na telefonie, 350px na komputerze
+      maxWidth: isMobile ? window.innerWidth * 0.9 : 270, // 90% szerokości ekranu na telefonie, 220px na komputerze
+      maxHeight: isMobile ? window.innerHeight * 0.5 : 360, // 50% wysokości ekranu na telefonie, 350px na komputerze
       autoPan: true
     };
 
