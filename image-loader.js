@@ -183,17 +183,28 @@ async function generateImageSlider(name) {
     const prevBtnId = `swiper-prev-${safeName}`;
     const nextBtnId = `swiper-next-${safeName}`;
 
-    // ✅ Przygotowanie przycisku "Dodaj zdjęcie"
-    let addPhotoButton = `
-    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 5px; position: relative; top: -10px;">
-        <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
-           target="_blank"
-           style="display: inline-block; width: 50px; height: 50px;">
-            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.png" 
-                 alt="Dodaj zdjęcie"
-                 style="width: 50px; height: 50px; cursor: pointer;">
-        </a>
-    </div>`;
+   // ✅ Przygotowanie ikon "Dodaj zdjęcie" i "Opinia"
+let addPhotoButton = `
+<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 5px; position: relative; top: -10px;">
+    <!-- 🔹 Ikona "Dodaj zdjęcie" -->
+    <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
+       target="_blank"
+       style="display: inline-block; width: 50px; height: 50px;">
+        <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.png" 
+             alt="Dodaj zdjęcie"
+             style="width: 50px; height: 50px; cursor: pointer;">
+    </a>
+
+    <!-- 🔹 Ikona "Opinia" -->
+    <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
+       target="_blank"
+       style="display: inline-block; width: 50px; height: 50px;">
+        <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/opinia.png" 
+             alt="Dodaj opinię"
+             style="width: 50px; height: 50px; cursor: pointer;">
+    </a>
+</div>`;
+
 
 
 
