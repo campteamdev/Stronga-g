@@ -173,7 +173,7 @@ function initializeSwiper(name, images) {
 
 
 
-async function generateImageSlider(name) {
+async function generateImageSlider(name, lat, lon) {
     const images = await getLocationImages(name);
     
     console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);
@@ -183,30 +183,36 @@ async function generateImageSlider(name) {
     const prevBtnId = `swiper-prev-${safeName}`;
     const nextBtnId = `swiper-next-${safeName}`;
 
-   // ✅ Przygotowanie ikon "Dodaj zdjęcie" i "Opinia"
-let addPhotoButton = `
-<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 5px; position: relative; top: -10px;">
-    <!-- 🔹 Ikona "Dodaj zdjęcie" -->
-    <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
-       target="_blank"
-       style="display: inline-block; width: 50px; height: 50px;">
-        <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.png" 
-             alt="Dodaj zdjęcie"
-             style="width: 50px; height: 50px; cursor: pointer;">
-    </a>
+    // ✅ Przygotowanie ikon (Dodaj zdjęcie, Opinia, Prowadź)
+    let iconsSection = `
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 5px; position: relative; top: -10px;">
+        <!-- 🔹 Ikona "Dodaj zdjęcie" -->
+        <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
+           target="_blank"
+           style="display: inline-block; width: 50px; height: 50px;">
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.png" 
+                 alt="Dodaj zdjęcie"
+                 style="width: 50px; height: 50px; cursor: pointer;">
+        </a>
 
-    <!-- 🔹 Ikona "Opinia" -->
-    <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
-       target="_blank"
-       style="display: inline-block; width: 50px; height: 50px;">
-        <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/opinia.png" 
-             alt="Dodaj opinię"
-             style="width: 50px; height: 50px; cursor: pointer;">
-    </a>
-</div>`;
+        <!-- 🔹 Ikona "Opinia" -->
+        <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
+           target="_blank"
+           style="display: inline-block; width: 50px; height: 50px;">
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/opinia.png" 
+                 alt="Dodaj opinię"
+                 style="width: 50px; height: 50px; cursor: pointer;">
+        </a>
 
-
-
+        <!-- 🔹 Ikona "Prowadź" -->
+        <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" 
+           target="_blank"
+           style="display: inline-block; width: 50px; height: 50px;">
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/prowadz.png" 
+                 alt="Prowadź"
+                 style="width: 50px; height: 50px; cursor: pointer;">
+        </a>
+    </div>`;
 
     // ✅ Tworzymy slider, jeśli są zdjęcia
     let sliderHTML = images.length > 0 ? `
@@ -226,36 +232,9 @@ let addPhotoButton = `
             <div id="${nextBtnId}" class="custom-swiper-next">❯</div>
         </div>` : "";
 
-    // ✅ Układ przycisku:
-    // - Jeśli SĄ zdjęcia ➝ PRZYCISK POD SLIDEREM
-    // - Jeśli BRAK zdjęć ➝ PRZYCISK NAD SLIDEREM
-    let finalHTML = images.length > 0 ? sliderHTML + addPhotoButton : addPhotoButton + sliderHTML;
+    // ✅ Układ ikon i slidera:
+    let finalHTML = images.length > 0 ? iconsSection + sliderHTML : iconsSection + sliderHTML;
 
-    // ✅ Pobieramy pozostałe zdjęcia w tle i aktualizujemy slider
-    if (images.length > 1) {
-        setTimeout(async () => {
-            const fullImages = await getLocationImages(name);
-            if (fullImages.length > 1) {
-                console.log(`📂 📌 Dodajemy pozostałe ${fullImages.length - 1} zdjęć do slidera.`);
-                const swiperContainer = document.querySelector(`.${sliderId} .swiper-wrapper`);
-                fullImages.slice(1).forEach(img => {
-                    let slide = document.createElement("div");
-                    slide.classList.add("swiper-slide");
-                    slide.innerHTML = `<img data-src="${img}" class="zoomable-image swiper-lazy" 
-                                       style="width:100%; height:150px; object-fit:cover; 
-                                              border-radius:8px; cursor:pointer;">
-                                       <div class="swiper-lazy-preloader"></div>`;
-                    swiperContainer.appendChild(slide);
-                });
-
-                // ✅ Odświeżamy slider po dodaniu zdjęć
-                initializeSwiper(name, fullImages);
-            }
-        }, 3000);
-    }
-
-    console.log(`📂 ✅ Wygenerowany kod HTML dla ${name}:`, finalHTML);
-    
     return { sliderHTML: finalHTML, images };
 }
 
@@ -399,30 +378,28 @@ map.on("popupopen", async function (e) {
         const name = nameElement.textContent.trim();
         console.log(`📂 🔍 Otwieranie popupu dla: ${name}`);
 
-        const { sliderHTML, images } = await generateImageSlider(name);
+        // Pobieramy współrzędne markera z popupu
+        const lat = e.popup._source.getLatLng().lat;
+        const lon = e.popup._source.getLatLng().lng;
+
+        // ✅ Generujemy slider z poprawnym przekazaniem lat/lon
+        const { sliderHTML, images } = await generateImageSlider(name, lat, lon);
 
         if (sliderHTML) {
             popup.insertAdjacentHTML("afterbegin", sliderHTML);
             console.log(`📂 ✅ HTML slidera dodany do popupu dla: ${name}`);
 
-            // Wymuszenie sprawdzenia obecności slidera
+            // Sprawdzenie obecności slidera
             setTimeout(() => {
-                const safeSliderId = `swiper-container-${name
-                    .trim()
-                    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Usunięcie polskich znaków
-                    .replace(/[–—]/g, "-") // Zamiana długiego myślnika na zwykły myślnik
-                    .replace(/[\s_]+/g, "-") // Zamiana spacji i podkreśleń na myślnik
-                    .replace(/[^a-zA-Z0-9-]/g, "") // Usunięcie innych znaków specjalnych
-                    .toLowerCase()}`;
-                
+                const safeSliderId = `swiper-container-${sanitizeName(name)}`;
                 console.log(`📂 📌 Sprawdzam obecność slidera:`, document.querySelector(`.${safeSliderId}`));
-                
             }, 500);
 
             initializeSwiper(name, images);
         }
     }, 300); // Drobne opóźnienie na wygenerowanie popupu
 });
+
 function forceLazyLoad(sliderId) {
     document.querySelectorAll(`${sliderId} .swiper-slide img[data-src]`).forEach(img => {
         if (!img.src) {
