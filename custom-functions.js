@@ -206,17 +206,25 @@ function generatePopupContent(name, lat, lon) {
 }
 
 // Aktualizacja popupów z ustawioną szerokością i wysokością
+// 🔹 Aktualizacja popupów z dynamiczną szerokością i wysokością na smartfonach
 function updatePopups(markers) {
   markers.forEach(({ marker, name, lat, lon }) => {
     const popupContent = generatePopupContent(name, lat, lon);
-    marker.bindPopup(popupContent, {
-      minWidth: 200,  // Minimalna szerokość popupu
-      maxWidth: 220,  // Maksymalna szerokość popupu
-      maxHeight: 350, // Maksymalna wysokość popupu
-      autoPan: true   // Automatyczne przesuwanie mapy, gdy popup wychodzi poza ekran
-    });
+
+    // Wykrywanie, czy użytkownik korzysta z telefonu
+    const isMobile = window.innerWidth <= 768;
+
+    const popupOptions = {
+      minWidth: 200, // Minimalna szerokość dla obu urządzeń
+      maxWidth: isMobile ? window.innerWidth * 0.9 : 220, // 90% szerokości ekranu na telefonie, 220px na komputerze
+      maxHeight: isMobile ? window.innerHeight * 0.6 : 350, // 60% wysokości ekranu na telefonie, 350px na komputerze
+      autoPan: true
+    };
+
+    marker.bindPopup(popupContent, popupOptions);
   });
 }
+
 
 // Ładowanie danych i aktualizacja popupów
 async function loadDetailsAndUpdatePopups(markers) {
@@ -244,7 +252,16 @@ async function updatePopupsWithImages() {
 }
 
 // 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
+// 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
 map.on("popupopen", async function () {
-    await updatePopupsWithImages();
-
+  await updatePopupsWithImages();
 });
+
+// 🔹 Dodajemy obsługę przesuwania popupu zamiast mapy na telefonach
+document.addEventListener("touchmove", function (event) {
+if (event.target.closest(".leaflet-popup-content")) {
+  event.stopPropagation(); // Pozwala przesuwać popup zamiast mapy
+}
+}, { passive: false });
+
+
