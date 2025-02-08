@@ -175,8 +175,7 @@ function initializeSwiper(name, images) {
 
 async function generateImageSlider(name) {
     const images = await getLocationImages(name);
-    if (images.length === 0) return "";
-
+    
     console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);
 
     const safeName = sanitizeName(name);
@@ -184,12 +183,32 @@ async function generateImageSlider(name) {
     const prevBtnId = `swiper-prev-${safeName}`;
     const nextBtnId = `swiper-next-${safeName}`;
 
-    let sliderHTML = `
+    // ✅ Przygotowanie przycisku "Dodaj zdjęcie"
+    let addPhotoButton = `
+        <div style="text-align: left; margin-top: 8px; margin-bottom: 12px;">
+            <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
+               target="_blank" 
+               style="background-color: #4CAF50; border-radius: 12px; 
+                      padding: 6px 10px; text-align: center; display: inline-block;
+                      width: 50%; height: auto; max-width: 140px;
+                      text-decoration: none; color: white; font-size: 12px;
+                      font-weight: bold; display: flex; align-items: center; justify-content: center;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" 
+                     alt="Dodaj zdjęcie" 
+                     style="width: 18px; height: 18px; vertical-align: middle; margin-right: 6px;">
+                Dodaj zdjęcie
+            </a>
+        </div>`;
+
+    // ✅ Tworzymy slider, jeśli są zdjęcia
+    let sliderHTML = images.length > 0 ? `
         <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative; overflow: hidden;">
             <div class="swiper-wrapper">
                 ${images.map(img => `
                     <div class="swiper-slide">
-                        <img data-src="${img}" class="zoomable-image swiper-lazy" style="width:100%; height:150px; object-fit:cover; border-radius:8px; cursor:pointer;">
+                        <img data-src="${img}" class="zoomable-image swiper-lazy" 
+                             style="width:100%; height:150px; object-fit:cover; 
+                                    border-radius:8px; cursor:pointer;">
                         <div class="swiper-lazy-preloader"></div>
                     </div>
                 `).join("")}
@@ -197,31 +216,39 @@ async function generateImageSlider(name) {
             <div class="swiper-pagination"></div>
             <div id="${prevBtnId}" class="custom-swiper-prev">❮</div>
             <div id="${nextBtnId}" class="custom-swiper-next">❯</div>
-        </div>
-    `;
+        </div>` : "";
+
+    // ✅ Układ przycisku:
+    // - Jeśli SĄ zdjęcia ➝ PRZYCISK POD SLIDEREM
+    // - Jeśli BRAK zdjęć ➝ PRZYCISK NAD SLIDEREM
+    let finalHTML = images.length > 0 ? sliderHTML + addPhotoButton : addPhotoButton + sliderHTML;
 
     // ✅ Pobieramy pozostałe zdjęcia w tle i aktualizujemy slider
-    setTimeout(async () => {
-        const fullImages = await getLocationImages(name); // Pobiera pełną listę zdjęć z cache
-        if (fullImages.length > 1) {
-            console.log(`📂 📌 Dodajemy pozostałe ${fullImages.length - 1} zdjęć do slidera.`);
-            const swiperContainer = document.querySelector(`.${sliderId} .swiper-wrapper`);
-            fullImages.slice(1).forEach(img => {
-                let slide = document.createElement("div");
-                slide.classList.add("swiper-slide");
-                slide.innerHTML = `<img data-src="${img}" class="zoomable-image swiper-lazy" style="width:100%; height:150px; object-fit:cover; border-radius:8px; cursor:pointer;">
-                                   <div class="swiper-lazy-preloader"></div>`;
-                swiperContainer.appendChild(slide);
-            });
+    if (images.length > 1) {
+        setTimeout(async () => {
+            const fullImages = await getLocationImages(name);
+            if (fullImages.length > 1) {
+                console.log(`📂 📌 Dodajemy pozostałe ${fullImages.length - 1} zdjęć do slidera.`);
+                const swiperContainer = document.querySelector(`.${sliderId} .swiper-wrapper`);
+                fullImages.slice(1).forEach(img => {
+                    let slide = document.createElement("div");
+                    slide.classList.add("swiper-slide");
+                    slide.innerHTML = `<img data-src="${img}" class="zoomable-image swiper-lazy" 
+                                       style="width:100%; height:150px; object-fit:cover; 
+                                              border-radius:8px; cursor:pointer;">
+                                       <div class="swiper-lazy-preloader"></div>`;
+                    swiperContainer.appendChild(slide);
+                });
 
-            // ✅ Odświeżamy slider po dodaniu zdjęć
-            initializeSwiper(name, fullImages);
-        }
-    }, 3000);
+                // ✅ Odświeżamy slider po dodaniu zdjęć
+                initializeSwiper(name, fullImages);
+            }
+        }, 3000);
+    }
 
-    console.log(`📂 ✅ Wygenerowany kod HTML dla ${name}:`, sliderHTML);
+    console.log(`📂 ✅ Wygenerowany kod HTML dla ${name}:`, finalHTML);
     
-    return { sliderHTML, images };
+    return { sliderHTML: finalHTML, images };
 }
 
 
