@@ -75,11 +75,16 @@ async function loadKmlData() {
         const opis = opisNode ? opisNode.textContent.trim() : "";
         let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
 
-        // Usunięcie "nr: X" z infrastruktury
-        if (infrastruktura) {
-          infrastruktura = infrastruktura.replace(/- nr:? \d+/g, "").trim();
-          infrastruktura = infrastruktura.split("\n").join("<br>"); // Każdy element w nowej linii
-        }
+        // Usunięcie cyfr, nawiasów i słów "nr:", "nr."
+if (infrastruktura) {
+  infrastruktura = infrastruktura
+      .replace(/-?\s*(nr[:.]?|[0-9]+|\(|\)|\[|\])/g, "") // Usunięcie "nr:", "nr.", cyfr i nawiasów
+      .trim()
+      .replace(/\s{2,}/g, " "); // Usunięcie nadmiarowych spacji
+
+  infrastruktura = infrastruktura.split("\n").join("<br>"); // Każdy element w nowej linii
+}
+
 
         if (name) {
           if (description) {
@@ -119,17 +124,16 @@ function shortenText(text, id) {
 
 // Funkcja generująca treść popupu
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<div style="border:2px solid #66cc66; padding:5px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
+  let popupContent = `<div style="border:2px solid transparent; padding:5px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
   user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
-  border-radius: 8px; background-color: #eaffea;">
-  ${name}</div><br>`;
+  border-radius: 8px; background-color: transparent; color: transparent;">
+  ${name}
+</div><br>`;
+
 
 // Funkcja generująca treść popupu z pełną blokadą kopiowania
 function generatePopupContent(name, lat, lon) {
-  let popupContent = `<div style="border:2px solid green; padding:3px; display:inline-block; font-size:14px; font-weight:bold; max-width:80%;
-      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
-      ${name}</div><br>`;
-
+ 
   // Kontener popupu z blokadą kopiowania
   popupContent += `<div style="max-width: 80%; word-wrap: break-word;
       user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">`;

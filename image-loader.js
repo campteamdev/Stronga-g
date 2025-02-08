@@ -189,6 +189,13 @@ async function generateImageSlider(name, lat, lon) {
     const phoneCursor = phoneNumber ? "pointer" : "not-allowed";
     const phoneOpacity = phoneNumber ? "1" : "0.5";
 
+    // ✅ Nazwa lokalizacji (nad zdjęciami)
+    let locationTitle = `
+    <div style="width: 100%; text-align: center; font-size: 16px; font-weight: bold; 
+                padding: 5px 0; background-color: #f8f8f8; border-radius: 8px;">
+        ${name}
+    </div>`;
+
     // ✅ Tworzymy slider, jeśli są zdjęcia
     let sliderHTML = images.length > 0 ? `
         <div class="swiper-container ${sliderId}" style="width:100%; height: 140px; position: relative; overflow: hidden;">
@@ -207,7 +214,7 @@ async function generateImageSlider(name, lat, lon) {
             <div id="${nextBtnId}" class="custom-swiper-next">❯</div>
         </div>` : "";
 
-    // ✅ Sekcja ikon (Zadzwoń, Dodaj zdjęcie, Opinia, Prowadź) - teraz pod zdjęciami
+    // ✅ Sekcja ikon (Zadzwoń, Dodaj zdjęcie, Opinia, Prowadź) - pod zdjęciami
     let iconsSection = `
     <div style="display: flex; align-items: center; justify-content: center; gap: 8px; 
                 margin-top: 8px; width: 100%; max-width: 100%; flex-wrap: wrap;">
@@ -247,11 +254,12 @@ async function generateImageSlider(name, lat, lon) {
         </a>
     </div>`;
 
-    // ✅ Układ slidera i ikon:
-    let finalHTML = sliderHTML + iconsSection;
+    // ✅ Układ popupu (Nazwa → Zdjęcia → Ikony)
+    let finalHTML = locationTitle + sliderHTML + iconsSection;
 
     return { sliderHTML: finalHTML, images };
 }
+
 
 
 
