@@ -95,25 +95,26 @@ async function getLocationImages(name) {
         console.log(`✅ Znaleziono ${allImages.length} zdjęć dla "${name}".`);
 
         // ✅ Pobieramy pierwsze zdjęcie od razu, a resztę w tle
-        const firstImage = allImages[0] ? [allImages[0]] : [];
+        const firstImage = allImages.length > 0 ? [allImages[0]] : [];
         const remainingImages = allImages.slice(1);
 
-        // ✅ Zapisujemy pierwsze zdjęcie do cache
-        localStorage.setItem(cacheKey, JSON.stringify(firstImage));
+        // ✅ Zapisujemy WSZYSTKIE zdjęcia do cache od razu (ale zwracamy tylko pierwsze zdjęcie)
+        localStorage.setItem(cacheKey, JSON.stringify(allImages));
         localStorage.setItem(cacheTimeKey, now);
 
         // ✅ Pobieramy resztę zdjęć w tle (nie blokuje UI)
         setTimeout(() => {
             console.log("⏳ Pobieranie pozostałych zdjęć w tle...");
-            localStorage.setItem(cacheKey, JSON.stringify([...firstImage, ...remainingImages]));
+            localStorage.setItem(cacheKey, JSON.stringify(allImages));
         }, 2000);
 
-        return firstImage;
+        return allImages; // 🟢 Teraz zwraca wszystkie zdjęcia, zamiast tylko pierwszego
     } catch (error) {
         console.error(`❌ Błąd pobierania zdjęć z GitHuba dla "${name}":`, error);
         return [];
     }
 }
+
 
 
 // ✅ GŁÓWNA FUNKCJA (z `await` działa poprawnie)
