@@ -183,45 +183,20 @@ async function generateImageSlider(name, lat, lon) {
     const prevBtnId = `swiper-prev-${safeName}`;
     const nextBtnId = `swiper-next-${safeName}`;
 
-    // ✅ Przygotowanie ikon (Dodaj zdjęcie, Opinia, Prowadź)
-    let iconsSection = `
-    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 5px; position: relative; top: -10px;">
-        <!-- 🔹 Ikona "Dodaj zdjęcie" -->
-        <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
-           target="_blank"
-           style="display: inline-block; width: 50px; height: 50px;">
-            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.png" 
-                 alt="Dodaj zdjęcie"
-                 style="width: 50px; height: 50px; cursor: pointer;">
-        </a>
-
-        <!-- 🔹 Ikona "Opinia" -->
-        <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
-           target="_blank"
-           style="display: inline-block; width: 50px; height: 50px;">
-            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/opinia.png" 
-                 alt="Dodaj opinię"
-                 style="width: 50px; height: 50px; cursor: pointer;">
-        </a>
-
-        <!-- 🔹 Ikona "Prowadź" -->
-        <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" 
-           target="_blank"
-           style="display: inline-block; width: 50px; height: 50px;">
-            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/prowadz.png" 
-                 alt="Prowadź"
-                 style="width: 50px; height: 50px; cursor: pointer;">
-        </a>
-    </div>`;
+    // ✅ Pobieramy numer telefonu do kempingu (jeśli jest dostępny)
+    const phoneNumber = phoneNumbersMap[name] || null;
+    const phoneLink = phoneNumber ? `tel:${phoneNumber}` : "#";
+    const phoneCursor = phoneNumber ? "pointer" : "not-allowed";
+    const phoneOpacity = phoneNumber ? "1" : "0.5";
 
     // ✅ Tworzymy slider, jeśli są zdjęcia
     let sliderHTML = images.length > 0 ? `
-        <div class="swiper-container ${sliderId}" style="width:100%; height: 150px; position: relative; overflow: hidden;">
+        <div class="swiper-container ${sliderId}" style="width:100%; height: 140px; position: relative; overflow: hidden;">
             <div class="swiper-wrapper">
                 ${images.map(img => `
                     <div class="swiper-slide">
                         <img data-src="${img}" class="zoomable-image swiper-lazy" 
-                             style="width:100%; height:150px; object-fit:cover; 
+                             style="width:100%; height:140px; object-fit:cover; 
                                     border-radius:8px; cursor:pointer;">
                         <div class="swiper-lazy-preloader"></div>
                     </div>
@@ -232,11 +207,53 @@ async function generateImageSlider(name, lat, lon) {
             <div id="${nextBtnId}" class="custom-swiper-next">❯</div>
         </div>` : "";
 
-    // ✅ Układ ikon i slidera:
-    let finalHTML = images.length > 0 ? iconsSection + sliderHTML : iconsSection + sliderHTML;
+    // ✅ Sekcja ikon (Zadzwoń, Dodaj zdjęcie, Opinia, Prowadź) - teraz pod zdjęciami
+    let iconsSection = `
+    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; 
+                margin-top: 8px; width: 100%; max-width: 100%; flex-wrap: wrap;">
+        <!-- 🔹 Ikona "Zadzwoń" -->
+        <a href="${phoneLink}" 
+           style="display: inline-block; width: 40px; height: 40px; opacity: ${phoneOpacity}; cursor: ${phoneCursor};">
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/zadzwon.png" 
+                 alt="Zadzwoń"
+                 style="width: 40px; height: 40px;">
+        </a>
+
+        <!-- 🔹 Ikona "Dodaj zdjęcie" -->
+        <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
+           target="_blank"
+           style="display: inline-block; width: 40px; height: 40px;">
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.png" 
+                 alt="Dodaj zdjęcie"
+                 style="width: 40px; height: 40px;">
+        </a>
+
+        <!-- 🔹 Ikona "Opinia" -->
+        <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
+           target="_blank"
+           style="display: inline-block; width: 40px; height: 40px;">
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/opinia.png" 
+                 alt="Dodaj opinię"
+                 style="width: 40px; height: 40px;">
+        </a>
+
+        <!-- 🔹 Ikona "Prowadź" -->
+        <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" 
+           target="_blank"
+           style="display: inline-block; width: 40px; height: 40px;">
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/prowadz.png" 
+                 alt="Prowadź"
+                 style="width: 40px; height: 40px;">
+        </a>
+    </div>`;
+
+    // ✅ Układ slidera i ikon:
+    let finalHTML = sliderHTML + iconsSection;
 
     return { sliderHTML: finalHTML, images };
 }
+
+
 
 
 
