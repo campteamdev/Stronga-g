@@ -331,25 +331,23 @@
 .add-photo-circle:hover {
     background-color: #388E3C; /* Ciemniejszy zielony */
 }
-/* Poprawione style dla popupu na telefonie */
-.leaflet-popup-content {
-    max-height: 60vh !important; /* 80% wysokości ekranu */
-    overflow-y: auto !important; /* Przewijanie zawartości */
-    word-wrap: break-word !important; /* Zawijanie długiego tekstu */
-}
+<style>
+  /* 🔹 Styl dla popupu na komputerze */
+  .leaflet-popup-content-wrapper {
+      max-width: 250px !important; 
+      max-height: 350px !important;
+  }
 
-/* Dodatkowe poprawki dla popupu na smartfony */
-.mobile-popup .leaflet-popup-content-wrapper {
-    max-width: 90vw !important; /* 90% szerokości ekranu */
-    max-height: 70vh !important; /* 80% wysokości ekranu */
-    overflow-y: auto !important; /* Dodanie przewijania */
-}
+  /* 🔹 Styl dla popupu na telefonach */
+  @media (max-width: 768px) {
+      .leaflet-popup-content-wrapper {
+          max-width: 90vw !important; 
+          max-height: 70vh !important;
+          overflow-y: auto !important;
+      }
+  }
+</style>
 
-/* Styl dla popupu na komputerze */
-.desktop-popup .leaflet-popup-content-wrapper {
-    max-width: 250px !important; /* Domyślnie 250px na komputerze */
-    max-height: 350px !important; /* 350px wysokości */
-}
 
 
 </style>

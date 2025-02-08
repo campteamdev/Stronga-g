@@ -209,19 +209,22 @@ function generatePopupContent(name, lat, lon) {
 // 🔹 Aktualizacja popupów z dynamiczną szerokością i wysokością na smartfonach
 function updatePopups(markers) {
   markers.forEach(({ marker, name, lat, lon }) => {
-    const popupContent = generatePopupContent(name, lat, lon);
+      const popupContent = generatePopupContent(name, lat, lon);
 
-    // Wykrywanie, czy użytkownik korzysta z telefonu
-    const isMobile = window.innerWidth <= 768;
+      // Wykrywanie, czy użytkownik korzysta z telefonu
+      const isMobile = window.innerWidth <= 768;
 
-    const popupOptions = {
-      minWidth: 200, // Minimalna szerokość dla obu urządzeń
-      maxWidth: isMobile ? window.innerWidth * 0.9 : 270, // 90% szerokości ekranu na telefonie, 220px na komputerze
-      maxHeight: isMobile ? window.innerHeight * 0.5 : 360, // 50% wysokości ekranu na telefonie, 350px na komputerze
-      autoPan: true
-    };
+      const popupOptions = {
+          minWidth: 200, 
+          maxWidth: isMobile ? window.innerWidth * 0.9 : 270,  
+          maxHeight: isMobile ? window.innerHeight * 0.5 : 360, 
+          autoPan: true,
+          autoPanPadding: [20, 50],  // Dodatkowe przesunięcie, aby poprawić widoczność popupu
+          autoPanPaddingTopLeft: [10, 10],
+          autoPanPaddingBottomRight: [10, 10]
+      };
 
-    marker.bindPopup(popupContent, popupOptions);
+      marker.bindPopup(popupContent, popupOptions);
   });
 }
 
