@@ -860,6 +860,19 @@ initializeMap();
     window.addEventListener("load", encryptContent);
 
 })();
+// Blokowanie dostępu do "view-source:"
+(function blockViewSource() {
+    if (document.referrer.startsWith("view-source")) {
+        window.location.href = "about:blank"; // Przekierowanie na pustą stronę
+    }
+
+    // Wykrywanie zmiany URL (użytkownik wpisuje "view-source:")
+    setInterval(() => {
+        if (window.location.href.startsWith("view-source")) {
+            window.location.href = "about:blank"; // Natychmiastowe przekierowanie
+        }
+    }, 500);
+})();
 
     </script>
  
