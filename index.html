@@ -671,36 +671,34 @@ initializeMap();
   <span id="close-popup">&times;</span> <!-- Przycisk zamknięcia -->
   <div id="custom-popup-content"></div> <!-- Tu będą treści -->
 </div>
-<script>
- 
- 
- /* 🔒 ZABEZPIECZENIA PRZED KRADZIEŻĄ DANYCH - WŁĄCZ/WYŁĄCZ JEDNYM KLIKNIĘCIEM */
- (function () {
+
+  /* 🔒 ZABEZPIECZENIA PRZED KRADZIEŻĄ DANYCH - WŁĄCZ/WYŁĄCZ JEDNYM KLIKNIĘCIEM */
+  <script>
+    (function () {
     "use strict";
 
-    // ✅ Blokowanie klawiszy developerskich (F12, Ctrl + U, Ctrl + Shift + I, itp.)
+    // ✅ Blokowanie klawiszy (F12, Ctrl + U, Ctrl + Shift + I, itp.)
     document.addEventListener("keydown", function (event) {
         if (
             event.key === "F12" ||
             (event.ctrlKey && event.shiftKey && event.key === "I") ||
             (event.ctrlKey && event.shiftKey && event.key === "C") ||
-            (event.ctrlKey && event.shiftKey && event.key === "J") ||
             (event.ctrlKey && event.key === "U")
         ) {
             event.preventDefault();
             window.location.href = "about:blank"; // Przekierowanie na pustą stronę
         }
     });
+    document.addEventListener("keydown", function (event) {
+    if (event.ctrlKey && event.key.toLowerCase() === "u") {  // Wykrycie "Ctrl + U" (obsługa różnych układów klawiatury)
+        event.preventDefault();
+        window.location.href = "about:blank"; // Natychmiastowe przekierowanie na pustą stronę
+    }
+});
 
-    // ✅ Blokowanie kopiowania, wycinania, wklejania, zaznaczania tekstu i prawego przycisku myszy
-    ["copy", "cut", "paste", "selectstart", "contextmenu"].forEach(eventType => {
-        document.addEventListener(eventType, (event) => {
-            event.preventDefault();
-            alert("❌ Zabezpieczenie aktywne: Nie masz uprawnień do tej operacji!");
-        });
-    });
 
-    // ✅ Ukrywanie tekstu przed zaznaczeniem i kopiowaniem (CSS)
+
+    // ✅ Ukrywanie tekstu przed zaznaczeniem i kopiowaniem
     const style = document.createElement("style");
     style.innerHTML = `
         body {
@@ -712,42 +710,50 @@ initializeMap();
     `;
     document.head.appendChild(style);
 
-    // ✅ Wykrywanie DevTools i natychmiastowe przekierowanie
+    // ✅ Blokowanie kopiowania, wycinania, wklejania, zaznaczania tekstu i prawego przycisku myszy
+    ["copy", "cut", "paste", "selectstart", "contextmenu"].forEach(eventType => {
+        document.addEventListener(eventType, (event) => {
+            event.preventDefault();
+            alert("❌ Zabezpieczenie aktywne: Nie masz uprawnień do tej operacji!");
+        });
+    });
+
+    // ✅ Automatyczne wykrywanie otwarcia DevTools i natychmiastowe przekierowanie
     function detectDevTools() {
-        const element = new Image();
-        Object.defineProperty(element, 'id', {
-            get: function () {
+        const threshold = 160;
+        function check() {
+            if (window.outerWidth - window.innerWidth > threshold || 
+                window.outerHeight - window.innerHeight > threshold) {
                 window.location.href = "about:blank"; // Przekierowanie na pustą stronę
             }
-        });
-        console.log("%c", element);
-    }
-    setInterval(detectDevTools, 500);
-
-    // ✅ Blokowanie otwarcia konsoli za pomocą `console.log()`
-    (function () {
-        const methods = ["log", "debug", "warn", "error"];
-        methods.forEach(method => {
-            const original = console[method];
-            console[method] = function () {
-                window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-                return original.apply(console, arguments);
-            };
-        });
-    })();
-
-    // ✅ Wykrywanie Debuggera i zamykanie strony
-    setInterval(function () {
-        let before = new Date().getTime();
-        debugger;
-        let after = new Date().getTime();
-        if (after - before > 100) {
-            window.location.href = "about:blank"; // Natychmiastowe przekierowanie
         }
-    }, 500);
+        window.addEventListener("resize", check);
+        check();
+    }
+    detectDevTools();
+
+    // ✅ Dynamiczne szyfrowanie treści (ukrywanie ważnych danych)
+    function encryptContent() {
+        const secretElements = document.querySelectorAll(".protected");
+        secretElements.forEach(el => {
+            el.dataset.encrypted = btoa(el.innerHTML); // Kodowanie Base64
+            el.innerHTML = "🔒 Zabezpieczona treść"; // Ukrycie oryginalnej zawartości
+        });
+    }
+    
+    function decryptContent() {
+        const secretElements = document.querySelectorAll(".protected");
+        secretElements.forEach(el => {
+            el.innerHTML = atob(el.dataset.encrypted); // Odszyfrowanie Base64
+        });
+    }
+
+    // ✅ Uruchamiamy szyfrowanie po załadowaniu strony
+    window.addEventListener("load", encryptContent);
 
 })();
 
-  
+    </script>
+
   </body>
 </html>
