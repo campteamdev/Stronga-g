@@ -893,8 +893,29 @@ if (navigator.userAgent.includes("Chrome")) {
   document.addEventListener("DOMContentLoaded", function () {
       document.body.innerHTML = btoa(document.body.innerHTML); // Kodowanie Base64
   });
+
+  (function () {
+    var before = new Date().getTime();
+    debugger;
+    var after = new Date().getTime();
+    if (after - before > 100) {
+        document.body.innerHTML = "";
+        window.location.href = "about:blank";
+    }
+})();
+(function () {
+    if (document.referrer.includes("view-source")) {
+        window.close();  // Zamknięcie strony
+        location.href = "about:blank";  // Przekierowanie na pustą stronę
+    }
+})();
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.innerHTML = btoa(document.body.innerHTML); // Kodowanie Base64
+});
+
   </script>
-  
+
+
 
   </body>
 </html>
