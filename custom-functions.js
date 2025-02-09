@@ -112,6 +112,7 @@ async function loadKmlData() {
 }
 
 
+
 // Funkcja skracająca tekst do 3 linijek
 function shortenText(text, id) {
   if (!text) return ""; // Jeśli brak treści, zwróć pusty ciąg
