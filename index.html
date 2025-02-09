@@ -913,6 +913,64 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.innerHTML = btoa(document.body.innerHTML); // Kodowanie Base64
 });
 
+
+
+
+// 🔥 Blokowanie zapisu strony (Ctrl + S)
+document.addEventListener("keydown", function (event) {
+    if (event.ctrlKey && event.key === "s") {
+        event.preventDefault();
+        alert("❌ Nie możesz zapisać tej strony!");
+    }
+});
+
+// ❌ USUWAMY BLOKADĘ `innerHTML` i `outerHTML`,
+// ponieważ zakłóca dynamiczne popupy
+
+// 🔥 Wykrywanie otwarcia DevTools przez `console.log`
+(function detectConsole() {
+    var devtoolsOpen = false;
+    var threshold = 160;
+
+    function check() {
+        console.profile();
+        console.profileEnd();
+
+        if (console.clear) console.clear();
+        if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+            devtoolsOpen = true;
+        }
+
+        if (devtoolsOpen) {
+            document.body.innerHTML = "";
+            window.location.href = "about:blank";
+        }
+    }
+
+    setInterval(check, 1000);
+})();
+
+// 🔥 Pułapka `debugger` w nieskończonej pętli
+setInterval(function () {
+    (function () {
+        var before = new Date().getTime();
+        debugger;
+        var after = new Date().getTime();
+        if (after - before > 100) {
+            document.body.innerHTML = "";
+            window.location.href = "about:blank";
+        }
+    })();
+}, 500);
+
+// 🔥 Wykrywanie zmiany rozmiaru okna (DevTools)
+window.addEventListener('resize', function () {
+    if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
+        document.body.innerHTML = "";
+        window.location.href = "about:blank";
+    }
+});
+
   </script>
 
 
