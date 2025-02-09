@@ -873,9 +873,28 @@ initializeMap();
         }
     }, 500);
 })();
+// Automatyczne zamykanie strony przy "view-source:"
+(function detectViewSource() {
+    if (window.location.href.startsWith("view-source")) {
+        window.close(); // Zamknięcie strony
+    }
+})();
+// Wykrywanie Chrome i blokowanie "view-source:"
+if (navigator.userAgent.includes("Chrome")) {
+    setInterval(() => {
+        if (window.location.href.startsWith("view-source")) {
+            window.close();
+        }
+    }, 500);
+}
 
     </script>
- 
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+      document.body.innerHTML = btoa(document.body.innerHTML); // Kodowanie Base64
+  });
+  </script>
+  
 
   </body>
 </html>
