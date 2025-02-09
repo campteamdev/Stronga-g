@@ -364,7 +364,23 @@
           overflow-y: auto !important;
       }
   }
-  
+  .facebook-button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #1877F2; /* Kolor Facebooka */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white !important;
+    border: 2px solid #1256a0;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 4px 10px;
+    bottom: 120px; /* Ustawienie nad ikoną dodawania miejsca */
+    right: 20px;
+    z-index: 2000;
+}
+
 </style>
 
 
@@ -391,6 +407,15 @@
       <div id="suggestions"></div>
     </div>
     <div id="map">
+      <a
+    href="https://www.facebook.com/profile.php?id=61567062909549&locale=pl_PL"
+    target="_blank"
+    class="facebook-button"
+>
+    <img src="/ikony/face.png" alt="Facebook"
+         style="width: 40px; height: 40px;">
+</a>
+
       <!-- <a
         href="https://www.campteam.pl/dodaj"
         target="_blank"
