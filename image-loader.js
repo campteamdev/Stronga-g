@@ -55,12 +55,14 @@ async function getLocationImages(name) {
     const now = Date.now();
 
     // ✅ Sprawdzenie cache dla zdjęć
-    const cachedData = localStorage.getItem(cacheKey);
-    const cacheTime = localStorage.getItem(cacheTimeKey);
-    if (cachedData && cacheTime && now - parseInt(cacheTime) < 15 * 60 * 1000) {
-        console.log(`📂 📥 Ładowanie zdjęć z cache: ${name}`);
-        return JSON.parse(cachedData);
-    }
+       // ✅ Sprawdzenie cache dla zdjęć
+       const cachedData = localStorage.getItem(cacheKey);
+       const cacheTime = localStorage.getItem(cacheTimeKey);
+       if (cachedData && cacheTime && now - parseInt(cacheTime) < 15 * 60 * 1000) {
+           console.log(`📂 📥 Zdjęcia dla "${name}" już są w cache.`);
+           return JSON.parse(cachedData);
+       }
+   
 
     // ✅ Pobranie listy folderów z GitHuba
     const folders = await getGitHubFolders();
@@ -94,21 +96,11 @@ async function getLocationImages(name) {
 
         console.log(`✅ Znaleziono ${allImages.length} zdjęć dla "${name}".`);
 
-        // ✅ Pobieramy pierwsze zdjęcie od razu, a resztę w tle
-        const firstImage = allImages.length > 0 ? [allImages[0]] : [];
-        const remainingImages = allImages.slice(1);
-
-        // ✅ Zapisujemy WSZYSTKIE zdjęcia do cache od razu (ale zwracamy tylko pierwsze zdjęcie)
+        // ✅ Teraz zwracamy WSZYSTKIE zdjęcia od razu
         localStorage.setItem(cacheKey, JSON.stringify(allImages));
         localStorage.setItem(cacheTimeKey, now);
 
-        // ✅ Pobieramy resztę zdjęć w tle (nie blokuje UI)
-        setTimeout(() => {
-            console.log("⏳ Pobieranie pozostałych zdjęć w tle...");
-            localStorage.setItem(cacheKey, JSON.stringify(allImages));
-        }, 2000);
-
-        return allImages; // 🟢 Teraz zwraca wszystkie zdjęcia, zamiast tylko pierwszego
+        return allImages; 
     } catch (error) {
         console.error(`❌ Błąd pobierania zdjęć z GitHuba dla "${name}":`, error);
         return [];
@@ -117,16 +109,7 @@ async function getLocationImages(name) {
 
 
 
-// ✅ GŁÓWNA FUNKCJA (z `await` działa poprawnie)
-async function main() {
-    const testImages = await getLocationImages("Górska Sadyba");
-    console.log("📸 Pobranie zdjęć zakończone:", testImages);
-}
 
-// ✅ URUCHOMIENIE KODU PO ZAŁADOWANIU STRONY
-window.onload = () => {
-    main();
-};
 
 
 // 🔹 Funkcja inicjalizująca Swiper
@@ -175,6 +158,14 @@ function initializeSwiper(name, images) {
 
 
 async function generateImageSlider(name, lat, lon) {
+    // Sprawdzenie, czy popup już ma slider, aby uniknąć ponownego ładowania
+    const existingSlider = document.querySelector(`.swiper-container-${sanitizeName(name)}`);
+    if (existingSlider) {
+        console.log(`🔹 Slider dla ${name} już istnieje. Pomijam ponowne ładowanie.`);
+        return { sliderHTML: "", images: [] }; // Nie generujemy ponownie
+    }
+
+    // Pobranie zdjęć dopiero po otwarciu popupu (Lazy Loading)
     const images = await getLocationImages(name);
     
     console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);
@@ -213,7 +204,7 @@ async function generateImageSlider(name, lat, lon) {
             <div class="swiper-pagination"></div>
             <div id="${prevBtnId}" class="custom-swiper-prev">❮</div>
             <div id="${nextBtnId}" class="custom-swiper-next">❯</div>
-        </div>` : "";
+        </div>` : `<p style="text-align:center; font-size:12px;">Brak zdjęć</p>`;
 
     // ✅ Sekcja ikon (Zadzwoń, Dodaj zdjęcie, Opinia, Prowadź) - pod zdjęciami
     let iconsSection = `
@@ -260,6 +251,7 @@ async function generateImageSlider(name, lat, lon) {
 
     return { sliderHTML: finalHTML, images };
 }
+
 
 
 

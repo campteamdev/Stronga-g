@@ -215,18 +215,18 @@ function updatePopups(markers) {
       const isMobile = window.innerWidth <= 768;
 
       const popupOptions = {
-          minWidth: 200, 
-          maxWidth: isMobile ? window.innerWidth * 0.9 : 270,  
-          maxHeight: isMobile ? window.innerHeight * 0.5 : 360, 
+          minWidth: 200, // Minimalna szerokość dla obu urządzeń
+          maxWidth: isMobile ? window.innerWidth * 0.9 : 270, // 90% szerokości ekranu na telefonie, 270px na komputerze
+          maxHeight: isMobile ? window.innerHeight * 0.5 : 360, // 50% wysokości ekranu na telefonie, 360px na komputerze
           autoPan: true,
-          autoPanPadding: [20, 50],  // Dodatkowe przesunięcie, aby poprawić widoczność popupu
-          autoPanPaddingTopLeft: [10, 10],
-          autoPanPaddingBottomRight: [10, 10]
+          closeButton: true, // Przyciski zamykania poprawione
+          className: isMobile ? "mobile-popup" : "desktop-popup" // Dodajemy różne style
       };
 
       marker.bindPopup(popupContent, popupOptions);
   });
 }
+
 
 
 // Ładowanie danych i aktualizacja popupów
@@ -256,9 +256,34 @@ async function updatePopupsWithImages() {
 
 // 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
 // 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
-map.on("popupopen", async function () {
-  await updatePopupsWithImages();
+map.on("popupopen", async function (e) {
+  setTimeout(async () => {
+      const popup = e.popup._contentNode;
+      const nameElement = popup.querySelector("div");
+      if (!nameElement) return;
+
+      const name = nameElement.textContent.trim();
+      const lat = e.popup._source.getLatLng().lat;
+      const lon = e.popup._source.getLatLng().lng;
+
+      console.log(`📂 🔍 Otwieranie popupu dla: ${name}`);
+
+      // 🔹 Sprawdzenie, czy zdjęcia już zostały dodane
+      if (popup.querySelector(".swiper-container")) {
+          console.log(`📂 ⏳ Slider dla ${name} już istnieje. Pomijam ponowne ładowanie.`);
+          return;
+      }
+
+      // 🔹 Pobieramy i dodajemy zdjęcia
+      const { sliderHTML, images } = await generateImageSlider(name, lat, lon);
+
+      if (sliderHTML) {
+          popup.insertAdjacentHTML("afterbegin", sliderHTML);
+          initializeSwiper(name, images);
+      }
+  }, 300);
 });
+
 
 // 🔹 Dodajemy obsługę przesuwania popupu zamiast mapy na telefonach
 document.addEventListener("touchmove", function (event) {

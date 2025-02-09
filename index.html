@@ -216,6 +216,17 @@
         right: 20px;
         z-index: 2000;
       }
+  /* 🔹 Poprawka dla popupu na smartfonach */
+
+    @media (max-width: 768px) {
+    .leaflet-popup-content-wrapper {
+        max-width: 90vw !important;
+        max-height: 70vh !important;
+        overflow-y: auto !important;
+    }
+}
+
+
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
@@ -346,11 +357,12 @@
           overflow-y: auto !important;
       }
   }
+  
 </style>
 
 
 
-</style>
+
 
   </head>
   <body class="" oncontextmenu="return false;">
@@ -614,28 +626,7 @@
         await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
       }
 
-      initializeMap();
-    map.on("popupopen", function (e) {
-    let popupContent = e.popup._contentNode; // Pobranie aktualnie otwartego popupu
-    if (!popupContent) return; // Sprawdzenie, czy popupContent istnieje
 
-    function adjustPopupSize() {
-        let zoomLevel = map.getZoom(); // Pobranie aktualnego zoomu
-
-        if (zoomLevel > 12) {
-            popupContent.style.maxWidth = "80vw"; // Duży popup przy dużym zoomie
-        } else if (zoomLevel > 9) {
-            popupContent.style.maxWidth = "60vw"; // Średni zoom
-        } else {
-            popupContent.style.maxWidth = "40vw"; // Mały popup przy oddaleniu
-        }
-    }
-
-    adjustPopupSize(); // Ustawienie szerokości przy otwarciu
-
-    // 🔹 Aktualizacja szerokości popupu po każdej zmianie zoomu
-    map.on("zoomend", adjustPopupSize);
-});
 // Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
 document.addEventListener("copy", (event) => {
   event.preventDefault();
@@ -662,7 +653,8 @@ document.addEventListener("touchstart", function (event) {
   }
 }, { passive: false });
 
-  
+initializeMap();
+
     </script>
 
 
