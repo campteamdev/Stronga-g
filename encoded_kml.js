@@ -7,11 +7,17 @@ const encodedKML = {
     "Kempingi1.kml": "S2VtcGluZ2kxLmttbA==",
     "AtrakcjeKulturowe.kml": "QXRyYWtjamVLdWx0dXJvd2Uua21s",
     "AtrakcjePrzyrodnicze.kml": "QXRyYWtjamVQcnp5cm9kbmljemUua21s",
-    "AtrakcjeRozrywkowe.kml": "QXRyYWtjamVSb3pyeXdrb3dlLmttbA==",
+    "AtrakcjeRozrywka.kml": "QXRyYWtjamVSb3pyeXdrYS5rbWw=",
     "Miejscenabiwak.kml": "TWllanNjZW5hYml3YWsua21s",
     "Europa.kml": "RXVyb3BhLmttbA=="
 };
 
 function getKML(filename) {
-    return atob(encodedKML[filename]); // Dekodowanie Base64 nazwy pliku
+    if (encodedKML[filename]) {
+        return atob(encodedKML[filename]); // Dekodowanie Base64 nazwy pliku
+    } else {
+        console.error(`❌ Błąd: Brak zakodowanego pliku dla '${filename}'`);
+        return null;
+    }
 }
+

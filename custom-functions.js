@@ -36,28 +36,37 @@ function extractPhoneNumber(description) {
 
 // Funkcja do wyodrębniania strony www
 function extractWebsite(description) {
+  if (!description) return null;  // 🔴 Dodana obsługa błędu dla `undefined`
   const websiteRegex = /Website:\s*(https?:\/\/[^\s<]+)/i;
   const match = description.match(websiteRegex);
   return match ? match[1].trim() : null;
 }
 
+
 // Funkcja wczytująca dane z KML
 async function loadKmlData() {
   const kmlFiles = [
-    "/Atrakcje.kml",
-    "/Kempingi.kml",
-    "/Kempingi1.kml",
-    "/Kempingiopen.kml",
-    "/Miejscenabiwak.kml",
-    "/Parkingilesne.kml",
-    "/Polanamiotowe.kml",
-    "/Polanamiotoweopen.kml",
+    "Kempingi.kml",
+    "Polanamiotowe.kml",
+    "Kempingiopen.kml",
+    "Polanamiotoweopen.kml",
+    "Parkingilesne.kml",
+    "Kempingi1.kml",
+    "AtrakcjeKulturowe.kml",
+    "AtrakcjePrzyrodnicze.kml",
+    "AtrakcjeRozrywka.kml",
+    "Miejscenabiwak.kml",
+    "Europa.kml",
   ];
 
-  for (const url of kmlFiles) {
+  for (const filename of kmlFiles) {
     try {
+      const url = getKML(filename); // Pobiera zakodowany URL
+      console.log(`🔍 Ładowanie KML: ${filename} -> ${url}`); // Debug
+
       const response = await fetch(url);
-      if (!response.ok) throw new Error(`Nie udało się załadować: ${url}`);
+      if (!response.ok) throw new Error(`❌ Nie udało się załadować: ${filename}`);
+
       const kmlText = await response.text();
       const parser = new DOMParser();
       const kml = parser.parseFromString(kmlText, "application/xml");
@@ -75,16 +84,14 @@ async function loadKmlData() {
         const opis = opisNode ? opisNode.textContent.trim() : "";
         let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
 
-        // Usunięcie cyfr, nawiasów i słów "nr:", "nr."
-if (infrastruktura) {
-  infrastruktura = infrastruktura
-      .replace(/-?\s*(nr[:.]?|[0-9]+|\(|\)|\[|\])/g, "") // Usunięcie "nr:", "nr.", cyfr i nawiasów
-      .trim()
-      .replace(/\s{2,}/g, " "); // Usunięcie nadmiarowych spacji
-
-  infrastruktura = infrastruktura.split("\n").join("<br>"); // Każdy element w nowej linii
-}
-
+        // Usunięcie zbędnych znaków z infrastruktury
+        if (infrastruktura) {
+          infrastruktura = infrastruktura
+            .replace(/-?\s*(nr[:.]?|[0-9]+|\(|\)|\[|\])/g, "") // Usuwa "nr:", "nr.", cyfry, nawiasy
+            .trim()
+            .replace(/\s{2,}/g, " "); // Usuwa nadmiarowe spacje
+          infrastruktura = infrastruktura.split("\n").join("<br>"); // Formatowanie HTML
+        }
 
         if (name) {
           if (description) {
@@ -99,10 +106,11 @@ if (infrastruktura) {
         }
       }
     } catch (error) {
-      console.error(`Błąd podczas przetwarzania pliku ${url}:`, error);
+      console.error(`❌ Błąd podczas przetwarzania pliku ${filename}:`, error);
     }
   }
 }
+
 
 // Funkcja skracająca tekst do 3 linijek
 function shortenText(text, id) {

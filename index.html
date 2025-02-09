@@ -33,7 +33,14 @@
     />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script src="encoded_kml.js"></script>
     <script src="custom-functions.js"></script>
+    <script>
+      console.log("✅ encoded_kml.js załadowany!");
+      console.log("📂 encodedKML:", encodedKML);
+      console.log("🔍 getKML('Kempingi.kml'):", getKML("Kempingi.kml"));
+  </script>
+  
     <!-- Dodano obsługę dodatkowych funkcji -->
     <style>
       body {
@@ -425,7 +432,7 @@
         kempingi1: "/Kempingi1.kml",
         AtrakcjeKulturowe: "/AtrakcjeKulturowe.kml",
         AtrakcjePrzyrodnicze: "/AtrakcjePrzyrodnicze.kml",
-        AtrakcjeRozrywkowe: "/AtrakcjeRozrywka.kml",
+        AtrakcjeRozrywka: "/AtrakcjeRozrywka.kml",
         miejscenabiwak: "/Miejscenabiwak.kml",
         europa: "/Europa.kml", // Dodajemy URL do pliku europa.kml
       };
@@ -603,25 +610,27 @@
           }
         });
       }
-
+    
       async function initializeMap() {
+        console.log("✅ Sprawdzam funkcję getKML w initializeMap:", typeof getKML);
+    console.log("🔍 Test getKML('Kempingi.kml'):", getKML("Kempingi.kml"));
         await Promise.all([
-          loadMarkers(urls.kempingi, icons.kempingi, false), // Kempingi - bez grupowania
-          loadMarkers(urls.polanamiotowe, icons.polanamiotowe, false), // Pola namiotowe - bez grupowania
-          loadMarkers(urls.kempingiopen, icons.kempingiopen, false),
-          loadMarkers(urls.polanamiotoweopen, icons.polanamiotoweopen, false),
-          loadMarkers(urls.parkingilesne, icons.parkingilesne),
-          loadMarkers(urls.kempingi1, icons.kempingi1, false),
-          loadMarkers(urls.miejscenabiwak, icons.miejscenabiwak),
-          loadMarkers(urls.europa, icons.kempingi), // Dodajemy markery z europa.kml z ikoną kampingu
-          loadMarkers(urls.AtrakcjeKulturowe, icons.atractionCultural),
-          loadMarkers(urls.AtrakcjePrzyrodnicze, icons.atractionNature),
-          loadMarkers(urls.AtrakcjeRozrywkowe, icons.atractionFun),
-        ]);
+  loadMarkers(getKML("Kempingi.kml"), icons.kempingi, false),
+  loadMarkers(getKML("Polanamiotowe.kml"), icons.polanamiotowe, false),
+  loadMarkers(getKML("Kempingiopen.kml"), icons.kempingiopen, false),
+  loadMarkers(getKML("Polanamiotoweopen.kml"), icons.polanamiotoweopen, false),
+  loadMarkers(getKML("Parkingilesne.kml"), icons.parkingilesne),
+  loadMarkers(getKML("Kempingi1.kml"), icons.kempingi1, false),
+  loadMarkers(getKML("Miejscenabiwak.kml"), icons.miejscenabiwak),
+  loadMarkers(getKML("Europa.kml"), icons.kempingi),
+  loadMarkers(getKML("AtrakcjeKulturowe.kml"), icons.atractionCultural),
+  loadMarkers(getKML("AtrakcjePrzyrodnicze.kml"), icons.atractionNature),
+  loadMarkers(getKML("AtrakcjeRozrywka.kml"), icons.atractionFun),
+]);
 
         map.addLayer(markerCluster);
         initializeSearch();
-
+       
         // Wywołanie funkcji z custom-functions.js
         await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
       }
@@ -672,89 +681,9 @@ initializeMap();
   <div id="custom-popup-content"></div> <!-- Tu będą treści -->
 </div>
 
-  /* 🔒 ZABEZPIECZENIA PRZED KRADZIEŻĄ DANYCH - WŁĄCZ/WYŁĄCZ JEDNYM KLIKNIĘCIEM */
-  <script>
-    (function () {
-    "use strict";
-
-    // ✅ Blokowanie klawiszy (F12, Ctrl + U, Ctrl + Shift + I, itp.)
-    document.addEventListener("keydown", function (event) {
-        if (
-            event.key === "F12" ||
-            (event.ctrlKey && event.shiftKey && event.key === "I") ||
-            (event.ctrlKey && event.shiftKey && event.key === "C") ||
-            (event.ctrlKey && event.key === "U")
-        ) {
-            event.preventDefault();
-            window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-        }
-    });
-    document.addEventListener("keydown", function (event) {
-    if (event.ctrlKey && event.key.toLowerCase() === "u") {  // Wykrycie "Ctrl + U" (obsługa różnych układów klawiatury)
-        event.preventDefault();
-        window.location.href = "about:blank"; // Natychmiastowe przekierowanie na pustą stronę
-    }
-});
+ 
 
 
-
-    // ✅ Ukrywanie tekstu przed zaznaczeniem i kopiowaniem
-    const style = document.createElement("style");
-    style.innerHTML = `
-        body {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-    `;
-    document.head.appendChild(style);
-
-    // ✅ Blokowanie kopiowania, wycinania, wklejania, zaznaczania tekstu i prawego przycisku myszy
-    ["copy", "cut", "paste", "selectstart", "contextmenu"].forEach(eventType => {
-        document.addEventListener(eventType, (event) => {
-            event.preventDefault();
-            alert("❌ Zabezpieczenie aktywne: Nie masz uprawnień do tej operacji!");
-        });
-    });
-
-    // ✅ Automatyczne wykrywanie otwarcia DevTools i natychmiastowe przekierowanie
-    function detectDevTools() {
-        const threshold = 160;
-        function check() {
-            if (window.outerWidth - window.innerWidth > threshold || 
-                window.outerHeight - window.innerHeight > threshold) {
-                window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-            }
-        }
-        window.addEventListener("resize", check);
-        check();
-    }
-    detectDevTools();
-
-    // ✅ Dynamiczne szyfrowanie treści (ukrywanie ważnych danych)
-    function encryptContent() {
-        const secretElements = document.querySelectorAll(".protected");
-        secretElements.forEach(el => {
-            el.dataset.encrypted = btoa(el.innerHTML); // Kodowanie Base64
-            el.innerHTML = "🔒 Zabezpieczona treść"; // Ukrycie oryginalnej zawartości
-        });
-    }
-    
-    function decryptContent() {
-        const secretElements = document.querySelectorAll(".protected");
-        secretElements.forEach(el => {
-            el.innerHTML = atob(el.dataset.encrypted); // Odszyfrowanie Base64
-        });
-    }
-
-    // ✅ Uruchamiamy szyfrowanie po załadowaniu strony
-    window.addEventListener("load", encryptContent);
-
-})();
-
-    </script>
-<script src="encoded_kml.js"></script>
 
   </body>
 </html>

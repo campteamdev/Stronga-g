@@ -204,7 +204,16 @@ async function generateImageSlider(name, lat, lon) {
             <div class="swiper-pagination"></div>
             <div id="${prevBtnId}" class="custom-swiper-prev">❮</div>
             <div id="${nextBtnId}" class="custom-swiper-next">❯</div>
-        </div>` : `<p style="text-align:center; font-size:12px;">Brak zdjęć</p>`;
+               </div>` : `
+        <div style="text-align:center; margin-top: 10px;">
+            <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
+               target="_blank" style="display: inline-block;">
+                <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.png" 
+                     alt="Dodaj zdjęcie"
+                     style="width: 60px; height: 60px; cursor: pointer;">
+            </a>
+        </div>`;
+
 
     // ✅ Sekcja ikon (Zadzwoń, Dodaj zdjęcie, Opinia, Prowadź) - pod zdjęciami
     let iconsSection = `
