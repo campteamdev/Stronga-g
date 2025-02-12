@@ -71,12 +71,34 @@ async function getLocationImages(name) {
         return [];
     }
 
-    const baseName = sanitizeName(name);
-    const matchedFolder = folders.find(folder => sanitizeName(folder) === baseName);
+    function normalizeForMatching(str) {
+        return str
+            .toLowerCase()                   // Zamiana na małe litery
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")  // Usunięcie polskich znaków
+            .replace(/[_\s,./-]+/g, "")       // Usunięcie spacji, podkreśleń, ukośników, myślników, przecinków i kropek
+            .replace(/&/g, "and")             // Zamiana `&` na `and`
+            .replace(/[^a-z0-9]/g, "");       // Usunięcie wszystkich innych znaków
+    }
+    
+    const normalizedName = normalizeForMatching(name);
+    let matchedFolder = folders.find(folder => normalizeForMatching(folder) === normalizedName);
+    
+    // 🔍 Jeśli nie znaleziono folderu, sprawdzamy podobieństwo (czy folder zawiera nazwę lub odwrotnie)
+    if (!matchedFolder) {
+        matchedFolder = folders.find(folder => 
+            normalizeForMatching(folder).includes(normalizedName) || 
+            normalizedName.includes(normalizeForMatching(folder))
+        );
+    }
+    
     if (!matchedFolder) {
         console.warn(`⚠️ Folder dla "${name}" nie znaleziony.`);
         return [];
     }
+    
+    console.log(`📂 🔍 Dopasowany folder: "${matchedFolder}" dla lokalizacji "${name}"`);
+    
+
 
     console.log(`📂 🔍 Używam folderu: "${matchedFolder}"`);
 
