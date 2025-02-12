@@ -383,7 +383,10 @@
 
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/fuzzball/dist/fuzzball.min.js"></script>
 
+
+<script src="image-loader.js"></script>
 <link rel="stylesheet" href="filters.css">
 <script src="filters.js" defer></script>
 
@@ -588,55 +591,99 @@
         });
       }
 
-      function initializeSearch() {
-        const searchInput = document.getElementById("search-input");
-        const searchButton = document.getElementById("search-button");
-        const suggestions = document.getElementById("suggestions");
+      async function initializeSearch() {
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+    const suggestions = document.getElementById("suggestions");
 
-        searchInput.addEventListener("input", () => {
-          const query = searchInput.value.toLowerCase().trim();
-          suggestions.innerHTML = "";
-          if (!query) {
+    // ✅ Mapa aliasów (skrótów nazw)
+    const aliasMap = {
+        "mazury": "Camping nad jeziorem Mazury",
+        "juracamp": "Jura Camp Kemping nr 244",
+        "sikory": "Pole Namiotowe/Kempingowe U Sikory"
+    };
+
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase().trim();
+        suggestions.innerHTML = "";
+        if (!query) {
             suggestions.style.display = "none";
             return;
-          }
+        }
 
-          const matches = allMarkers
-            .filter((m) => m.name.toLowerCase().includes(query))
-            .slice(0, 4);
+        let matches = allMarkers.map((m) => ({
+            marker: m.marker,
+            name: m.name,
+            lat: m.lat,
+            lon: m.lon,
+            score: fuzzyMatch(query, m.name) // Dopasowanie przez Fuzzy Matching
+        }));
 
-          matches.forEach((match) => {
-            const suggestion = document.createElement("div");
-            suggestion.className = "suggestion";
-            suggestion.textContent = match.name; // Wyświetla nazwę z wielkimi literami
-            suggestion.addEventListener("click", () => {
-              map.setView([match.lat, match.lon], 15);
-              match.marker.openPopup();
-              suggestions.style.display = "none";
-              searchInput.value = match.name;
+        // ✅ 1️⃣ Jeśli nazwa jest aliasem, zamieniamy na właściwą nazwę
+        if (aliasMap[query]) {
+            matches = matches.filter(m => m.name === aliasMap[query]);
+        } else {
+            // ✅ 2️⃣ Sortujemy według najlepszego dopasowania
+            matches.sort((a, b) => b.score - a.score);
+        }
+
+        // ✅ 3️⃣ Pokazujemy max. 5 wyników + "Pokaż więcej"
+        const topMatches = matches.slice(0, 5);
+        const extraMatches = matches.slice(5, 10);
+
+        topMatches.forEach(match => addSuggestion(match));
+        
+        if (extraMatches.length > 0) {
+            const showMore = document.createElement("div");
+            showMore.className = "suggestion show-more";
+            showMore.textContent = "Pokaż więcej";
+            showMore.addEventListener("click", () => {
+                extraMatches.forEach(match => addSuggestion(match));
+                showMore.remove(); // Ukryj przycisk po rozwinięciu
             });
-            suggestions.appendChild(suggestion);
-          });
+            suggestions.appendChild(showMore);
+        }
 
-          suggestions.style.display = matches.length > 0 ? "block" : "none";
-        });
+        suggestions.style.display = matches.length > 0 ? "block" : "none";
+    });
 
-        searchButton.addEventListener("click", () => {
-          const query = searchInput.value.toLowerCase().trim();
-          if (!query) return;
+    searchButton.addEventListener("click", () => {
+        const query = searchInput.value.toLowerCase().trim();
+        if (!query) return;
 
-          const targetMarker = allMarkers.find((m) =>
-            m.name.toLowerCase().includes(query)
-          );
+        let targetMarker = allMarkers.find(m => m.name.toLowerCase().includes(query));
 
-          if (targetMarker) {
+        if (!targetMarker && aliasMap[query]) {
+            targetMarker = allMarkers.find(m => m.name === aliasMap[query]);
+        }
+
+        if (targetMarker) {
             map.setView([targetMarker.lat, targetMarker.lon], 15);
             targetMarker.marker.openPopup();
-          } else {
+        } else {
             alert("Nie znaleziono obiektu.");
-          }
+        }
+    });
+
+    function addSuggestion(match) {
+        const suggestion = document.createElement("div");
+        suggestion.className = "suggestion";
+        suggestion.textContent = match.name;
+        suggestion.addEventListener("click", () => {
+            map.setView([match.lat, match.lon], 15);
+            match.marker.openPopup();
+            suggestions.style.display = "none";
+            searchInput.value = match.name;
         });
-      }
+        suggestions.appendChild(suggestion);
+    }
+}
+
+// 🔹 Funkcja obliczająca podobieństwo (Fuzzy Matching)
+function fuzzyMatch(query, name) {
+    return fuzzball.token_set_ratio(query, name); // Biblioteka fuzzball.js
+}
+
     
       async function initializeMap() {
         console.log("✅ Sprawdzam funkcję getKML w initializeMap:", typeof getKML);
@@ -700,7 +747,7 @@ initializeMap();
    
    
 
-<script src="image-loader.js"></script>
+
 
 <!-- 🔹 Panel wysuwanego popupu -->
 <div id="custom-popup">
