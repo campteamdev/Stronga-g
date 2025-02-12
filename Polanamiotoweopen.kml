@@ -8571,42 +8571,6 @@ Dużo miejsca na namioty
       </Point>
     </Placemark>
     <Placemark>
-      <name>Pole Kempingowe Osada Chmielaki</name>
-      <description><![CDATA[Opis:: Osada Chmielaki to wyjątkowe miejsce w malowniczo położonej Pokrzywnej, otoczone Górami Opawskimi i płynącą w pobliżu rzeką. Lokalizacja oferuje ciszę, spokój i piękne widoki, idealne dla miłośników natury i osób szukających odpoczynku w otoczeniu przyrody. Teren osady to zadbane pole kempingowe, przestronne parcele oraz przytulne domki. Na miejscu znajduje się szereg atrakcji, które umilą czas każdemu gościowi, w tym sauna, basen, miejsca na grilla i ognisko, a także świetlica z piłkarzykami i stołem do ping-ponga. Osada Chmielaki dba również o aktywnych turystów, oferując wypożyczalnię rowerów i hulajnóg.<br>Udogodnienia:: Toalety - nr: 1<br>Prysznice - nr: 2<br>Miejsce na ognisko - nr: 4<br>Dostęp do prądu - nr: 5<br>Przyjazne dla zwierząt - nr: 6<br>Kosze na śmieci - nr: 8<br>Stół piknikowy - nr: 9<br>Grill - nr: 10<br>Basen odkryty<br>Sauna<br>Telefon:: +48 698 133 363<br>Strona www:: osadapokrzywna.pl<br>description: +48 698 133 363]]></description>
-      <styleUrl>#icon-1899-DB4436</styleUrl>
-      <ExtendedData>
-        <Data name="Opis:">
-          <value>Osada Chmielaki to wyjątkowe miejsce w malowniczo położonej Pokrzywnej, otoczone Górami Opawskimi i płynącą w pobliżu rzeką. Lokalizacja oferuje ciszę, spokój i piękne widoki, idealne dla miłośników natury i osób szukających odpoczynku w otoczeniu przyrody. Teren osady to zadbane pole kempingowe, przestronne parcele oraz przytulne domki. Na miejscu znajduje się szereg atrakcji, które umilą czas każdemu gościowi, w tym sauna, basen, miejsca na grilla i ognisko, a także świetlica z piłkarzykami i stołem do ping-ponga. Osada Chmielaki dba również o aktywnych turystów, oferując wypożyczalnię rowerów i hulajnóg.</value>
-        </Data>
-        <Data name="Udogodnienia:">
-          <value>Toalety - nr: 1
-Prysznice - nr: 2
-Miejsce na ognisko - nr: 4
-Dostęp do prądu - nr: 5
-Przyjazne dla zwierząt - nr: 6
-Kosze na śmieci - nr: 8
-Stół piknikowy - nr: 9
-Grill - nr: 10
-Basen odkryty
-Sauna</value>
-        </Data>
-        <Data name="Telefon:">
-          <value>+48 698 133 363</value>
-        </Data>
-        <Data name="Strona www:">
-          <value>osadapokrzywna.pl</value>
-        </Data>
-        <Data name="description">
-          <value>+48 698 133 363</value>
-        </Data>
-      </ExtendedData>
-      <Point>
-        <coordinates>
-          17.455263,50.287427,0
-        </coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>Letnisko Stara Wieś - kemping, pole namiotowe</name>
       <description><![CDATA[Opis:: Letnisko Stara Wieś położone w malowniczej okolicy Swolszewic Małych zapewnia wypoczynek blisko natury i Zalewu Sulejowskiego. Miejsce oferuje piękne widoki na wodę oraz liczne możliwości rekreacyjne, w tym sporty wodne i spacery wśród urokliwych terenów. Bliskość lasu zapewnia cień i przyjemny mikroklimat w upalne dni. Dzięki parcelom z dostępem do prądu i wody oraz zadbanym sanitariatom jest to komfortowe miejsce na wypoczynek zarówno dla kamperowiczów, jak i miłośników namiotów. Dodatkowe atrakcje, takie jak wypożyczalnia sprzętu wodnego, uprzyjemniają pobyt.<br>Udogodnienia:: Toalety - nr 1<br>Prysznice - nr 2<br>Kuchnia - nr 22<br>Dostęp do prądu - nr 5<br>Dostęp do wody - nr 12<br>Kajaki - nr 14<br>Przyjazne dla zwierząt - nr 6<br>Miejsce na ognisko - nr 4<br>Telefon:: +48 502 765 603<br>Strona www:: www.letniskostarawies.pl<br>description: +48 502 765 603]]></description>
       <styleUrl>#icon-1899-DB4436</styleUrl>
@@ -12376,4 +12340,3 @@ Stoły do ping-ponga </value>
     </Placemark>
   </Document>
 </kml>
-
