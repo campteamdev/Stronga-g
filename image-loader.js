@@ -33,7 +33,14 @@ async function getGitHubFolders() {
         if (!response.ok) throw new Error(response.statusText);
 
         const data = await response.json();
-        const folders = data.filter(item => item.type === "dir").map(item => item.name);
+        console.log("📂 🔍 Surowe dane pobrane z GitHuba:", data);
+
+        const folders = data
+            .filter(item => item.type === "dir")
+            .map(item => item.name);
+        
+        console.log("📂 ✅ Lista folderów po przefiltrowaniu:", folders);
+        
 
         // ✅ Zapisujemy do cache
         localStorage.setItem(cacheKey, JSON.stringify(folders));
@@ -49,20 +56,19 @@ async function getGitHubFolders() {
 
 // ✅ POBIERANIE OBRAZÓW
 // ✅ Funkcja pobierająca zdjęcia z priorytetem dla pierwszego zdjęcia
+
 async function getLocationImages(name) {
     const cacheKey = `images_${name}`;
     const cacheTimeKey = `cache_time_${name}`;
     const now = Date.now();
 
     // ✅ Sprawdzenie cache dla zdjęć
-       // ✅ Sprawdzenie cache dla zdjęć
-       const cachedData = localStorage.getItem(cacheKey);
-       const cacheTime = localStorage.getItem(cacheTimeKey);
-       if (cachedData && cacheTime && now - parseInt(cacheTime) < 15 * 60 * 1000) {
-           console.log(`📂 📥 Zdjęcia dla "${name}" już są w cache.`);
-           return JSON.parse(cachedData);
-       }
-   
+    const cachedData = localStorage.getItem(cacheKey);
+    const cacheTime = localStorage.getItem(cacheTimeKey);
+    if (cachedData && cacheTime && now - parseInt(cacheTime) < 15 * 60 * 1000) {
+        console.log(`📂 📥 Zdjęcia dla "${name}" już są w cache.`);
+        return JSON.parse(cachedData);
+    }
 
     // ✅ Pobranie listy folderów z GitHuba
     const folders = await getGitHubFolders();
@@ -70,63 +76,69 @@ async function getLocationImages(name) {
         console.warn("⚠️ Brak folderów w repozytorium!");
         return [];
     }
+
     function normalizeForMatching(str) {
         return str
             .toLowerCase()
             .normalize("NFD").replace(/[\u0300-\u036f]/g, "")  // Usunięcie polskich znaków
-            .replace(/[_\s,./-]+/g, "")  // Usunięcie spacji, podkreśleń, ukośników, myślników, przecinków i kropek
-            .replace(/&/g, "and")  // Zamiana `&` na `and`
-            .replace(/[^a-z0-9]/g, "");  // Usunięcie wszystkich innych znaków
+            .replace(/[_\s,./-]+/g, " ")  // Zamiana separatorów na spacje
+            .replace(/&/g, " and ")  // Zamiana `&` na `and`
+            .replace(/[^a-z0-9 ]/g, "")  // Usunięcie wszystkich innych znaków (poza spacjami)
+            .trim();  // Usunięcie zbędnych spacji na początku i końcu
     }
-    
+
     const normalizedName = normalizeForMatching(name);
-    
-    // ✅ 1️⃣ Najpierw sprawdzamy, czy istnieje idealne dopasowanie
+
+    // ✅ Szukamy pasującego folderu
     let matchedFolder = folders.find(folder => normalizeForMatching(folder) === normalizedName);
-    
-    // ✅ 2️⃣ Jeśli idealnego dopasowania nie ma, sprawdzamy, czy folder zawiera nazwę lokalizacji lub odwrotnie
-    if (!matchedFolder) {
-        matchedFolder = folders.find(folder => 
-            normalizeForMatching(folder).includes(normalizedName) || 
-            normalizedName.includes(normalizeForMatching(folder))
-        );
-    }
-    
-    // ✅ 3️⃣ Jeśli nadal nie ma dopasowania, sprawdzamy podobieństwo słów kluczowych
+
     if (!matchedFolder) {
         matchedFolder = folders.find(folder => {
-            const folderWords = normalizeForMatching(folder).match(/[a-z0-9]+/g) || [];
-            const nameWords = normalizeForMatching(name).match(/[a-z0-9]+/g) || [];
-            return nameWords.every(word => folderWords.includes(word));
+            const folderName = normalizeForMatching(folder);
+            return folderName.includes(normalizedName) || normalizedName.includes(folderName);
         });
     }
-    
+
+    if (!matchedFolder) {
+        matchedFolder = folders.find(folder => {
+            const folderWords = new Set(normalizeForMatching(folder).split(" "));
+            const nameWords = new Set(normalizedName.split(" "));
+            const commonWords = [...folderWords].filter(word => nameWords.has(word));
+            return commonWords.length >= Math.min(folderWords.size, nameWords.size) * 0.6;
+        });
+    }
+
     if (!matchedFolder) {
         console.warn(`⚠️ Folder dla "${name}" nie znaleziony.`);
         return [];
     }
-    
+
     console.log(`📂 🔍 Dopasowany folder: "${matchedFolder}" dla lokalizacji "${name}"`);
-    
-    console.log(`📂 🔍 Używam folderu: "${matchedFolder}"`);
-    
+
+    // ✅ Pobieramy listę plików z folderu na GitHubie
     try {
         const response = await fetch(`${GITHUB_REPO}${encodeURIComponent(matchedFolder)}`);
         if (!response.ok) throw new Error(response.statusText);
-    
+
         const data = await response.json();
+        console.log(`📂 📥 Lista plików w folderze "${matchedFolder}":`, data);
+
         const allImages = data
             .filter(file => file.download_url && /\.(jpg|jpeg|webp)$/i.test(file.name))
             .map(file => file.download_url);
-    
+
         if (allImages.length === 0) {
             console.warn(`⚠️ Brak zdjęć w folderze "${matchedFolder}".`);
             return [];
         }
-    
+
         console.log(`✅ Znaleziono ${allImages.length} zdjęć dla "${name}".`);
-    
-        return allImages; 
+
+        // ✅ Zapisujemy do cache, aby przyspieszyć kolejne ładowania
+        localStorage.setItem(cacheKey, JSON.stringify(allImages));
+        localStorage.setItem(cacheTimeKey, now);
+
+        return allImages;
     } catch (error) {
         console.error(`❌ Błąd pobierania zdjęć z GitHuba dla "${name}":`, error);
         return [];
