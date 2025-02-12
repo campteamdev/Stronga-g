@@ -70,25 +70,35 @@ async function getLocationImages(name) {
         console.warn("⚠️ Brak folderów w repozytorium!");
         return [];
     }
-
     function normalizeForMatching(str) {
         return str
-            .toLowerCase()                   // Zamiana na małe litery
+            .toLowerCase()
             .normalize("NFD").replace(/[\u0300-\u036f]/g, "")  // Usunięcie polskich znaków
-            .replace(/[_\s,./-]+/g, "")       // Usunięcie spacji, podkreśleń, ukośników, myślników, przecinków i kropek
-            .replace(/&/g, "and")             // Zamiana `&` na `and`
-            .replace(/[^a-z0-9]/g, "");       // Usunięcie wszystkich innych znaków
+            .replace(/[_\s,./-]+/g, "")  // Usunięcie spacji, podkreśleń, ukośników, myślników, przecinków i kropek
+            .replace(/&/g, "and")  // Zamiana `&` na `and`
+            .replace(/[^a-z0-9]/g, "");  // Usunięcie wszystkich innych znaków
     }
     
     const normalizedName = normalizeForMatching(name);
+    
+    // ✅ 1️⃣ Najpierw sprawdzamy, czy istnieje idealne dopasowanie
     let matchedFolder = folders.find(folder => normalizeForMatching(folder) === normalizedName);
     
-    // 🔍 Jeśli nie znaleziono folderu, sprawdzamy podobieństwo (czy folder zawiera nazwę lub odwrotnie)
+    // ✅ 2️⃣ Jeśli idealnego dopasowania nie ma, sprawdzamy, czy folder zawiera nazwę lokalizacji lub odwrotnie
     if (!matchedFolder) {
         matchedFolder = folders.find(folder => 
             normalizeForMatching(folder).includes(normalizedName) || 
             normalizedName.includes(normalizeForMatching(folder))
         );
+    }
+    
+    // ✅ 3️⃣ Jeśli nadal nie ma dopasowania, sprawdzamy podobieństwo słów kluczowych
+    if (!matchedFolder) {
+        matchedFolder = folders.find(folder => {
+            const folderWords = normalizeForMatching(folder).match(/[a-z0-9]+/g) || [];
+            const nameWords = normalizeForMatching(name).match(/[a-z0-9]+/g) || [];
+            return nameWords.every(word => folderWords.includes(word));
+        });
     }
     
     if (!matchedFolder) {
@@ -98,39 +108,30 @@ async function getLocationImages(name) {
     
     console.log(`📂 🔍 Dopasowany folder: "${matchedFolder}" dla lokalizacji "${name}"`);
     
-
-
     console.log(`📂 🔍 Używam folderu: "${matchedFolder}"`);
-
+    
     try {
         const response = await fetch(`${GITHUB_REPO}${encodeURIComponent(matchedFolder)}`);
         if (!response.ok) throw new Error(response.statusText);
-
+    
         const data = await response.json();
         const allImages = data
             .filter(file => file.download_url && /\.(jpg|jpeg|webp)$/i.test(file.name))
             .map(file => file.download_url);
-
+    
         if (allImages.length === 0) {
             console.warn(`⚠️ Brak zdjęć w folderze "${matchedFolder}".`);
             return [];
         }
-
+    
         console.log(`✅ Znaleziono ${allImages.length} zdjęć dla "${name}".`);
-
-        // ✅ Teraz zwracamy WSZYSTKIE zdjęcia od razu
-        localStorage.setItem(cacheKey, JSON.stringify(allImages));
-        localStorage.setItem(cacheTimeKey, now);
-
+    
         return allImages; 
     } catch (error) {
         console.error(`❌ Błąd pobierania zdjęć z GitHuba dla "${name}":`, error);
         return [];
     }
 }
-
-
-
 
 
 
