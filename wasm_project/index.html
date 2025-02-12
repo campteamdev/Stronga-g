@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test WASM</title>
+</head>
+<body>
+    <h1>Test WebAssembly</h1>
+    
+    <div id="wasm-content">
+        <!-- Tu WebAssembly wstawi zakodowany HTML -->
+    </div>
+
+    <script>
+        WebAssembly.instantiateStreaming(fetch("build/optimized.wasm"), {})
+            .then(result => {
+                const wasmInstance = result.instance;
+                document.getElementById("wasm-content").innerHTML = wasmInstance.exports.getHiddenHTML();
+            })
+            .catch(console.error);
+    </script>
+</body>
+</html>
