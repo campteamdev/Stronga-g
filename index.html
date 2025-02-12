@@ -1,6 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="pl">
   <head>
+
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -14,7 +16,13 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-W68222TL");
     </script>
-    <!-- End Google Tag Manager -->
+  <script src="https://cdn.jsdelivr.net/npm/fuzzball@2.1.3/dist/fuzzball.umd.min.js"></script>
+  <script>
+      window.fuzzball = fuzzball;
+      console.log("✅ Fuzzball poprawnie załadowany:", fuzzball);
+  </script>
+  
+   <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,6 +55,18 @@
         margin: 0;
         padding: 0;
       }
+      #filter-panel {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background: white;
+    border: 2px solid green;
+    padding: 10px;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
       /* 🔹 Styl popupa - dynamiczna szerokość */
 .leaflet-popup-content {
     max-width: 80vw; /* Maksymalna szerokość popupa - 80% szerokości ekranu */
@@ -235,6 +255,8 @@
 
 
     </style>
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <style>
@@ -409,6 +431,12 @@
       <div id="suggestions"></div>
     </div>
     <div id="map">
+      <button id="filter-button">
+        <img src="ikony/filtr.png" alt="Filtry">
+    </button>
+    
+    </button>
+    
       <a
     href="https://www.facebook.com/profile.php?id=61567062909549&locale=pl_PL"
     target="_blank"
@@ -589,55 +617,107 @@
       }
 
       function initializeSearch() {
-        const searchInput = document.getElementById("search-input");
-        const searchButton = document.getElementById("search-button");
-        const suggestions = document.getElementById("suggestions");
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+    const suggestions = document.getElementById("suggestions");
 
-        searchInput.addEventListener("input", () => {
-          const query = searchInput.value.toLowerCase().trim();
-          suggestions.innerHTML = "";
-          if (!query) {
+    let showAll = false; // Czy pokazujemy więcej wyników?
+    
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase().trim();
+        suggestions.innerHTML = "";
+        if (!query) {
             suggestions.style.display = "none";
             return;
-          }
+        }
 
-          const matches = allMarkers
-            .filter((m) => m.name.toLowerCase().includes(query))
-            .slice(0, 4);
+        let matches = allMarkers.map((m) => ({
+            marker: m.marker,
+            name: m.name,
+            lat: m.lat,
+            lon: m.lon,
+            score: fuzzball.token_set_ratio(query, m.name) // Obliczanie podobieństwa
+        }));
 
-          matches.forEach((match) => {
+        // Sortujemy wyniki według podobieństwa
+        matches.sort((a, b) => b.score - a.score);
+
+        // Liczba wyników do wyświetlenia (4 domyślnie, 10 po kliknięciu "Pokaż więcej")
+        const resultsToShow = showAll ? 10 : 4;
+        matches = matches.slice(0, resultsToShow);
+
+        matches.forEach((match) => {
             const suggestion = document.createElement("div");
             suggestion.className = "suggestion";
-            suggestion.textContent = match.name; // Wyświetla nazwę z wielkimi literami
+            suggestion.textContent = match.name;
             suggestion.addEventListener("click", () => {
-              map.setView([match.lat, match.lon], 15);
-              match.marker.openPopup();
-              suggestions.style.display = "none";
-              searchInput.value = match.name;
+                highlightMarker(match); // Podświetlenie markera
+                map.setView([match.lat, match.lon], 15);
+                match.marker.openPopup();
+                suggestions.style.display = "none";
+                searchInput.value = match.name;
             });
             suggestions.appendChild(suggestion);
-          });
-
-          suggestions.style.display = matches.length > 0 ? "block" : "none";
         });
 
-        searchButton.addEventListener("click", () => {
-          const query = searchInput.value.toLowerCase().trim();
-          if (!query) return;
+        // Dodanie przycisku "Pokaż więcej" jeśli jest więcej wyników
+        if (!showAll && allMarkers.length > 4) {
+            const showMoreBtn = document.createElement("div");
+            showMoreBtn.className = "suggestion show-more";
+            showMoreBtn.textContent = "Pokaż więcej...";
+            showMoreBtn.addEventListener("click", () => {
+                showAll = true;
+                searchInput.dispatchEvent(new Event("input")); // Odświeżenie wyników
+            });
+            suggestions.appendChild(showMoreBtn);
+        }
 
-          const targetMarker = allMarkers.find((m) =>
-            m.name.toLowerCase().includes(query)
-          );
+        suggestions.style.display = matches.length > 0 ? "block" : "none";
+    });
 
-          if (targetMarker) {
-            map.setView([targetMarker.lat, targetMarker.lon], 15);
-            targetMarker.marker.openPopup();
-          } else {
+    searchButton.addEventListener("click", () => {
+        const query = searchInput.value.toLowerCase().trim();
+        if (!query) return;
+
+        let matches = allMarkers.map((m) => ({
+            marker: m.marker,
+            name: m.name,
+            lat: m.lat,
+            lon: m.lon,
+            score: fuzzball.token_set_ratio(query, m.name)
+        }));
+
+        matches.sort((a, b) => b.score - a.score);
+        const bestMatch = matches[0];
+
+        if (bestMatch && bestMatch.score > 60) { // Jeśli wynik dopasowania jest dobry
+            highlightMarker(bestMatch);
+            map.setView([bestMatch.lat, bestMatch.lon], 15);
+            bestMatch.marker.openPopup();
+        } else {
             alert("Nie znaleziono obiektu.");
-          }
-        });
-      }
+        }
+    });
+}
+
+// 🔹 Funkcja podświetlająca marker (zmienia ikonę na większą na chwilę)
+function highlightMarker(match) {
+    const originalIcon = match.marker.options.icon;
     
+    const highlightIcon = L.icon({
+        iconUrl: "/ikony/highlight.png", // Dodaj specjalną ikonę podświetlenia
+        iconSize: [50, 50], 
+        iconAnchor: [25, 25],
+        popupAnchor: [0, -25]
+    });
+
+    match.marker.setIcon(highlightIcon);
+
+    setTimeout(() => {
+        match.marker.setIcon(originalIcon);
+    }, 1500);
+}
+
       async function initializeMap() {
         console.log("✅ Sprawdzam funkcję getKML w initializeMap:", typeof getKML);
     console.log("🔍 Test getKML('Kempingi.kml'):", getKML("Kempingi.kml"));
@@ -781,7 +861,9 @@ initializeMap();
       </label>
   </div>
   
-  
+
+<script src="filters.js" defer></script>
+
 
 
   </body>

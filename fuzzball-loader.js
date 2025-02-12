@@ -1,4 +1,3 @@
-import fuzzball from 'fuzzball';
-
-window.fuzzball = fuzzball; // Udostępniamy w globalnym zakresie
+import fuzzball from "./node_modules/fuzzball/index.js";
+window.fuzzball = fuzzball;
 console.log("✅ Fuzzball załadowany!", fuzzball);

@@ -62,7 +62,7 @@ async function getLocationImages(name) {
     const cacheTimeKey = `cache_time_${name}`;
     const now = Date.now();
 
-    // ✅ Sprawdzenie cache dla zdjęć
+    // ✅ Sprawdzenie cache dla zdjęć (15 min)
     const cachedData = localStorage.getItem(cacheKey);
     const cacheTime = localStorage.getItem(cacheTimeKey);
     if (cachedData && cacheTime && now - parseInt(cacheTime) < 15 * 60 * 1000) {
@@ -83,52 +83,54 @@ async function getLocationImages(name) {
             .normalize("NFD").replace(/[\u0300-\u036f]/g, "")  // Usunięcie polskich znaków
             .replace(/[_\s,./-]+/g, " ")  // Zamiana separatorów na spacje
             .replace(/&/g, " and ")  // Zamiana `&` na `and`
-            .replace(/[^a-z0-9 ]/g, "")  // Usunięcie wszystkich innych znaków (poza spacjami)
-            .trim();  // Usunięcie zbędnych spacji na początku i końcu
+            .replace(/[^a-z0-9 ]/g, "")  // Usunięcie wszystkich innych znaków
+            .trim();  // Usunięcie zbędnych spacji
     }
 
     const normalizedName = normalizeForMatching(name);
+    let bestMatch = null;
+    let bestScore = 0;
 
-    // ✅ Szukamy pasującego folderu
-    let matchedFolder = folders.find(folder => normalizeForMatching(folder) === normalizedName);
+    // 🔍 **Dopasowanie folderów do lokalizacji**
+    folders.forEach(folder => {
+        const normalizedFolder = normalizeForMatching(folder);
 
-    if (!matchedFolder) {
-        matchedFolder = folders.find(folder => {
-            const folderName = normalizeForMatching(folder);
-            return folderName.includes(normalizedName) || normalizedName.includes(folderName);
-        });
-    }
+        // **Krok 1: Sprawdzenie 100% zgodności**
+        if (normalizedFolder === normalizedName) {
+            bestMatch = folder;
+            bestScore = 100;
+            return;
+        }
 
-    if (!matchedFolder) {
-        matchedFolder = folders.find(folder => {
-            const folderWords = new Set(normalizeForMatching(folder).split(" "));
-            const nameWords = new Set(normalizedName.split(" "));
-            const commonWords = [...folderWords].filter(word => nameWords.has(word));
-            return commonWords.length >= Math.min(folderWords.size, nameWords.size) * 0.6;
-        });
-    }
+        // **Krok 2: Fuzzy Matching (precyzyjne dopasowanie)**
+        const fuzzScore = fuzzball.ratio(normalizedFolder, normalizedName);
+        if (fuzzScore > bestScore && fuzzScore >= 90) {  // **Podwyższony próg na 90**
+            bestMatch = folder;
+            bestScore = fuzzScore;
+        }
+    });
 
-    if (!matchedFolder) {
+    if (!bestMatch) {
         console.warn(`⚠️ Folder dla "${name}" nie znaleziony.`);
         return [];
     }
 
-    console.log(`📂 🔍 Dopasowany folder: "${matchedFolder}" dla lokalizacji "${name}"`);
+    console.log(`📂 🔍 Dopasowany folder: "${bestMatch}" dla lokalizacji "${name}" (skuteczność: ${bestScore}%)`);
 
     // ✅ Pobieramy listę plików z folderu na GitHubie
     try {
-        const response = await fetch(`${GITHUB_REPO}${encodeURIComponent(matchedFolder)}`);
+        const response = await fetch(`${GITHUB_REPO}${encodeURIComponent(bestMatch)}`);
         if (!response.ok) throw new Error(response.statusText);
 
         const data = await response.json();
-        console.log(`📂 📥 Lista plików w folderze "${matchedFolder}":`, data);
+        console.log(`📂 📥 Lista plików w folderze "${bestMatch}":`, data);
 
         const allImages = data
             .filter(file => file.download_url && /\.(jpg|jpeg|webp)$/i.test(file.name))
             .map(file => file.download_url);
 
         if (allImages.length === 0) {
-            console.warn(`⚠️ Brak zdjęć w folderze "${matchedFolder}".`);
+            console.warn(`⚠️ Brak zdjęć w folderze "${bestMatch}".`);
             return [];
         }
 
@@ -141,10 +143,14 @@ async function getLocationImages(name) {
         return allImages;
     } catch (error) {
         console.error(`❌ Błąd pobierania zdjęć z GitHuba dla "${name}":`, error);
+
+        // ❌ **Czyszczenie cache w razie błędu**
+        localStorage.removeItem(cacheKey);
+        localStorage.removeItem(cacheTimeKey);
+
         return [];
     }
 }
-
 
 
 // 🔹 Funkcja inicjalizująca Swiper

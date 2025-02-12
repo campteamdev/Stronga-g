@@ -1,96 +1,100 @@
+console.log("✅ filters.js załadowany!");
+
 document.addEventListener("DOMContentLoaded", function () {
     const filterButton = document.getElementById("filter-button");
     const filterPanel = document.getElementById("filter-panel");
 
-    // Po otwarciu panelu filtrów ukrywamy wszystkie markery
+    if (!filterButton || !filterPanel) {
+        console.error("❌ Elementy filtrów nie znalezione w HTML!");
+        return;
+    }
+
     filterButton.addEventListener("click", function () {
         filterPanel.style.display = (filterPanel.style.display === "none") ? "block" : "none";
 
         if (filterPanel.style.display === "block") {
-            hideAllMarkers(); // Usuwamy wszystkie markery z mapy
+            hideAllMarkers();
         } else {
-            showAllMarkers(); // Przywracamy wszystkie, jeśli panel się zamknie
+            showAllMarkers();
         }
     });
 
-    // Obsługa zmian w filtrach - działa od razu
     document.querySelectorAll(".filter-checkbox").forEach((checkbox) => {
         checkbox.addEventListener("change", applyFilters);
     });
 });
 
-// ✅ Funkcja ukrywająca WSZYSTKIE markery
+// ✅ Ukrywanie wszystkich markerów
 function hideAllMarkers() {
-    if (markerCluster) {
-        markerCluster.clearLayers(); // Usuwa markery z grupy
+    if (!map || !markerCluster) {
+        console.error("❌ Błąd: mapa lub markerCluster nie są dostępne!");
+        return;
     }
 
     allMarkers.forEach(({ marker }) => {
         if (map.hasLayer(marker)) {
-            map.removeLayer(marker); // Usuwa marker z mapy
+            map.removeLayer(marker);
         }
     });
 
-    console.log("🛑 Wszystkie markery usunięte z mapy!");
+    markerCluster.clearLayers(); // Usuwamy z klastra
+    console.log("🛑 Wszystkie markery ukryte!");
 }
 
-// ✅ Funkcja PRZYWRACAJĄCA WSZYSTKIE markery
+// ✅ Przywracanie wszystkich markerów
 function showAllMarkers() {
-    console.log("📌 Przywracanie wszystkich markerów:", allMarkers.length);
-    
-    allMarkers.forEach(({ marker, kmlFile }) => {
-        console.log(`📍 Marker: ${marker.getLatLng()} | KML: ${kmlFile}`);
+    if (!map || !markerCluster) {
+        console.error("❌ Błąd: mapa lub markerCluster nie są dostępne!");
+        return;
+    }
+
+    allMarkers.forEach(({ marker }) => {
+        if (!map.hasLayer(marker)) {
+            map.addLayer(marker);
+        }
         markerCluster.addLayer(marker);
-        map.addLayer(marker);
     });
 
-    console.log("🔄 Przywrócono WSZYSTKIE markery!");
+    console.log("📌 Przywrócono wszystkie markery!");
 }
 
-// ✅ Funkcja stosowania filtrów w czasie rzeczywistym
+// ✅ Stosowanie filtrów
 function applyFilters() {
     if (!allMarkers || allMarkers.length === 0) {
         console.error("❌ Brak markerów do filtrowania!");
         return;
     }
 
-    // Mapa plików KML do filtrów
     const filterFiles = {
         camping: ["Kempingi.kml", "Kempingi1.kml", "Kempingiopen.kml"],
-        polaNamiotowe: ["Polanamiotowe.kml", "Polanamiotoweopen.kml"],
-        parkingLesne: ["Parkingilesne.kml"], // 🔹 Upewnij się, że ta nazwa jest poprawna!
+        pola: ["Polanamiotowe.kml", "Polanamiotoweopen.kml"],
+        parking: ["Parkingilesne.kml"],
         biwak: ["Miejscenabiwak.kml"],
         kulturowe: ["AtrakcjeKulturowe.kml"],
         przyrodnicze: ["AtrakcjePrzyrodnicze.kml"],
         rozrywka: ["AtrakcjeRozrywka.kml"],
     };
 
-    // Sprawdzenie aktywnych filtrów
     const activeFilters = {
-        camping: document.getElementById("camping-filter").checked,
-        polaNamiotowe: document.getElementById("pola-filter").checked,
-        parkingLesne: document.getElementById("parking-filter").checked,
-        biwak: document.getElementById("biwak-filter").checked,
-        kulturowe: document.getElementById("kulturowe-filter").checked,
-        przyrodnicze: document.getElementById("przyrodnicze-filter").checked,
-        rozrywka: document.getElementById("rozrywka-filter").checked,
+        camping: document.getElementById("camping-filter")?.checked || false,
+        pola: document.getElementById("pola-filter")?.checked || false,
+        parking: document.getElementById("parking-filter")?.checked || false,
+        biwak: document.getElementById("biwak-filter")?.checked || false,
+        kulturowe: document.getElementById("kulturowe-filter")?.checked || false,
+        przyrodnicze: document.getElementById("przyrodnicze-filter")?.checked || false,
+        rozrywka: document.getElementById("rozrywka-filter")?.checked || false,
     };
 
     console.log("🎯 Aktywne filtry:", activeFilters);
 
-    // Sprawdzamy, czy WSZYSTKIE filtry są wyłączone
-    const allFiltersOff = Object.values(activeFilters).every(v => !v);
-
-    // 1️⃣ Usuwamy wszystkie markery z mapy i klastra
-    hideAllMarkers();
-
-    // 2️⃣ Jeśli WSZYSTKIE filtry są wyłączone → dodajemy WSZYSTKIE markery
-    if (allFiltersOff) {
+    // Jeśli wszystkie filtry są wyłączone → przywróć wszystkie markery
+    if (Object.values(activeFilters).every(v => !v)) {
         showAllMarkers();
         return;
     }
 
-    // 3️⃣ Dodajemy tylko markery pasujące do wybranych filtrów
+    hideAllMarkers(); // Usuwamy wszystkie przed zastosowaniem filtrów
+
     let addedMarkers = 0;
     
     allMarkers.forEach(({ marker, kmlFile }) => {
@@ -101,14 +105,20 @@ function applyFilters() {
 
         for (const [filter, files] of Object.entries(filterFiles)) {
             if (activeFilters[filter] && files.some(file => kmlFile.includes(file))) {
-                console.log(`✅ Dodano marker: ${marker.getLatLng()} | Plik: ${kmlFile}`);
-                markerCluster.addLayer(marker);
-                map.addLayer(marker);
-                addedMarkers++;
-                break; // Zapobiega dodawaniu tego samego markera wielokrotnie
+                if (!map.hasLayer(marker)) {
+                    markerCluster.addLayer(marker);
+                    map.addLayer(marker);
+                    addedMarkers++;
+                }
+                break; // Zapobiega wielokrotnemu dodaniu markera
             }
         }
     });
 
     console.log(`✅ Filtry zastosowane! Dodano ${addedMarkers} markerów.`);
 }
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".filter-checkbox").forEach((checkbox) => {
+        checkbox.addEventListener("change", applyFilters);
+    });
+});
