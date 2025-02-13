@@ -477,18 +477,19 @@
     </div>
     <script>
       const urls = {
-        kempingi: "/Kempingi.kml",
-        polanamiotowe: "/Polanamiotowe.kml",
-        kempingiopen: "/Kempingiopen.kml",
-        polanamiotoweopen: "/Polanamiotoweopen.kml",
-        parkingilesne: "/Parkingilesne.kml",
-        kempingi1: "/Kempingi1.kml",
-        AtrakcjeKulturowe: "/AtrakcjeKulturowe.kml",
-        AtrakcjePrzyrodnicze: "/AtrakcjePrzyrodnicze.kml",
-        AtrakcjeRozrywka: "/AtrakcjeRozrywka.kml",
-        miejscenabiwak: "/Miejscenabiwak.kml",
-        europa: "/Europa.kml", // Dodajemy URL do pliku europa.kml
-      };
+    kempingi: "https://d3sy97tbhlz85a.cloudfront.net/Kempingi.kml",
+    polanamiotowe: "https://d3sy97tbhlz85a.cloudfront.net/Polanamiotowe.kml",
+    kempingiopen: "https://d3sy97tbhlz85a.cloudfront.net/Kempingiopen.kml",
+    polanamiotoweopen: "https://d3sy97tbhlz85a.cloudfront.net/Polanamiotoweopen.kml",
+    parkingilesne: "https://d3sy97tbhlz85a.cloudfront.net/Parkingilesne.kml",
+    kempingi1: "https://d3sy97tbhlz85a.cloudfront.net/Kempingi1.kml",
+    AtrakcjeKulturowe: "https://d3sy97tbhlz85a.cloudfront.net/AtrakcjeKulturowe.kml",
+    AtrakcjePrzyrodnicze: "https://d3sy97tbhlz85a.cloudfront.net/AtrakcjePrzyrodnicze.kml",
+    AtrakcjeRozrywka: "https://d3sy97tbhlz85a.cloudfront.net/AtrakcjeRozrywka.kml",
+    miejscenabiwak: "https://d3sy97tbhlz85a.cloudfront.net/Miejscenabiwak.kml",
+    europa: "https://d3sy97tbhlz85a.cloudfront.net/Europa.kml", // Dodajemy URL do pliku europa.kml
+};
+
 
       const icons = {
         kempingi: L.icon({
@@ -553,7 +554,8 @@
         }),
       };
 
-      const map = L.map("map").setView([52.392681, 19.275023], 6);
+      window.map = L.map("map").setView([52.392681, 19.275023], 6);
+
       const markerCluster = L.markerClusterGroup({
         showCoverageOnHover: false,
         maxClusterRadius: 50,
@@ -573,46 +575,55 @@
         return response.text();
       }
 
-      async function loadMarkers(url, icon, addToCluster = true) {
-        const kmlText = await fetchKml(url);
-        const parser = new DOMParser();
-        const kml = parser.parseFromString(kmlText, "application/xml");
-        const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
-        allPlacemarks.push(...placemarks); // Dodanie placemarks do globalnej listy
+      async function loadMarkers(url, icon, addToCluster = true, markerCluster) {
+    const kmlText = await fetchKml(url);
+    console.log(`✅ Pobieram KML z URL: ${url}`);
 
-        placemarks.forEach((placemark) => {
-          const name =
-            placemark.getElementsByTagName("name")[0]?.textContent ||
-            "Brak nazwy";
-          const coordinates = placemark
+    const parser = new DOMParser();
+    const kml = parser.parseFromString(kmlText, "application/xml");
+    const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+
+    console.log(`✅ Liczba placemarks: ${placemarks.length}`);
+
+    placemarks.forEach((placemark) => {
+        const name =
+            placemark.getElementsByTagName("name")[0]?.textContent || "Brak nazwy";
+        const coordinates = placemark
             .getElementsByTagName("coordinates")[0]
             ?.textContent.trim();
 
-          if (coordinates) {
+        if (coordinates) {
             const [lon, lat] = coordinates.split(",");
             const key = `${lat},${lon}`;
 
             if (!addedMarkers.has(key)) {
-              addedMarkers.add(key);
-              const markerOptions = { icon };
-              if (!addToCluster) {
-                markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
-              }
-              const marker = L.marker([lat, lon], markerOptions).bindPopup(
-                `<strong>${name}</strong>`
-              );
+                addedMarkers.add(key);
+                const markerOptions = { icon };
+                if (!addToCluster) {
+                    markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
+                }
+                const marker = L.marker([lat, lon], markerOptions).bindPopup(
+                    `<strong>${name}</strong>`
+                );
 
-              if (addToCluster) {
-                markerCluster.addLayer(marker);
-              } else {
-                marker.addTo(map);
-              }
+                console.log(`✅ Dodano marker: ${name} na (${lat}, ${lon})`);
 
-              allMarkers.push({ marker, name, lat, lon });
+                if (addToCluster) {
+                    markerCluster.addLayer(marker);
+                } else {
+                    marker.addTo(map);
+                }
+
+                allMarkers.push({ marker, name, lat, lon });
             }
-          }
-        });
-      }
+        }
+    });
+
+    console.log(`✅ Markery dodane: ${allMarkers.length}`);
+}
+
+
+
 
       function initializeSearch() {
     const searchInput = document.getElementById("search-input");
@@ -716,29 +727,43 @@ function highlightMarker(match) {
     }, 1500);
 }
 
-      async function initializeMap() {
-        console.log("✅ Sprawdzam funkcję getKML w initializeMap:", typeof getKML);
+async function initializeMap() {
+    console.log("✅ Sprawdzam funkcję getKML w initializeMap:", typeof getKML);
     console.log("🔍 Test getKML('Kempingi.kml'):", getKML("Kempingi.kml"));
-        await Promise.all([
-  loadMarkers(getKML("Kempingi.kml"), icons.kempingi, false),
-  loadMarkers(getKML("Polanamiotowe.kml"), icons.polanamiotowe, false),
-  loadMarkers(getKML("Kempingiopen.kml"), icons.kempingiopen, false),
-  loadMarkers(getKML("Polanamiotoweopen.kml"), icons.polanamiotoweopen, false),
-  loadMarkers(getKML("Parkingilesne.kml"), icons.parkingilesne),
-  loadMarkers(getKML("Kempingi1.kml"), icons.kempingi1, false),
-  loadMarkers(getKML("Miejscenabiwak.kml"), icons.miejscenabiwak),
-  loadMarkers(getKML("Europa.kml"), icons.kempingi),
-  loadMarkers(getKML("AtrakcjeKulturowe.kml"), icons.atractionCultural),
-  loadMarkers(getKML("AtrakcjePrzyrodnicze.kml"), icons.atractionNature),
-  loadMarkers(getKML("AtrakcjeRozrywka.kml"), icons.atractionFun),
-]);
 
-        map.addLayer(markerCluster);
-        initializeSearch();
-       
-        // Wywołanie funkcji z custom-functions.js
-        await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
-      }
+    // 🛠️ Naprawa: Definiujemy markerCluster poprawnie
+    const markerCluster = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        maxClusterRadius: 50,
+    });
+
+    console.log("✅ Sprawdzam markerCluster:", markerCluster);
+
+    await Promise.all([
+        loadMarkers(urls.kempingi, icons.kempingi, false, markerCluster),
+        loadMarkers(urls.polanamiotowe, icons.polanamiotowe, false, markerCluster),
+        loadMarkers(urls.kempingiopen, icons.kempingiopen, false, markerCluster),
+        loadMarkers(urls.polanamiotoweopen, icons.polanamiotoweopen, false, markerCluster),
+        loadMarkers(urls.parkingilesne, icons.parkingilesne, true, markerCluster),
+        loadMarkers(urls.kempingi1, icons.kempingi1, false, markerCluster),
+        loadMarkers(urls.miejscenabiwak, icons.miejscenabiwak, true, markerCluster),
+        loadMarkers(urls.europa, icons.kempingi, false, markerCluster),
+        loadMarkers(urls.AtrakcjeKulturowe, icons.atractionCultural, true, markerCluster),
+        loadMarkers(urls.AtrakcjePrzyrodnicze, icons.atractionNature, true, markerCluster),
+        loadMarkers(urls.AtrakcjeRozrywka, icons.atractionFun, true, markerCluster),
+    ]);
+
+    console.log("✅ Wszystkie markery załadowane");
+
+    // Dodajemy klastry do mapy
+    map.addLayer(markerCluster);
+
+    // Inicjalizujemy wyszukiwanie
+    initializeSearch();
+
+    // Wywołanie funkcji z custom-functions.js
+    await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
+}
 
 
 // Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
@@ -861,6 +886,64 @@ initializeMap();
   
 
 <script src="filters.js" defer></script>
+
+(function () {
+  "use strict";
+
+  // ✅ Blokowanie klawiszy F12, Ctrl + Shift + I, Ctrl + U
+  document.addEventListener("keydown", function (event) {
+      if (
+          event.key === "F12" ||
+          (event.ctrlKey && event.shiftKey && event.key === "I") ||
+          (event.ctrlKey && event.shiftKey && event.key === "C") ||
+          (event.ctrlKey && event.key === "U")
+      ) {
+          event.preventDefault();
+          alert("❌ Nie masz uprawnień do tej operacji!");
+      }
+  });
+
+  // ✅ Blokowanie kopiowania, zaznaczania i prawego przycisku myszy
+  ["copy", "cut", "paste", "contextmenu"].forEach(eventType => {
+      document.addEventListener(eventType, (event) => {
+          event.preventDefault();
+          alert("❌ Nie masz uprawnień do tej operacji!");
+      });
+  });
+
+  // ✅ Wykrywanie otwarcia DevTools (Metoda rozmiaru okna)
+  function detectDevTools() {
+      const threshold = 160;
+      function check() {
+          if (window.outerWidth - window.innerWidth > threshold || 
+              window.outerHeight - window.innerHeight > threshold) {
+              document.body.innerHTML = "❌ DevTools wykryte! Dostęp zablokowany!";
+              setTimeout(() => {
+                  window.close();
+              }, 1000);
+          }
+      }
+      window.addEventListener("resize", check);
+      check();
+  }
+  detectDevTools();
+
+  // ✅ Wykrywanie DevTools przez debugger
+  setInterval(function () {
+      (function () {
+          var before = new Date().getTime();
+          debugger;
+          var after = new Date().getTime();
+          if (after - before > 100) {
+              document.body.innerHTML = "❌ DevTools wykryte! Dostęp zablokowany!";
+              setTimeout(() => {
+                  window.close();
+              }, 1000);
+          }
+      })();
+  }, 1000);
+
+})();
 
 
 
