@@ -44,8 +44,9 @@ function extractWebsite(description) {
 
 
 // Funkcja wczytująca dane z KML
-async function loadKmlData() {
-  const kmlFiles = [
+const cloudfrontBaseUrl = "https://d3sy97tbhlz85a.cloudfront.net/"; // Zaktualizuj nazwę bucketu
+
+const kmlFiles = [
     "Kempingi.kml",
     "Polanamiotowe.kml",
     "Kempingiopen.kml",
@@ -57,25 +58,31 @@ async function loadKmlData() {
     "AtrakcjeRozrywka.kml",
     "Miejscenabiwak.kml",
     "Europa.kml",
-  ];
+];
 
+async function loadKmlData() {
   for (const filename of kmlFiles) {
     try {
-      const url = getKML(filename); // Pobiera zakodowany URL
-      console.log(`🔍 Ładowanie KML: ${filename} -> ${url}`); // Debug
+      // Tworzenie pełnego URL do pliku KML
+      const url = cloudfrontBaseUrl + filename;
+      console.log(`🔍 Ładowanie KML: ${filename} -> ${url}`);
 
+      // Pobranie pliku KML
       const response = await fetch(url);
       if (!response.ok) throw new Error(`❌ Nie udało się załadować: ${filename}`);
 
+      // Przetwarzanie tekstu KML
       const kmlText = await response.text();
       const parser = new DOMParser();
       const kml = parser.parseFromString(kmlText, "application/xml");
-      const placemarks = kml.getElementsByTagName("Placemark");
+      
+      // Pobieranie placemarks
+      const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
 
-      for (const placemark of placemarks) {
-        const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
-        const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
-        const website = placemark.querySelector("Data[name='Strona www:'] > value")?.textContent.trim() || extractWebsite(description);
+      placemarks.forEach((placemark) => {
+        const name = placemark.getElementsByTagName("name")[0]?.textContent?.trim() || "Brak nazwy";
+        const description = placemark.getElementsByTagName("description")[0]?.textContent?.trim();
+        const website = placemark.querySelector("Data[name='Strona www:'] > value")?.textContent?.trim() || extractWebsite(description);
 
         // Pobieranie danych Opis i Infrastruktura
         const opisNode = placemark.querySelector("Data[name='Opis:'] > value");
@@ -93,6 +100,7 @@ async function loadKmlData() {
           infrastruktura = infrastruktura.split("\n").join("<br>"); // Formatowanie HTML
         }
 
+        // Dodawanie danych do map
         if (name) {
           if (description) {
             const phone = extractPhoneNumber(description);
@@ -104,7 +112,7 @@ async function loadKmlData() {
           descriptionsMap[name] = opis;
           amenitiesMap[name] = infrastruktura;
         }
-      }
+      });
     } catch (error) {
       console.error(`❌ Błąd podczas przetwarzania pliku ${filename}:`, error);
     }

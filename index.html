@@ -577,13 +577,12 @@
 
       async function loadMarkers(url, icon, addToCluster = true, markerCluster) {
     const kmlText = await fetchKml(url);
-    console.log(`✅ Pobieram KML z URL: ${url}`);
 
     const parser = new DOMParser();
     const kml = parser.parseFromString(kmlText, "application/xml");
     const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
 
-    console.log(`✅ Liczba placemarks: ${placemarks.length}`);
+   
 
     placemarks.forEach((placemark) => {
         const name =
@@ -606,7 +605,7 @@
                     `<strong>${name}</strong>`
                 );
 
-                console.log(`✅ Dodano marker: ${name} na (${lat}, ${lon})`);
+               
 
                 if (addToCluster) {
                     markerCluster.addLayer(marker);
@@ -619,7 +618,7 @@
         }
     });
 
-    console.log(`✅ Markery dodane: ${allMarkers.length}`);
+    
 }
 
 
@@ -737,7 +736,7 @@ async function initializeMap() {
         maxClusterRadius: 50,
     });
 
-    console.log("✅ Sprawdzam markerCluster:", markerCluster);
+    
 
     await Promise.all([
         loadMarkers(urls.kempingi, icons.kempingi, false, markerCluster),
@@ -753,7 +752,7 @@ async function initializeMap() {
         loadMarkers(urls.AtrakcjeRozrywka, icons.atractionFun, true, markerCluster),
     ]);
 
-    console.log("✅ Wszystkie markery załadowane");
+    
 
     // Dodajemy klastry do mapy
     map.addLayer(markerCluster);
