@@ -44,7 +44,7 @@ function extractWebsite(description) {
 
 
 // Funkcja wczytująca dane z KML
-const cloudfrontBaseUrl = "https://d3sy97tbhlz85a.cloudfront.net/"; // Zaktualizuj nazwę bucketu
+const cloudfrontBaseUrl = "https://d20r9oyhulxkl6.cloudfront.net/"; // Zaktualizuj nazwę bucketu
 
 const kmlFiles = [
     "Kempingi.kml",
