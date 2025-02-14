@@ -898,63 +898,6 @@ initializeMap();
 
 <script src="filters.js" defer></script>
 
-(function () {
-  "use strict";
-
-  // ✅ Blokowanie klawiszy F12, Ctrl + Shift + I, Ctrl + U
-  document.addEventListener("keydown", function (event) {
-      if (
-          event.key === "F12" ||
-          (event.ctrlKey && event.shiftKey && event.key === "I") ||
-          (event.ctrlKey && event.shiftKey && event.key === "C") ||
-          (event.ctrlKey && event.key === "U")
-      ) {
-          event.preventDefault();
-          alert("❌ Nie masz uprawnień do tej operacji!");
-      }
-  });
-
-  // ✅ Blokowanie kopiowania, zaznaczania i prawego przycisku myszy
-  ["copy", "cut", "paste", "contextmenu"].forEach(eventType => {
-      document.addEventListener(eventType, (event) => {
-          event.preventDefault();
-          alert("❌ Nie masz uprawnień do tej operacji!");
-      });
-  });
-
-  // ✅ Wykrywanie otwarcia DevTools (Metoda rozmiaru okna)
-  function detectDevTools() {
-      const threshold = 160;
-      function check() {
-          if (window.outerWidth - window.innerWidth > threshold || 
-              window.outerHeight - window.innerHeight > threshold) {
-              document.body.innerHTML = "❌ DevTools wykryte! Dostęp zablokowany!";
-              setTimeout(() => {
-                  window.close();
-              }, 1000);
-          }
-      }
-      window.addEventListener("resize", check);
-      check();
-  }
-  detectDevTools();
-
-  // ✅ Wykrywanie DevTools przez debugger
-  setInterval(function () {
-      (function () {
-          var before = new Date().getTime();
-          debugger;
-          var after = new Date().getTime();
-          if (after - before > 100) {
-              document.body.innerHTML = "❌ DevTools wykryte! Dostęp zablokowany!";
-              setTimeout(() => {
-                  window.close();
-              }, 1000);
-          }
-      })();
-  }, 1000);
-
-})();
 
 <script>
   async function setSignedCookies() {
