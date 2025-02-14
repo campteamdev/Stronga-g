@@ -902,9 +902,10 @@ initializeMap();
 <script>
   async function setSignedCookies() {
       try {
-          await fetch("https://campteam-signed-cookies-l0xi1v6gb-marcincamps-projects.vercel.app/generate-cookies", {
-              credentials: "include"
-          });
+        fetch("https://campteam-signed-cookies-d4g9xhlyk-marcincamps-projects.vercel.app/generate-cookies", {
+    credentials: "include"
+})
+
           console.log("Signed cookies set!");
       } catch (error) {
           console.error("Error setting signed cookies:", error);
