@@ -483,17 +483,17 @@
     </div>
     <script>
     const urls = {
-    kempingi: "https://d20r9oyhulxkl6.cloudfront.net/Kempingi.kml",
-    polanamiotowe: "https://d20r9oyhulxkl6.cloudfront.net/Polanamiotowe.kml",
-    kempingiopen: "https://d20r9oyhulxkl6.cloudfront.net/Kempingiopen.kml",
-    polanamiotoweopen: "https://d20r9oyhulxkl6.cloudfront.net/Polanamiotoweopen.kml",
-    parkingilesne: "https://d20r9oyhulxkl6.cloudfront.net/Parkingilesne.kml",
-    kempingi1: "https://d20r9oyhulxkl6.cloudfront.net/Kempingi1.kml",
-    AtrakcjeKulturowe: "https://d20r9oyhulxkl6.cloudfront.net/AtrakcjeKulturowe.kml",
-    AtrakcjePrzyrodnicze: "https://d20r9oyhulxkl6.cloudfront.net/AtrakcjePrzyrodnicze.kml",
-    AtrakcjeRozrywka: "https://d20r9oyhulxkl6.cloudfront.net/AtrakcjeRozrywka.kml",
-    miejscenabiwak: "https://d20r9oyhulxkl6.cloudfront.net/Miejscenabiwak.kml",
-    europa: "https://d20r9oyhulxkl6.cloudfront.net/Europa.kml",
+    kempingi: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Kempingi.json",
+    polanamiotowe: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Polanamiotowe.json",
+    kempingiopen: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Kempingiopen.json",
+    polanamiotoweopen: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Polanamiotoweopen.json",
+    parkingilesne: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Parkingilesne.json",
+    kempingi1: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Kempingi1.json",
+    AtrakcjeKulturowe: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=AtrakcjeKulturowe.json",
+    AtrakcjePrzyrodnicze: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=AtrakcjePrzyrodnicze.json",
+    AtrakcjeRozrywka: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=AtrakcjeRozrywka.json",
+    miejscenabiwak: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Miejscenabiwak.json",
+    europa: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Europa.json",
 };
 
 
@@ -576,20 +576,39 @@
       const allMarkers = [];
       const allPlacemarks = []; // Przechowywanie placemarks
 
-      async function fetchKml(url) {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
-        return response.text();
-      }
+      async function fetchJson(url) {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Błąd wczytywania pliku JSON: ${url}`);
+    return response.json(); // Zamiana `text()` na `json()`
+}
 
-      async function loadMarkers(url, icon, addToCluster = true, markerCluster) {
-    const kmlText = await fetchKml(url);
 
-    const parser = new DOMParser();
-    const kml = parser.parseFromString(kmlText, "application/xml");
-    const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+async function loadMarkers(url, icon, addToCluster = true, markerCluster) {
+    const jsonData = await fetchJson(url);
+    const placemarks = jsonData.placemarks; // Nowe klucze w JSON
 
-   
+    placemarks.forEach((placemark) => {
+        const name = placemark.name || "Brak nazwy";
+        const lat = placemark.lat;
+        const lon = placemark.lon;
+
+        const key = `${lat},${lon}`;
+        if (!addedMarkers.has(key)) {
+            addedMarkers.add(key);
+            const marker = L.marker([lat, lon], { icon }).bindPopup(
+                `<strong>${name}</strong>`
+            );
+
+            if (addToCluster) {
+                markerCluster.addLayer(marker);
+            } else {
+                marker.addTo(map);
+            }
+
+            allMarkers.push({ marker, name, lat, lon });
+        }
+    });
+}
 
     placemarks.forEach((placemark) => {
         const name =
