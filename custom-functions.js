@@ -44,69 +44,72 @@ function extractWebsite(description) {
 
 
 // Funkcja wczytująca dane z KML
-const apiBaseUrl = "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=";
+async function loadKmlData() {
+  const kmlFiles = [
+    "Kempingi.kml",
+    "Polanamiotowe.kml",
+    "Kempingiopen.kml",
+    "Polanamiotoweopen.kml",
+    "Parkingilesne.kml",
+    "Kempingi1.kml",
+    "AtrakcjeKulturowe.kml",
+    "AtrakcjePrzyrodnicze.kml",
+    "AtrakcjeRozrywka.kml",
+    "Miejscenabiwak.kml",
+    "Europa.kml",
+  ];
 
-const jsonFiles = [
-    "Kempingi.json",
-    "Polanamiotowe.json",
-    "Kempingiopen.json",
-    "Polanamiotoweopen.json",
-    "Parkingilesne.json",
-    "Kempingi1.json",
-    "AtrakcjeKulturowe.json",
-    "AtrakcjePrzyrodnicze.json",
-    "AtrakcjeRozrywka.json",
-    "Miejscenabiwak.json",
-    "Europa.json",
-];
-
-async function loadJsonData() {
-  for (const filename of jsonFiles) {
+  for (const filename of kmlFiles) {
     try {
-      const url = apiBaseUrl + filename;
-      console.log(`🔍 Pobieranie JSON: ${filename} -> ${url}`);
+      const url = getKML(filename); // Pobiera zakodowany URL
+      console.log(`🔍 Ładowanie KML: ${filename} -> ${url}`); // Debug
 
       const response = await fetch(url);
       if (!response.ok) throw new Error(`❌ Nie udało się załadować: ${filename}`);
 
-      const jsonData = await response.json();
-      processJsonData(jsonData);  // Przekazujemy dane do przetworzenia
+      const kmlText = await response.text();
+      const parser = new DOMParser();
+      const kml = parser.parseFromString(kmlText, "application/xml");
+      const placemarks = kml.getElementsByTagName("Placemark");
+
+      for (const placemark of placemarks) {
+        const name = placemark.getElementsByTagName("name")[0]?.textContent.trim();
+        const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
+        const website = placemark.querySelector("Data[name='Strona www:'] > value")?.textContent.trim() || extractWebsite(description);
+
+        // Pobieranie danych Opis i Infrastruktura
+        const opisNode = placemark.querySelector("Data[name='Opis:'] > value");
+        const infrastrukturaNode = placemark.querySelector("Data[name='Udogodnienia:'] > value");
+
+        const opis = opisNode ? opisNode.textContent.trim() : "";
+        let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
+
+        // Usunięcie zbędnych znaków z infrastruktury
+        if (infrastruktura) {
+          infrastruktura = infrastruktura
+            .replace(/-?\s*(nr[:.]?|[0-9]+|\(|\)|\[|\])/g, "") // Usuwa "nr:", "nr.", cyfry, nawiasy
+            .trim()
+            .replace(/\s{2,}/g, " "); // Usuwa nadmiarowe spacje
+          infrastruktura = infrastruktura.split("\n").join("<br>"); // Formatowanie HTML
+        }
+
+        if (name) {
+          if (description) {
+            const phone = extractPhoneNumber(description);
+            phoneNumbersMap[name] = phone || "Brak numeru kontaktowego";
+          }
+          if (website) {
+            websiteLinksMap[name] = website;
+          }
+          descriptionsMap[name] = opis;
+          amenitiesMap[name] = infrastruktura;
+        }
+      }
     } catch (error) {
       console.error(`❌ Błąd podczas przetwarzania pliku ${filename}:`, error);
     }
   }
 }
-
-// ✅ Funkcja do przetwarzania JSON zamiast KML
-function processJsonData(jsonData) {
-  jsonData.placemarks.forEach((placemark) => {
-    const name = placemark.name || "Brak nazwy";
-    const lat = placemark.lat;
-    const lon = placemark.lon;
-    const description = placemark.description || "";
-    const website = placemark.website || null;
-    const amenities = placemark.amenities || "";
-
-    const key = `${lat},${lon}`;
-    if (!addedMarkers.has(key)) {
-      addedMarkers.add(key);
-
-      const marker = L.marker([lat, lon], { icon: icons.kempingi }).bindPopup(
-        `<strong>${name}</strong>`
-      );
-
-      markerCluster.addLayer(marker);
-      allMarkers.push({ marker, name, lat, lon });
-
-      // ✅ Przypisujemy dane do obiektów mapujących
-      phoneNumbersMap[name] = extractPhoneNumber(description);
-      websiteLinksMap[name] = website;
-      descriptionsMap[name] = description;
-      amenitiesMap[name] = amenities;
-    }
-  });
-}
-
 
 
 // Funkcja skracająca tekst do 3 linijek
@@ -237,8 +240,7 @@ function updatePopups(markers) {
 // Ładowanie danych i aktualizacja popupów
 async function loadDetailsAndUpdatePopups(markers) {
   await loadDetails();
-  await loadJsonData();
-
+  await loadKmlData();
   updatePopups(markers);
 }
 document.addEventListener("touchstart", function (event) {
@@ -262,9 +264,6 @@ async function updatePopupsWithImages() {
 
 // 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
 // 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
-console.log("🔍 Sprawdzam obiekt map w custom-functions.js:", window.map);
-console.log("Czy map jest dostępna?", window.map);
-
 map.on("popupopen", async function (e) {
   setTimeout(async () => {
       const popup = e.popup._contentNode;
@@ -300,5 +299,3 @@ if (event.target.closest(".leaflet-popup-content")) {
   event.stopPropagation(); // Pozwala przesuwać popup zamiast mapy
 }
 }, { passive: false });
-
-

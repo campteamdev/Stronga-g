@@ -1,6 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="pl">
   <head>
+
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -14,7 +16,13 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-W68222TL");
     </script>
-    <!-- End Google Tag Manager -->
+  <script src="https://cdn.jsdelivr.net/npm/fuzzball@2.1.3/dist/fuzzball.umd.min.js"></script>
+  <script>
+      window.fuzzball = fuzzball;
+      console.log("✅ Fuzzball poprawnie załadowany:", fuzzball);
+  </script>
+  
+   <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,13 +41,32 @@
     />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script src="encoded_kml.js"></script>
     <script src="custom-functions.js"></script>
+    <script>
+      console.log("✅ encoded_kml.js załadowany!");
+      console.log("📂 encodedKML:", encodedKML);
+      console.log("🔍 getKML('Kempingi.kml'):", getKML("Kempingi.kml"));
+  </script>
+  
     <!-- Dodano obsługę dodatkowych funkcji -->
     <style>
       body {
         margin: 0;
         padding: 0;
       }
+      #filter-panel {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background: white;
+    border: 2px solid green;
+    padding: 10px;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
       /* 🔹 Styl popupa - dynamiczna szerokość */
 .leaflet-popup-content {
     max-width: 80vw; /* Maksymalna szerokość popupa - 80% szerokości ekranu */
@@ -216,7 +243,20 @@
         right: 20px;
         z-index: 2000;
       }
+  /* 🔹 Poprawka dla popupu na smartfonach */
+
+    @media (max-width: 768px) {
+    .leaflet-popup-content-wrapper {
+        max-width: 90vw !important;
+        max-height: 70vh !important;
+        overflow-y: auto !important;
+    }
+}
+
+
     </style>
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <style>
@@ -263,8 +303,113 @@
   .swiper-container {
     margin-bottom: 20px !important; /* Dodaje odstęp pod sliderem */
 }
+/* 🔹 Styl dla wysuwanego popupu */
+#custom-popup {
+    position: fixed;
+    bottom: -100%; /* Domyślnie ukryty */
+    left: 0;
+    width: 100%;
+    height: 80vh; /* Wysokość popupa */
+    background: white;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px 15px 0 0;
+    padding: 15px;
+    overflow-y: auto;
+    transition: bottom 0.3s ease-in-out;
+    z-index: 10000;
+}
+
+/* 🔹 Nagłówek popupa */
+#custom-popup-header {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #66cc66;
+    text-align: center;
+}
+
+/* 🔹 Zamknięcie popupa */
+#close-popup {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+/* 🔹 Styl dla kółka z plusem */
+.add-photo-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.add-photo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+.add-photo-circle {
+    width: 60px;
+    height: 60px;
+    background-color: #4CAF50; /* Zielony kolor */
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease-in-out;
+}
+
+.add-photo-circle:hover {
+    background-color: #388E3C; /* Ciemniejszy zielony */
+}
+<style>
+  /* 🔹 Styl dla popupu na komputerze */
+  .leaflet-popup-content-wrapper {
+      max-width: 250px !important; 
+      max-height: 350px !important;
+  }
+
+  /* 🔹 Styl dla popupu na telefonach */
+  @media (max-width: 768px) {
+      .leaflet-popup-content-wrapper {
+          max-width: 90vw !important; 
+          max-height: 70vh !important;
+          overflow-y: auto !important;
+      }
+  }
+  .facebook-button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #1877F2; /* Kolor Facebooka */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white !important;
+    border: 2px solid #1256a0;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 4px 10px;
+    bottom: 120px; /* Ustawienie nad ikoną dodawania miejsca */
+    right: 20px;
+    z-index: 2000;
+}
 
 </style>
+
+
+<link rel="stylesheet" href="filters.css">
+<script src="filters.js" defer></script>
+
+
 
   </head>
   <body class="" oncontextmenu="return false;">
@@ -286,6 +431,19 @@
       <div id="suggestions"></div>
     </div>
     <div id="map">
+      
+    
+    </button>
+    
+      <a
+    href="https://www.facebook.com/profile.php?id=61567062909549&locale=pl_PL"
+    target="_blank"
+    class="facebook-button"
+>
+    <img src="/ikony/face.png" alt="Facebook"
+         style="width: 40px; height: 40px;">
+</a>
+
       <!-- <a
         href="https://www.campteam.pl/dodaj"
         target="_blank"
@@ -327,7 +485,7 @@
         kempingi1: "/Kempingi1.kml",
         AtrakcjeKulturowe: "/AtrakcjeKulturowe.kml",
         AtrakcjePrzyrodnicze: "/AtrakcjePrzyrodnicze.kml",
-        AtrakcjeRozrywkowe: "/AtrakcjeRozrywka.kml",
+        AtrakcjeRozrywka: "/AtrakcjeRozrywka.kml",
         miejscenabiwak: "/Miejscenabiwak.kml",
         europa: "/Europa.kml", // Dodajemy URL do pliku europa.kml
       };
@@ -457,99 +615,132 @@
       }
 
       function initializeSearch() {
-        const searchInput = document.getElementById("search-input");
-        const searchButton = document.getElementById("search-button");
-        const suggestions = document.getElementById("suggestions");
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+    const suggestions = document.getElementById("suggestions");
 
-        searchInput.addEventListener("input", () => {
-          const query = searchInput.value.toLowerCase().trim();
-          suggestions.innerHTML = "";
-          if (!query) {
+    let showAll = false; // Czy pokazujemy więcej wyników?
+    
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase().trim();
+        suggestions.innerHTML = "";
+        if (!query) {
             suggestions.style.display = "none";
             return;
-          }
+        }
 
-          const matches = allMarkers
-            .filter((m) => m.name.toLowerCase().includes(query))
-            .slice(0, 4);
+        let matches = allMarkers.map((m) => ({
+            marker: m.marker,
+            name: m.name,
+            lat: m.lat,
+            lon: m.lon,
+            score: fuzzball.token_set_ratio(query, m.name) // Obliczanie podobieństwa
+        }));
 
-          matches.forEach((match) => {
+        // Sortujemy wyniki według podobieństwa
+        matches.sort((a, b) => b.score - a.score);
+
+        // Liczba wyników do wyświetlenia (4 domyślnie, 10 po kliknięciu "Pokaż więcej")
+        const resultsToShow = showAll ? 10 : 4;
+        matches = matches.slice(0, resultsToShow);
+
+        matches.forEach((match) => {
             const suggestion = document.createElement("div");
             suggestion.className = "suggestion";
-            suggestion.textContent = match.name; // Wyświetla nazwę z wielkimi literami
+            suggestion.textContent = match.name;
             suggestion.addEventListener("click", () => {
-              map.setView([match.lat, match.lon], 15);
-              match.marker.openPopup();
-              suggestions.style.display = "none";
-              searchInput.value = match.name;
+                highlightMarker(match); // Podświetlenie markera
+                map.setView([match.lat, match.lon], 15);
+                match.marker.openPopup();
+                suggestions.style.display = "none";
+                searchInput.value = match.name;
             });
             suggestions.appendChild(suggestion);
-          });
-
-          suggestions.style.display = matches.length > 0 ? "block" : "none";
         });
 
-        searchButton.addEventListener("click", () => {
-          const query = searchInput.value.toLowerCase().trim();
-          if (!query) return;
+        // Dodanie przycisku "Pokaż więcej" jeśli jest więcej wyników
+        if (!showAll && allMarkers.length > 4) {
+            const showMoreBtn = document.createElement("div");
+            showMoreBtn.className = "suggestion show-more";
+            showMoreBtn.textContent = "Pokaż więcej...";
+            showMoreBtn.addEventListener("click", () => {
+                showAll = true;
+                searchInput.dispatchEvent(new Event("input")); // Odświeżenie wyników
+            });
+            suggestions.appendChild(showMoreBtn);
+        }
 
-          const targetMarker = allMarkers.find((m) =>
-            m.name.toLowerCase().includes(query)
-          );
+        suggestions.style.display = matches.length > 0 ? "block" : "none";
+    });
 
-          if (targetMarker) {
-            map.setView([targetMarker.lat, targetMarker.lon], 15);
-            targetMarker.marker.openPopup();
-          } else {
+    searchButton.addEventListener("click", () => {
+        const query = searchInput.value.toLowerCase().trim();
+        if (!query) return;
+
+        let matches = allMarkers.map((m) => ({
+            marker: m.marker,
+            name: m.name,
+            lat: m.lat,
+            lon: m.lon,
+            score: fuzzball.token_set_ratio(query, m.name)
+        }));
+
+        matches.sort((a, b) => b.score - a.score);
+        const bestMatch = matches[0];
+
+        if (bestMatch && bestMatch.score > 60) { // Jeśli wynik dopasowania jest dobry
+            highlightMarker(bestMatch);
+            map.setView([bestMatch.lat, bestMatch.lon], 15);
+            bestMatch.marker.openPopup();
+        } else {
             alert("Nie znaleziono obiektu.");
-          }
-        });
-      }
+        }
+    });
+}
+
+// 🔹 Funkcja podświetlająca marker (zmienia ikonę na większą na chwilę)
+function highlightMarker(match) {
+    const originalIcon = match.marker.options.icon;
+    
+    const highlightIcon = L.icon({
+        iconUrl: "/ikony/highlight.png", // Dodaj specjalną ikonę podświetlenia
+        iconSize: [50, 50], 
+        iconAnchor: [25, 25],
+        popupAnchor: [0, -25]
+    });
+
+    match.marker.setIcon(highlightIcon);
+
+    setTimeout(() => {
+        match.marker.setIcon(originalIcon);
+    }, 1500);
+}
 
       async function initializeMap() {
+        console.log("✅ Sprawdzam funkcję getKML w initializeMap:", typeof getKML);
+    console.log("🔍 Test getKML('Kempingi.kml'):", getKML("Kempingi.kml"));
         await Promise.all([
-          loadMarkers(urls.kempingi, icons.kempingi, false), // Kempingi - bez grupowania
-          loadMarkers(urls.polanamiotowe, icons.polanamiotowe, false), // Pola namiotowe - bez grupowania
-          loadMarkers(urls.kempingiopen, icons.kempingiopen, false),
-          loadMarkers(urls.polanamiotoweopen, icons.polanamiotoweopen, false),
-          loadMarkers(urls.parkingilesne, icons.parkingilesne),
-          loadMarkers(urls.kempingi1, icons.kempingi1, false),
-          loadMarkers(urls.miejscenabiwak, icons.miejscenabiwak),
-          loadMarkers(urls.europa, icons.kempingi), // Dodajemy markery z europa.kml z ikoną kampingu
-          loadMarkers(urls.AtrakcjeKulturowe, icons.atractionCultural),
-          loadMarkers(urls.AtrakcjePrzyrodnicze, icons.atractionNature),
-          loadMarkers(urls.AtrakcjeRozrywkowe, icons.atractionFun),
-        ]);
+  loadMarkers(getKML("Kempingi.kml"), icons.kempingi, false),
+  loadMarkers(getKML("Polanamiotowe.kml"), icons.polanamiotowe, false),
+  loadMarkers(getKML("Kempingiopen.kml"), icons.kempingiopen, false),
+  loadMarkers(getKML("Polanamiotoweopen.kml"), icons.polanamiotoweopen, false),
+  loadMarkers(getKML("Parkingilesne.kml"), icons.parkingilesne),
+  loadMarkers(getKML("Kempingi1.kml"), icons.kempingi1, false),
+  loadMarkers(getKML("Miejscenabiwak.kml"), icons.miejscenabiwak),
+  loadMarkers(getKML("Europa.kml"), icons.kempingi),
+  loadMarkers(getKML("AtrakcjeKulturowe.kml"), icons.atractionCultural),
+  loadMarkers(getKML("AtrakcjePrzyrodnicze.kml"), icons.atractionNature),
+  loadMarkers(getKML("AtrakcjeRozrywka.kml"), icons.atractionFun),
+]);
 
         map.addLayer(markerCluster);
         initializeSearch();
-
+       
         // Wywołanie funkcji z custom-functions.js
         await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
       }
 
-      initializeMap();
-    map.on("popupopen", function (e) {
-    let popupContent = e.popup._contentNode; // Pobranie aktualnie otwartego popupu
-    if (!popupContent) return; // Sprawdzenie, czy popupContent istnieje
 
-    function adjustPopupSize() {
-        let zoomLevel = map.getZoom(); // Pobranie aktualnego zoomu
-
-        if (zoomLevel > 12) {
-            popupContent.style.maxWidth = "80vw"; // Duży popup przy dużym zoomie
-        } else if (zoomLevel > 9) {
-            popupContent.style.maxWidth = "60vw"; // Średni zoom
-        } else {
-            popupContent.style.maxWidth = "40vw"; // Mały popup przy oddaleniu
-        }
-    }
-
-    adjustPopupSize(); // Ustawienie szerokości przy otwarciu
-
-    // 🔹 Aktualizacja szerokości popupu po każdej zmianie zoomu
-    map.on("zoomend", adjustPopupSize);
-});
 // Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
 document.addEventListener("copy", (event) => {
   event.preventDefault();
@@ -576,7 +767,8 @@ document.addEventListener("touchstart", function (event) {
   }
 }, { passive: false });
 
-  
+initializeMap();
+
     </script>
 
 
@@ -587,6 +779,471 @@ document.addEventListener("touchstart", function (event) {
    
 
 <script src="image-loader.js"></script>
+
+<!-- 🔹 Panel wysuwanego popupu -->
+<div id="custom-popup">
+  <span id="close-popup">&times;</span> <!-- Przycisk zamknięcia -->
+  <div id="custom-popup-content"></div> <!-- Tu będą treści -->
+</div>
+
+ 
+
+
+
+<!-- 🔹 Przycisk do otwierania filtrów -->
+
+<!-- 🔹 Panel filtrów -->
+<div id="filter-panel" style="display: none;">
+  <h3 style="text-align:center; font-size: 16px; margin-bottom: 10px;">Filtry</h3>
+
+  <div class="filter-group">
+      <img src="ikony/Ikona_Kempingi.png" alt="Camping">
+      <label>
+          <span>Camping</span>
+          <input type="checkbox" class="filter-checkbox" id="camping-filter">
+          <div class="filter-switch"></div>
+      </label>
+  </div>
+
+  <div class="filter-group">
+      <img src="ikony/Ikona_Pole_Namiotowe.png" alt="Pole Namiotowe">
+      <label>
+          <span>Pole Namiotowe</span>
+          <input type="checkbox" class="filter-checkbox" id="pola-filter">
+          <div class="filter-switch"></div>
+      </label>
+  </div>
+
+  <div class="filter-group">
+      <img src="ikony/Ikona_Parking_Leśny.png" alt="Parkingi Leśne">
+      <label>
+          <span>Parkingi Leśne</span>
+          <input type="checkbox" class="filter-checkbox" id="parking-filter">
+          <div class="filter-switch"></div>
+      </label>
+  </div>
+
+  <div class="filter-group">
+      <img src="ikony/Ikona_Miejsce_Biwakowe.png" alt="Miejsce na dziko/biwak">
+      <label>
+          <span>Miejsce na dziko</span>
+          <input type="checkbox" class="filter-checkbox" id="biwak-filter">
+          <div class="filter-switch"></div>
+      </label>
+  </div>
+
+  <div class="filter-group">
+      <img src="ikony/atractionCultural.png" alt="Atrakcje Kulturowe">
+      <label>
+          <span>Atrakcje Kulturowe</span>
+          <input type="checkbox" class="filter-checkbox" id="kulturowe-filter">
+          <div class="filter-switch"></div>
+      </label>
+  </div>
+
+  <div class="filter-group">
+      <img src="ikony/atractionNatural.png" alt="Atrakcje Przyrodnicze">
+      <label>
+          <span>Atrakcje Przyrodnicze</span>
+          <input type="checkbox" class="filter-checkbox" id="przyrodnicze-filter">
+          <div class="filter-switch"></div>
+      </label>
+  </div>
+
+  <div class="filter-group">
+      <img src="ikony/atractionFun.png" alt="Atrakcje Rozrywka">
+      <label>
+          <span>Atrakcje Rozrywka</span>
+          <input type="checkbox" class="filter-checkbox" id="rozrywka-filter">
+          <div class="filter-switch"></div>
+      </label>
+  </div>
+  
+
+<script src="filters.js" defer></script>
+
+<script>
+  (function () {
+  "use strict";
+
+  // ✅ Blokowanie klawiszy (F12, Ctrl + U, Ctrl + Shift + I, itp.)
+  document.addEventListener("keydown", function (event) {
+      if (
+          event.key === "F12" ||
+          (event.ctrlKey && event.shiftKey && event.key === "I") ||
+          (event.ctrlKey && event.shiftKey && event.key === "C") ||
+          (event.ctrlKey && event.key === "U")
+      ) {
+          event.preventDefault();
+          window.location.href = "about:blank"; // Przekierowanie na pustą stronę
+      }
+  });
+  document.addEventListener("keydown", function (event) {
+  if (event.ctrlKey && event.key.toLowerCase() === "u") {  // Wykrycie "Ctrl + U" (obsługa różnych układów klawiatury)
+      event.preventDefault();
+      window.location.href = "about:blank"; // Natychmiastowe przekierowanie na pustą stronę
+  }
+});
+
+
+
+  // ✅ Ukrywanie tekstu przed zaznaczeniem i kopiowaniem
+  const style = document.createElement("style");
+  style.innerHTML = `
+      body {
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+      }
+  `;
+  document.head.appendChild(style);
+
+  // ✅ Blokowanie kopiowania, wycinania, wklejania, zaznaczania tekstu i prawego przycisku myszy
+  ["copy", "cut", "paste", "selectstart", "contextmenu"].forEach(eventType => {
+      document.addEventListener(eventType, (event) => {
+          event.preventDefault();
+          alert("❌ Zabezpieczenie aktywne: Nie masz uprawnień do tej operacji!");
+      });
+  });
+
+  // ✅ Automatyczne wykrywanie otwarcia DevTools i natychmiastowe przekierowanie
+  function detectDevTools() {
+      const threshold = 160;
+      function check() {
+          if (window.outerWidth - window.innerWidth > threshold || 
+              window.outerHeight - window.innerHeight > threshold) {
+              window.location.href = "about:blank"; // Przekierowanie na pustą stronę
+          }
+      }
+      window.addEventListener("resize", check);
+      check();
+  }
+  detectDevTools();
+
+  // ✅ Dynamiczne szyfrowanie treści (ukrywanie ważnych danych)
+  function encryptContent() {
+      const secretElements = document.querySelectorAll(".protected");
+      secretElements.forEach(el => {
+          el.dataset.encrypted = btoa(el.innerHTML); // Kodowanie Base64
+          el.innerHTML = "🔒 Zabezpieczona treść"; // Ukrycie oryginalnej zawartości
+      });
+  }
+  
+  function decryptContent() {
+      const secretElements = document.querySelectorAll(".protected");
+      secretElements.forEach(el => {
+          el.innerHTML = atob(el.dataset.encrypted); // Odszyfrowanie Base64
+      });
+  }
+
+  // ✅ Uruchamiamy szyfrowanie po załadowaniu strony
+  window.addEventListener("load", encryptContent);
+
+})();
+// Blokowanie dostępu do "view-source:"
+(function blockViewSource() {
+  if (document.referrer.startsWith("view-source")) {
+      window.location.href = "about:blank"; // Przekierowanie na pustą stronę
+  }
+
+  // Wykrywanie zmiany URL (użytkownik wpisuje "view-source:")
+  setInterval(() => {
+      if (window.location.href.startsWith("view-source")) {
+          window.location.href = "about:blank"; // Natychmiastowe przekierowanie
+      }
+  }, 500);
+})();
+// Automatyczne zamykanie strony przy "view-source:"
+(function detectViewSource() {
+  if (window.location.href.startsWith("view-source")) {
+      window.close(); // Zamknięcie strony
+  }
+})();
+// Wykrywanie Chrome i blokowanie "view-source:"
+if (navigator.userAgent.includes("Chrome")) {
+  setInterval(() => {
+      if (window.location.href.startsWith("view-source")) {
+          window.close();
+      }
+  }, 500);
+}
+
+  </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.innerHTML = btoa(document.body.innerHTML); // Kodowanie Base64
+});
+
+(function () {
+  var before = new Date().getTime();
+  debugger;
+  var after = new Date().getTime();
+  if (after - before > 100) {
+      document.body.innerHTML = "";
+      window.location.href = "about:blank";
+  }
+})();
+(function () {
+  if (document.referrer.includes("view-source")) {
+      window.close();  // Zamknięcie strony
+      location.href = "about:blank";  // Przekierowanie na pustą stronę
+  }
+})();
+document.addEventListener("DOMContentLoaded", function () {
+  document.body.innerHTML = btoa(document.body.innerHTML); // Kodowanie Base64
+});
+
+
+
+
+// 🔥 Blokowanie zapisu strony (Ctrl + S)
+document.addEventListener("keydown", function (event) {
+  if (event.ctrlKey && event.key === "s") {
+      event.preventDefault();
+      alert("❌ Nie możesz zapisać tej strony!");
+  }
+});
+
+// ❌ USUWAMY BLOKADĘ `innerHTML` i `outerHTML`,
+// ponieważ zakłóca dynamiczne popupy
+
+// 🔥 Wykrywanie otwarcia DevTools przez `console.log`
+(function detectConsole() {
+  var devtoolsOpen = false;
+  var threshold = 160;
+
+  function check() {
+      console.profile();
+      console.profileEnd();
+
+      if (console.clear) console.clear();
+      if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+          devtoolsOpen = true;
+      }
+
+      if (devtoolsOpen) {
+          document.body.innerHTML = "";
+          window.location.href = "about:blank";
+      }
+  }
+
+  setInterval(check, 1000);
+})();
+
+// 🔥 Pułapka `debugger` w nieskończonej pętli
+setInterval(function () {
+  (function () {
+      var before = new Date().getTime();
+      debugger;
+      var after = new Date().getTime();
+      if (after - before > 100) {
+          document.body.innerHTML = "";
+          window.location.href = "about:blank";
+      }
+  })();
+}, 500);
+
+// 🔥 Wykrywanie zmiany rozmiaru okna (DevTools)
+window.addEventListener('resize', function () {
+  if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
+      document.body.innerHTML = "";
+      window.location.href = "about:blank";
+  }
+});
+
+</script>
+<script>
+  (function () {
+  "use strict";
+
+  // ✅ Blokowanie klawiszy (F12, Ctrl + U, Ctrl + Shift + I, itp.)
+  document.addEventListener("keydown", function (event) {
+      if (
+          event.key === "F12" ||
+          (event.ctrlKey && event.shiftKey && event.key === "I") ||
+          (event.ctrlKey && event.shiftKey && event.key === "C") ||
+          (event.ctrlKey && event.key === "U")
+      ) {
+          event.preventDefault();
+          window.location.href = "about:blank"; // Przekierowanie na pustą stronę
+      }
+  });
+  document.addEventListener("keydown", function (event) {
+  if (event.ctrlKey && event.key.toLowerCase() === "u") {  // Wykrycie "Ctrl + U" (obsługa różnych układów klawiatury)
+      event.preventDefault();
+      window.location.href = "about:blank"; // Natychmiastowe przekierowanie na pustą stronę
+  }
+});
+
+
+
+  // ✅ Ukrywanie tekstu przed zaznaczeniem i kopiowaniem
+  const style = document.createElement("style");
+  style.innerHTML = `
+      body {
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+      }
+  `;
+  document.head.appendChild(style);
+
+  // ✅ Blokowanie kopiowania, wycinania, wklejania, zaznaczania tekstu i prawego przycisku myszy
+  ["copy", "cut", "paste", "selectstart", "contextmenu"].forEach(eventType => {
+      document.addEventListener(eventType, (event) => {
+          event.preventDefault();
+          alert("❌ Zabezpieczenie aktywne: Nie masz uprawnień do tej operacji!");
+      });
+  });
+
+  // ✅ Automatyczne wykrywanie otwarcia DevTools i natychmiastowe przekierowanie
+  function detectDevTools() {
+      const threshold = 160;
+      function check() {
+          if (window.outerWidth - window.innerWidth > threshold || 
+              window.outerHeight - window.innerHeight > threshold) {
+              window.location.href = "about:blank"; // Przekierowanie na pustą stronę
+          }
+      }
+      window.addEventListener("resize", check);
+      check();
+  }
+  detectDevTools();
+
+  // ✅ Dynamiczne szyfrowanie treści (ukrywanie ważnych danych)
+  function encryptContent() {
+      const secretElements = document.querySelectorAll(".protected");
+      secretElements.forEach(el => {
+          el.dataset.encrypted = btoa(el.innerHTML); // Kodowanie Base64
+          el.innerHTML = "🔒 Zabezpieczona treść"; // Ukrycie oryginalnej zawartości
+      });
+  }
+  
+  function decryptContent() {
+      const secretElements = document.querySelectorAll(".protected");
+      secretElements.forEach(el => {
+          el.innerHTML = atob(el.dataset.encrypted); // Odszyfrowanie Base64
+      });
+  }
+
+  // ✅ Uruchamiamy szyfrowanie po załadowaniu strony
+  window.addEventListener("load", encryptContent);
+
+})();
+// Blokowanie dostępu do "view-source:"
+(function blockViewSource() {
+  if (document.referrer.startsWith("view-source")) {
+      window.location.href = "about:blank"; // Przekierowanie na pustą stronę
+  }
+
+  // Wykrywanie zmiany URL (użytkownik wpisuje "view-source:")
+  setInterval(() => {
+      if (window.location.href.startsWith("view-source")) {
+          window.location.href = "about:blank"; // Natychmiastowe przekierowanie
+      }
+  }, 500);
+})();
+// Automatyczne zamykanie strony przy "view-source:"
+(function detectViewSource() {
+  if (window.location.href.startsWith("view-source")) {
+      window.close(); // Zamknięcie strony
+  }
+})();
+// Wykrywanie Chrome i blokowanie "view-source:"
+if (navigator.userAgent.includes("Chrome")) {
+  setInterval(() => {
+      if (window.location.href.startsWith("view-source")) {
+          window.close();
+      }
+  }, 500);
+}
+
+  </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.innerHTML = btoa(document.body.innerHTML); // Kodowanie Base64
+});
+
+(function () {
+  var before = new Date().getTime();
+  debugger;
+  var after = new Date().getTime();
+  if (after - before > 100) {
+      document.body.innerHTML = "";
+      window.location.href = "about:blank";
+  }
+})();
+(function () {
+  if (document.referrer.includes("view-source")) {
+      window.close();  // Zamknięcie strony
+      location.href = "about:blank";  // Przekierowanie na pustą stronę
+  }
+})();
+document.addEventListener("DOMContentLoaded", function () {
+  document.body.innerHTML = btoa(document.body.innerHTML); // Kodowanie Base64
+});
+
+
+
+
+// 🔥 Blokowanie zapisu strony (Ctrl + S)
+document.addEventListener("keydown", function (event) {
+  if (event.ctrlKey && event.key === "s") {
+      event.preventDefault();
+      alert("❌ Nie możesz zapisać tej strony!");
+  }
+});
+
+// ❌ USUWAMY BLOKADĘ `innerHTML` i `outerHTML`,
+// ponieważ zakłóca dynamiczne popupy
+
+// 🔥 Wykrywanie otwarcia DevTools przez `console.log`
+(function detectConsole() {
+  var devtoolsOpen = false;
+  var threshold = 160;
+
+  function check() {
+      console.profile();
+      console.profileEnd();
+
+      if (console.clear) console.clear();
+      if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+          devtoolsOpen = true;
+      }
+
+      if (devtoolsOpen) {
+          document.body.innerHTML = "";
+          window.location.href = "about:blank";
+      }
+  }
+
+  setInterval(check, 1000);
+})();
+
+// 🔥 Pułapka `debugger` w nieskończonej pętli
+setInterval(function () {
+  (function () {
+      var before = new Date().getTime();
+      debugger;
+      var after = new Date().getTime();
+      if (after - before > 100) {
+          document.body.innerHTML = "";
+          window.location.href = "about:blank";
+      }
+  })();
+}, 500);
+
+// 🔥 Wykrywanie zmiany rozmiaru okna (DevTools)
+window.addEventListener('resize', function () {
+  if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
+      document.body.innerHTML = "";
+      window.location.href = "about:blank";
+  }
+});
+
+</script>
 
 
   </body>
