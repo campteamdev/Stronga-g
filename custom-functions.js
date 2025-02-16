@@ -263,6 +263,7 @@ async function updatePopupsWithImages() {
 // 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
 // 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
 console.log("🔍 Sprawdzam obiekt map w custom-functions.js:", window.map);
+console.log("Czy map jest dostępna?", window.map);
 
 map.on("popupopen", async function (e) {
   setTimeout(async () => {
