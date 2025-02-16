@@ -50,21 +50,32 @@
     <script src="encoded_kml.js"></script>
     
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        console.log("✅ DOM w pełni załadowany!");
-        const mapContainer = document.getElementById("map");
+      document.addEventListener("DOMContentLoaded", async () => {
+          console.log("✅ DOM w pełni załadowany!");
     
-        if (!mapContainer) {
-          console.error("❌ Element #map nie został znaleziony w DOM!");
-          return;
-        }
+          const mapContainer = document.getElementById("map");
     
-        window.map = L.map("map").setView([52.392681, 19.275023], 6);
-        console.log("✅ Mapa została pomyślnie zainicjalizowana.");
+          if (!mapContainer) {
+              console.error("❌ Element #map nie został znaleziony w DOM!");
+              return;
+          }
+    
+          // Sprawdzamy, czy mapa już istnieje, jeśli nie, to ją inicjalizujemy
+          if (!window.map) {
+              window.map = L.map("map").setView([52.392681, 19.275023], 6);
+              console.log("✅ Mapa została pomyślnie zainicjalizowana.");
+          } else {
+              console.warn("⚠️ Mapa była już wcześniej zainicjalizowana.");
+          }
+    
+          // Wywołujemy initializeMap() tylko wtedy, gdy mapa została utworzona
+          await initializeMap();
       });
     </script>
     
-    <script defer src="custom-functions.js"></script>
+    
+    <script src="custom-functions.js" defer></script>
+
 
     
     
@@ -817,9 +828,14 @@ function highlightMarker(match) {
     setTimeout(() => {
         match.marker.setIcon(originalIcon);
     }, 1500);
-}
-async function initializeMap() {
+    async function initializeMap() {
     console.log("🚀 Funkcja initializeMap uruchomiona!");
+
+    // Sprawdzamy, czy mapa już istnieje
+    if (!window.map) {
+        console.error("❌ Mapa nie została wcześniej zainicjalizowana! Przerywam działanie.");
+        return;
+    }
 
     const markerCluster = L.markerClusterGroup({
         showCoverageOnHover: false,
@@ -840,7 +856,7 @@ async function initializeMap() {
         loadMarkers(urls.AtrakcjeRozrywka, icons.atractionFun, true, markerCluster),
     ]);
 
-    map.addLayer(markerCluster);
+    window.map.addLayer(markerCluster);
 
     initializeSearch();
     await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
