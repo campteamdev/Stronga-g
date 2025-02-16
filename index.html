@@ -1,14 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="pl">
   <head>
-
-<script>
-  console.log("📌 Sprawdzam cookies...");
-  console.log(document.cookie);
-</script>
- 
-  
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -22,13 +14,7 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-W68222TL");
     </script>
-  <script src="https://cdn.jsdelivr.net/npm/fuzzball@2.1.3/dist/fuzzball.umd.min.js"></script>
-  <script>
-      window.fuzzball = fuzzball;
-      console.log("✅ Fuzzball poprawnie załadowany:", fuzzball);
-  </script>
-  
-   <!-- End Google Tag Manager -->
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,64 +33,13 @@
     />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-    <script src="encoded_kml.js"></script>
-    
-    <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-          console.log("✅ DOM w pełni załadowany!");
-    
-          const mapContainer = document.getElementById("map");
-    
-          if (!mapContainer) {
-              console.error("❌ Element #map nie został znaleziony w DOM!");
-              return;
-          }
-    
-          // Sprawdzamy, czy mapa już istnieje, jeśli nie, to ją inicjalizujemy
-          if (!window.map) {
-              window.map = L.map("map").setView([52.392681, 19.275023], 6);
-              console.log("✅ Mapa została pomyślnie zainicjalizowana.");
-          } else {
-              console.warn("⚠️ Mapa była już wcześniej zainicjalizowana.");
-          }
-    
-          // Wywołujemy initializeMap() tylko wtedy, gdy mapa została utworzona
-          await initializeMap();
-      });
-    </script>
-    
-    
-    <script src="custom-functions.js" defer></script>
-
-
-    
-    
-    
-    
-    <script>
-      console.log("✅ encoded_kml.js załadowany!");
-      console.log("📂 encodedKML:", encodedKML);
-      console.log("🔍 getKML('Kempingi.kml'):", getKML("Kempingi.kml"));
-  </script>
-  
+    <script src="custom-functions.js"></script>
     <!-- Dodano obsługę dodatkowych funkcji -->
     <style>
       body {
         margin: 0;
         padding: 0;
       }
-      #filter-panel {
-    position: absolute;
-    top: 50px;
-    left: 10px;
-    background: white;
-    border: 2px solid green;
-    padding: 10px;
-    z-index: 1000;
-    display: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
       /* 🔹 Styl popupa - dynamiczna szerokość */
 .leaflet-popup-content {
     max-width: 80vw; /* Maksymalna szerokość popupa - 80% szerokości ekranu */
@@ -281,20 +216,7 @@
         right: 20px;
         z-index: 2000;
       }
-  /* 🔹 Poprawka dla popupu na smartfonach */
-
-    @media (max-width: 768px) {
-    .leaflet-popup-content-wrapper {
-        max-width: 90vw !important;
-        max-height: 70vh !important;
-        overflow-y: auto !important;
-    }
-}
-
-
     </style>
-
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <style>
@@ -341,113 +263,8 @@
   .swiper-container {
     margin-bottom: 20px !important; /* Dodaje odstęp pod sliderem */
 }
-/* 🔹 Styl dla wysuwanego popupu */
-#custom-popup {
-    position: fixed;
-    bottom: -100%; /* Domyślnie ukryty */
-    left: 0;
-    width: 100%;
-    height: 80vh; /* Wysokość popupa */
-    background: white;
-    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 15px 15px 0 0;
-    padding: 15px;
-    overflow-y: auto;
-    transition: bottom 0.3s ease-in-out;
-    z-index: 10000;
-}
-
-/* 🔹 Nagłówek popupa */
-#custom-popup-header {
-    font-size: 18px;
-    font-weight: bold;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #66cc66;
-    text-align: center;
-}
-
-/* 🔹 Zamknięcie popupa */
-#close-popup {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-}
-/* 🔹 Styl dla kółka z plusem */
-.add-photo-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.add-photo-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    width: 100%;
-    height: 100%;
-}
-
-.add-photo-circle {
-    width: 60px;
-    height: 60px;
-    background-color: #4CAF50; /* Zielony kolor */
-    color: white;
-    font-size: 36px;
-    font-weight: bold;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s ease-in-out;
-}
-
-.add-photo-circle:hover {
-    background-color: #388E3C; /* Ciemniejszy zielony */
-}
-<style>
-  /* 🔹 Styl dla popupu na komputerze */
-  .leaflet-popup-content-wrapper {
-      max-width: 250px !important; 
-      max-height: 350px !important;
-  }
-
-  /* 🔹 Styl dla popupu na telefonach */
-  @media (max-width: 768px) {
-      .leaflet-popup-content-wrapper {
-          max-width: 90vw !important; 
-          max-height: 70vh !important;
-          overflow-y: auto !important;
-      }
-  }
-  .facebook-button {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    background-color: #1877F2; /* Kolor Facebooka */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white !important;
-    border: 2px solid #1256a0;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 4px 10px;
-    bottom: 120px; /* Ustawienie nad ikoną dodawania miejsca */
-    right: 20px;
-    z-index: 2000;
-}
 
 </style>
-
-
-<link rel="stylesheet" href="filters.css">
-<script src="filters.js" defer></script>
-
-
 
   </head>
   <body class="" oncontextmenu="return false;">
@@ -469,19 +286,6 @@
       <div id="suggestions"></div>
     </div>
     <div id="map">
-      
-    
-    </button>
-    
-      <a
-    href="https://www.facebook.com/profile.php?id=61567062909549&locale=pl_PL"
-    target="_blank"
-    class="facebook-button"
->
-    <img src="/ikony/face.png" alt="Facebook"
-         style="width: 40px; height: 40px;">
-</a>
-
       <!-- <a
         href="https://www.campteam.pl/dodaj"
         target="_blank"
@@ -514,7 +318,7 @@
       </a>
     </div>
     <script>
-    const urls = {
+      const urls = {
     kempingi: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Kempingi.json",
     polanamiotowe: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Polanamiotowe.json",
     kempingiopen: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Kempingiopen.json",
@@ -527,7 +331,6 @@
     miejscenabiwak: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Miejscenabiwak.json",
     europa: "https://campteam-raem7shee-marcincamps-projects.vercel.app/api/data?file=Europa.json",
 };
-
 
 
       const icons = {
@@ -593,8 +396,7 @@
         }),
       };
 
-      window.map = L.map("map").setView([52.392681, 19.275023], 6);
-
+      const map = L.map("map").setView([52.392681, 19.275023], 6);
       const markerCluster = L.markerClusterGroup({
         showCoverageOnHover: false,
         maxClusterRadius: 50,
@@ -608,264 +410,177 @@
       const allMarkers = [];
       const allPlacemarks = []; // Przechowywanie placemarks
 
-      async function fetchJson(url) {
-    try {
-        console.log(`📌 Pobieranie JSON z: ${url}`); // 🔍 Logujemy URL
+      async function fetchKml(url) {
         const response = await fetch(url);
-        
-        if (!response.ok) {
-            throw new Error(`❌ Błąd HTTP ${response.status}: ${response.statusText}`);
-        }
+        if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
+        return response.text();
+      }
 
-        const jsonData = await response.json();
-        console.log(`✅ JSON poprawnie załadowany z ${url}:`, jsonData);
-        return jsonData;
-    } catch (error) {
-        console.error(`❌ Błąd pobierania JSON z ${url}:`, error);
-        return null;
-    }
-}
+      async function loadMarkers(url, icon, addToCluster = true) {
+        const kmlText = await fetchKml(url);
+        const parser = new DOMParser();
+        const kml = parser.parseFromString(kmlText, "application/xml");
+        const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+        allPlacemarks.push(...placemarks); // Dodanie placemarks do globalnej listy
 
-
-
-async function loadMarkers(url, icon, addToCluster = true, markerCluster) {
-    console.log(`📌 Ładowanie markerów z: ${url}`);
-
-    try {
-        const jsonData = await fetchJson(url);
-
-        if (!jsonData) {
-            console.error(`❌ Nie udało się załadować JSON z: ${url}`);
-            return;
-        }
-
-        console.log(`📂 Dane z JSON (${url}):`, jsonData);
-
-        // Sprawdzamy, czy JSON zawiera klucz `placemarks`
-        if (!jsonData.placemarks || !Array.isArray(jsonData.placemarks)) {
-            console.error(`❌ Brak poprawnego klucza 'placemarks' w JSON (${url})!`);
-            console.log(`📜 Cała zawartość JSON (${url}):`, jsonData);
-            return;
-        }
-
-        jsonData.placemarks.forEach((placemark, index) => {
-            console.log(`🔹 [${index + 1}] Placemark:`, placemark);
-
-            const name = placemark.name || "Brak nazwy";
-            const lat = placemark.lat;
-            const lon = placemark.lon;
-
-            if (!lat || !lon || isNaN(lat) || isNaN(lon)) {
-                console.warn(`⚠️ Błędne współrzędne w placemark #${index + 1}:`, placemark);
-                return;
-            }
-
-            const key = `${lat},${lon}`;
-            if (!addedMarkers.has(key)) {
-                addedMarkers.add(key);
-                const marker = L.marker([lat, lon], { icon }).bindPopup(
-                    `<strong>${name}</strong>`
-                );
-
-                if (addToCluster) {
-                    markerCluster.addLayer(marker);
-                } else {
-                    marker.addTo(map);
-                }
-
-                allMarkers.push({ marker, name, lat, lon });
-                console.log(`✅ Dodano marker: ${name} (${lat}, ${lon})`);
-            } else {
-                console.log(`⚠️ Pominięto zduplikowany marker: ${name} (${lat}, ${lon})`);
-            }
-        });
-
-    } catch (error) {
-        console.error(`❌ Błąd podczas ładowania markerów z ${url}:`, error);
-    }
-}
-
-
-console.log("📂 Sprawdzam wartość placemarks:", typeof placemarks, placemarks);
-
-    placemarks.forEach((placemark) => {
-        const name =
-            placemark.getElementsByTagName("name")[0]?.textContent || "Brak nazwy";
-        const coordinates = placemark
+        placemarks.forEach((placemark) => {
+          const name =
+            placemark.getElementsByTagName("name")[0]?.textContent ||
+            "Brak nazwy";
+          const coordinates = placemark
             .getElementsByTagName("coordinates")[0]
             ?.textContent.trim();
 
-        if (coordinates) {
+          if (coordinates) {
             const [lon, lat] = coordinates.split(",");
             const key = `${lat},${lon}`;
 
             if (!addedMarkers.has(key)) {
-                addedMarkers.add(key);
-                const markerOptions = { icon };
-                if (!addToCluster) {
-                    markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
-                }
-                const marker = L.marker([lat, lon], markerOptions).bindPopup(
-                    `<strong>${name}</strong>`
-                );
+              addedMarkers.add(key);
+              const markerOptions = { icon };
+              if (!addToCluster) {
+                markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
+              }
+              const marker = L.marker([lat, lon], markerOptions).bindPopup(
+                `<strong>${name}</strong>`
+              );
 
-               
+              if (addToCluster) {
+                markerCluster.addLayer(marker);
+              } else {
+                marker.addTo(map);
+              }
 
-                if (addToCluster) {
-                    markerCluster.addLayer(marker);
-                } else {
-                    marker.addTo(map);
-                }
-
-                allMarkers.push({ marker, name, lat, lon });
+              allMarkers.push({ marker, name, lat, lon });
             }
-        }
-    });
-
-    
-
-
-
-
+          }
+        });
+      }
 
       function initializeSearch() {
-    const searchInput = document.getElementById("search-input");
-    const searchButton = document.getElementById("search-button");
-    const suggestions = document.getElementById("suggestions");
+        const searchInput = document.getElementById("search-input");
+        const searchButton = document.getElementById("search-button");
+        const suggestions = document.getElementById("suggestions");
 
-    let showAll = false; // Czy pokazujemy więcej wyników?
-    
-    searchInput.addEventListener("input", () => {
-        const query = searchInput.value.toLowerCase().trim();
-        suggestions.innerHTML = "";
-        if (!query) {
+        searchInput.addEventListener("input", () => {
+          const query = searchInput.value.toLowerCase().trim();
+          suggestions.innerHTML = "";
+          if (!query) {
             suggestions.style.display = "none";
             return;
-        }
+          }
 
-        let matches = allMarkers.map((m) => ({
-            marker: m.marker,
-            name: m.name,
-            lat: m.lat,
-            lon: m.lon,
-            score: fuzzball.token_set_ratio(query, m.name) // Obliczanie podobieństwa
-        }));
+          const matches = allMarkers
+            .filter((m) => m.name.toLowerCase().includes(query))
+            .slice(0, 4);
 
-        // Sortujemy wyniki według podobieństwa
-        matches.sort((a, b) => b.score - a.score);
-
-        // Liczba wyników do wyświetlenia (4 domyślnie, 10 po kliknięciu "Pokaż więcej")
-        const resultsToShow = showAll ? 10 : 4;
-        matches = matches.slice(0, resultsToShow);
-
-        matches.forEach((match) => {
+          matches.forEach((match) => {
             const suggestion = document.createElement("div");
             suggestion.className = "suggestion";
-            suggestion.textContent = match.name;
+            suggestion.textContent = match.name; // Wyświetla nazwę z wielkimi literami
             suggestion.addEventListener("click", () => {
-                highlightMarker(match); // Podświetlenie markera
-                map.setView([match.lat, match.lon], 15);
-                match.marker.openPopup();
-                suggestions.style.display = "none";
-                searchInput.value = match.name;
+              map.setView([match.lat, match.lon], 15);
+              match.marker.openPopup();
+              suggestions.style.display = "none";
+              searchInput.value = match.name;
             });
             suggestions.appendChild(suggestion);
+          });
+
+          suggestions.style.display = matches.length > 0 ? "block" : "none";
         });
 
-        // Dodanie przycisku "Pokaż więcej" jeśli jest więcej wyników
-        if (!showAll && allMarkers.length > 4) {
-            const showMoreBtn = document.createElement("div");
-            showMoreBtn.className = "suggestion show-more";
-            showMoreBtn.textContent = "Pokaż więcej...";
-            showMoreBtn.addEventListener("click", () => {
-                showAll = true;
-                searchInput.dispatchEvent(new Event("input")); // Odświeżenie wyników
-            });
-            suggestions.appendChild(showMoreBtn);
-        }
+        searchButton.addEventListener("click", () => {
+          const query = searchInput.value.toLowerCase().trim();
+          if (!query) return;
 
-        suggestions.style.display = matches.length > 0 ? "block" : "none";
-    });
+          const targetMarker = allMarkers.find((m) =>
+            m.name.toLowerCase().includes(query)
+          );
 
-    searchButton.addEventListener("click", () => {
-        const query = searchInput.value.toLowerCase().trim();
-        if (!query) return;
-
-        let matches = allMarkers.map((m) => ({
-            marker: m.marker,
-            name: m.name,
-            lat: m.lat,
-            lon: m.lon,
-            score: fuzzball.token_set_ratio(query, m.name)
-        }));
-
-        matches.sort((a, b) => b.score - a.score);
-        const bestMatch = matches[0];
-
-        if (bestMatch && bestMatch.score > 60) { // Jeśli wynik dopasowania jest dobry
-            highlightMarker(bestMatch);
-            map.setView([bestMatch.lat, bestMatch.lon], 15);
-            bestMatch.marker.openPopup();
-        } else {
+          if (targetMarker) {
+            map.setView([targetMarker.lat, targetMarker.lon], 15);
+            targetMarker.marker.openPopup();
+          } else {
             alert("Nie znaleziono obiektu.");
+          }
+        });
+      }
+
+      async function initializeMap() {
+        await Promise.all([
+          loadMarkers(urls.kempingi, icons.kempingi, false), // Kempingi - bez grupowania
+          loadMarkers(urls.polanamiotowe, icons.polanamiotowe, false), // Pola namiotowe - bez grupowania
+          loadMarkers(urls.kempingiopen, icons.kempingiopen, false),
+          loadMarkers(urls.polanamiotoweopen, icons.polanamiotoweopen, false),
+          loadMarkers(urls.parkingilesne, icons.parkingilesne),
+          loadMarkers(urls.kempingi1, icons.kempingi1, false),
+          loadMarkers(urls.miejscenabiwak, icons.miejscenabiwak),
+          loadMarkers(urls.europa, icons.kempingi), // Dodajemy markery z europa.kml z ikoną kampingu
+          loadMarkers(urls.AtrakcjeKulturowe, icons.atractionCultural),
+          loadMarkers(urls.AtrakcjePrzyrodnicze, icons.atractionNature),
+          loadMarkers(urls.AtrakcjeRozrywkowe, icons.atractionFun),
+        ]);
+
+        map.addLayer(markerCluster);
+        initializeSearch();
+
+        // Wywołanie funkcji z custom-functions.js
+        await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
+      }
+
+      initializeMap();
+    map.on("popupopen", function (e) {
+    let popupContent = e.popup._contentNode; // Pobranie aktualnie otwartego popupu
+    if (!popupContent) return; // Sprawdzenie, czy popupContent istnieje
+
+    function adjustPopupSize() {
+        let zoomLevel = map.getZoom(); // Pobranie aktualnego zoomu
+
+        if (zoomLevel > 12) {
+            popupContent.style.maxWidth = "80vw"; // Duży popup przy dużym zoomie
+        } else if (zoomLevel > 9) {
+            popupContent.style.maxWidth = "60vw"; // Średni zoom
+        } else {
+            popupContent.style.maxWidth = "40vw"; // Mały popup przy oddaleniu
         }
-    });
-}
-
-// 🔹 Funkcja podświetlająca marker (zmienia ikonę na większą na chwilę)
-function highlightMarker(match) {
-    const originalIcon = match.marker.options.icon;
-    
-    const highlightIcon = L.icon({
-        iconUrl: "/ikony/highlight.png", // Dodaj specjalną ikonę podświetlenia
-        iconSize: [50, 50], 
-        iconAnchor: [25, 25],
-        popupAnchor: [0, -25]
-    });
-
-    match.marker.setIcon(highlightIcon);
-
-    setTimeout(() => {
-        match.marker.setIcon(originalIcon);
-    }, 1500);
-    async function initializeMap() {
-    console.log("🚀 Funkcja initializeMap uruchomiona!");
-
-    // Sprawdzamy, czy mapa już istnieje
-    if (!window.map) {
-        console.error("❌ Mapa nie została wcześniej zainicjalizowana! Przerywam działanie.");
-        return;
     }
 
-    const markerCluster = L.markerClusterGroup({
-        showCoverageOnHover: false,
-        maxClusterRadius: 50,
-    });
+    adjustPopupSize(); // Ustawienie szerokości przy otwarciu
 
-    await Promise.all([
-        loadMarkers(urls.kempingi, icons.kempingi, false, markerCluster),
-        loadMarkers(urls.polanamiotowe, icons.polanamiotowe, false, markerCluster),
-        loadMarkers(urls.kempingiopen, icons.kempingiopen, false, markerCluster),
-        loadMarkers(urls.polanamiotoweopen, icons.polanamiotoweopen, false, markerCluster),
-        loadMarkers(urls.parkingilesne, icons.parkingilesne, true, markerCluster),
-        loadMarkers(urls.kempingi1, icons.kempingi1, false, markerCluster),
-        loadMarkers(urls.miejscenabiwak, icons.miejscenabiwak, true, markerCluster),
-        loadMarkers(urls.europa, icons.kempingi, false, markerCluster),
-        loadMarkers(urls.AtrakcjeKulturowe, icons.atractionCultural, true, markerCluster),
-        loadMarkers(urls.AtrakcjePrzyrodnicze, icons.atractionNature, true, markerCluster),
-        loadMarkers(urls.AtrakcjeRozrywka, icons.atractionFun, true, markerCluster),
-    ]);
+    // 🔹 Aktualizacja szerokości popupu po każdej zmianie zoomu
+    map.on("zoomend", adjustPopupSize);
+});
+// Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
+document.addEventListener("copy", (event) => {
+  event.preventDefault();
+  alert("Kopiowanie jest zablokowane!");
+});
+document.addEventListener("cut", (event) => {
+  event.preventDefault();
+  alert("Wycinanie jest zablokowane!");
+});
+document.addEventListener("paste", (event) => {
+  event.preventDefault();
+});
+document.addEventListener("selectstart", (event) => {
+  event.preventDefault();
+});
+document.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+});
 
-    window.map.addLayer(markerCluster);
+// Blokowanie długiego dotknięcia na iPhone i Android
+document.addEventListener("touchstart", function (event) {
+  if (event.target.closest(".leaflet-popup-content")) {
+    event.preventDefault();
+  }
+}, { passive: false });
 
-    initializeSearch();
-    await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
-}
+  
+    </script>
 
-// 🔹 Wywołanie funkcji w `async` IIFE
-(async () => {
-  await initializeMap();
-})();
+
 
    
 
@@ -873,89 +588,6 @@ function highlightMarker(match) {
    
 
 <script src="image-loader.js"></script>
-
-<!-- 🔹 Panel wysuwanego popupu -->
-<div id="custom-popup">
-  <span id="close-popup">&times;</span> <!-- Przycisk zamknięcia -->
-  <div id="custom-popup-content"></div> <!-- Tu będą treści -->
-</div>
-
- 
-
-
-
-<!-- 🔹 Przycisk do otwierania filtrów -->
-
-<!-- 🔹 Panel filtrów -->
-<div id="filter-panel" style="display: none;">
-  <h3 style="text-align:center; font-size: 16px; margin-bottom: 10px;">Filtry</h3>
-
-  <div class="filter-group">
-      <img src="ikony/Ikona_Kempingi.png" alt="Camping">
-      <label>
-          <span>Camping</span>
-          <input type="checkbox" class="filter-checkbox" id="camping-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-  <div class="filter-group">
-      <img src="ikony/Ikona_Pole_Namiotowe.png" alt="Pole Namiotowe">
-      <label>
-          <span>Pole Namiotowe</span>
-          <input type="checkbox" class="filter-checkbox" id="pola-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-  <div class="filter-group">
-      <img src="ikony/Ikona_Parking_Leśny.png" alt="Parkingi Leśne">
-      <label>
-          <span>Parkingi Leśne</span>
-          <input type="checkbox" class="filter-checkbox" id="parking-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-  <div class="filter-group">
-      <img src="ikony/Ikona_Miejsce_Biwakowe.png" alt="Miejsce na dziko/biwak">
-      <label>
-          <span>Miejsce na dziko</span>
-          <input type="checkbox" class="filter-checkbox" id="biwak-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-  <div class="filter-group">
-      <img src="ikony/atractionCultural.png" alt="Atrakcje Kulturowe">
-      <label>
-          <span>Atrakcje Kulturowe</span>
-          <input type="checkbox" class="filter-checkbox" id="kulturowe-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-  <div class="filter-group">
-      <img src="ikony/atractionNatural.png" alt="Atrakcje Przyrodnicze">
-      <label>
-          <span>Atrakcje Przyrodnicze</span>
-          <input type="checkbox" class="filter-checkbox" id="przyrodnicze-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-  <div class="filter-group">
-      <img src="ikony/atractionFun.png" alt="Atrakcje Rozrywka">
-      <label>
-          <span>Atrakcje Rozrywka</span>
-          <input type="checkbox" class="filter-checkbox" id="rozrywka-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-  
-
-<script src="filters.js" defer></script>
-
 
 
   </body>
