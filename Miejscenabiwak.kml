@@ -1,0 +1,6836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Miejsce na biwak</name>
+    <Style id="icon-1899-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>Sowia Góra</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: https://www.facebook.com/groups/1055351639208886/permalink/1056321205778596/]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value>https://www.facebook.com/groups/1055351639208886/permalink/1056321205778596/</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.985271,52.34177,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiślinka</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: FREE Miejsce na Biwak/Nocleg Rzeka,Spokój,Natura]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value>FREE Miejsce na Biwak/Nocleg Rzeka,Spokój,Natura</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.791734,54.344988,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Plaża Stelchno</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: Toalety, Stoły/Wiata, W okresie letnim czynny bar są dmuchańce dla dzieci ale to wszystko na plaży]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value>Toalety, Stoły/Wiata, W okresie letnim czynny bar są dmuchańce dla dzieci ale to wszystko na plaży</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.476075,53.529492,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Sucha Polana</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Biwak_Sucha_Polana<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Biwak_Sucha_Polana
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.050858,49.783166,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe Cicha Soblówka</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Pole_Biwakowe_Cicha_Soblowka<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Pole_Biwakowe_Cicha_Soblowka
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.144553,49.461693,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowania</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.909073,52.989277,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowania Strychy</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: Miejsce_Na_Biwak<br>description: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Miejsce_Biwakowania_Strychy<br>Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value>Miejsce_Na_Biwak</value>
+        </Data>
+        <Data name="description">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?Miejsce_Biwakowania_Strychy
+Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.82821,52.58701,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Pole Biwakowe "Wiaty"]]></name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.4816923,53.5929842,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe w Piławie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: Opłata 15 zł od osoby .  Dostępna Woda do mycia naczyń.. Dwa pomosty, Woda w jeziorze czysta. Miejsca na ognisko. ToiToi]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value>Opłata 15 zł od osoby .  Dostępna Woda do mycia naczyń.. Dwa pomosty, Woda w jeziorze czysta. Miejsca na ognisko. ToiToi</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.4776326,53.6168589,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Oseczno</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.9555433,53.0063267,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Piknik nad Osławą</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.2655793,49.5237922,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe Janicze</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.2357866,49.7391687,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe na szlaku kajakowym Wilgi</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.4288153,51.8590049,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Teren biwakowy-Wiata widokowa w Obiszowie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.1125529,51.5718944,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce ogniskowe, wiaty i parking</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.4379266,50.3216527,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe kapielisko Karłów ul. Wesola</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.2852885,51.5090384,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.5904532,53.5380005,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.8381144,52.8430927,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Biwakowe Nadleśnictwa z dziką plażą</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.8566617,52.9668687,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.523769,53.4612369,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.1549333,53.159305,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe j. Chomiąskie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.8238502,52.7706916,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe, ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.987979,51.1492413,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.0799886,52.5084208,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Siśtang</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.6901239,50.7765279,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata biwakowa „Kajakarnia”</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.0478526,52.3240864,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Zagłębocze</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.0251307,51.4349116,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.299788,53.906793,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe Narwiańskiego Parku Narodowego</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: Phone: +48 85 7181417<br> Website:]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value>Phone: +48 85 7181417
+ Website:</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.7974005,53.1047261,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe Zalewy Nadarzyckie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?pole_biwakowe_zalewy_nadarzyckie<br>     Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj<br>     Opis: <br>     Phone: +48 509 115 115<br>     Website:]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value>Dodaj zdjęcie lub komentarz o tym miejscu: http://campteam.pl/dodaj_zdjecie?pole_biwakowe_zalewy_nadarzyckie
+     Dodaj nowe miejsce do mapy grupy CampTeam: www.campteam.pl/dodaj
+     Opis: 
+     Phone: +48 509 115 115
+     Website:</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.4935457,53.4844706,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Polana</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.9066667,53.7144444,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dzikie pole namiotowe im. św. Jana Gawła II</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.3200669,53.8752878,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Leśne Pole Biwakowe "Tarnów"]]></name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.9882299,51.8544437,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.3318808,53.7810969,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.4103522,53.814165,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole namiotowe Dolina Bystrego</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.449044,50.2838611,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.8719187,54.047266,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.6221629,54.047203,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe z miejscem na ognisko.</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.5465635,53.9854028,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku - biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.228847,50.820798,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Teren biwakowy-Wiata widokowa w Obiszowie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.112553,51.571894,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.883562,50.03386,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na ognisko i biwak.</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.038436,50.194758,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>miejsce ogniskowe / biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.138027,49.426064,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Sucha Polana</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.050858,49.783166,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.838114,52.843093,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe z altanką</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.786763,49.704678,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.750108,50.217668,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Miejsce Biwakowania "Dawne Domki"]]></name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.35279,51.045848,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowania</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.909073,52.989277,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe nad Drwęcą</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.850384,53.067254,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe, ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.987979,51.149241,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.771725,49.81331,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak w Bystrej</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.047105,49.760149,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe na szlaku kajakowym Wilgi</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.428815,51.859005,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Pod Sosnami</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.874198,53.796669,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Siśtang</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.690124,50.776528,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Biwak "Radoszowy"]]></name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.937032,50.234917,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>BIWAK Wilcza Wola</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.937004,50.327069,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak za Szkołą</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.184278,54.063361,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata i miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.647311,52.924488,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata - Miejsce na biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.522537,52.917252,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak leśny</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.10746,52.552679,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.079989,52.508421,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.411062,53.605688,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Leśne Miejsce Biwakowania Okno</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.251912,52.942684,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowania</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.871495,52.626859,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Złotniczki Jez. Jerzyńskie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.246884,52.492434,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsca biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.217644,53.892905,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Przyjazne Rowerzystom</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.834835,53.766034,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Zagłębocze</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.025131,51.434912,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak im. sierż. Grzegorza Załogi</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.492382,50.406055,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.838114,52.843093,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak/Rastplatz</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.348464,53.643883,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Jamrozówka - biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.496784,50.941841,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejscówka na Dziko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.815633,52.144698,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kupolandia - przystań na dziko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.745645,53.949965,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping na dziko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.735482,53.73381,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Przy lesie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.661568,53.616409,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.742359,52.314618,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe w Hańczowej</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.155194,49.458944,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe w Bielance</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.116903,49.607162,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowe i parking</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.859408,49.781649,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe przy wodospadzie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.220223,49.512695,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.02018,49.457154,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.63383,50.244539,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowania</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.84864,52.415254,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata biwakowa „Kajakarnia”</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.047853,52.324086,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Łowisko,miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.766722,52.945906,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku - biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.228847,50.820798,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Teren biwakowy-Wiata widokowa w Obiszowie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.112553,51.571894,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.883562,50.03386,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na ognisko i biwak.</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.038436,50.194758,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Sucha Polana</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.050858,49.783166,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.838114,52.843093,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>miejsce ogniskowe / biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.138027,49.426064,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe z altanką</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.786763,49.704678,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.750108,50.217668,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Miejsce Biwakowania "Dawne Domki"]]></name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.35279,51.045848,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowania</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.909073,52.989277,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe nad Drwęcą</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.850384,53.067254,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe, ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.987979,51.149241,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.771725,49.81331,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak w Bystrej</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.047105,49.760149,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe na szlaku kajakowym Wilgi</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.428815,51.859005,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Pod Sosnami</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.874198,53.796669,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Siśtang</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.690124,50.776528,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Biwak "Radoszowy"]]></name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.937032,50.234917,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>BIWAK Wilcza Wola</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.937004,50.327069,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe / namiotowe MOKOSZ</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.058974,54.242956,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak za Szkołą</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.184278,54.063361,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata i miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.647311,52.924488,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata - Miejsce na biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.522537,52.917252,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak leśny</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.10746,52.552679,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.079989,52.508421,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.411062,53.605688,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Leśne Miejsce Biwakowania Okno</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.251912,52.942684,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowania</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.871495,52.626859,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Złotniczki Jez. Jerzyńskie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.246884,52.492434,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Lednica</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.379579,52.556157,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsca biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.217644,53.892905,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Przyjazne Rowerzystom</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.834835,53.766034,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak Zagłębocze</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.025131,51.434912,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak im. sierż. Grzegorza Załogi</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.492382,50.406055,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.838114,52.843093,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak/Rastplatz</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.348464,53.643883,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Jamrozówka - biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.496784,50.941841,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejscówka na Dziko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.815633,52.144698,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kupolandia - przystań na dziko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.745645,53.949965,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camping na dziko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.735482,53.73381,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Przy lesie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.661568,53.616409,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.742359,52.314618,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe w Hańczowej</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.155194,49.458944,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe w Bielance</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.116903,49.607162,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowe i parking</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.859408,49.781649,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe przy wodospadzie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.220223,49.512695,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.02018,49.457154,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.63383,50.244539,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowania</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.84864,52.415254,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata biwakowa „Kajakarnia”</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.047853,52.324086,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Łowisko,miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.766722,52.945906,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata,miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.823186,52.903786,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Parking leśny, wiata, miejsce biwakowe,informacja</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.914611,52.81537,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata i miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.955647,52.948434,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Parking leśny, wiata, miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.682026,52.888052,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Parking leśny, wiata, miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.664196,52.935955,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Leśna plaża, i pole namiotowe. Jezioro Niegocin. Płatne</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.794244,53.974149,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce ogniskowe, wiaty i parking</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.437927,50.321653,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Polana Oberówka - Miejsce Biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.088638,49.57938,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.054945,53.951648,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Biwakowe dla Kajakarzy nad Iną</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.906377,53.43535,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Polana i wiaty</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.92787,53.657052,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.054945,53.951648,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ujście rzeki Iławka</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.682959,53.529193,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Leśne miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.273987,52.907446,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Parking, Pole Namiotowe, Biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.659578,51.255588,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.530348,51.538489,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe Janicze</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.235787,49.739169,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Parking, Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.861218,49.497418,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Polana Trusiówka - miejsce biwakowe i parking</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.222178,49.583732,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe Szczawa Wiatrówki</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.238247,49.607407,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.162823,49.491085,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>miejsce ogniskowe / biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.138027,49.426064,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowania</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.068432,49.772248,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.144553,49.461693,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.771725,49.81331,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.979293,51.074434,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.772766,49.971781,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Parking leśny, wiata, miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.681912,52.850585,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.674027,54.228931,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe, wiaty</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.303144,54.287943,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.687243,54.365362,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Plac Biwakowy - Miejsce Na Ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.84256,54.578962,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce postoju / rekreacyjne</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.915502,54.588303,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Pole Biwakowe "Zdunowice 1" / Jezioro Sumino]]></name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.774637,54.169939,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Biwakowe Jezioro Dywańskie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.669452,54.03662,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Pole Biwakowe "Wiaty"]]></name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.481692,53.592984,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.749599,53.068502,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Leśne miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.372286,52.983585,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe nad jeziorem Łubowo</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.8883,52.890097,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.287608,53.19292,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowania Leśnictwo Jaźwiny</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.910696,53.162514,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowania Dolmel</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.865512,53.392047,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowania</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.909073,52.989277,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe, ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.987979,51.149241,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe, ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.987979,51.149241,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.054945,53.951648,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe Ginawa</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.683178,53.506369,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.590453,53.538,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.712588,53.296548,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Gminne pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.790848,53.391988,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe nad Drwęcą</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.850384,53.067254,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Gminne miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.107212,53.830315,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.771725,49.81331,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.742359,52.314618,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowe Przesmyk</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.907477,53.017061,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.07952,52.682853,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe z altanką</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.786763,49.704678,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>miejsce ogniskowe / biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.138027,49.426064,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowania przy zielonym szlaku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.127482,49.419918,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.443513,49.671666,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.771725,49.81331,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.771725,49.81331,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.054945,53.951648,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata i miejsce biwakowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.299618,53.21968,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.894603,50.327871,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Na Ognisko Miejsce Wypoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.366002,49.605399,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.426329,53.745542,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na ognisko/ publiczne palenisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.043415,52.235398,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na Ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.384649,52.054325,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.136911,51.537612,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.496601,54.324872,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.389997,54.511213,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.257062,51.611562,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku, piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.002315,52.173967,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.419134,52.362167,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.131009,52.253693,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.144494,51.61198,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.964595,51.513694,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.49648,52.564815,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.423129,52.677159,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku/ miejsce pamięci</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.43569,52.663849,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.634346,54.128177,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku, Drewniana wiata</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.425092,50.059294,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.990996,50.258577,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku, wiata</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.284967,53.594168,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.794357,54.226233,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.046941,54.403412,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Odpoczynku Turystów</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.817289,53.395151,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.762339,53.354968,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku w lesie nad jeziorem</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.364424,53.737829,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynkowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.794094,49.552758,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku. Drewniana ława.</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.214615,49.41816,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.038539,49.466707,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.011645,49.463358,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.401348,50.030861,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.632033,50.084347,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Altana piknikowa z miejscem na ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.96977,49.777936,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.660585,49.753157,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Brzezowa - Diabelski Kamień</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.069554,49.852028,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.619022,49.585651,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.470541,51.841523,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.470541,51.841523,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata i miejsce na ognisko w Lesie Wiączyńskim</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.656576,51.767155,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Teren piknikowy</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.488143,51.82395,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Uroczysko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.490356,51.824304,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.789138,51.095017,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>miejsce piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.547303,50.573508,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.058277,52.297464,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce piknikowe nad stawem</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.765383,53.088887,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.403585,53.383064,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Polana Czerwona</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.503229,53.461388,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.229473,54.138065,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Piknik nad Pisą</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.86533,53.286144,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Parking leśny, wiata</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.51883,53.694927,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.317972,51.892311,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.020921,52.049443,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Punkt piknikowy nad Sanem</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.252351,49.536608,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Szachty Miejsce Piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.868665,49.427285,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata turystyczna z grillem - kultowe miejsce</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.872649,49.451172,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.438779,50.014228,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Teren Piknikowy</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.743122,50.324647,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce grillowo- piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.929823,50.33779,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Na Piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.760535,49.454639,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.952859,50.601916,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Polana Krucze Skały - miejsce piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.769047,50.768739,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Polanka na piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.670276,50.54204,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Piknikowa Łączka, miejsce do wynajęcia na ognisko, grilla i biwak</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.733673,50.52959,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata piknikowa</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.570323,50.602826,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>miejsce piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.407488,50.857162,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>miejsce piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.8699,50.866407,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Biwak pod Radogostem</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.13503,50.998495,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata piknikowa</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.114854,51.023464,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.985252,51.036666,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce ogniskowe, grill i wypoczynek, Bałagan</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.790715,51.26022,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>miejsce piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.943956,52.457928,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata i miejsce piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.127876,51.244081,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ognisko Klasztorek</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.56939,50.291264,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Polana piknikowa</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.025099,50.232189,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce odpoczynku Słonka</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.014743,50.650268,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.087203,49.567634,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wiata turystyczna, miejsce piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.215516,52.201014,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Punkt odpoczynku Koło Mostu</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.463792,53.795738,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Leśnictwo Zielony Dwór</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.800427,54.04964,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Piknikowy Punkt Z Widokiem Na Meandry Suminy</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.401084,50.133806,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zadaszone miejsce do pikniku</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.826148,50.006734,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Piknik nad Osławą</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.265579,49.523792,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce na ognisko</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.825012,52.251161,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wypoczynek nad Warta</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.875677,52.262663,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Piknikowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.934838,52.423294,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce ogniskowe</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.507748,51.259688,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Polana rekreacyjna oraz piknikowa</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.550143,54.561455,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Piknik Jabłoniowa</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.565312,54.331776,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Piknik</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.527651,54.294504,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>miejsce do grillowania Wyspowo</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.30227,54.562428,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce wypoczynku Młynki</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.288784,54.575056,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Miejsce Piknikowe Krępa-Glażna</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.043178,54.417882,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Polana ogniskowa</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          14.469451,53.481425,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa Czartoria</name>
+      <description><![CDATA[opis: Pkt1. Nazwa lokalizacji: Wieża widokowa w Czartorii<br><br>Pkt2. Opis: Urokliwa wieża położona przy czerwonym szlaku rowerowym gminy Miączyn, otoczona malowniczymi polami i lasami. Posiada dwa poziomy widokowe. W pobliżu znajduje się zadaszona wiata z ławkami, grillem i narzędziami do drobnego serwisu rowerowego. Idealne miejsce na odpoczynek, szczególnie dla rowerzystów.<br><br>Pkt3. Adres: brak informacji<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon: brak informacji<br><br>Pkt6. Strona internetowa: brak informacji<br><br>Pkt7. Czy dostęp jest płatny: brak informacji<br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value>Pkt1. Nazwa lokalizacji: Wieża widokowa w Czartorii
+
+Pkt2. Opis: Urokliwa wieża położona przy czerwonym szlaku rowerowym gminy Miączyn, otoczona malowniczymi polami i lasami. Posiada dwa poziomy widokowe. W pobliżu znajduje się zadaszona wiata z ławkami, grillem i narzędziami do drobnego serwisu rowerowego. Idealne miejsce na odpoczynek, szczególnie dla rowerzystów.
+
+Pkt3. Adres: brak informacji
+
+Pkt4. Godziny otwarcia: Czynne całą dobę
+
+Pkt5. Telefon: brak informacji
+
+Pkt6. Strona internetowa: brak informacji
+
+Pkt7. Czy dostęp jest płatny: brak informacji</value>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.575492,50.773307,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa Borowa Góra</name>
+      <description><![CDATA[opis: kt1. Nazwa lokalizacji: Wieża widokowa na Borowej Górze<br><br>Pkt2. Opis: Wieża widokowa oddalona o około 1,5 km od drogi głównej, dostępna samochodem od strony Baszni Dolnej utwardzoną drogą. Oferuje piękne widoki na pola, lasy oraz miasto w oddali, szczególnie urokliwe w czasie kwitnienia rzepaku. Popularne miejsce na krótki postój podczas wycieczek rowerowych lub motocyklowych.<br><br>Pkt3. Adres: 566C+C7, Basznia Dolna<br><br>Pkt4. Godziny otwarcia: Czynne całą dobę<br><br>Pkt5. Telefon: brak informacji<br><br>Pkt6. Strona internetowa: brak informacji<br><br>Pkt7. Czy dostęp jest płatny: brak informacji<br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value>kt1. Nazwa lokalizacji: Wieża widokowa na Borowej Górze
+
+Pkt2. Opis: Wieża widokowa oddalona o około 1,5 km od drogi głównej, dostępna samochodem od strony Baszni Dolnej utwardzoną drogą. Oferuje piękne widoki na pola, lasy oraz miasto w oddali, szczególnie urokliwe w czasie kwitnienia rzepaku. Popularne miejsce na krótki postój podczas wycieczek rowerowych lub motocyklowych.
+
+Pkt3. Adres: 566C+C7, Basznia Dolna
+
+Pkt4. Godziny otwarcia: Czynne całą dobę
+
+Pkt5. Telefon: brak informacji
+
+Pkt6. Strona internetowa: brak informacji
+
+Pkt7. Czy dostęp jest płatny: brak informacji</value>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.220728,50.161096,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kaszubska Wieża Widokowa</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.123432,54.223515,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Taras Widokowy</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.839642,53.554214,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.512223,49.888865,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa na Wielkiej Sowie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.485703,50.680319,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża Widokowa Joanna</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          15.950019,51.92203,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Punkt widokowy Łężeczki Sierakowskiego Parku Krajobrazowego</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.21474,52.601604,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Punkt widokowy Sowia Góra</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.98979,52.341285,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Punkt widokowy Kanał Szczuczy</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.271045,54.354446,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.356976,54.682947,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Punkt Widokowy Góra Markowca Rumia</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.383063,54.564827,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Punkt widokowy</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.327794,53.854257,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża obserwacyjna w Tuczkach</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.953256,53.344018,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Leśna wiata turystyczna</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.545791,51.56437,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Funzeum</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.71544,50.267139,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa Krynica-Zdrój</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.925502,49.430578,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa w Wiśle Małej</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.808219,49.934166,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zamek Tenczyn w Rudnie</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.581197,50.102526,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wieża widokowa we Wdzydzach Kiszewskich</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.920963,54.013065,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Stanica Nowa Brda</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.2032367,53.8774466,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Stanica Wodna Przyton /Folbryk /</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.1931958,53.8406276,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole biwakowe 4b</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.9152617,53.8806799,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Altanka na Klimce (pole namiotowe, kajaki, ogniska)</name>
+      <description><![CDATA[opis: <br>Miejsce na biwak: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="opis">
+          <value/>
+        </Data>
+        <Data name="Miejsce na biwak">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.6140678,50.4862859,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

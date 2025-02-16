@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Pola namiotowe/biwakowe - polecone przez Grupowiczów CampTeam</name>
+    <Style id="icon-1899-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>Sosenka Leśne pole biwakowe</name>
+      <description><![CDATA[Opis:: Leśne pole biwakowe - Sosenka znajduje się w malowniczej lokalizacji, w otoczeniu lasu sosnowego, nad brzegiem jeziora. To miejsce oferuje ciszę i spokój, z dala od miejskiego zgiełku, idealne dla osób pragnących kontaktu z naturą. Znajdujące się nad jeziorem pomosty są doskonałe do wędkowania i wypoczynku. Teren jest przestronny, co pozwala na komfortowe rozbicie namiotu lub postój kampera. Lokalizacja sprzyja pieszym i rowerowym wędrówkom oraz wodnym aktywnościom.<br>phone: +48 664 048 017<br>Udogodnienia:: Toalety (nr: 1)<br>Dostęp do wody ze studni (nr: 6)<br>Pomosty (nowe udogodnienie)<br>Wynajem rowerów (nr: 15)<br>Kajaki (nr: 14)<br>Miejsce na ognisko (nr: 4)<br>Kosze na śmieci (nr: 8)<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>Leśne pole biwakowe - Sosenka znajduje się w malowniczej lokalizacji, w otoczeniu lasu sosnowego, nad brzegiem jeziora. To miejsce oferuje ciszę i spokój, z dala od miejskiego zgiełku, idealne dla osób pragnących kontaktu z naturą. Znajdujące się nad jeziorem pomosty są doskonałe do wędkowania i wypoczynku. Teren jest przestronny, co pozwala na komfortowe rozbicie namiotu lub postój kampera. Lokalizacja sprzyja pieszym i rowerowym wędrówkom oraz wodnym aktywnościom.</value>
+        </Data>
+        <Data name="phone">
+          <value>+48 664 048 017</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety (nr: 1)
+Dostęp do wody ze studni (nr: 6)
+Pomosty (nowe udogodnienie)
+Wynajem rowerów (nr: 15)
+Kajaki (nr: 14)
+Miejsce na ognisko (nr: 4)
+Kosze na śmieci (nr: 8)</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.003043,51.90947,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Namiotowe/Kempingowe U Sikory</name>
+      <description><![CDATA[Opis:: Pole kempingowe "U Sikory" położone jest nad malowniczym Jeziorem Licheńskim w województwie wielkopolskim, z widokiem na Bazylikę w Licheniu. Otoczenie pola charakteryzuje się cichą i spokojną atmosferą, sprzyjającą wypoczynkowi na łonie natury. Teren jest zalesiony, co zapewnia cień i komfort w gorące dni, a bezpośredni dostęp do plaży oraz dwa pomosty dodają uroku. Kemping jest popularnym miejscem dla rodzin z dziećmi, par oraz miłośników aktywnego wypoczynku, oferując wiele atrakcji zarówno na wodzie, jak i na lądzie.<br>phone: +48 691122582<br>Udogodnienia:: Toalety nr: 1<br>Prysznice nr: 2<br>Bar nr: 16<br>Pralnia nr: 21<br>Pomost nr: 13<br>Dostęp do prądu nr: 5<br>Dostęp do wody pitnej nr: 6<br>Altana nr: 3<br>Gry i zabawy dla dzieci<br>Wynajem kajaków i rowerów wodnych<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value><![CDATA[Pole kempingowe "U Sikory" położone jest nad malowniczym Jeziorem Licheńskim w województwie wielkopolskim, z widokiem na Bazylikę w Licheniu. Otoczenie pola charakteryzuje się cichą i spokojną atmosferą, sprzyjającą wypoczynkowi na łonie natury. Teren jest zalesiony, co zapewnia cień i komfort w gorące dni, a bezpośredni dostęp do plaży oraz dwa pomosty dodają uroku. Kemping jest popularnym miejscem dla rodzin z dziećmi, par oraz miłośników aktywnego wypoczynku, oferując wiele atrakcji zarówno na wodzie, jak i na lądzie.]]></value>
+        </Data>
+        <Data name="phone">
+          <value>+48 691122582</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety nr: 1
+Prysznice nr: 2
+Bar nr: 16
+Pralnia nr: 21
+Pomost nr: 13
+Dostęp do prądu nr: 5
+Dostęp do wody pitnej nr: 6
+Altana nr: 3
+Gry i zabawy dla dzieci
+Wynajem kajaków i rowerów wodnych</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.347476,52.334566,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Ostoja Leśna Pod Sosnami</name>
+      <description><![CDATA[Opis:: Ostoja Leśna Pod Sosnami to malowniczy kemping położony w sercu lasu na Roztoczu, w otoczeniu natury i spokoju. Bliskość rzeki Sanna umożliwia spływy kajakowe, a okolica zachęca do rowerowych i pieszych wędrówek. Miejsce jest szczególnie przyjazne rodzinom z dziećmi, oferując liczne atrakcje, w tym leśny plac zabaw i kontakt z naturą, np. królikami. To idealna przestrzeń dla osób szukających odpoczynku od miejskiego zgiełku, z możliwością relaksu w ciszy i harmonii z przyrodą.<br>phone: +48793139274<br>Udogodnienia:: Toalety nr: 1<br>Prysznice nr: 2<br>Dostęp do prądu nr: 5<br>Dostęp do wody pitnej nr: 6<br>Kosze na śmieci nr: 8<br>Miejsce na ognisko nr: 4<br>Altana nr: 3<br>Plac zabaw <br>Zraszacze <br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>Ostoja Leśna Pod Sosnami to malowniczy kemping położony w sercu lasu na Roztoczu, w otoczeniu natury i spokoju. Bliskość rzeki Sanna umożliwia spływy kajakowe, a okolica zachęca do rowerowych i pieszych wędrówek. Miejsce jest szczególnie przyjazne rodzinom z dziećmi, oferując liczne atrakcje, w tym leśny plac zabaw i kontakt z naturą, np. królikami. To idealna przestrzeń dla osób szukających odpoczynku od miejskiego zgiełku, z możliwością relaksu w ciszy i harmonii z przyrodą.</value>
+        </Data>
+        <Data name="phone">
+          <value>+48793139274</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety nr: 1
+Prysznice nr: 2
+Dostęp do prądu nr: 5
+Dostęp do wody pitnej nr: 6
+Kosze na śmieci nr: 8
+Miejsce na ognisko nr: 4
+Altana nr: 3
+Plac zabaw 
+Zraszacze </value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.064007,50.757692,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>U Beaty</name>
+      <description><![CDATA[Opis:: Pensjonat "U Beaty" znajduje się w malowniczej mazurskiej miejscowości, w sąsiedztwie Jeziora Juksty. To miejsce otoczone jest ciszą, spokojem oraz pięknem przyrody, idealne na relaks z dala od miejskiego zgiełku. Pensjonat oferuje bezpośredni dostęp do jeziora, a w promieniu krótkiego spaceru znajdują się zarówno plaża miejska, jak i prywatna z możliwością korzystania z łódek i rowerów wodnych. Goście mogą cieszyć się widokami, czystym powietrzem oraz spokojną atmosferą, która sprzyja odpoczynkowi i rekreacji.<br>phone: 694902413<br>Udogodnienia:: Toalety nr: 1<br>Prysznice nr: 2<br>Grill nr: 10<br>Altana nr: 3<br>Dostęp do wody pitnej nr: 6<br>Dostęp do jeziora<br>Wypożyczalnia sprzętu wodnego<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value><![CDATA[Pensjonat "U Beaty" znajduje się w malowniczej mazurskiej miejscowości, w sąsiedztwie Jeziora Juksty. To miejsce otoczone jest ciszą, spokojem oraz pięknem przyrody, idealne na relaks z dala od miejskiego zgiełku. Pensjonat oferuje bezpośredni dostęp do jeziora, a w promieniu krótkiego spaceru znajdują się zarówno plaża miejska, jak i prywatna z możliwością korzystania z łódek i rowerów wodnych. Goście mogą cieszyć się widokami, czystym powietrzem oraz spokojną atmosferą, która sprzyja odpoczynkowi i rekreacji.]]></value>
+        </Data>
+        <Data name="phone">
+          <value>694902413</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety nr: 1
+Prysznice nr: 2
+Grill nr: 10
+Altana nr: 3
+Dostęp do wody pitnej nr: 6
+Dostęp do jeziora
+Wypożyczalnia sprzętu wodnego</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          21.365324,53.855326,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Błyskawica</name>
+      <description><![CDATA[Opis:: Pole namiotowe Błyskawica znajduje się nad czystym jeziorem Serwy, w otoczeniu pachnącego lasu, co zapewnia ciszę i spokój. Teren oferuje łagodne zejścia do wody, pomost, a także możliwość biwakowania wśród drzew. Miejsce jest idealne dla miłośników natury, oferując malownicze widoki i dostęp do jeziora z krystalicznie czystą wodą. Właściciele są sympatyczni i pomocni, a atmosfera zachęca do relaksu w harmonii z przyrodą.<br>phone: 794 685 553<br>Udogodnienia:: Toalety typu Toi Toi nr: 1<br>Dostęp do prądu nr: 5<br>Dostęp do wody nr: 12<br>Pomost nr: 13<br>Kajaki nr: 14<br>Miejsce na ognisko nr: 4<br>Kosze na śmieci nr: 8<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>Pole namiotowe Błyskawica znajduje się nad czystym jeziorem Serwy, w otoczeniu pachnącego lasu, co zapewnia ciszę i spokój. Teren oferuje łagodne zejścia do wody, pomost, a także możliwość biwakowania wśród drzew. Miejsce jest idealne dla miłośników natury, oferując malownicze widoki i dostęp do jeziora z krystalicznie czystą wodą. Właściciele są sympatyczni i pomocni, a atmosfera zachęca do relaksu w harmonii z przyrodą.</value>
+        </Data>
+        <Data name="phone">
+          <value>794 685 553</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety typu Toi Toi nr: 1
+Dostęp do prądu nr: 5
+Dostęp do wody nr: 12
+Pomost nr: 13
+Kajaki nr: 14
+Miejsce na ognisko nr: 4
+Kosze na śmieci nr: 8</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.218098,53.907469,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Kempingowe Namiotowe Szwecja Przy Białej Kładce</name>
+      <description><![CDATA[Opis:: Pole Kempingowe, Namiotowe Szwecja - Przy Białej Kładce znajduje się w malowniczej miejscowości Szwecja w województwie zachodniopomorskim, tuż nad brzegiem rzeki Piława. Otoczone piękną zielenią, to idealne miejsce dla miłośników natury, spływów kajakowych i wypoczynku na łonie przyrody. Rzeka, czysta i płytka, zapewnia zarówno relaksujące widoki, jak i możliwość aktywnego spędzenia czasu. Teren kempingu jest przestronny, zadbany i zapewnia ciszę oraz prywatność dla odwiedzających.<br>phone: +48696458539<br>Udogodnienia:: Toalety nr: 1<br>Prysznice nr: 2<br>Wiata nr: 3<br>Miejsce na ognisko nr: 4<br>Dostęp do prądu nr: 5<br>Dostęp do wody pitnej nr: 6<br>Kosze na śmieci nr: 8<br>Stół piknikowy nr: 9<br>Grill nr: 10<br>Parking dla rowerów nr: 11<br>Dostęp do wody nr: 12<br>Kajaki nr: 14<br>Oświetlenie nr: 18<br>Obsługa kampera nr: 20<br>Pralnia<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>Pole Kempingowe, Namiotowe Szwecja - Przy Białej Kładce znajduje się w malowniczej miejscowości Szwecja w województwie zachodniopomorskim, tuż nad brzegiem rzeki Piława. Otoczone piękną zielenią, to idealne miejsce dla miłośników natury, spływów kajakowych i wypoczynku na łonie przyrody. Rzeka, czysta i płytka, zapewnia zarówno relaksujące widoki, jak i możliwość aktywnego spędzenia czasu. Teren kempingu jest przestronny, zadbany i zapewnia ciszę oraz prywatność dla odwiedzających.</value>
+        </Data>
+        <Data name="phone">
+          <value>+48696458539</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety nr: 1
+Prysznice nr: 2
+Wiata nr: 3
+Miejsce na ognisko nr: 4
+Dostęp do prądu nr: 5
+Dostęp do wody pitnej nr: 6
+Kosze na śmieci nr: 8
+Stół piknikowy nr: 9
+Grill nr: 10
+Parking dla rowerów nr: 11
+Dostęp do wody nr: 12
+Kajaki nr: 14
+Oświetlenie nr: 18
+Obsługa kampera nr: 20
+Pralnia</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.572733,53.342947,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole namiotowe u Gosi i Michała</name>
+      <description><![CDATA[Opis:: Pole namiotowe u Gosi i Michała to kameralne miejsce położone w malowniczej okolicy nad rzeką Brdą, w otoczeniu gęstych lasów i pobliskich jezior. To spokojna przystań dla miłośników natury, gdzie cisza i śpiew ptaków wypełniają dni. Pole oferuje bezpośredni dostęp do rzeki, co czyni je idealnym miejscem dla wędkarzy i osób poszukujących bliskości natury. Gospodarze, znani z życzliwości i gościnności, zapewniają domową atmosferę, co sprawia, że każdy gość czuje się mile widziany.<br>phone: +48662322956<br>Udogodnienia:: Toalety (nr 1)<br>Prysznice (nr 2)<br>Grill (nr 10)<br>Stoły piknikowe (nr 9)<br>Dostęp do prądu (nr 5)<br>Miejsce na ognisko (nr 4)<br>Przyjazne dla zwierząt (nr 6)<br>Kuchnia<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>Pole namiotowe u Gosi i Michała to kameralne miejsce położone w malowniczej okolicy nad rzeką Brdą, w otoczeniu gęstych lasów i pobliskich jezior. To spokojna przystań dla miłośników natury, gdzie cisza i śpiew ptaków wypełniają dni. Pole oferuje bezpośredni dostęp do rzeki, co czyni je idealnym miejscem dla wędkarzy i osób poszukujących bliskości natury. Gospodarze, znani z życzliwości i gościnności, zapewniają domową atmosferę, co sprawia, że każdy gość czuje się mile widziany.</value>
+        </Data>
+        <Data name="phone">
+          <value>+48662322956</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety (nr 1)
+Prysznice (nr 2)
+Grill (nr 10)
+Stoły piknikowe (nr 9)
+Dostęp do prądu (nr 5)
+Miejsce na ognisko (nr 4)
+Przyjazne dla zwierząt (nr 6)
+Kuchnia</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.524781,53.876976,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wypoczynek nad Bugiem</name>
+      <description><![CDATA[Opis:: Pole biwakowe „Wypoczynek nad Bugiem” w Klepaczewie położone jest nad brzegiem rzeki Bug, w malowniczym otoczeniu sosnowych lasów i naturalnej łąki. Lokalizacja oferuje niezwykły spokój oraz kontakt z naturą. Kemping jest podzielony na strefy, w tym część nad samą rzeką oraz cichszą, położoną w lesie, co pozwala dostosować wybór miejsca do preferencji gości. Idealne miejsce na odpoczynek wśród dzikiej przyrody, z pięknymi widokami na rzekę i otaczający krajobraz.<br>phone: +48510980134<br>Udogodnienia:: Toalety (nr: 1)<br>Prysznice (nr: 2)<br>Altany (nr: 3)<br>Miejsce na ognisko (nr: 4)<br>Dostęp do prądu (nr: 5)<br>Kosze na śmieci (nr: 8)<br>Stoły piknikowe (nr: 9)<br>Grill (nr: 10)<br>Kajaki (nr: 14)<br>Oświetlenie (nr: 18)<br>Obsługa kampera (nr: 20)<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>Pole biwakowe „Wypoczynek nad Bugiem” w Klepaczewie położone jest nad brzegiem rzeki Bug, w malowniczym otoczeniu sosnowych lasów i naturalnej łąki. Lokalizacja oferuje niezwykły spokój oraz kontakt z naturą. Kemping jest podzielony na strefy, w tym część nad samą rzeką oraz cichszą, położoną w lesie, co pozwala dostosować wybór miejsca do preferencji gości. Idealne miejsce na odpoczynek wśród dzikiej przyrody, z pięknymi widokami na rzekę i otaczający krajobraz.</value>
+        </Data>
+        <Data name="phone">
+          <value>+48510980134</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety (nr: 1)
+Prysznice (nr: 2)
+Altany (nr: 3)
+Miejsce na ognisko (nr: 4)
+Dostęp do prądu (nr: 5)
+Kosze na śmieci (nr: 8)
+Stoły piknikowe (nr: 9)
+Grill (nr: 10)
+Kajaki (nr: 14)
+Oświetlenie (nr: 18)
+Obsługa kampera (nr: 20)</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          23.057046,52.303958,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Port Starych Kapitanów</name>
+      <description><![CDATA[Opis:: Port Starych Kapitanów im. Mietka Buraka Czukoczuja to wyjątkowe pole biwakowe położone w malowniczym sosnowym lesie nad brzegiem krystalicznie czystego Jeziora Kurwickiego w Wielkopolsce. Miejsce oferuje spokojne otoczenie z dala od miejskiego zgiełku, idealne dla rodzin i miłośników natury. Rozległy teren umożliwia rozbicie namiotu lub ustawienie przyczepy w cieniu drzew, zapewniając przyjemny mikroklimat nawet w upalne dni. Jezioro z łagodnym zejściem do wody i piaszczystą plażą stanowi doskonałą atrakcję dla dzieci i dorosłych.<br>phone: +48 502 220 469<br>Udogodnienia:: Toalety (nr 1)<br>Prysznice (nr 2)<br>Dostęp do prądu (nr 5)<br>Place zabaw (nr 16)<br>Bar/Restauracja (nr 16)<br>Pomost (nr 13)<br>Kajaki (nr 14)<br>Miejsce na ognisko (nr 4)<br>Kosze na śmieci (nr 8)<br>Wynajem sprzętu wodnego (kajaki, deski SUP, rowerki wodne)<br>Możliwość organizacji wspólnych ognisk<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>Port Starych Kapitanów im. Mietka Buraka Czukoczuja to wyjątkowe pole biwakowe położone w malowniczym sosnowym lesie nad brzegiem krystalicznie czystego Jeziora Kurwickiego w Wielkopolsce. Miejsce oferuje spokojne otoczenie z dala od miejskiego zgiełku, idealne dla rodzin i miłośników natury. Rozległy teren umożliwia rozbicie namiotu lub ustawienie przyczepy w cieniu drzew, zapewniając przyjemny mikroklimat nawet w upalne dni. Jezioro z łagodnym zejściem do wody i piaszczystą plażą stanowi doskonałą atrakcję dla dzieci i dorosłych.</value>
+        </Data>
+        <Data name="phone">
+          <value>+48 502 220 469</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety (nr 1)
+Prysznice (nr 2)
+Dostęp do prądu (nr 5)
+Place zabaw (nr 16)
+Bar/Restauracja (nr 16)
+Pomost (nr 13)
+Kajaki (nr 14)
+Miejsce na ognisko (nr 4)
+Kosze na śmieci (nr 8)
+Wynajem sprzętu wodnego (kajaki, deski SUP, rowerki wodne)
+Możliwość organizacji wspólnych ognisk</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.089689,52.21392,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wesoła Górka Camping Pole Namiotowe </name>
+      <description><![CDATA[Opis:: Wesoła Górka to wyjątkowe miejsce położone w sercu Bieszczadów, w miejscowości Wetlina. Otoczone górami i lasami, oferuje malownicze widoki na Połoninę Wetlińską, Caryńską i Smerek. To idealna lokalizacja dla osób szukających odpoczynku od zgiełku cywilizacji i pragnących zanurzyć się w dzikiej naturze. Dostęp do obiektu prowadzi przez malownicze ścieżki, które dodają uroku podróży. Jest to miejsce z klimatem Bieszczad, pełne spokoju, ciszy i wyjątkowej atmosfery tworzonej przez gospodarzy oraz odwiedzających.<br>phone: +48 798 912 756<br>Udogodnienia:: Toalety (nr: 1)<br>Prysznice (nr: 2)<br>Miejsce na ognisko (nr: 4)<br>Hamaki (nr: 7)<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>Wesoła Górka to wyjątkowe miejsce położone w sercu Bieszczadów, w miejscowości Wetlina. Otoczone górami i lasami, oferuje malownicze widoki na Połoninę Wetlińską, Caryńską i Smerek. To idealna lokalizacja dla osób szukających odpoczynku od zgiełku cywilizacji i pragnących zanurzyć się w dzikiej naturze. Dostęp do obiektu prowadzi przez malownicze ścieżki, które dodają uroku podróży. Jest to miejsce z klimatem Bieszczad, pełne spokoju, ciszy i wyjątkowej atmosfery tworzonej przez gospodarzy oraz odwiedzających.</value>
+        </Data>
+        <Data name="phone">
+          <value>+48 798 912 756</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety (nr: 1)
+Prysznice (nr: 2)
+Miejsce na ognisko (nr: 4)
+Hamaki (nr: 7)</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.466604,49.150867,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Campingowe Kitowscy</name>
+      <description><![CDATA[Opis:: ole Campingowe Kitowscy znajduje się w malowniczej Szwajcarii Kaszubskiej nad Jeziorem Raduńskim Dolnym. To spokojne i urokliwe miejsce otoczone naturą, idealne dla osób poszukujących wypoczynku w harmonii z przyrodą. Centralne położenie nad jeziorem oferuje dostęp do czystej wody, miejsc na ognisko, hamaków, leżaków i wyznaczonych stanowisk biwakowych. To doskonała lokalizacja dla rodzin, miłośników ciszy i amatorów aktywnego wypoczynku na wodzie.<br>phone: +48 607 053 604<br>Udogodnienia:: Toalety (nr: 1)<br>Prysznice (nr: 2)<br>Dostęp do prądu (nr: 5)<br>Dostęp do wody (nr: 12)<br>Kajaki (nr: 14)<br>Miejsce na ognisko (nr: 4)<br>Altana (nr: 3)<br>Kosze na śmieci (nr: 8)<br>Stół piknikowy (nr: 9)<br>Grill (nr: 10)<br>Hamak (nr: 7)<br>Przyjazne dla zwierząt (nr: 6)<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>ole Campingowe Kitowscy znajduje się w malowniczej Szwajcarii Kaszubskiej nad Jeziorem Raduńskim Dolnym. To spokojne i urokliwe miejsce otoczone naturą, idealne dla osób poszukujących wypoczynku w harmonii z przyrodą. Centralne położenie nad jeziorem oferuje dostęp do czystej wody, miejsc na ognisko, hamaków, leżaków i wyznaczonych stanowisk biwakowych. To doskonała lokalizacja dla rodzin, miłośników ciszy i amatorów aktywnego wypoczynku na wodzie.</value>
+        </Data>
+        <Data name="phone">
+          <value>+48 607 053 604</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety (nr: 1)
+Prysznice (nr: 2)
+Dostęp do prądu (nr: 5)
+Dostęp do wody (nr: 12)
+Kajaki (nr: 14)
+Miejsce na ognisko (nr: 4)
+Altana (nr: 3)
+Kosze na śmieci (nr: 8)
+Stół piknikowy (nr: 9)
+Grill (nr: 10)
+Hamak (nr: 7)
+Przyjazne dla zwierząt (nr: 6)</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.05373,54.315602,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole namiotowe TRAMP</name>
+      <description><![CDATA[Opis:: Pole namiotowe TRAMP znajduje się w malowniczej Cisnej, w sercu Bieszczad. Położone nad rzeką Solinką oferuje wyjątkową atmosferę spokoju i bliskości natury. To duże, przestronne pole namiotowe z wydzielonymi sektorami, które umożliwia nocleg zarówno w namiotach, kamperach, jak i domkach. Lokalizacja zapewnia dostęp do bieszczadzkich szlaków, co czyni je idealną bazą wypadową dla miłośników górskich wędrówek. Dodatkowym atutem są wieczorne ogniska z muzyką na żywo oraz cisza nocna, która sprzyja regeneracji po aktywnym dniu.<br>phone: +48 507 947 840<br>Udogodnienia:: Toalety (nr: 1)<br>Prysznice (nr: 2)<br>Altana (nr: 3)<br>Miejsce na ognisko (nr: 4)<br>Dostęp do prądu (nr: 5)<br>Kosze na śmieci (nr: 8)<br>Dostęp do wody (nr: 12)<br>Obsługa kampera (nr: 20)<br>Pralnia (nr: 21)<br>Grill (nr: 10)<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>Pole namiotowe TRAMP znajduje się w malowniczej Cisnej, w sercu Bieszczad. Położone nad rzeką Solinką oferuje wyjątkową atmosferę spokoju i bliskości natury. To duże, przestronne pole namiotowe z wydzielonymi sektorami, które umożliwia nocleg zarówno w namiotach, kamperach, jak i domkach. Lokalizacja zapewnia dostęp do bieszczadzkich szlaków, co czyni je idealną bazą wypadową dla miłośników górskich wędrówek. Dodatkowym atutem są wieczorne ogniska z muzyką na żywo oraz cisza nocna, która sprzyja regeneracji po aktywnym dniu.</value>
+        </Data>
+        <Data name="phone">
+          <value>+48 507 947 840</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety (nr: 1)
+Prysznice (nr: 2)
+Altana (nr: 3)
+Miejsce na ognisko (nr: 4)
+Dostęp do prądu (nr: 5)
+Kosze na śmieci (nr: 8)
+Dostęp do wody (nr: 12)
+Obsługa kampera (nr: 20)
+Pralnia (nr: 21)
+Grill (nr: 10)</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          22.32913,49.208533,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Jędrusiowe Pole Biwakowe</name>
+      <description><![CDATA[Opis:: Pole Biwakowe prowadzone w klimacie rodzinnym, otwarte cały rok. Pole posiada piaszczysta plażę a także graniczy z rzeką na której znajduje się stopniowany jaz jest też łagodne zejście dla dzieci . Pole jest bazą wypadową do wielu szlaków turystycznych po Beskidzie Sądeckim, Wyspowym a także Gorcach. W pobliżu jest ponad 20 więź widokowych. Od tego roku nawiązaliśmy współpracę z Firmą organizująca spływy Dunajcem na różnych jego odcinkach.<br>phone: +48509960504<br>Udogodnienia:: Toalety nr: 1<br>Prysznice nr: 2<br>Altana nr: 3<br>Miejsce na ognisko nr: 4<br>Dostęp do prądu nr: 5<br>Przyjazne dla zwierząt nr: 6<br>Kosze na śmieci nr: 8<br>Pomost nr: 13<br>Oświetlenie nr: 18<br>Obsługa kampera nr: 20<br>Plac zabaw dla dzieci<br>Bliskość rzeki z możliwością kąpieli<br>Wiata na posiłki i spotkania<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>Pole Biwakowe prowadzone w klimacie rodzinnym, otwarte cały rok. Pole posiada piaszczysta plażę a także graniczy z rzeką na której znajduje się stopniowany jaz jest też łagodne zejście dla dzieci . Pole jest bazą wypadową do wielu szlaków turystycznych po Beskidzie Sądeckim, Wyspowym a także Gorcach. W pobliżu jest ponad 20 więź widokowych. Od tego roku nawiązaliśmy współpracę z Firmą organizująca spływy Dunajcem na różnych jego odcinkach.</value>
+        </Data>
+        <Data name="phone">
+          <value>+48509960504</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety nr: 1
+Prysznice nr: 2
+Altana nr: 3
+Miejsce na ognisko nr: 4
+Dostęp do prądu nr: 5
+Przyjazne dla zwierząt nr: 6
+Kosze na śmieci nr: 8
+Pomost nr: 13
+Oświetlenie nr: 18
+Obsługa kampera nr: 20
+Plac zabaw dla dzieci
+Bliskość rzeki z możliwością kąpieli
+Wiata na posiłki i spotkania</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          20.5308654,49.5968501,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Biwakowe Wiesiółka Kajaki Wałcz Piła</name>
+      <description><![CDATA[Opis:: Posiadamy pięknie położone pole biwakowe nad rzeką Dobrzycą w miejscowości Wiesiółka. 3km od zjazdu od DKS10 ( obwodnica Wałcza).<br>Na polu znajdują się toalety damskie i męskie oraz prysznice z ciepła woda. Do dyspozycji zadaszenia z zapleczem lodówek oraz podłączenie do prądu.<br>Mini plac zabaw dla najmłodszych oraz miejsce do rozgrywek siatkowych.<br>Co najważniejsze posiadamy własne kajaki jedno i dwuosobowe oraz całe potrzebne wyposażenia do bezpiecznego spływu kajakowego po rzekach Dobrzyca, Piława oraz Różyca.<br>Zapraszamy serdecznie<br>phone: 509990049<br>Udogodnienia:: Toalety nr: 1<br>Prysznice nr: 2<br>Altana nr: 3<br>Miejsce na ognisko nr: 4<br>Dostęp do prądu nr: 5<br>Kosze na śmieci nr: 8<br>Stół piknikowy nr: 9<br>Grill nr: 10<br>Dostęp do wody nr: 12<br>Kajaki nr: 14<br>Oświetlenie nr: 18<br>Obsługa kampera nr: 20<br>Pralnia nr: 21<br>Plac zabaw<br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>Posiadamy pięknie położone pole biwakowe nad rzeką Dobrzycą w miejscowości Wiesiółka. 3km od zjazdu od DKS10 ( obwodnica Wałcza).
+Na polu znajdują się toalety damskie i męskie oraz prysznice z ciepła woda. Do dyspozycji zadaszenia z zapleczem lodówek oraz podłączenie do prądu.
+Mini plac zabaw dla najmłodszych oraz miejsce do rozgrywek siatkowych.
+Co najważniejsze posiadamy własne kajaki jedno i dwuosobowe oraz całe potrzebne wyposażenia do bezpiecznego spływu kajakowego po rzekach Dobrzyca, Piława oraz Różyca.
+Zapraszamy serdecznie</value>
+        </Data>
+        <Data name="phone">
+          <value>509990049</value>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety nr: 1
+Prysznice nr: 2
+Altana nr: 3
+Miejsce na ognisko nr: 4
+Dostęp do prądu nr: 5
+Kosze na śmieci nr: 8
+Stół piknikowy nr: 9
+Grill nr: 10
+Dostęp do wody nr: 12
+Kajaki nr: 14
+Oświetlenie nr: 18
+Obsługa kampera nr: 20
+Pralnia nr: 21
+Plac zabaw</value>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          16.612725,53.2718706,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Namiotowe Stolemek</name>
+      <description><![CDATA[Opis:: <br>phone: <br>Udogodnienia:: <br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value/>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.116841,54.2493344,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole namiotowe, campingowe</name>
+      <description><![CDATA[Opis:: <br>phone: <br>Udogodnienia:: <br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value/>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.1250633,54.3014294,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ORW ŚWIT Chmielno</name>
+      <description><![CDATA[Opis:: <br>phone: <br>Udogodnienia:: <br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value/>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.1097227,54.329374,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole namiotowe</name>
+      <description><![CDATA[Opis:: <br>phone: <br>Udogodnienia:: <br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value/>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.9944759,54.2554979,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Harcerska Baza Obozowa Gołubie</name>
+      <description><![CDATA[Opis:: <br>phone: <br>Udogodnienia:: <br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value/>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          18.0163064,54.2062329,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole namiotowe Zakątek</name>
+      <description><![CDATA[Opis:: <br>phone: <br>Udogodnienia:: <br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value/>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.955215,53.769848,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Marina Camping</name>
+      <description><![CDATA[Opis:: <br>phone: <br>Udogodnienia:: <br>Telefon:: <br>Strona www:: <br>description: ]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value/>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value/>
+        </Data>
+        <Data name="Telefon:">
+          <value/>
+        </Data>
+        <Data name="Strona www:">
+          <value/>
+        </Data>
+        <Data name="description">
+          <value/>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          19.9468418,53.6996168,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pole Kempingowe Osada Chmielaki</name>
+      <description><![CDATA[Opis:: Osada Chmielaki to wyjątkowy ośrodek kempingowy położony w malowniczej miejscowości Pokrzywna, w sercu Gór Opawskich. Oferuje różnorodne formy zakwaterowania, w tym komfortowe domki kempingowe 4- i 5-osobowe.<br>Dla miłośników biwakowania dostępne są dwa pola namiotowe (bez prądu)oraz pole kamperowe z dostępem do wody i prądu na parcelach.￼<br><br>Na terenie ośrodka goście mogą korzystać z basenu, sauny, boiska do siatkówki plażowej, wypożyczalni rowerów elektrycznych i hulajnóg górskich oraz przestronnego, bezpłatnego parkingu. Osada Chmielaki jest otoczona przez górski potok i las, co czyni ją idealnym miejscem na relaks w otoczeniu natury. <br><br>Okolica obfituje w atrakcje turystyczne, takie jak szlaki piesze i rowerowe, hulajnogi górskie, trasy narciarskie, a także możliwość zwiedzania lokalnych zabytków. W pobliżu znajduje się również kompleks basenów zewnętrznych i wewnętrznych, zjeżdżalni, saun, jacuzzi oraz stref wellness i gastronomicznych.<br><br>Osada Chmielaki to doskonałe miejsce dla rodzin, par oraz grup przyjaciół poszukujących aktywnego wypoczynku w pięknych okolicznościach przyrody.<br><br>Recepcja działa w godzinach 8-22. Rezerwacji miejsc należy dokonać przez stronę internetową www.osadapokrzywna.pl.<br>phone: <br>Udogodnienia:: Toalety - nr: 1<br>Prysznice - nr: 2<br>Miejsce na ognisko - nr: 4<br>Dostęp do prądu - nr: 5<br>Przyjazne dla zwierząt - nr: 6<br>Kosze na śmieci - nr: 8<br>Stół piknikowy - nr: 9<br>Grill - nr: 10<br>Basen odkryty<br>Sauna Dostęp do wody ,Atrakcje dla dzieci ,Wypożyczalnia sprzętu, Sklep w pobliżu ,Możliwość obsługi kampera<br>Telefon:: +48 698 133 363<br>Strona www:: osadapokrzywna.pl<br>description: +48 698 133 363]]></description>
+      <styleUrl>#icon-1899-DB4436</styleUrl>
+      <ExtendedData>
+        <Data name="Opis:">
+          <value>Osada Chmielaki to wyjątkowy ośrodek kempingowy położony w malowniczej miejscowości Pokrzywna, w sercu Gór Opawskich. Oferuje różnorodne formy zakwaterowania, w tym komfortowe domki kempingowe 4- i 5-osobowe.
+Dla miłośników biwakowania dostępne są dwa pola namiotowe (bez prądu)oraz pole kamperowe z dostępem do wody i prądu na parcelach.￼
+
+Na terenie ośrodka goście mogą korzystać z basenu, sauny, boiska do siatkówki plażowej, wypożyczalni rowerów elektrycznych i hulajnóg górskich oraz przestronnego, bezpłatnego parkingu. Osada Chmielaki jest otoczona przez górski potok i las, co czyni ją idealnym miejscem na relaks w otoczeniu natury. 
+
+Okolica obfituje w atrakcje turystyczne, takie jak szlaki piesze i rowerowe, hulajnogi górskie, trasy narciarskie, a także możliwość zwiedzania lokalnych zabytków. W pobliżu znajduje się również kompleks basenów zewnętrznych i wewnętrznych, zjeżdżalni, saun, jacuzzi oraz stref wellness i gastronomicznych.
+
+Osada Chmielaki to doskonałe miejsce dla rodzin, par oraz grup przyjaciół poszukujących aktywnego wypoczynku w pięknych okolicznościach przyrody.
+
+Recepcja działa w godzinach 8-22. Rezerwacji miejsc należy dokonać przez stronę internetową www.osadapokrzywna.pl.</value>
+        </Data>
+        <Data name="phone">
+          <value/>
+        </Data>
+        <Data name="Udogodnienia:">
+          <value>Toalety - nr: 1
+Prysznice - nr: 2
+Miejsce na ognisko - nr: 4
+Dostęp do prądu - nr: 5
+Przyjazne dla zwierząt - nr: 6
+Kosze na śmieci - nr: 8
+Stół piknikowy - nr: 9
+Grill - nr: 10
+Basen odkryty
+Sauna Dostęp do wody ,Atrakcje dla dzieci ,Wypożyczalnia sprzętu, Sklep w pobliżu ,Możliwość obsługi kampera</value>
+        </Data>
+        <Data name="Telefon:">
+          <value>+48 698 133 363</value>
+        </Data>
+        <Data name="Strona www:">
+          <value>osadapokrzywna.pl</value>
+        </Data>
+        <Data name="description">
+          <value>+48 698 133 363</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>
+          17.455263,50.287427,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
