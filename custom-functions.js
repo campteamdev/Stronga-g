@@ -262,6 +262,8 @@ async function updatePopupsWithImages() {
 
 // 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
 // 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
+console.log("🔍 Sprawdzam obiekt map w custom-functions.js:", window.map);
+
 map.on("popupopen", async function (e) {
   setTimeout(async () => {
       const popup = e.popup._contentNode;
