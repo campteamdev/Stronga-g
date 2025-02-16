@@ -395,8 +395,7 @@
           popupAnchor: [0, -10],
         }),
       };
-
-      const map = L.map("map").setView([52.392681, 19.275023], 6);
+      window.map = L.map("map").setView([52.392681, 19.275023], 6);
       const markerCluster = L.markerClusterGroup({
         showCoverageOnHover: false,
         maxClusterRadius: 50,
@@ -410,52 +409,37 @@
       const allMarkers = [];
       const allPlacemarks = []; // Przechowywanie placemarks
 
-      async function fetchKml(url) {
+      async function loadMarkersFromJSON(url, icon, markerCluster) {
+    try {
+        console.log(`📌 Pobieranie danych z: ${url}`);
         const response = await fetch(url);
-        if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
-        return response.text();
-      }
+        if (!response.ok) throw new Error(`❌ Błąd HTTP ${response.status}: ${response.statusText}`);
 
-      async function loadMarkers(url, icon, addToCluster = true) {
-        const kmlText = await fetchKml(url);
-        const parser = new DOMParser();
-        const kml = parser.parseFromString(kmlText, "application/xml");
-        const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
-        allPlacemarks.push(...placemarks); // Dodanie placemarks do globalnej listy
+        const jsonData = await response.json();
+        if (!jsonData.placemarks) throw new Error(`❌ Brak sekcji 'placemarks' w JSON`);
 
-        placemarks.forEach((placemark) => {
-          const name =
-            placemark.getElementsByTagName("name")[0]?.textContent ||
-            "Brak nazwy";
-          const coordinates = placemark
-            .getElementsByTagName("coordinates")[0]
-            ?.textContent.trim();
+        jsonData.placemarks.forEach((placemark) => {
+            const name = placemark.name || "Brak nazwy";
+            const lat = placemark.lat;
+            const lon = placemark.lon;
 
-          if (coordinates) {
-            const [lon, lat] = coordinates.split(",");
-            const key = `${lat},${lon}`;
-
-            if (!addedMarkers.has(key)) {
-              addedMarkers.add(key);
-              const markerOptions = { icon };
-              if (!addToCluster) {
-                markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
-              }
-              const marker = L.marker([lat, lon], markerOptions).bindPopup(
-                `<strong>${name}</strong>`
-              );
-
-              if (addToCluster) {
-                markerCluster.addLayer(marker);
-              } else {
-                marker.addTo(map);
-              }
-
-              allMarkers.push({ marker, name, lat, lon });
+            if (!lat || !lon || isNaN(lat) || isNaN(lon)) {
+                console.warn(`⚠️ Niepoprawne współrzędne: ${name}`);
+                return;
             }
-          }
+
+            const key = `${lat},${lon}`;
+            if (!addedMarkers.has(key)) {
+                addedMarkers.add(key);
+                const marker = L.marker([lat, lon], { icon }).bindPopup(`<strong>${name}</strong>`);
+                markerCluster.addLayer(marker);
+                allMarkers.push({ marker, name, lat, lon });
+            }
         });
-      }
+    } catch (error) {
+        console.error(`❌ Błąd pobierania JSON:`, error);
+    }
+}
 
       function initializeSearch() {
         const searchInput = document.getElementById("search-input");
@@ -508,26 +492,24 @@
       }
 
       async function initializeMap() {
-        await Promise.all([
-          loadMarkers(urls.kempingi, icons.kempingi, false), // Kempingi - bez grupowania
-          loadMarkers(urls.polanamiotowe, icons.polanamiotowe, false), // Pola namiotowe - bez grupowania
-          loadMarkers(urls.kempingiopen, icons.kempingiopen, false),
-          loadMarkers(urls.polanamiotoweopen, icons.polanamiotoweopen, false),
-          loadMarkers(urls.parkingilesne, icons.parkingilesne),
-          loadMarkers(urls.kempingi1, icons.kempingi1, false),
-          loadMarkers(urls.miejscenabiwak, icons.miejscenabiwak),
-          loadMarkers(urls.europa, icons.kempingi), // Dodajemy markery z europa.kml z ikoną kampingu
-          loadMarkers(urls.AtrakcjeKulturowe, icons.atractionCultural),
-          loadMarkers(urls.AtrakcjePrzyrodnicze, icons.atractionNature),
-          loadMarkers(urls.AtrakcjeRozrywkowe, icons.atractionFun),
-        ]);
+    await Promise.all([
+        loadMarkersFromJSON(urls.kempingi, icons.kempingi, markerCluster),
+        loadMarkersFromJSON(urls.polanamiotowe, icons.polanamiotowe, markerCluster),
+        loadMarkersFromJSON(urls.kempingiopen, icons.kempingiopen, markerCluster),
+        loadMarkersFromJSON(urls.polanamiotoweopen, icons.polanamiotoweopen, markerCluster),
+        loadMarkersFromJSON(urls.parkingilesne, icons.parkingilesne, markerCluster),
+        loadMarkersFromJSON(urls.kempingi1, icons.kempingi1, markerCluster),
+        loadMarkersFromJSON(urls.miejscenabiwak, icons.miejscenabiwak, markerCluster),
+        loadMarkersFromJSON(urls.europa, icons.kempingi, markerCluster),
+        loadMarkersFromJSON(urls.AtrakcjeKulturowe, icons.atractionCultural, markerCluster),
+        loadMarkersFromJSON(urls.AtrakcjePrzyrodnicze, icons.atractionNature, markerCluster),
+        loadMarkersFromJSON(urls.AtrakcjeRozrywka, icons.atractionFun, markerCluster),
+    ]);
 
-        map.addLayer(markerCluster);
-        initializeSearch();
-
-        // Wywołanie funkcji z custom-functions.js
-        await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
-      }
+    map.addLayer(markerCluster);
+    initializeSearch();
+    await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
+}
 
       initializeMap();
     map.on("popupopen", function (e) {
