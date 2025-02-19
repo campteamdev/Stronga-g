@@ -616,7 +616,7 @@ async function fetchKml(id) {
     const token = await getSecureToken(id); // Pobierz aktualny token
     console.log(`🔑 Pobieranie tokena dla ${id}: ${token}`);
 
-    const url = `https://campteam-abg9g4v2k-marcincamps-projects.vercel.app/api/kml?id=${id}&token=${token}`;
+    const url = `https://campteam-625obbk0n-marcincamps-projects.vercel.app/api/kml?id=${id}&token=${token}`;
     console.log(`🌍 Wysyłanie żądania: ${url}`);
 
     const response = await fetch(url);

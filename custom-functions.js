@@ -7,7 +7,7 @@ async function getSecureToken(id) {
   }
 
   // Pobierz nowy token z serwera
-  const response = await fetch("https://campteam-abg9g4v2k-marcincamps-projects.vercel.app/api/token?kml=" + id);
+  const response = await fetch("https://campteam-625obbk0n-marcincamps-projects.vercel.app/api/token?kml=" + id);
   const data = await response.json();
   
   currentToken = data.token; // Zapisz nowy token
