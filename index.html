@@ -19,7 +19,7 @@
   <script src="https://cdn.jsdelivr.net/npm/fuzzball@2.1.3/dist/fuzzball.umd.min.js"></script>
   <script>
       window.fuzzball = fuzzball;
-      console.log("✅ Fuzzball poprawnie załadowany:", fuzzball);
+  
   </script>
   
    <!-- End Google Tag Manager -->
@@ -43,11 +43,7 @@
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
     <script src="encoded_kml.js"></script>
     <script src="custom-functions.js"></script>
-    <script>
-      console.log("✅ encoded_kml.js załadowany!");
-      console.log("📂 encodedKML:", encodedKML);
-      console.log("🔍 getKML('Kempingi.kml'):", getKML("Kempingi.kml"));
-  </script>
+
   
     <!-- Dodano obsługę dodatkowych funkcji -->
     <style>
@@ -65,6 +61,39 @@
     z-index: 1000;
     display: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* 🔹 Styl dla wysuwanego popupu */
+#custom-popup {
+    position: fixed;
+    bottom: -100%; /* Domyślnie ukryty */
+    left: 0;
+    width: 100%;
+    height: 80vh; /* Wysokość popupa */
+    background: white;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px 15px 0 0;
+    padding: 15px;
+    overflow-y: auto;
+    transition: bottom 0.3s ease-in-out;
+    z-index: 10000;
+}
+
+/* 🔹 Nagłówek popupa */
+#custom-popup-header {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #66cc66;
+    text-align: center;
+}
+
+/* 🔹 Zamknięcie popupa */
+#close-popup {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
       /* 🔹 Styl popupa - dynamiczna szerokość */
@@ -371,6 +400,7 @@
 .add-photo-circle:hover {
     background-color: #388E3C; /* Ciemniejszy zielony */
 }
+
 <style>
   /* 🔹 Styl dla popupu na komputerze */
   .leaflet-popup-content-wrapper {
@@ -476,19 +506,21 @@
       </a>
     </div>
     <script>
-      const urls = {
-        kempingi: "/Kempingi.kml",
-        polanamiotowe: "/Polanamiotowe.kml",
-        kempingiopen: "/Kempingiopen.kml",
-        polanamiotoweopen: "/Polanamiotoweopen.kml",
-        parkingilesne: "/Parkingilesne.kml",
-        kempingi1: "/Kempingi1.kml",
-        AtrakcjeKulturowe: "/AtrakcjeKulturowe.kml",
-        AtrakcjePrzyrodnicze: "/AtrakcjePrzyrodnicze.kml",
-        AtrakcjeRozrywka: "/AtrakcjeRozrywka.kml",
-        miejscenabiwak: "/Miejscenabiwak.kml",
-        europa: "/Europa.kml", // Dodajemy URL do pliku europa.kml
-      };
+    const urls = {
+  atrakcjeKulturowe: "/api/kml?id=AtrakcjeKulturowe.kml",
+  atrakcjePrzyrodnicze: "/api/kml?id=AtrakcjePrzyrodnicze.kml",
+  atrakcjeRozrywka: "/api/kml?id=AtrakcjeRozrywka.kml",
+  europa: "/api/kml?id=Europa.kml",
+  kempingi: "/api/kml?id=Kempingi.kml",
+  kempingi1: "/api/kml?id=Kempingi1.kml",
+  kempingiopen: "/api/kml?id=Kempingiopen.kml",
+  miejscenabiwak: "/api/kml?id=Miejscenabiwak.kml",
+  parkingilesne: "/api/kml?id=Parkingilesne.kml",
+  polanamiotowe: "/api/kml?id=Polanamiotowe.kml",
+  polanamiotoweopen: "/api/kml?id=Polanamiotoweopen.kml"
+};
+
+
 
       const icons = {
         kempingi: L.icon({
@@ -567,52 +599,85 @@
       const allMarkers = [];
       const allPlacemarks = []; // Przechowywanie placemarks
 
-      async function fetchKml(url) {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
-        return response.text();
-      }
+      async function fetchKml(id) {
+    // Pobieramy nowy token dla danego pliku KML
+    const tokenResponse = await fetch(`/api/token?kml=${id}`);
+    const tokenData = await tokenResponse.json();
+    const token = tokenData.token;
 
-      async function loadMarkers(url, icon, addToCluster = true) {
-        const kmlText = await fetchKml(url);
+    // Pobieramy plik KML z API Proxy na Vercel
+    const response = await fetch(`/api/kml?id=${id}&token=${token}`);
+    
+    if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${id}`);
+    
+    return response.text();
+}
+async function fetchKml(id) {
+    const token = await getSecureToken(id); // Pobierz aktualny token
+    console.log(`🔑 Pobieranie tokena dla ${id}: ${token}`);
+
+    const url = `https://campteam-abg9g4v2k-marcincamps-projects.vercel.app/api/kml?id=${id}&token=${token}`;
+    console.log(`🌍 Wysyłanie żądania: ${url}`);
+
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+        console.error(`❌ Błąd wczytywania pliku KML: ${id}, status: ${response.status}`);
+        throw new Error(`Błąd wczytywania pliku KML: ${id}`);
+    }
+
+    return response.text();
+}
+
+
+
+
+
+
+
+async function loadMarkers(id, icon, addToCluster = true) {
+    try {
+        // Pobieramy zawartość KML przez zabezpieczone API
+        const kmlText = await fetchKml(id);
         const parser = new DOMParser();
         const kml = parser.parseFromString(kmlText, "application/xml");
         const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
-        allPlacemarks.push(...placemarks); // Dodanie placemarks do globalnej listy
 
         placemarks.forEach((placemark) => {
-          const name =
-            placemark.getElementsByTagName("name")[0]?.textContent ||
-            "Brak nazwy";
-          const coordinates = placemark
-            .getElementsByTagName("coordinates")[0]
-            ?.textContent.trim();
+            const name =
+                placemark.getElementsByTagName("name")[0]?.textContent || "Brak nazwy";
+            const coordinates = placemark
+                .getElementsByTagName("coordinates")[0]
+                ?.textContent.trim();
 
-          if (coordinates) {
-            const [lon, lat] = coordinates.split(",");
-            const key = `${lat},${lon}`;
+            if (coordinates) {
+                const [lon, lat] = coordinates.split(",");
+                const key = `${lat},${lon}`;
 
-            if (!addedMarkers.has(key)) {
-              addedMarkers.add(key);
-              const markerOptions = { icon };
-              if (!addToCluster) {
-                markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
-              }
-              const marker = L.marker([lat, lon], markerOptions).bindPopup(
-                `<strong>${name}</strong>`
-              );
+                if (!addedMarkers.has(key)) {
+                    addedMarkers.add(key);
+                    const markerOptions = { icon };
+                    if (!addToCluster) {
+                        markerOptions.zIndexOffset = 9999;
+                    }
+                    const marker = L.marker([lat, lon], markerOptions).bindPopup(
+                        `<strong>${name}</strong>`
+                    );
 
-              if (addToCluster) {
-                markerCluster.addLayer(marker);
-              } else {
-                marker.addTo(map);
-              }
+                    if (addToCluster) {
+                        markerCluster.addLayer(marker);
+                    } else {
+                        marker.addTo(map);
+                    }
 
-              allMarkers.push({ marker, name, lat, lon });
+                    allMarkers.push({ marker, name, lat, lon });
+                }
             }
-          }
         });
-      }
+    } catch (error) {
+        console.error(`Błąd podczas ładowania pliku KML: ${id}`, error);
+    }
+}
 
       function initializeSearch() {
     const searchInput = document.getElementById("search-input");
@@ -717,21 +782,21 @@ function highlightMarker(match) {
 }
 
       async function initializeMap() {
-        console.log("✅ Sprawdzam funkcję getKML w initializeMap:", typeof getKML);
-    console.log("🔍 Test getKML('Kempingi.kml'):", getKML("Kempingi.kml"));
+       
         await Promise.all([
-  loadMarkers(getKML("Kempingi.kml"), icons.kempingi, false),
-  loadMarkers(getKML("Polanamiotowe.kml"), icons.polanamiotowe, false),
-  loadMarkers(getKML("Kempingiopen.kml"), icons.kempingiopen, false),
-  loadMarkers(getKML("Polanamiotoweopen.kml"), icons.polanamiotoweopen, false),
-  loadMarkers(getKML("Parkingilesne.kml"), icons.parkingilesne),
-  loadMarkers(getKML("Kempingi1.kml"), icons.kempingi1, false),
-  loadMarkers(getKML("Miejscenabiwak.kml"), icons.miejscenabiwak),
-  loadMarkers(getKML("Europa.kml"), icons.kempingi),
-  loadMarkers(getKML("AtrakcjeKulturowe.kml"), icons.atractionCultural),
-  loadMarkers(getKML("AtrakcjePrzyrodnicze.kml"), icons.atractionNature),
-  loadMarkers(getKML("AtrakcjeRozrywka.kml"), icons.atractionFun),
+  loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural),
+  loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature),
+  loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun),
+  loadMarkers("Europa.kml", icons.kempingi1),
+  loadMarkers("Kempingi.kml", icons.kempingi, false),
+  loadMarkers("Kempingi1.kml", icons.kempingi1),
+  loadMarkers("Kempingiopen.kml", icons.kempingiopen),
+  loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak),
+  loadMarkers("Parkingilesne.kml", icons.parkingilesne),
+  loadMarkers("Polanamiotowe.kml", icons.polanamiotowe),
+  loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen)
 ]);
+
 
         map.addLayer(markerCluster);
         initializeSearch();
@@ -862,388 +927,12 @@ initializeMap();
 
 <script src="filters.js" defer></script>
 
-<script>
-  (function () {
-  "use strict";
+<!-- 🔹 Wysuwany popup na dole ekranu -->
+<div id="custom-popup">
+  <span id="close-popup">&times;</span> <!-- Przycisk zamknięcia -->
+  <div id="custom-popup-content"></div> <!-- Tu będą treści -->
+</div>
 
-  // ✅ Blokowanie klawiszy (F12, Ctrl + U, Ctrl + Shift + I, itp.)
-  document.addEventListener("keydown", function (event) {
-      if (
-          event.key === "F12" ||
-          (event.ctrlKey && event.shiftKey && event.key === "I") ||
-          (event.ctrlKey && event.shiftKey && event.key === "C") ||
-          (event.ctrlKey && event.key === "U")
-      ) {
-          event.preventDefault();
-          window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-      }
-  });
-  document.addEventListener("keydown", function (event) {
-  if (event.ctrlKey && event.key.toLowerCase() === "u") {  // Wykrycie "Ctrl + U" (obsługa różnych układów klawiatury)
-      event.preventDefault();
-      window.location.href = "about:blank"; // Natychmiastowe przekierowanie na pustą stronę
-  }
-});
-
-
-
-  // ✅ Ukrywanie tekstu przed zaznaczeniem i kopiowaniem
-  const style = document.createElement("style");
-  style.innerHTML = `
-      body {
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-      }
-  `;
-  document.head.appendChild(style);
-
-  // ✅ Blokowanie kopiowania, wycinania, wklejania, zaznaczania tekstu i prawego przycisku myszy
-  ["copy", "cut", "paste", "selectstart", "contextmenu"].forEach(eventType => {
-      document.addEventListener(eventType, (event) => {
-          event.preventDefault();
-          alert("❌ Zabezpieczenie aktywne: Nie masz uprawnień do tej operacji!");
-      });
-  });
-
-  // ✅ Automatyczne wykrywanie otwarcia DevTools i natychmiastowe przekierowanie
-  function detectDevTools() {
-      const threshold = 160;
-      function check() {
-          if (window.outerWidth - window.innerWidth > threshold || 
-              window.outerHeight - window.innerHeight > threshold) {
-              window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-          }
-      }
-      window.addEventListener("resize", check);
-      check();
-  }
-  detectDevTools();
-
-  // ✅ Dynamiczne szyfrowanie treści (ukrywanie ważnych danych)
-  function encryptContent() {
-      const secretElements = document.querySelectorAll(".protected");
-      secretElements.forEach(el => {
-          el.dataset.encrypted = btoa(el.innerHTML); // Kodowanie Base64
-          el.innerHTML = "🔒 Zabezpieczona treść"; // Ukrycie oryginalnej zawartości
-      });
-  }
-  
-  function decryptContent() {
-      const secretElements = document.querySelectorAll(".protected");
-      secretElements.forEach(el => {
-          el.innerHTML = atob(el.dataset.encrypted); // Odszyfrowanie Base64
-      });
-  }
-
-  // ✅ Uruchamiamy szyfrowanie po załadowaniu strony
-  window.addEventListener("load", encryptContent);
-
-})();
-// Blokowanie dostępu do "view-source:"
-(function blockViewSource() {
-  if (document.referrer.startsWith("view-source")) {
-      window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-  }
-
-  // Wykrywanie zmiany URL (użytkownik wpisuje "view-source:")
-  setInterval(() => {
-      if (window.location.href.startsWith("view-source")) {
-          window.location.href = "about:blank"; // Natychmiastowe przekierowanie
-      }
-  }, 500);
-})();
-// Automatyczne zamykanie strony przy "view-source:"
-(function detectViewSource() {
-  if (window.location.href.startsWith("view-source")) {
-      window.close(); // Zamknięcie strony
-  }
-})();
-// Wykrywanie Chrome i blokowanie "view-source:"
-if (navigator.userAgent.includes("Chrome")) {
-  setInterval(() => {
-      if (window.location.href.startsWith("view-source")) {
-          window.close();
-      }
-  }, 500);
-}
-
-  </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    document.body.innerHTML = btoa(document.body.innerHTML); // Kodowanie Base64
-});
-
-(function () {
-  var before = new Date().getTime();
-  debugger;
-  var after = new Date().getTime();
-  if (after - before > 100) {
-      document.body.innerHTML = "";
-      window.location.href = "about:blank";
-  }
-})();
-(function () {
-  if (document.referrer.includes("view-source")) {
-      window.close();  // Zamknięcie strony
-      location.href = "about:blank";  // Przekierowanie na pustą stronę
-  }
-})();
-document.addEventListener("DOMContentLoaded", function () {
-  document.body.innerHTML = btoa(document.body.innerHTML); // Kodowanie Base64
-});
-
-
-
-
-// 🔥 Blokowanie zapisu strony (Ctrl + S)
-document.addEventListener("keydown", function (event) {
-  if (event.ctrlKey && event.key === "s") {
-      event.preventDefault();
-      alert("❌ Nie możesz zapisać tej strony!");
-  }
-});
-
-// ❌ USUWAMY BLOKADĘ `innerHTML` i `outerHTML`,
-// ponieważ zakłóca dynamiczne popupy
-
-// 🔥 Wykrywanie otwarcia DevTools przez `console.log`
-(function detectConsole() {
-  var devtoolsOpen = false;
-  var threshold = 160;
-
-  function check() {
-      console.profile();
-      console.profileEnd();
-
-      if (console.clear) console.clear();
-      if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
-          devtoolsOpen = true;
-      }
-
-      if (devtoolsOpen) {
-          document.body.innerHTML = "";
-          window.location.href = "about:blank";
-      }
-  }
-
-  setInterval(check, 1000);
-})();
-
-// 🔥 Pułapka `debugger` w nieskończonej pętli
-setInterval(function () {
-  (function () {
-      var before = new Date().getTime();
-      debugger;
-      var after = new Date().getTime();
-      if (after - before > 100) {
-          document.body.innerHTML = "";
-          window.location.href = "about:blank";
-      }
-  })();
-}, 500);
-
-// 🔥 Wykrywanie zmiany rozmiaru okna (DevTools)
-window.addEventListener('resize', function () {
-  if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
-      document.body.innerHTML = "";
-      window.location.href = "about:blank";
-  }
-});
-
-</script>
-<script>
-  (function () {
-  "use strict";
-
-  // ✅ Blokowanie klawiszy (F12, Ctrl + U, Ctrl + Shift + I, itp.)
-  document.addEventListener("keydown", function (event) {
-      if (
-          event.key === "F12" ||
-          (event.ctrlKey && event.shiftKey && event.key === "I") ||
-          (event.ctrlKey && event.shiftKey && event.key === "C") ||
-          (event.ctrlKey && event.key === "U")
-      ) {
-          event.preventDefault();
-          window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-      }
-  });
-  document.addEventListener("keydown", function (event) {
-  if (event.ctrlKey && event.key.toLowerCase() === "u") {  // Wykrycie "Ctrl + U" (obsługa różnych układów klawiatury)
-      event.preventDefault();
-      window.location.href = "about:blank"; // Natychmiastowe przekierowanie na pustą stronę
-  }
-});
-
-
-
-  // ✅ Ukrywanie tekstu przed zaznaczeniem i kopiowaniem
-  const style = document.createElement("style");
-  style.innerHTML = `
-      body {
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-      }
-  `;
-  document.head.appendChild(style);
-
-  // ✅ Blokowanie kopiowania, wycinania, wklejania, zaznaczania tekstu i prawego przycisku myszy
-  ["copy", "cut", "paste", "selectstart", "contextmenu"].forEach(eventType => {
-      document.addEventListener(eventType, (event) => {
-          event.preventDefault();
-          alert("❌ Zabezpieczenie aktywne: Nie masz uprawnień do tej operacji!");
-      });
-  });
-
-  // ✅ Automatyczne wykrywanie otwarcia DevTools i natychmiastowe przekierowanie
-  function detectDevTools() {
-      const threshold = 160;
-      function check() {
-          if (window.outerWidth - window.innerWidth > threshold || 
-              window.outerHeight - window.innerHeight > threshold) {
-              window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-          }
-      }
-      window.addEventListener("resize", check);
-      check();
-  }
-  detectDevTools();
-
-  // ✅ Dynamiczne szyfrowanie treści (ukrywanie ważnych danych)
-  function encryptContent() {
-      const secretElements = document.querySelectorAll(".protected");
-      secretElements.forEach(el => {
-          el.dataset.encrypted = btoa(el.innerHTML); // Kodowanie Base64
-          el.innerHTML = "🔒 Zabezpieczona treść"; // Ukrycie oryginalnej zawartości
-      });
-  }
-  
-  function decryptContent() {
-      const secretElements = document.querySelectorAll(".protected");
-      secretElements.forEach(el => {
-          el.innerHTML = atob(el.dataset.encrypted); // Odszyfrowanie Base64
-      });
-  }
-
-  // ✅ Uruchamiamy szyfrowanie po załadowaniu strony
-  window.addEventListener("load", encryptContent);
-
-})();
-// Blokowanie dostępu do "view-source:"
-(function blockViewSource() {
-  if (document.referrer.startsWith("view-source")) {
-      window.location.href = "about:blank"; // Przekierowanie na pustą stronę
-  }
-
-  // Wykrywanie zmiany URL (użytkownik wpisuje "view-source:")
-  setInterval(() => {
-      if (window.location.href.startsWith("view-source")) {
-          window.location.href = "about:blank"; // Natychmiastowe przekierowanie
-      }
-  }, 500);
-})();
-// Automatyczne zamykanie strony przy "view-source:"
-(function detectViewSource() {
-  if (window.location.href.startsWith("view-source")) {
-      window.close(); // Zamknięcie strony
-  }
-})();
-// Wykrywanie Chrome i blokowanie "view-source:"
-if (navigator.userAgent.includes("Chrome")) {
-  setInterval(() => {
-      if (window.location.href.startsWith("view-source")) {
-          window.close();
-      }
-  }, 500);
-}
-
-  </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    document.body.innerHTML = btoa(document.body.innerHTML); // Kodowanie Base64
-});
-
-(function () {
-  var before = new Date().getTime();
-  debugger;
-  var after = new Date().getTime();
-  if (after - before > 100) {
-      document.body.innerHTML = "";
-      window.location.href = "about:blank";
-  }
-})();
-(function () {
-  if (document.referrer.includes("view-source")) {
-      window.close();  // Zamknięcie strony
-      location.href = "about:blank";  // Przekierowanie na pustą stronę
-  }
-})();
-document.addEventListener("DOMContentLoaded", function () {
-  document.body.innerHTML = btoa(document.body.innerHTML); // Kodowanie Base64
-});
-
-
-
-
-// 🔥 Blokowanie zapisu strony (Ctrl + S)
-document.addEventListener("keydown", function (event) {
-  if (event.ctrlKey && event.key === "s") {
-      event.preventDefault();
-      alert("❌ Nie możesz zapisać tej strony!");
-  }
-});
-
-// ❌ USUWAMY BLOKADĘ `innerHTML` i `outerHTML`,
-// ponieważ zakłóca dynamiczne popupy
-
-// 🔥 Wykrywanie otwarcia DevTools przez `console.log`
-(function detectConsole() {
-  var devtoolsOpen = false;
-  var threshold = 160;
-
-  function check() {
-      console.profile();
-      console.profileEnd();
-
-      if (console.clear) console.clear();
-      if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
-          devtoolsOpen = true;
-      }
-
-      if (devtoolsOpen) {
-          document.body.innerHTML = "";
-          window.location.href = "about:blank";
-      }
-  }
-
-  setInterval(check, 1000);
-})();
-
-// 🔥 Pułapka `debugger` w nieskończonej pętli
-setInterval(function () {
-  (function () {
-      var before = new Date().getTime();
-      debugger;
-      var after = new Date().getTime();
-      if (after - before > 100) {
-          document.body.innerHTML = "";
-          window.location.href = "about:blank";
-      }
-  })();
-}, 500);
-
-// 🔥 Wykrywanie zmiany rozmiaru okna (DevTools)
-window.addEventListener('resize', function () {
-  if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
-      document.body.innerHTML = "";
-      window.location.href = "about:blank";
-  }
-});
-
-</script>
 
 
   </body>

@@ -1,3 +1,24 @@
+async function getSecureToken(id) {
+  const currentTime = Date.now(); // Pobierz aktualny czas w milisekundach
+
+  // Jeśli token jest nadal ważny, użyj go ponownie
+  if (currentToken && currentTime < tokenExpirationTime) {
+      return currentToken;
+  }
+
+  // Pobierz nowy token z serwera
+  const response = await fetch("https://campteam-abg9g4v2k-marcincamps-projects.vercel.app/api/token?kml=" + id);
+  const data = await response.json();
+  
+  currentToken = data.token; // Zapisz nowy token
+  tokenExpirationTime = currentTime + 4 * 60 * 1000; // Token ważny przez 4 minuty
+
+  return currentToken;
+}
+let currentToken = null; // Przechowuje aktualny token
+let tokenExpirationTime = 0; // Czas wygaśnięcia tokena
+
+
 
 // Obiekty do przechowywania danych
 let detailsMap = {};
@@ -43,26 +64,27 @@ function extractWebsite(description) {
 }
 
 
-// Funkcja wczytująca dane z KML
 async function loadKmlData() {
   const kmlFiles = [
-    "Kempingi.kml",
-    "Polanamiotowe.kml",
-    "Kempingiopen.kml",
-    "Polanamiotoweopen.kml",
-    "Parkingilesne.kml",
-    "Kempingi1.kml",
     "AtrakcjeKulturowe.kml",
     "AtrakcjePrzyrodnicze.kml",
     "AtrakcjeRozrywka.kml",
-    "Miejscenabiwak.kml",
     "Europa.kml",
+    "Kempingi.kml",
+    "Kempingi1.kml",
+    "Kempingiopen.kml",
+    "Miejscenabiwak.kml",
+    "Parkingilesne.kml",
+    "Polanamiotowe.kml",
+    "Polanamiotoweopen.kml"
   ];
 
   for (const filename of kmlFiles) {
     try {
-      const url = getKML(filename); // Pobiera zakodowany URL
-      console.log(`🔍 Ładowanie KML: ${filename} -> ${url}`); // Debug
+      const url = await fetchKml(filename); // Pobiera KML za pomocą API
+console.log(`📂 Pobieram KML: ${filename} -> ${url}`);
+
+     
 
       const response = await fetch(url);
       if (!response.ok) throw new Error(`❌ Nie udało się załadować: ${filename}`);
@@ -262,40 +284,114 @@ async function updatePopupsWithImages() {
     }
 }
 
-// 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
-// 🔹 Dodajemy wywołanie funkcji po otwarciu popupu
+// 🔹 Obsługa otwierania popupu i przesuwania mapy
+// 🔹 Funkcja obsługująca otwarcie popupu i przesuwanie mapy
 map.on("popupopen", async function (e) {
-  setTimeout(async () => {
+
+
+  const marker = e.popup._source;
+  if (!marker) {
+      console.warn("⚠️ [popupopen] Brak markera powiązanego z popupem!");
+      return;
+  }
+
+  const latlng = marker.getLatLng();
+  
+
+  // 🔹 Obliczamy przesunięcie w dół
+  const mapSize = map.getSize();
+
+
+  const offsetLat = map.containerPointToLatLng([0, mapSize.y * 0.3]).lat - map.containerPointToLatLng([0, 0]).lat;
+  const newLatLng = L.latLng(latlng.lat - offsetLat, latlng.lng);
+  
+
+  // 🔹 Przesuwamy mapę
+  map.setView(newLatLng, map.getZoom(), { animate: true });
+
+  map.once("moveend", async function () {
+   
+
       const popup = e.popup._contentNode;
-      const nameElement = popup.querySelector("div");
-      if (!nameElement) return;
-
-      const name = nameElement.textContent.trim();
-      const lat = e.popup._source.getLatLng().lat;
-      const lon = e.popup._source.getLatLng().lng;
-
-      console.log(`📂 🔍 Otwieranie popupu dla: ${name}`);
-
-      // 🔹 Sprawdzenie, czy zdjęcia już zostały dodane
-      if (popup.querySelector(".swiper-container")) {
-          console.log(`📂 ⏳ Slider dla ${name} już istnieje. Pomijam ponowne ładowanie.`);
+      if (!popup) {
+          console.warn("⚠️ [popupopen] Brak elementu popupu!");
           return;
       }
 
-      // 🔹 Pobieramy i dodajemy zdjęcia
-      const { sliderHTML, images } = await generateImageSlider(name, lat, lon);
+      const nameElement = popup.querySelector("div");
+      if (!nameElement) {
+          console.warn("⚠️ [popupopen] Brak elementu z nazwą w popupie!");
+          return;
+      }
+
+      const name = nameElement.textContent.trim();
+   
+
+      const { sliderHTML, images } = await generateImageSlider(name, latlng.lat, latlng.lng);
 
       if (sliderHTML) {
           popup.insertAdjacentHTML("afterbegin", sliderHTML);
+        
           initializeSwiper(name, images);
       }
-  }, 300);
+  });
 });
 
+// 🔹 Obsługa kliknięcia na marker
+map.eachLayer(layer => {
+  if (layer instanceof L.Marker) {
+  
+      layer.off("click");
+      layer.on("click", function () {
+          openCustomPopup(this);
+      });
+  }
+});
 
-// 🔹 Dodajemy obsługę przesuwania popupu zamiast mapy na telefonach
-document.addEventListener("touchmove", function (event) {
-if (event.target.closest(".leaflet-popup-content")) {
-  event.stopPropagation(); // Pozwala przesuwać popup zamiast mapy
+// 🔹 Funkcja otwierająca wysuwany popup
+function openCustomPopup(marker) {
+
+
+  const latlng = marker.getLatLng();
+  
+
+  const popupContent = marker.getPopup().getContent();
+  if (!popupContent) {
+      console.warn("⚠️ [openCustomPopup] Brak zawartości popupu!");
+      return;
+  }
+
+  const name = popupContent.match(/<strong>(.*?)<\/strong>/)?.[1] || "Brak nazwy";
+
+
+  generatePopupContent(name, latlng.lat, latlng.lng).then(async (popupHTML) => {
+      
+      const { sliderHTML, images } = await generateImageSlider(name, latlng.lat, latlng.lng);
+      showCustomPopup(popupHTML + sliderHTML);
+
+      const mapHeight = map.getSize().y;
+      const offsetLat = map.containerPointToLatLng([0, mapHeight * 0.3]).lat - map.containerPointToLatLng([0, 0]).lat;
+      const newLatLng = L.latLng(latlng.lat - offsetLat, latlng.lng);
+      map.setView(newLatLng, map.getZoom(), { animate: true });
+
+    
+  });
 }
-}, { passive: false });
+
+// 🔹 Funkcja do wyświetlenia popupu
+function showCustomPopup(content) {
+
+  const popup = document.getElementById("custom-popup");
+  document.getElementById("custom-popup-content").innerHTML = content;
+  popup.style.bottom = "0";
+}
+
+// 🔹 Funkcja zamykająca popup
+function closeCustomPopup() {
+  
+  document.getElementById("custom-popup").style.bottom = "-100%";
+}
+
+// 🔹 Obsługa zamknięcia popupu
+document.getElementById("close-popup").addEventListener("click", closeCustomPopup);
+map.on("click", closeCustomPopup);
