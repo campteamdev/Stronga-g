@@ -300,11 +300,25 @@
 
   /* 🔹 Poprawka dla popupu na smartfonach */
 
-    @media (max-width: 768px) {
+/* 🔹 Popup na telefonach (100% szerokości i dynamiczna wysokość) */
+@media (max-width: 768px) {
     .leaflet-popup-content-wrapper {
-        max-width: 90vw !important;
-        max-height: 70vh !important;
-        overflow-y: auto !important;
+        width: 100vw !important; /* Pełna szerokość ekranu */
+        max-width: 100vw !important;
+        height: calc(100vh - 60px) !important; /* Wysokość do końca wyszukiwarki */
+        max-height: calc(100vh - 60px) !important;
+        overflow-y: auto !important; /* Przewijanie jeśli treść jest za długa */
+        border-radius: 0 !important; /* Usunięcie zaokrągleń */
+    }
+
+    /* 🔹 Zmniejszenie marginesu w środku popupu */
+    .leaflet-popup-content {
+        padding: 10px !important;
+    }
+
+    /* 🔹 Usunięcie białej obwódki popupu */
+    .leaflet-popup-tip-container {
+        display: none !important;
     }
 }
 
@@ -358,21 +372,7 @@
   .swiper-container {
     margin-bottom: 20px !important; /* Dodaje odstęp pod sliderem */
 }
-/* 🔹 Styl dla wysuwanego popupu */
-#custom-popup {
-    position: fixed;
-    bottom: -100%; /* Domyślnie ukryty */
-    left: 0;
-    width: 100%;
-    height: 80vh; /* Wysokość popupa */
-    background: white;
-    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 15px 15px 0 0;
-    padding: 15px;
-    overflow-y: auto;
-    transition: bottom 0.3s ease-in-out;
-    z-index: 10000;
-}
+
 
 /* 🔹 Nagłówek popupa */
 #custom-popup-header {
