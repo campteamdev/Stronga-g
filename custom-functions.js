@@ -1,3 +1,17 @@
+const CryptoJS = window.CryptoJS;
+
+
+
+async function generateToken(filename) {
+  const response = await fetch(`https://campteam-6j06e1i0d-marcincamps-projects.vercel.app/api/token?filename=${filename}`);
+  const data = await response.json();
+  return data.token;
+}
+
+
+
+
+
 
 // Obiekty do przechowywania danych
 let detailsMap = {};
@@ -6,11 +20,6 @@ let websiteLinksMap = {};
 let descriptionsMap = {};
 let amenitiesMap = {};
 let excludedPlaces = new Set();
-
-function generateToken(filename) {
-  const SECRET_KEY = "a8sd7a9s8d7a98sd7a98sd7"; // Twój SECRET_KEY
-  return CryptoJS.HmacSHA256(filename, SECRET_KEY).toString(CryptoJS.enc.Hex);
-}
 
 // Blokowanie prawego przycisku myszy
 document.addEventListener("contextmenu", (event) => event.preventDefault());
@@ -66,16 +75,8 @@ async function loadKmlData() {
 
   for (const filename of kmlFiles) {
     try {
-      const token = generateToken(filename); // 🔐 Generowanie tokena
-      const url = `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=${filename}&token=${token}`; // 🌍 Pobieranie pliku z API
-
-      console.log(`🔍 Pobieranie pliku: ${filename} -> ${url}`); // Debugowanie
-
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`❌ Nie udało się załadować: ${filename} (Status: ${response.status})`);
-
-      const kmlText = await response.text();
-      console.log(`📂 Załadowany KML dla ${filename}:`, kmlText.substring(0, 200)); // Podgląd pierwszych 200 znaków
+      const kmlText = await fetchKml(filename); // ✅ Pobiera plik z API Vercel
+      console.log(`✅ Pobrano: ${filename}`);
 
       const parser = new DOMParser();
       const kml = parser.parseFromString(kmlText, "application/xml");
@@ -86,19 +87,20 @@ async function loadKmlData() {
         const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
         const website = placemark.querySelector("Data[name='Strona www:'] > value")?.textContent.trim() || extractWebsite(description);
 
+        // Pobieranie danych Opis i Infrastruktura
         const opisNode = placemark.querySelector("Data[name='Opis:'] > value");
         const infrastrukturaNode = placemark.querySelector("Data[name='Udogodnienia:'] > value");
 
         const opis = opisNode ? opisNode.textContent.trim() : "";
         let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
- // Debugowanie wartości
- console.log(`📌 [loadKmlData] Przetwarzanie miejsca: ${name}`);
- console.log(`📌 Opis: ${opis}`);
- console.log(`📌 Infrastruktura: ${infrastruktura}`);
- console.log(`📌 Strona WWW: ${website}`);
+
+        // Usunięcie zbędnych znaków z infrastruktury
         if (infrastruktura) {
-          infrastruktura = infrastruktura.replace(/-?\s*(nr[:.]?|[0-9]+|\(|\)|\[|\])/g, "").trim().replace(/\s{2,}/g, " ");
-          infrastruktura = infrastruktura.split("\n").join("<br>");
+          infrastruktura = infrastruktura
+            .replace(/-?\s*(nr[:.]?|[0-9]+|\(|\)|\[|\])/g, "") // Usuwa "nr:", "nr.", cyfry, nawiasy
+            .trim()
+            .replace(/\s{2,}/g, " "); // Usuwa nadmiarowe spacje
+          infrastruktura = infrastruktura.split("\n").join("<br>"); // Formatowanie HTML
         }
 
         if (name) {
@@ -117,11 +119,6 @@ async function loadKmlData() {
       console.error(`❌ Błąd podczas przetwarzania pliku ${filename}:`, error);
     }
   }
-
-  console.log("📌 🔍 Sprawdzam zawartość descriptionsMap:", descriptionsMap);
-  console.log("📌 🔍 Sprawdzam zawartość amenitiesMap:", amenitiesMap);
-  console.log("📌 🔍 Sprawdzam zawartość phoneNumbersMap:", phoneNumbersMap);
-  console.log("📌 🔍 Sprawdzam zawartość websiteLinksMap:", websiteLinksMap);
 }
 
 
