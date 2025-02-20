@@ -199,111 +199,100 @@ function initializeSwiper(name, images) {
 
 
 async function generateImageSlider(name, lat, lon) {
-    // Sprawdzenie, czy popup już ma slider, aby uniknąć ponownego ładowania
     const existingSlider = document.querySelector(`.swiper-container-${sanitizeName(name)}`);
     if (existingSlider) {
         console.log(`🔹 Slider dla ${name} już istnieje. Pomijam ponowne ładowanie.`);
-        return { sliderHTML: "", images: [] }; // Nie generujemy ponownie
+        return { sliderHTML: "", images: [] };
     }
 
-    // Pobranie zdjęć dopiero po otwarciu popupu (Lazy Loading)
     const images = await getLocationImages(name);
-    
     console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);
 
     const safeName = sanitizeName(name);
     const sliderId = `swiper-container-${safeName}`;
-    const prevBtnId = `swiper-prev-${safeName}`;
-    const nextBtnId = `swiper-next-${safeName}`;
 
-    // ✅ Pobieramy numer telefonu do kempingu (jeśli jest dostępny)
     const phoneNumber = phoneNumbersMap[name] || null;
     const phoneLink = phoneNumber ? `tel:${phoneNumber}` : "#";
     const phoneCursor = phoneNumber ? "pointer" : "not-allowed";
     const phoneOpacity = phoneNumber ? "1" : "0.5";
 
-    // ✅ Nazwa lokalizacji (nad zdjęciami)
+    // 🔹 Nagłówek popupu
     let locationTitle = `
-    <div style="width: 100%; text-align: center; font-size: 16px; font-weight: bold; 
-                padding: 5px 0; background-color: #f8f8f8; border-radius: 8px;">
+    <div style="width: 100%; text-align: center; font-size: 18px; font-weight: bold; 
+                padding: 10px 0; background-color: #f8f8f8; border-radius: 8px;">
         ${name}
     </div>`;
 
-    // ✅ Tworzymy slider, jeśli są zdjęcia
+    // 🔹 Slider tylko jeśli są zdjęcia
     let sliderHTML = images.length > 0 ? `
-        <div class="swiper-container ${sliderId}" style="width:100%; height: 140px; position: relative; overflow: hidden;">
+        <div class="swiper-container ${sliderId}" style="width:100%; height: 160px; position: relative; overflow: hidden;">
             <div class="swiper-wrapper">
                 ${images.map(img => `
                     <div class="swiper-slide">
                         <img data-src="${img}" class="zoomable-image swiper-lazy" 
-                             style="width:100%; height:140px; object-fit:cover; 
+                             style="width:100%; height:160px; object-fit:cover; 
                                     border-radius:8px; cursor:pointer;">
                         <div class="swiper-lazy-preloader"></div>
                     </div>
                 `).join("")}
             </div>
             <div class="swiper-pagination"></div>
-            <div id="${prevBtnId}" class="custom-swiper-prev">❮</div>
-            <div id="${nextBtnId}" class="custom-swiper-next">❯</div>
-               </div>` : `
-        <div style="text-align:center; margin-top: 10px;">
-            <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
-               target="_blank" style="display: inline-block;">
-                <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.png" 
-                     alt="Dodaj zdjęcie"
-                     style="width: 60px; height: 60px; cursor: pointer;">
-            </a>
-        </div>`;
+        </div>` : '';
 
+    // 🔹 Klasa do obramowania niebieską ramką, jeśli brak zdjęć
+    const addPhotoBorderClass = images.length === 0 ? 'border-blue' : '';
 
-    // ✅ Sekcja ikon (Zadzwoń, Dodaj zdjęcie, Opinia, Prowadź) - pod zdjęciami
-    let iconsSection = `
-    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; 
-                margin-top: 8px; width: 100%; max-width: 100%; flex-wrap: wrap;">
-        <!-- 🔹 Ikona "Zadzwoń" -->
+    // 🔹 Górny rząd ikon (Zadzwoń, Dodaj zdjęcie)
+    let topIconsSection = `
+    <div style="display: flex; justify-content: center; align-items: center; gap: 30px; 
+                margin-top: 20px; width: 100%;">
         <a href="${phoneLink}" 
-           style="display: inline-block; width: 40px; height: 40px; opacity: ${phoneOpacity}; cursor: ${phoneCursor};">
+           style="display: flex; justify-content: center; align-items: center; 
+                  width: 55px; height: 55px; opacity: ${phoneOpacity}; cursor: ${phoneCursor};">
             <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/zadzwon.png" 
                  alt="Zadzwoń"
-                 style="width: 40px; height: 40px;">
+                 style="width: 55px; height: 55px;">
         </a>
 
-        <!-- 🔹 Ikona "Dodaj zdjęcie" -->
         <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
            target="_blank"
-           style="display: inline-block; width: 40px; height: 40px;">
+           class="add-photo-small ${addPhotoBorderClass}"
+           style="display: flex; justify-content: center; align-items: center; 
+                  width: 55px; height: 55px;">
             <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.png" 
                  alt="Dodaj zdjęcie"
-                 style="width: 40px; height: 40px;">
-        </a>
-
-        <!-- 🔹 Ikona "Opinia" -->
-        <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
-           target="_blank"
-           style="display: inline-block; width: 40px; height: 40px;">
-            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/opinia.png" 
-                 alt="Dodaj opinię"
-                 style="width: 40px; height: 40px;">
-        </a>
-
-        <!-- 🔹 Ikona "Prowadź" -->
-        <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" 
-           target="_blank"
-           style="display: inline-block; width: 40px; height: 40px;">
-            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/prowadz.png" 
-                 alt="Prowadź"
-                 style="width: 40px; height: 40px;">
+                 style="width: 55px; height: 55px;">
         </a>
     </div>`;
 
-    // ✅ Układ popupu (Nazwa → Zdjęcia → Ikony)
-    let finalHTML = locationTitle + sliderHTML + iconsSection;
+    // 🔹 Dolny rząd ikon (Opinia, Prowadź)
+    let bottomIconsSection = `
+    <div style="display: flex; justify-content: center; align-items: center; gap: 30px; 
+                margin-top: 15px; width: 100%;">
+        <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
+           target="_blank"
+           style="display: flex; justify-content: center; align-items: center; 
+                  width: 55px; height: 55px;">
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/opinia.png" 
+                 alt="Dodaj opinię"
+                 style="width: 55px; height: 55px;">
+        </a>
+
+        <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" 
+           target="_blank"
+           style="display: flex; justify-content: center; align-items: center; 
+                  width: 55px; height: 55px;">
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/prowadz.png" 
+                 alt="Prowadź"
+                 style="width: 55px; height: 55px;">
+        </a>
+    </div>`;
+
+    // 🔹 Układ popupu (Nazwa → Zdjęcia → Ikony)
+    let finalHTML = locationTitle + sliderHTML + topIconsSection + bottomIconsSection;
 
     return { sliderHTML: finalHTML, images };
 }
-
-
-
 
 
 
