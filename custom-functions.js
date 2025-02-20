@@ -191,29 +191,65 @@ function generatePopupContent(name, lat, lon) {
 
 
  
-  // Strona internetowa
-  if (websiteLinksMap[name]) {
-    popupContent += `<strong style="font-size:12px; user-select: none;">Strona:</strong> <a href="${websiteLinksMap[name]}" target="_blank" style="color:red; text-decoration:none; font-size:10px; user-select: none;">${websiteLinksMap[name]}</a><br>`;
-  }
-
+  
   // Opis
   popupContent += `<div style="border:2px solidrgb(18, 161, 18); padding:4px; display:inline-block; font-size:12px;
       user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
-      border-radius: 8px; background-color: #eaffea;">
-      Opis:</div><br>`;
+      border-radius: 14px; background-color: #eaffea;">
+      </div><br>`;
 
   popupContent += descriptionsMap[name] 
-    ? `<span style="font-size:10px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-    : `<span style="font-size:10px; user-select: none;"><i>Brak opisu</i></span>`;
+    ? `<span style="font-size:12px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+    : `<span style="font-size:12px; user-select: none;"><i></i></span>`;
 
-  // Infrastruktura
-  popupContent += `<br><div style="border:2px solidrgb(184, 19, 25); padding:4px; display:inline-block; font-size:12px; 
-      user-select: none; border-radius: 8px; background-color: #eaffea;">
-      Infrastruktura:</div><br>`;
+  // Strona internetowa
+if (websiteLinksMap[name]) {
+  let websiteUrl = websiteLinksMap[name].trim();
 
-  popupContent += amenitiesMap[name] 
-    ? `<span style="font-size:10px; user-select: none;">${amenitiesMap[name]}</span>` 
-    : `<span style="font-size:10px; user-select: none;"><i>Brak informacji</i></span>`;
+  // 🔹 Jeśli link NIE zaczyna się od "http://" lub "https://", dodaj "https://"
+  if (!/^https?:\/\//i.test(websiteUrl)) {
+      websiteUrl = "https://" + websiteUrl; // Domyślnie dodajemy HTTPS
+  }
+
+  popupContent += `<br><br>
+      <a href="${websiteUrl}" target="_blank" 
+         style="display: inline-block; padding: 5px 10px; border: 2px solid rgb(18, 161, 18); 
+                font-size: 12px; font-weight: bold; text-decoration: none; color: black; 
+                border-radius: 8px; user-select: none;">
+          🌍 Strona WWW
+      </a><br>`;
+}
+
+
+// 📌 **DODANIE PRZERWY między "Strona:" a "Infrastruktura:"**
+popupContent += `<br>`;
+// Infrastruktura
+popupContent += `<br><div style="border:2px solid rgb(18, 161, 18); padding:4px; display:inline-block; 
+    font-size:12px; font-weight: bold; user-select: none; border-radius: 8px;">
+    Infrastruktura:</div><br>`;
+
+if (amenitiesMap[name]) {
+    // Normalizacja separatorów (zamiana przecinków, średników i nowych linii na przecinki)
+    let formattedAmenities = amenitiesMap[name]
+        .replace(/\n/g, ", ")   // Nowe linie zamieniane na przecinki
+        .replace(/;/g, ", ")    // Średniki zamieniane na przecinki
+        .replace(/\s*,\s*/g, ", ") // Usunięcie nadmiarowych spacji wokół przecinków
+        .trim();
+
+    // Podział na osobne udogodnienia
+    const amenitiesList = formattedAmenities.split(',').map(item => item.trim()).filter(item => item.length > 0);
+
+    popupContent += amenitiesList.map(amenity => `
+        <span style="display: block; font-size:12px; font-weight: bold; 
+                     user-select: none; margin: 3px 0;">
+            ${amenity}
+        </span>
+    `).join(''); // Połączenie wszystkich elementów
+} else {
+    popupContent += `<span style="font-size:12px; font-weight: bold; user-select: none;">
+        <i>Brak informacji</i></span>`;
+}
+
 
   // Linki
   popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>`;
