@@ -75,7 +75,7 @@ async function loadKmlData() {
   for (const filename of kmlFiles) {
     try {
       const kmlText = await fetchKml(filename); // ✅ Pobiera plik z API Vercel
-      console.log(`✅ Pobrano: ${filename}`);
+    
 
       const parser = new DOMParser();
       const kml = parser.parseFromString(kmlText, "application/xml");
