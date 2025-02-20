@@ -1,24 +1,3 @@
-async function getSecureToken(id) {
-  const currentTime = Date.now(); // Pobierz aktualny czas w milisekundach
-
-  // Jeśli token jest nadal ważny, użyj go ponownie
-  if (currentToken && currentTime < tokenExpirationTime) {
-      return currentToken;
-  }
-
-  // Pobierz nowy token z serwera
-  const response = await fetch("https://campteam-625obbk0n-marcincamps-projects.vercel.app/api/token?kml=" + id);
-  const data = await response.json();
-  
-  currentToken = data.token; // Zapisz nowy token
-  tokenExpirationTime = currentTime + 4 * 60 * 1000; // Token ważny przez 4 minuty
-
-  return currentToken;
-}
-let currentToken = null; // Przechowuje aktualny token
-let tokenExpirationTime = 0; // Czas wygaśnięcia tokena
-
-
 
 // Obiekty do przechowywania danych
 let detailsMap = {};
@@ -27,6 +6,11 @@ let websiteLinksMap = {};
 let descriptionsMap = {};
 let amenitiesMap = {};
 let excludedPlaces = new Set();
+
+function generateToken(filename) {
+  const SECRET_KEY = "a8sd7a9s8d7a98sd7a98sd7"; // Twój SECRET_KEY
+  return CryptoJS.HmacSHA256(filename, SECRET_KEY).toString(CryptoJS.enc.Hex);
+}
 
 // Blokowanie prawego przycisku myszy
 document.addEventListener("contextmenu", (event) => event.preventDefault());
@@ -64,32 +48,35 @@ function extractWebsite(description) {
 }
 
 
+// Funkcja wczytująca dane z KML
 async function loadKmlData() {
   const kmlFiles = [
+    "Kempingi.kml",
+    "Polanamiotowe.kml",
+    "Kempingiopen.kml",
+    "Polanamiotoweopen.kml",
+    "Parkingilesne.kml",
+    "Kempingi1.kml",
     "AtrakcjeKulturowe.kml",
     "AtrakcjePrzyrodnicze.kml",
     "AtrakcjeRozrywka.kml",
-    "Europa.kml",
-    "Kempingi.kml",
-    "Kempingi1.kml",
-    "Kempingiopen.kml",
     "Miejscenabiwak.kml",
-    "Parkingilesne.kml",
-    "Polanamiotowe.kml",
-    "Polanamiotoweopen.kml"
+    "Europa.kml",
   ];
 
   for (const filename of kmlFiles) {
     try {
-      const url = await fetchKml(filename); // Pobiera KML za pomocą API
-console.log(`📂 Pobieram KML: ${filename} -> ${url}`);
+      const token = generateToken(filename); // 🔐 Generowanie tokena
+      const url = `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=${filename}&token=${token}`; // 🌍 Pobieranie pliku z API
 
-     
+      console.log(`🔍 Pobieranie pliku: ${filename} -> ${url}`); // Debugowanie
 
       const response = await fetch(url);
-      if (!response.ok) throw new Error(`❌ Nie udało się załadować: ${filename}`);
+      if (!response.ok) throw new Error(`❌ Nie udało się załadować: ${filename} (Status: ${response.status})`);
 
       const kmlText = await response.text();
+      console.log(`📂 Załadowany KML dla ${filename}:`, kmlText.substring(0, 200)); // Podgląd pierwszych 200 znaków
+
       const parser = new DOMParser();
       const kml = parser.parseFromString(kmlText, "application/xml");
       const placemarks = kml.getElementsByTagName("Placemark");
@@ -99,20 +86,19 @@ console.log(`📂 Pobieram KML: ${filename} -> ${url}`);
         const description = placemark.getElementsByTagName("description")[0]?.textContent.trim();
         const website = placemark.querySelector("Data[name='Strona www:'] > value")?.textContent.trim() || extractWebsite(description);
 
-        // Pobieranie danych Opis i Infrastruktura
         const opisNode = placemark.querySelector("Data[name='Opis:'] > value");
         const infrastrukturaNode = placemark.querySelector("Data[name='Udogodnienia:'] > value");
 
         const opis = opisNode ? opisNode.textContent.trim() : "";
         let infrastruktura = infrastrukturaNode ? infrastrukturaNode.textContent.trim() : "";
-
-        // Usunięcie zbędnych znaków z infrastruktury
+ // Debugowanie wartości
+ console.log(`📌 [loadKmlData] Przetwarzanie miejsca: ${name}`);
+ console.log(`📌 Opis: ${opis}`);
+ console.log(`📌 Infrastruktura: ${infrastruktura}`);
+ console.log(`📌 Strona WWW: ${website}`);
         if (infrastruktura) {
-          infrastruktura = infrastruktura
-            .replace(/-?\s*(nr[:.]?|[0-9]+|\(|\)|\[|\])/g, "") // Usuwa "nr:", "nr.", cyfry, nawiasy
-            .trim()
-            .replace(/\s{2,}/g, " "); // Usuwa nadmiarowe spacje
-          infrastruktura = infrastruktura.split("\n").join("<br>"); // Formatowanie HTML
+          infrastruktura = infrastruktura.replace(/-?\s*(nr[:.]?|[0-9]+|\(|\)|\[|\])/g, "").trim().replace(/\s{2,}/g, " ");
+          infrastruktura = infrastruktura.split("\n").join("<br>");
         }
 
         if (name) {
@@ -131,7 +117,13 @@ console.log(`📂 Pobieram KML: ${filename} -> ${url}`);
       console.error(`❌ Błąd podczas przetwarzania pliku ${filename}:`, error);
     }
   }
+
+  console.log("📌 🔍 Sprawdzam zawartość descriptionsMap:", descriptionsMap);
+  console.log("📌 🔍 Sprawdzam zawartość amenitiesMap:", amenitiesMap);
+  console.log("📌 🔍 Sprawdzam zawartość phoneNumbersMap:", phoneNumbersMap);
+  console.log("📌 🔍 Sprawdzam zawartość websiteLinksMap:", websiteLinksMap);
 }
+
 
 
 // Funkcja skracająca tekst do 3 linijek
@@ -287,7 +279,7 @@ async function updatePopupsWithImages() {
 // 🔹 Obsługa otwierania popupu i przesuwania mapy
 // 🔹 Funkcja obsługująca otwarcie popupu i przesuwanie mapy
 map.on("popupopen", async function (e) {
-
+  console.log("📌 [popupopen] Otwieranie popupu...");
 
   const marker = e.popup._source;
   if (!marker) {
@@ -296,21 +288,21 @@ map.on("popupopen", async function (e) {
   }
 
   const latlng = marker.getLatLng();
-  
+  console.log(`📍 [popupopen] Współrzędne markera: ${latlng.lat}, ${latlng.lng}`);
 
   // 🔹 Obliczamy przesunięcie w dół
   const mapSize = map.getSize();
-
+  console.log(`🗺️ [popupopen] Rozmiar mapy: ${mapSize.x}x${mapSize.y}`);
 
   const offsetLat = map.containerPointToLatLng([0, mapSize.y * 0.3]).lat - map.containerPointToLatLng([0, 0]).lat;
   const newLatLng = L.latLng(latlng.lat - offsetLat, latlng.lng);
-  
+  console.log(`🎯 [popupopen] Nowa pozycja mapy: ${newLatLng.lat}, ${newLatLng.lng}`);
 
   // 🔹 Przesuwamy mapę
   map.setView(newLatLng, map.getZoom(), { animate: true });
 
   map.once("moveend", async function () {
-   
+      console.log("✅ [popupopen] Mapa przesunięta, otwieranie zawartości popupu...");
 
       const popup = e.popup._contentNode;
       if (!popup) {
@@ -325,13 +317,13 @@ map.on("popupopen", async function (e) {
       }
 
       const name = nameElement.textContent.trim();
-   
+      console.log(`📂 [popupopen] Nazwa miejsca: ${name}`);
 
       const { sliderHTML, images } = await generateImageSlider(name, latlng.lat, latlng.lng);
 
       if (sliderHTML) {
           popup.insertAdjacentHTML("afterbegin", sliderHTML);
-        
+          console.log(`📂 ✅ [popupopen] Slider dodany do popupu dla: ${name}`);
           initializeSwiper(name, images);
       }
   });
@@ -340,7 +332,7 @@ map.on("popupopen", async function (e) {
 // 🔹 Obsługa kliknięcia na marker
 map.eachLayer(layer => {
   if (layer instanceof L.Marker) {
-  
+      console.log(`🟢 [map.eachLayer] Podpinam kliknięcie do markera na pozycji: ${layer.getLatLng().lat}, ${layer.getLatLng().lng}`);
       layer.off("click");
       layer.on("click", function () {
           openCustomPopup(this);
@@ -350,10 +342,10 @@ map.eachLayer(layer => {
 
 // 🔹 Funkcja otwierająca wysuwany popup
 function openCustomPopup(marker) {
-
+  console.log("📌 [openCustomPopup] Otwieranie niestandardowego popupu...");
 
   const latlng = marker.getLatLng();
-  
+  console.log(`📍 [openCustomPopup] Współrzędne markera: ${latlng.lat}, ${latlng.lng}`);
 
   const popupContent = marker.getPopup().getContent();
   if (!popupContent) {
@@ -362,25 +354,27 @@ function openCustomPopup(marker) {
   }
 
   const name = popupContent.match(/<strong>(.*?)<\/strong>/)?.[1] || "Brak nazwy";
-
+  console.log(`📂 [openCustomPopup] Nazwa miejsca: ${name}`);
 
   generatePopupContent(name, latlng.lat, latlng.lng).then(async (popupHTML) => {
-      
+      console.log("📌 [openCustomPopup] Generowanie zawartości popupu...");
+
       const { sliderHTML, images } = await generateImageSlider(name, latlng.lat, latlng.lng);
       showCustomPopup(popupHTML + sliderHTML);
 
+      console.log(`📌 [openCustomPopup] Przesuwanie mapy, aby marker był nad popupem...`);
       const mapHeight = map.getSize().y;
       const offsetLat = map.containerPointToLatLng([0, mapHeight * 0.3]).lat - map.containerPointToLatLng([0, 0]).lat;
       const newLatLng = L.latLng(latlng.lat - offsetLat, latlng.lng);
       map.setView(newLatLng, map.getZoom(), { animate: true });
 
-    
+      console.log("✅ [openCustomPopup] Popup otwarty!");
   });
 }
 
 // 🔹 Funkcja do wyświetlenia popupu
 function showCustomPopup(content) {
-
+  console.log("📌 [showCustomPopup] Wyświetlanie wysuwanego popupu...");
   const popup = document.getElementById("custom-popup");
   document.getElementById("custom-popup-content").innerHTML = content;
   popup.style.bottom = "0";
@@ -388,7 +382,7 @@ function showCustomPopup(content) {
 
 // 🔹 Funkcja zamykająca popup
 function closeCustomPopup() {
-  
+  console.log("📌 [closeCustomPopup] Zamknięcie wysuwanego popupu...");
   document.getElementById("custom-popup").style.bottom = "-100%";
 }
 

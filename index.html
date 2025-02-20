@@ -19,7 +19,7 @@
   <script src="https://cdn.jsdelivr.net/npm/fuzzball@2.1.3/dist/fuzzball.umd.min.js"></script>
   <script>
       window.fuzzball = fuzzball;
-  
+      console.log("✅ Fuzzball poprawnie załadowany:", fuzzball);
   </script>
   
    <!-- End Google Tag Manager -->
@@ -42,8 +42,14 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
     <script src="encoded_kml.js"></script>
-    <script src="custom-functions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
+    <script src="custom-functions.js"></script>
+    <script>
+      console.log("✅ encoded_kml.js załadowany!");
+      console.log("📂 encodedKML:", encodedKML);
+      console.log("🔍 getKML('Kempingi.kml'):", getKML("Kempingi.kml"));
+  </script>
   
     <!-- Dodano obsługę dodatkowych funkcji -->
     <style>
@@ -506,21 +512,24 @@
       </a>
     </div>
     <script>
-    const urls = {
-  atrakcjeKulturowe: "/api/kml?id=AtrakcjeKulturowe.kml",
-  atrakcjePrzyrodnicze: "/api/kml?id=AtrakcjePrzyrodnicze.kml",
-  atrakcjeRozrywka: "/api/kml?id=AtrakcjeRozrywka.kml",
-  europa: "/api/kml?id=Europa.kml",
-  kempingi: "/api/kml?id=Kempingi.kml",
-  kempingi1: "/api/kml?id=Kempingi1.kml",
-  kempingiopen: "/api/kml?id=Kempingiopen.kml",
-  miejscenabiwak: "/api/kml?id=Miejscenabiwak.kml",
-  parkingilesne: "/api/kml?id=Parkingilesne.kml",
-  polanamiotowe: "/api/kml?id=Polanamiotowe.kml",
-  polanamiotoweopen: "/api/kml?id=Polanamiotoweopen.kml"
+      function generateToken(filename) {
+  const SECRET_KEY = "a8sd7a9s8d7a98sd7a98sd7"; // Twój SECRET_KEY
+  return CryptoJS.HmacSHA256(filename, SECRET_KEY).toString(CryptoJS.enc.Hex);
+}
+
+const urls = {
+  kempingi: `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=Kempingi.kml&token=${generateToken("Kempingi.kml")}`,
+  polanamiotowe: `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=Polanamiotowe.kml&token=${generateToken("Polanamiotowe.kml")}`,
+  kempingiopen: `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=Kempingiopen.kml&token=${generateToken("Kempingiopen.kml")}`,
+  polanamiotoweopen: `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=Polanamiotoweopen.kml&token=${generateToken("Polanamiotoweopen.kml")}`,
+  parkingilesne: `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=Parkingilesne.kml&token=${generateToken("Parkingilesne.kml")}`,
+  kempingi1: `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=Kempingi1.kml&token=${generateToken("Kempingi1.kml")}`,
+  AtrakcjeKulturowe: `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=AtrakcjeKulturowe.kml&token=${generateToken("AtrakcjeKulturowe.kml")}`,
+  AtrakcjePrzyrodnicze: `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=AtrakcjePrzyrodnicze.kml&token=${generateToken("AtrakcjePrzyrodnicze.kml")}`,
+  AtrakcjeRozrywka: `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=AtrakcjeRozrywka.kml&token=${generateToken("AtrakcjeRozrywka.kml")}`,
+  miejscenabiwak: `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=Miejscenabiwak.kml&token=${generateToken("Miejscenabiwak.kml")}`,
+  europa: `https://campteam-pn7xaf71b-marcincamps-projects.vercel.app/api/kml?id=Europa.kml&token=${generateToken("Europa.kml")}`,
 };
-
-
 
       const icons = {
         kempingi: L.icon({
@@ -599,85 +608,52 @@
       const allMarkers = [];
       const allPlacemarks = []; // Przechowywanie placemarks
 
-      async function fetchKml(id) {
-    // Pobieramy nowy token dla danego pliku KML
-    const tokenResponse = await fetch(`/api/token?kml=${id}`);
-    const tokenData = await tokenResponse.json();
-    const token = tokenData.token;
+      async function fetchKml(url) {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${url}`);
+        return response.text();
+      }
 
-    // Pobieramy plik KML z API Proxy na Vercel
-    const response = await fetch(`/api/kml?id=${id}&token=${token}`);
-    
-    if (!response.ok) throw new Error(`Błąd wczytywania pliku KML: ${id}`);
-    
-    return response.text();
-}
-async function fetchKml(id) {
-    const token = await getSecureToken(id); // Pobierz aktualny token
-    console.log(`🔑 Pobieranie tokena dla ${id}: ${token}`);
-
-    const url = `https://campteam-625obbk0n-marcincamps-projects.vercel.app/api/kml?id=${id}&token=${token}`;
-    console.log(`🌍 Wysyłanie żądania: ${url}`);
-
-    const response = await fetch(url);
-    
-    if (!response.ok) {
-        console.error(`❌ Błąd wczytywania pliku KML: ${id}, status: ${response.status}`);
-        throw new Error(`Błąd wczytywania pliku KML: ${id}`);
-    }
-
-    return response.text();
-}
-
-
-
-
-
-
-
-async function loadMarkers(id, icon, addToCluster = true) {
-    try {
-        // Pobieramy zawartość KML przez zabezpieczone API
-        const kmlText = await fetchKml(id);
+      async function loadMarkers(url, icon, addToCluster = true) {
+        const kmlText = await fetchKml(url);
         const parser = new DOMParser();
         const kml = parser.parseFromString(kmlText, "application/xml");
         const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+        allPlacemarks.push(...placemarks); // Dodanie placemarks do globalnej listy
 
         placemarks.forEach((placemark) => {
-            const name =
-                placemark.getElementsByTagName("name")[0]?.textContent || "Brak nazwy";
-            const coordinates = placemark
-                .getElementsByTagName("coordinates")[0]
-                ?.textContent.trim();
+          const name =
+            placemark.getElementsByTagName("name")[0]?.textContent ||
+            "Brak nazwy";
+          const coordinates = placemark
+            .getElementsByTagName("coordinates")[0]
+            ?.textContent.trim();
 
-            if (coordinates) {
-                const [lon, lat] = coordinates.split(",");
-                const key = `${lat},${lon}`;
+          if (coordinates) {
+            const [lon, lat] = coordinates.split(",");
+            const key = `${lat},${lon}`;
 
-                if (!addedMarkers.has(key)) {
-                    addedMarkers.add(key);
-                    const markerOptions = { icon };
-                    if (!addToCluster) {
-                        markerOptions.zIndexOffset = 9999;
-                    }
-                    const marker = L.marker([lat, lon], markerOptions).bindPopup(
-                        `<strong>${name}</strong>`
-                    );
+            if (!addedMarkers.has(key)) {
+              addedMarkers.add(key);
+              const markerOptions = { icon };
+              if (!addToCluster) {
+                markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
+              }
+              const marker = L.marker([lat, lon], markerOptions).bindPopup(
+                `<strong>${name}</strong>`
+              );
 
-                    if (addToCluster) {
-                        markerCluster.addLayer(marker);
-                    } else {
-                        marker.addTo(map);
-                    }
+              if (addToCluster) {
+                markerCluster.addLayer(marker);
+              } else {
+                marker.addTo(map);
+              }
 
-                    allMarkers.push({ marker, name, lat, lon });
-                }
+              allMarkers.push({ marker, name, lat, lon });
             }
+          }
         });
-    } catch (error) {
-        console.error(`Błąd podczas ładowania pliku KML: ${id}`, error);
-    }
-}
+      }
 
       function initializeSearch() {
     const searchInput = document.getElementById("search-input");
@@ -782,22 +758,21 @@ function highlightMarker(match) {
 }
 
       async function initializeMap() {
-       
-        await Promise.all([
-  loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural),
-  loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature),
-  loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun),
-  loadMarkers("Europa.kml", icons.kempingi1),
-  loadMarkers("Kempingi.kml", icons.kempingi, false),
-  loadMarkers("Kempingi1.kml", icons.kempingi1),
-  loadMarkers("Kempingiopen.kml", icons.kempingiopen),
-  loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak),
-  loadMarkers("Parkingilesne.kml", icons.parkingilesne),
-  loadMarkers("Polanamiotowe.kml", icons.polanamiotowe),
-  loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen)
-]);
-
-
+        console.log("✅ Sprawdzam funkcję getKML w initializeMap:", typeof getKML);
+    console.log("🔍 Test getKML('Kempingi.kml'):", getKML("Kempingi.kml"));
+    await Promise.all([
+    loadMarkers(getKML("Kempingi.kml"), icons.kempingi, false),
+    loadMarkers(getKML("Polanamiotowe.kml"), icons.polanamiotowe, false),
+    loadMarkers(getKML("Kempingiopen.kml"), icons.kempingiopen, false),
+    loadMarkers(getKML("Polanamiotoweopen.kml"), icons.polanamiotoweopen, false),
+    loadMarkers(getKML("Parkingilesne.kml"), icons.parkingilesne),
+    loadMarkers(getKML("Kempingi1.kml"), icons.kempingi1, false),
+    loadMarkers(getKML("Miejscenabiwak.kml"), icons.miejscenabiwak),
+    loadMarkers(getKML("Europa.kml"), icons.kempingi),
+    loadMarkers(getKML("AtrakcjeKulturowe.kml"), icons.atractionCultural),
+    loadMarkers(getKML("AtrakcjePrzyrodnicze.kml"), icons.atractionNature),
+    loadMarkers(getKML("AtrakcjeRozrywka.kml"), icons.atractionFun),
+  ]);
         map.addLayer(markerCluster);
         initializeSearch();
        
