@@ -310,21 +310,19 @@
 /* 🔹 Popup na telefonach (100% szerokości i dynamiczna wysokość) */
 @media (max-width: 768px) {
    /* 🔹 Główne poprawki dla popupu */
-.leaflet-popup-content-wrapper {
-    overflow: hidden !important; /* 🔥 Ukrywamy domyślne przewijanie */
-    position: relative; /* Dla strzałki przewijania */
-    padding-bottom: 30px; /* Zostawiamy miejsce na strzałkę */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+   @media (max-width: 768px) {
+    .leaflet-popup-content-wrapper {
+        max-width: 90vw !important; /* 90% szerokości ekranu */
+        max-height: 80vh !important; /* 🔥 Ustalamy jednolitą wysokość na 80% ekranu */
+        overflow-y: auto !important; /* Umożliwiamy przewijanie, jeśli treść jest za długa */
+    }
+
+    .leaflet-popup-content {
+    min-height: 80vh !important; /* ⬅️ Minimalna wysokość popupu */
+    max-height: 80vh !important; /* ⬅️ Maksymalna wysokość popupu */
+    overflow-y: auto !important; /* ✅ Przewijanie wewnątrz popupu */
 }
 
-/* 🔹 Treść popupu - przewijanie działa tylko wewnątrz */
-.leaflet-popup-content {
-    overflow-y: auto !important; /* ✅ Aktywujemy przewijanie tylko w obrębie treści */
-    max-height: 60vh; /* Maksymalna wysokość, aby nie zajmowało całego ekranu */
-    padding-right: 5px; /* Aby uniknąć skoku tekstu po ukryciu paska */
-}
 
 /* 🔹 Strzałka przewijania na dole popupu */
 .scroll-indicator {
