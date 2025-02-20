@@ -3,11 +3,10 @@ const CryptoJS = window.CryptoJS;
 
 
 async function generateToken(filename) {
-  const response = await fetch(`https://campteam-6j06e1i0d-marcincamps-projects.vercel.app/api/token?filename=${filename}`);
+  const response = await fetch(`https://campteam-p12n1urxz-marcincamps-projects.vercel.app/api/token?filename=${filename}`);
   const data = await response.json();
   return data.token;
 }
-
 
 
 
