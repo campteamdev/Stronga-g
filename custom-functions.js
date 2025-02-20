@@ -328,6 +328,7 @@ map.on("popupopen", async function (e) {
 // 🔹 Funkcja przesuwająca mapę, aby lokalizacja była na dole ekranu i otwierająca popup
 // 🔹 Poprawiona funkcja przesuwająca mapę przed otwarciem popupu
 // 🔹 Poprawiona funkcja przesuwająca mapę i otwierająca popup
+// 🔹 Poprawiona funkcja przesuwająca mapę i otwierająca popup
 function moveMapAndOpenPopup(marker) {
   console.log("📌 [moveMapAndOpenPopup] Przesuwanie mapy i otwieranie popupu...");
 
@@ -340,8 +341,8 @@ function moveMapAndOpenPopup(marker) {
   // **Wykrywanie czy użytkownik jest na telefonie**
   const isMobile = window.innerWidth <= 768;
 
-  // 🔹 Dynamiczne przesunięcie
-  let offsetFactor = isMobile ? 0.6 : 0.4; // Większe przesunięcie na telefonach
+  // 🔹 Mniejsze przesunięcie na smartfonach, by ikona była widoczna
+  let offsetFactor = isMobile ? 0.4 : 0.3; // **Zmniejszone przesunięcie na telefonach**
   const offset = map.containerPointToLatLng([0, mapHeight * offsetFactor]).lat - map.containerPointToLatLng([0, 0]).lat;
   const newLatLng = L.latLng(latlng.lat - offset, latlng.lng);
 
@@ -356,6 +357,7 @@ function moveMapAndOpenPopup(marker) {
       marker.openPopup();
   });
 }
+
 
 
 

@@ -50,6 +50,42 @@
     display: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+/* 🔹 Domyślne style popupu */
+.leaflet-popup-content-wrapper {
+    max-width: 250px !important;
+    max-height: 350px !important;
+}
+
+/* 🔹 Na smartfonach popup będzie większy */
+@media (max-width: 768px) {
+    .leaflet-popup-content-wrapper {
+        max-width: 70vw !important; /* 70% szerokości ekranu */
+        max-height: 80vh !important; /* 80% wysokości ekranu */
+        overflow-y: auto !important;
+    }
+}
+/* 🔹 Domyślne style popupu dla komputerów */
+.leaflet-popup-content-wrapper {
+    max-width: 350px !important;  /* Poprawiona szerokość */
+    max-height: 450px !important; /* Zwiększona wysokość */
+    overflow-y: auto !important;  /* Zapewnia przewijanie, jeśli treść jest za długa */
+}
+
+/* 🔹 Na smartfonach popup będzie większy */
+@media (max-width: 768px) {
+    .leaflet-popup-content-wrapper {
+        max-width: 70vw !important; /* 70% szerokości ekranu */
+        max-height: 80vh !important; /* 80% wysokości ekranu */
+        overflow-y: auto !important; /* Pozwala przewijać długą treść */
+    }
+}
+
+
+
+
+
+
+
 /* 🔹 Styl dla wysuwanego popupu */
 #custom-popup {
     position: fixed;
