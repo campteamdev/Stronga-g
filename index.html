@@ -742,30 +742,53 @@ function highlightMarker(match) {
         match.marker.setIcon(originalIcon);
     }, 1500);
 }
+function attachMarkerClickEvents() {
+    console.log("🔄 [attachMarkerClickEvents] Podpinanie kliknięć dla WSZYSTKICH markerów...");
 
-      async function initializeMap() {
-       
+    // 🔹 Przechodzimy przez wszystkie markery w klastrze
+    markerCluster.eachLayer(layer => {
+        if (layer instanceof L.Marker) {
+            console.log(`🟢 [Cluster] Kliknięcie dla: ${layer.getLatLng().lat}, ${layer.getLatLng().lng}`);
+            layer.off("click");
+            layer.on("click", function () {
+                moveMapAndOpenPopup(this);
+            });
+        }
+    });
+
+    // 🔹 Przechodzimy przez pojedyncze markery dodane bezpośrednio do mapy
+    allMarkers.forEach(({ marker }) => {
+        if (!markerCluster.hasLayer(marker)) { // Sprawdzamy, czy marker NIE jest w klastrze
+            console.log(`🟢 [Single] Kliknięcie dla: ${marker.getLatLng().lat}, ${marker.getLatLng().lng}`);
+            marker.off("click");
+            marker.on("click", function () {
+                moveMapAndOpenPopup(this);
+            });
+        }
+    });
+}
+
+// 🔹 Wywołaj po załadowaniu wszystkich markerów
+async function initializeMap() {
     await Promise.all([
-  loadMarkers("Kempingi.kml", icons.kempingi, false),
-  loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false),
-  loadMarkers("Kempingiopen.kml", icons.kempingiopen, false),
-  loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, false),
-  loadMarkers("Parkingilesne.kml", icons.parkingilesne),
-  loadMarkers("Kempingi1.kml", icons.kempingi1, false),
-  loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak),
-  loadMarkers("Europa.kml", icons.kempingi),
-  loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural),
-  loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature),
-  loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun),
-]);
+        loadMarkers("Kempingi.kml", icons.kempingi, false),
+        loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false),
+        loadMarkers("Kempingiopen.kml", icons.kempingiopen, false),
+        loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, false),
+        loadMarkers("Parkingilesne.kml", icons.parkingilesne),
+        loadMarkers("Kempingi1.kml", icons.kempingi1, false),
+        loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak),
+        loadMarkers("Europa.kml", icons.kempingi),
+        loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural),
+        loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature),
+        loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun),
+    ]);
 
-
-        map.addLayer(markerCluster);
-        initializeSearch();
-       
-        // Wywołanie funkcji z custom-functions.js
-        await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
-      }
+    map.addLayer(markerCluster);
+    attachMarkerClickEvents(); // ✅ Podpinamy obsługę kliknięcia dla wszystkich markerów
+    initializeSearch();
+    await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
+}
 
 
 // Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
