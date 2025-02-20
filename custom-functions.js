@@ -360,8 +360,12 @@ function moveMapAndOpenPopup(marker) {
       // Jeśli marker jest już powiększony, nie zmieniaj ponownie
       if (marker._isEnlarged) return;
 
-      // Pobranie oryginalnej ikony
-      const originalIcon = marker.options.icon;
+      // Pobranie oryginalnej ikony i zapisanie jej
+      if (!marker.options.originalIcon) {
+          marker.options.originalIcon = marker.options.icon;
+      }
+
+      const originalIcon = marker.options.originalIcon;
       const iconSize = originalIcon.options.iconSize;
 
       // Powiększona wersja ikony
@@ -380,12 +384,26 @@ function moveMapAndOpenPopup(marker) {
       // 🔹 Przywracamy oryginalną ikonę po zamknięciu popupu
       marker.on("popupclose", function () {
           console.log("🔄 [popupclose] Przywracanie oryginalnej ikony...");
-          marker.setIcon(originalIcon);
-          marker._isEnlarged = false; // 🔹 Resetujemy flagę, by można było ponownie powiększyć ikonę
+          resetIconSize(marker);
       });
   });
 }
 
+
+map.on("zoomend", function () {
+  allMarkers.forEach(({ marker }) => {
+      if (marker._isEnlarged) {
+          resetIconSize(marker);
+      }
+  });
+});
+
+function resetIconSize(marker) {
+  console.log("🔄 [resetIconSize] Resetowanie rozmiaru ikony po zmianie zoomu...");
+  const originalIcon = marker.options.originalIcon || getOriginalIcon(marker);
+  marker.setIcon(originalIcon);
+  marker._isEnlarged = false; // Resetujemy flagę
+}
 
 
 
