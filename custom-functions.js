@@ -329,6 +329,8 @@ map.on("popupopen", async function (e) {
 // 🔹 Poprawiona funkcja przesuwająca mapę przed otwarciem popupu
 // 🔹 Poprawiona funkcja przesuwająca mapę i otwierająca popup
 // 🔹 Poprawiona funkcja przesuwająca mapę i otwierająca popup
+// 🔹 Funkcja przesuwająca mapę i otwierająca popup, powiększając ikonę
+// 🔹 Poprawiona funkcja przesuwająca mapę i otwierająca popup, powiększając ikonę tylko raz
 function moveMapAndOpenPopup(marker) {
   console.log("📌 [moveMapAndOpenPopup] Przesuwanie mapy i otwieranie popupu...");
 
@@ -342,7 +344,7 @@ function moveMapAndOpenPopup(marker) {
   const isMobile = window.innerWidth <= 768;
 
   // 🔹 Mniejsze przesunięcie na smartfonach, by ikona była widoczna
-  let offsetFactor = isMobile ? 0.4 : 0.3; // **Zmniejszone przesunięcie na telefonach**
+  let offsetFactor = isMobile ? 0.4 : 0.3;
   const offset = map.containerPointToLatLng([0, mapHeight * offsetFactor]).lat - map.containerPointToLatLng([0, 0]).lat;
   const newLatLng = L.latLng(latlng.lat - offset, latlng.lng);
 
@@ -351,10 +353,36 @@ function moveMapAndOpenPopup(marker) {
   // 🔹 Przesunięcie mapy przed otwarciem popupu
   map.setView(newLatLng, map.getZoom(), { animate: true });
 
-  // 🔹 Otwieramy popup po przesunięciu mapy
+  // 🔹 Powiększamy ikonę markera tylko raz
   map.once("moveend", function () {
-      console.log("✅ [moveMapAndOpenPopup] Mapa przesunięta, otwieranie popupu...");
+      console.log("✅ [moveMapAndOpenPopup] Mapa przesunięta, powiększanie ikony i otwieranie popupu...");
+
+      // Jeśli marker jest już powiększony, nie zmieniaj ponownie
+      if (marker._isEnlarged) return;
+
+      // Pobranie oryginalnej ikony
+      const originalIcon = marker.options.icon;
+      const iconSize = originalIcon.options.iconSize;
+
+      // Powiększona wersja ikony
+      const enlargedIcon = L.icon({
+          iconUrl: originalIcon.options.iconUrl,
+          iconSize: [iconSize[0] * 2, iconSize[1] * 2], // 🔥 2x większa ikona
+          iconAnchor: [iconSize[0], iconSize[1]], // Dopasowanie punktu zakotwiczenia
+          popupAnchor: [0, -iconSize[1]] // Popup przesunięty wyżej
+      });
+
+      // Ustawienie powiększonej ikony
+      marker.setIcon(enlargedIcon);
+      marker._isEnlarged = true; // 🔹 Oznaczamy, że ikona jest już powiększona
       marker.openPopup();
+
+      // 🔹 Przywracamy oryginalną ikonę po zamknięciu popupu
+      marker.on("popupclose", function () {
+          console.log("🔄 [popupclose] Przywracanie oryginalnej ikony...");
+          marker.setIcon(originalIcon);
+          marker._isEnlarged = false; // 🔹 Resetujemy flagę, by można było ponownie powiększyć ikonę
+      });
   });
 }
 

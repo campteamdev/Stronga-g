@@ -281,21 +281,23 @@
         }
       }
       .link-button-mobile {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-        background-color: #008000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white !important;
-        border: 2px solid #006e00;
-        box-shadow: rgba(0, 0, 0, 0.2) 0 4px 10px;
-        bottom: 65px;
-        right: 20px;
-        z-index: 2000;
-      }
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #008000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white !important;
+    border: 2px solid #006e00;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 4px 10px;
+    bottom: 30px; /* 🔽 Opuszczony przycisk */
+    right: 20px;
+    z-index: 2000;
+}
+
+
   /* 🔹 Poprawka dla popupu na smartfonach */
 
     @media (max-width: 768px) {
@@ -445,17 +447,36 @@
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    background-color: #1877F2; /* Kolor Facebooka */
+    background-color: transparent; /* ❌ Usunięcie niebieskiego koła */
     display: flex;
     justify-content: center;
     align-items: center;
     color: white !important;
-    border: 2px solid #1256a0;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 4px 10px;
-    bottom: 120px; /* Ustawienie nad ikoną dodawania miejsca */
+    
+   
+    bottom: 90px; /* 🔽 OPUŚĆ ALBO PODNIEŚ */
     right: 20px;
     z-index: 2000;
 }
+@media (max-width: 768px) {
+    .facebook-button,
+    .link-button-mobile {
+        width: 40px;  /* 🔽 Zmniejszone z 50px */
+        height: 40px; /* 🔽 Zmniejszone z 50px */
+    }
+
+    .facebook-button img {
+        width: 30px;  /* 🔽 Zmniejszone logo Facebook */
+        height: 30px;
+    }
+
+    .link-button-mobile svg {
+        width: 20px;  /* 🔽 Zmniejszona ikona dodawania miejsca */
+        height: 20px;
+    }
+}
+
+
 
 </style>
 
