@@ -277,53 +277,58 @@ async function updatePopupsWithImages() {
 map.on("popupopen", async function (e) {
   console.log("📌 [popupopen] Otwieranie popupu...");
 
-  const marker = e.popup._source;
-  if (!marker) {
-      console.warn("⚠️ [popupopen] Brak markera powiązanego z popupem!");
+  const popup = e.popup._contentNode;
+  if (!popup) {
+      console.warn("⚠️ [popupopen] Brak elementu popupu!");
       return;
   }
 
-  const latlng = marker.getLatLng();
-  console.log(`📍 [popupopen] Współrzędne markera: ${latlng.lat}, ${latlng.lng}`);
+  // Znalezienie wrappera popupu
+  const contentWrapper = popup.closest(".leaflet-popup-content-wrapper");
+  if (!contentWrapper) {
+      console.warn("⚠️ [popupopen] Brak wrappera dla popupu!");
+      return;
+  }
 
-  // 🔹 Obliczamy przesunięcie w dół
-  const mapSize = map.getSize();
-  console.log(`🗺️ [popupopen] Rozmiar mapy: ${mapSize.x}x${mapSize.y}`);
+  // Znalezienie treści popupu
+  const popupContent = contentWrapper.querySelector(".leaflet-popup-content");
+  if (!popupContent) {
+      console.warn("⚠️ [popupopen] Brak zawartości popupu!");
+      return;
+  }
 
-  const offsetLat = map.containerPointToLatLng([0, mapSize.y * 0.3]).lat - map.containerPointToLatLng([0, 0]).lat;
-  const newLatLng = L.latLng(latlng.lat - offsetLat, latlng.lng);
-  console.log(`🎯 [popupopen] Nowa pozycja mapy: ${newLatLng.lat}, ${newLatLng.lng}`);
+  // Dodanie strzałki przewijania, jeśli nie istnieje
+  let scrollIndicator = contentWrapper.querySelector(".scroll-indicator");
+  if (!scrollIndicator) {
+      scrollIndicator = document.createElement("div");
+      scrollIndicator.classList.add("scroll-indicator");
+      contentWrapper.appendChild(scrollIndicator);
+  }
 
-  // 🔹 Przesuwamy mapę
-  map.setView(newLatLng, map.getZoom(), { animate: true });
-
-  map.once("moveend", async function () {
-      console.log("✅ [popupopen] Mapa przesunięta, otwieranie zawartości popupu...");
-
-      const popup = e.popup._contentNode;
-      if (!popup) {
-          console.warn("⚠️ [popupopen] Brak elementu popupu!");
-          return;
+  // 🔹 Sprawdzamy, czy treść wymaga przewijania
+  function checkPopupScroll() {
+      if (popupContent.scrollHeight > popupContent.clientHeight) {
+          popupContent.classList.add("has-scroll"); // Dodajemy klasę, jeśli treść jest przewijalna
+          scrollIndicator.style.opacity = "1"; // Pokazujemy strzałkę
+      } else {
+          popupContent.classList.remove("has-scroll"); // Usuwamy strzałkę, jeśli nie trzeba przewijać
+          scrollIndicator.style.opacity = "0";
       }
+  }
 
-      const nameElement = popup.querySelector("div");
-      if (!nameElement) {
-          console.warn("⚠️ [popupopen] Brak elementu z nazwą w popupie!");
-          return;
-      }
+  // 🔹 Sprawdzamy przewijanie
+  setTimeout(checkPopupScroll, 100);
 
-      const name = nameElement.textContent.trim();
-      console.log(`📂 [popupopen] Nazwa miejsca: ${name}`);
-
-      const { sliderHTML, images } = await generateImageSlider(name, latlng.lat, latlng.lng);
-
-      if (sliderHTML) {
-          popup.insertAdjacentHTML("afterbegin", sliderHTML);
-          console.log(`📂 ✅ [popupopen] Slider dodany do popupu dla: ${name}`);
-          initializeSwiper(name, images);
+  // 🔹 Ukrywamy strzałkę, gdy użytkownik przewinie na dół
+  popupContent.addEventListener("scroll", function () {
+      if (popupContent.scrollTop + popupContent.clientHeight >= popupContent.scrollHeight - 10) {
+          scrollIndicator.style.opacity = "0"; // Strzałka znika po przewinięciu na dół
+      } else {
+          scrollIndicator.style.opacity = "1"; // Strzałka pojawia się ponownie
       }
   });
 });
+
 
 // 🔹 Funkcja przesuwająca mapę, aby lokalizacja była na dole ekranu i otwierająca popup
 // 🔹 Poprawiona funkcja przesuwająca mapę przed otwarciem popupu
