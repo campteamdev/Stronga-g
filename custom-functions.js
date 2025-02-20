@@ -223,33 +223,27 @@ if (websiteLinksMap[name]) {
 
 // 📌 **DODANIE PRZERWY między "Strona:" a "Infrastruktura:"**
 popupContent += `<br>`;
-// Infrastruktura
-popupContent += `<br><div style="border:2px solid rgb(18, 161, 18); padding:4px; display:inline-block; 
-    font-size:12px; font-weight: bold; user-select: none; border-radius: 8px;">
-    Infrastruktura:</div><br>`;
+// 🔹 Infrastruktura - tylko jeśli istnieją udogodnienia
+if (amenitiesMap[name] && amenitiesMap[name].trim()) {
+  let amenitiesList = amenitiesMap[name]
+      .split(/[,;\n]+/)  // Podział po przecinku, średniku lub nowej linii
+      .map(item => item.trim())  // Usunięcie białych znaków
+      .filter(item => item !== "");  // Usunięcie pustych elementów
 
-if (amenitiesMap[name]) {
-    // Normalizacja separatorów (zamiana przecinków, średników i nowych linii na przecinki)
-    let formattedAmenities = amenitiesMap[name]
-        .replace(/\n/g, ", ")   // Nowe linie zamieniane na przecinki
-        .replace(/;/g, ", ")    // Średniki zamieniane na przecinki
-        .replace(/\s*,\s*/g, ", ") // Usunięcie nadmiarowych spacji wokół przecinków
-        .trim();
+  // ✅ Usunięcie duplikatów
+  amenitiesList = [...new Set(amenitiesList)];
 
-    // Podział na osobne udogodnienia
-    const amenitiesList = formattedAmenities.split(',').map(item => item.trim()).filter(item => item.length > 0);
+  if (amenitiesList.length > 0) {
+      popupContent += `<div style="border:2px solid rgb(18, 161, 18); padding:4px; display:inline-block; 
+                        font-size:12px; font-weight: bold; user-select: none; border-radius: 8px;">
+                        Infrastruktura:</div><br>`;
 
-    popupContent += amenitiesList.map(amenity => `
-        <span style="display: block; font-size:12px; font-weight: bold; 
-                     user-select: none; margin: 3px 0;">
-            ${amenity}
-        </span>
-    `).join(''); // Połączenie wszystkich elementów
-} else {
-    popupContent += `<span style="font-size:12px; font-weight: bold; user-select: none;">
-        <i>Brak informacji</i></span>`;
+      popupContent += amenitiesList.map(amenity => 
+          `<span style="display:inline-block; font-size:12px; font-weight: bold; margin-right: 6px; user-select: none;">
+              ${amenity}
+          </span>`).join(", ") + `<br><br>`;
+  }
 }
-
 
   // Linki
   popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>`;
