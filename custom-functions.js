@@ -25,19 +25,44 @@ document.addEventListener("contextmenu", (event) => event.preventDefault());
 
 // Funkcja wczytująca dane z pliku szczegóły.json
 async function loadDetails() {
+  const CACHE_KEY = "szczegoly_json";
+  const CACHE_TIME_KEY = "szczegoly_cache_time";
+  const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 godziny w milisekundach
+  const now = Date.now();
+
   try {
-    const response = await fetch("/szczegoly.json");
-    if (!response.ok) throw new Error("Nie udało się załadować szczegóły.json");
-    const data = await response.json();
-    detailsMap = data.reduce((map, item) => {
-      const [name, link] = item.split(",");
-      map[name.trim()] = link.trim();
-      return map;
-    }, {});
+      // 🔹 Sprawdzamy, czy mamy cache w localStorage
+      const cachedData = localStorage.getItem(CACHE_KEY);
+      const cacheTime = localStorage.getItem(CACHE_TIME_KEY);
+
+      if (cachedData && cacheTime && now - parseInt(cacheTime) < CACHE_DURATION) {
+          console.log("✅ [loadDetails] Używam danych z cache.");
+          detailsMap = JSON.parse(cachedData);
+          return;
+      }
+
+      // 🔹 Jeśli cache jest przestarzały lub go nie ma – pobierz nową wersję
+      console.log("🔄 [loadDetails] Pobieram nową wersję szczegóły.json...");
+      const response = await fetch("/szczegoly.json");
+      if (!response.ok) throw new Error("❌ Nie udało się załadować szczegóły.json");
+
+      const data = await response.json();
+      detailsMap = data.reduce((map, item) => {
+          const [name, link] = item.split(",");
+          map[name.trim()] = link.trim();
+          return map;
+      }, {});
+
+      // 🔹 Zapisz do localStorage na przyszłość
+      localStorage.setItem(CACHE_KEY, JSON.stringify(detailsMap));
+      localStorage.setItem(CACHE_TIME_KEY, now.toString());
+
+      console.log("✅ [loadDetails] Nowa wersja szczegóły.json zapisana w cache.");
   } catch (error) {
-    console.error("Błąd podczas wczytywania szczegółów:", error);
+      console.error("❌ [loadDetails] Błąd podczas wczytywania szczegółów:", error);
   }
 }
+
 
 // Funkcja do wyodrębniania numerów telefonów
 function extractPhoneNumber(description) {
@@ -279,10 +304,13 @@ function updatePopups(markers) {
 
 // Ładowanie danych i aktualizacja popupów
 async function loadDetailsAndUpdatePopups(markers) {
-  await loadDetails();
-  await loadKmlData();
-  updatePopups(markers);
+  await loadDetails();  // ✅ Wczytaj szczegóły (ale już nie generuj popupów!)
+  await loadKmlData();  // ✅ Wczytaj KML, jeśli potrzebne
+
+  // ✅ Teraz generujemy wszystkie popupy z wyprzedzeniem
+  generateAllPopups();
 }
+
 document.addEventListener("touchstart", function (event) {
   if (event.target.closest(".leaflet-popup-content")) {
     event.preventDefault();

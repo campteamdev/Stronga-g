@@ -140,10 +140,18 @@
     }
 }
 
-      #map {
-        width: 100%;
-        height: 100vh;
-      }
+/* ✅ Mapa zajmuje całe okno, pasek na nią nachodzi */
+#map {
+    width: 100%;
+    height: 100vh; /* ✅ Pełna wysokość ekranu */
+    position: absolute; /* 🔹 Zapewnia, że pasek dolny się nie przesuwa */
+    top: 0;
+    left: 0;
+    z-index: 0; /* Upewnia się, że pasek dolny będzie nad mapą */
+}
+
+
+
       #search-container {
         position: absolute;
         top: 10px;
@@ -174,7 +182,8 @@
       }
       #search-button {
         background-color: green;
-        color: white;
+        color: white;/* ✅ Pasek dolny NAŁOŻONY na mapę */
+
         border: none;
         padding: 5px 10px;
         border-radius: 3px;
@@ -339,6 +348,20 @@
 }
 
 
+
+
+
+/* 🔹 Style ikon */
+.bottom-bar-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.bottom-bar-icon:hover {
+    transform: scale(1.1); /* Efekt powiększenia */
+}
 
     </style>
 
@@ -836,7 +859,7 @@ function highlightMarker(match) {
     }, 1500);
 }
 function attachMarkerClickEvents() {
-    console.log("🔄 [attachMarkerClickEvents] Podpinanie kliknięć dla WSZYSTKICH markerów...");
+    
 
     // 🔹 Przechodzimy przez wszystkie markery w klastrze
     markerCluster.eachLayer(layer => {
@@ -863,10 +886,37 @@ function attachMarkerClickEvents() {
 
 // 🔹 Wywołaj po załadowaniu wszystkich markerów
 async function initializeMap() {
+    console.log("🔄 [initializeMap] Rozpoczynam ładowanie mapy...");
+
+    // ✅ Najpierw ładujemy podstawowe warstwy (3 kluczowe warstwy KML)
     await Promise.all([
         loadMarkers("Kempingi.kml", icons.kempingi, false),
         loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false),
         loadMarkers("Kempingiopen.kml", icons.kempingiopen, false),
+    ]);
+
+    // ✅ Dodajemy markery do mapy
+    map.addLayer(markerCluster);
+    attachMarkerClickEvents(); // ✅ Obsługa kliknięcia dla markerów
+    initializeSearch(); // ✅ Inicjalizacja wyszukiwania
+
+    // ✅ Wczytujemy szczegóły dla popupów (ale nie generujemy ich od razu)
+    await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
+
+    // ✅ Dociągamy resztę warstw KML w tle po 3 sekundach
+    setTimeout(() => {
+        console.log("⏳ [initializeMap] Ładowanie dodatkowych warstw KML w tle...");
+        loadAdditionalKml();
+    }, 3000);
+
+    // ✅ Generujemy popupy po 5 sekundach, aby były gotowe wcześniej
+    setTimeout(() => {
+        console.log("🔄 [initializeMap] Generowanie popupów...");
+        generateAllPopups();
+    }, 5000);
+}
+async function loadAdditionalKml() {
+    await Promise.all([
         loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, false),
         loadMarkers("Parkingilesne.kml", icons.parkingilesne),
         loadMarkers("Kempingi1.kml", icons.kempingi1, false),
@@ -877,10 +927,27 @@ async function initializeMap() {
         loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun),
     ]);
 
-    map.addLayer(markerCluster);
-    attachMarkerClickEvents(); // ✅ Podpinamy obsługę kliknięcia dla wszystkich markerów
-    initializeSearch();
-    await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
+    console.log("✅ [loadAdditionalKml] Wszystkie dodatkowe warstwy KML zostały załadowane.");
+}
+
+
+const popupCache = {}; // Pamięć podręczna dla gotowych popupów
+
+async function generateAllPopups() {
+    console.log("🔄 Generowanie treści popupów dla wszystkich markerów...");
+
+    allMarkers.forEach(({ marker, name, lat, lon }) => {
+        if (!popupCache[name]) {
+            // ✅ Generujemy treść popupu i zapisujemy w cache
+            const popupContent = generatePopupContent(name, lat, lon);
+            popupCache[name] = popupContent;
+        }
+
+        // ✅ Przypisujemy gotowy popup do markera (zamiast generować go dynamicznie)
+        marker.bindPopup(popupCache[name], { autoPan: true, minWidth: 200 });
+    });
+
+    console.log("✅ Wszystkie popupy wygenerowane i zapisane w pamięci.");
 }
 
 
@@ -1005,13 +1072,9 @@ initializeMap();
 
 <script src="filters.js" defer></script>
 
-<!-- 🔹 Wysuwany popup na dole ekranu -->
-<div id="custom-popup">
-  <span id="close-popup">&times;</span> <!-- Przycisk zamknięcia -->
-  <div id="custom-popup-content"></div> <!-- Tu będą treści -->
-</div>
 
-
-
-  </body>
+</body> 
 </html>
+
+
+
