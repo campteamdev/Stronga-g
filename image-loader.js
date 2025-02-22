@@ -201,9 +201,10 @@ function initializeSwiper(name, images) {
 async function generateImageSlider(name, lat, lon) {
     const existingSlider = document.querySelector(`.swiper-container-${sanitizeName(name)}`);
     if (existingSlider) {
-        console.log(`🔹 Slider dla ${name} już istnieje. Pomijam ponowne ładowanie.`);
-        return { sliderHTML: "", images: [] };
+        console.log(`🔹 Slider dla ${name} już istnieje. Dodaję go do nowego popupu.`);
+        return { sliderHTML: existingSlider.outerHTML, images: [] };
     }
+    
 
     const images = await getLocationImages(name);
     console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);

@@ -939,9 +939,18 @@ async function initializeMap() {
 
     // 🔹 Najpierw ładujemy 2 kluczowe pliki KML (szybkie ładowanie)
     await Promise.all([
-        loadMarkers("Kempingi.kml", icons.kempingi, false),
-        loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false)
-    ]);
+    loadMarkers("Kempingi.kml", icons.kempingi, false),
+    loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false),
+    loadMarkers("Kempingiopen.kml", icons.kempingiopen, false),
+    loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, false),
+    loadMarkers("Parkingilesne.kml", icons.parkingilesne, false),
+    loadMarkers("Kempingi1.kml", icons.kempingi1, false),
+    loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak, false),
+    loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural, false),
+    loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature, false),
+    loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun, false)
+]);
+
 
     console.log("✅ [initializeMap] Kempingi i Pola namiotowe załadowane.");
 
@@ -966,15 +975,7 @@ async function initializeMap() {
 
     // 🔄 **Teraz ładujemy resztę plików KML w tle stopniowo**
     const additionalFiles = [
-        { filename: "Kempingiopen.kml", icon: icons.kempingiopen },
-        { filename: "Polanamiotoweopen.kml", icon: icons.polanamiotoweopen },
-        { filename: "Parkingilesne.kml", icon: icons.parkingilesne },
-        { filename: "Kempingi1.kml", icon: icons.kempingi1 },
-        { filename: "Miejscenabiwak.kml", icon: icons.miejscenabiwak },
-        { filename: "Europa.kml", icon: icons.kempingi },
-        { filename: "AtrakcjeKulturowe.kml", icon: icons.atractionCultural },
-        { filename: "AtrakcjePrzyrodnicze.kml", icon: icons.atractionNature },
-        { filename: "AtrakcjeRozrywka.kml", icon: icons.atractionFun }
+        { filename: "Europa.kml", icon: icons.kempingi }
     ];
 
     setTimeout(() => {
