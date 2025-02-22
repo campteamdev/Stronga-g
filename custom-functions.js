@@ -211,6 +211,16 @@ function generatePopupContent(name, lat, lon) {
         <i>Brak opisu</i></span>`;
 
   popupContent += `</div>`; // Zamknięcie kontenera popupu
+   // ✅ Dodajemy przycisk otwierający nowy pełnoekranowy popup
+   popupContent += `
+   <button class="full-popup-button" data-name="${name}" data-lat="${lat}" data-lon="${lon}"
+           style="margin-top:10px; padding:8px 12px; background:#008000; color:white; border:none;
+                  border-radius:5px; cursor:pointer; font-size:14px;">
+       🔍 Więcej informacji
+   </button>
+ `;
+  
+  
   return popupContent;
 }
 
