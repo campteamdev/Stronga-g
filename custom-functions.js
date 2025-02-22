@@ -100,7 +100,7 @@ async function loadKmlData() {
   for (const filename of kmlFiles) {
     try {
       const kmlText = await fetchKml(filename); // ✅ Pobiera plik z API Vercel
-    
+
 
       const parser = new DOMParser();
       const kml = parser.parseFromString(kmlText, "application/xml");
@@ -176,7 +176,7 @@ function generatePopupContent(name, lat, lon) {
 
 // Funkcja generująca treść popupu z pełną blokadą kopiowania
 function generatePopupContent(name, lat, lon) {
- 
+
   // Kontener popupu z blokadą kopiowania
   popupContent += `<div style="max-width: 80%; word-wrap: break-word;
       user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">`;
@@ -215,8 +215,8 @@ function generatePopupContent(name, lat, lon) {
 }
 
 
- 
-  
+
+
   // Opis
   popupContent += `<div style="border:2px solidrgb(18, 161, 18); padding:4px; display:inline-block; font-size:12px;
       user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
@@ -272,7 +272,7 @@ if (amenitiesMap[name] && amenitiesMap[name].trim()) {
 
   // Linki
   popupContent += `<br><a href="https://www.google.com/maps/search/${encodeURIComponent(name)}" target="_blank" class="details-button" style="font-size:12px; user-select: none;">Link do Map Google</a>`;
-  
+
 
   popupContent += `</div>`; // Zamknięcie kontenera popupu
   return popupContent;
@@ -289,8 +289,8 @@ function updatePopups(markers) {
 
       const popupOptions = {
           minWidth: 200, // Minimalna szerokość dla obu urządzeń
-          maxWidth: isMobile ? window.innerWidth * 0.7 : 260, // 90% szerokości ekranu na telefonie, 260px na komputerze
-          maxHeight: isMobile ? window.innerHeight * 0.5 : 350, // 50% wysokości ekranu na telefonie, 350px na komputerze
+          maxWidth: isMobile ? window.innerWidth * 0.7 : 350, // 90% szerokości ekranu na telefonie, 260px na komputerze
+          maxHeight: isMobile ? window.innerHeight * 0.5 : 400, // 50% wysokości ekranu na telefonie, 350px na komputerze
           autoPan: true,
           closeButton: true, // Przyciski zamykania poprawione
           className: isMobile ? "mobile-popup" : "desktop-popup" // Dodajemy różne style
@@ -331,6 +331,66 @@ async function updatePopupsWithImages() {
 }
 
 // 🔹 Obsługa otwierania popupu i przesuwania mapy
+function moveMapAndOpenPopup(marker) {
+  console.log("📌 [moveMapAndOpenPopup] Przesuwanie mapy i otwieranie popupu...");
+
+  const latlng = marker.getLatLng();
+  console.log(`📍 [moveMapAndOpenPopup] Współrzędne markera: ${latlng.lat}, ${latlng.lng}`);
+
+  // Pobranie wysokości ekranu
+  const mapHeight = map.getSize().y;
+
+  // **Wykrywanie czy użytkownik jest na telefonie**
+  const isMobile = window.innerWidth <= 768;
+
+  // 🔹 Mniejsze przesunięcie na smartfonach, by ikona była widoczna
+  let offsetFactor = isMobile ? 0.4 : 0.3;
+  const offset = map.containerPointToLatLng([0, mapHeight * offsetFactor]).lat - map.containerPointToLatLng([0, 0]).lat;
+  const newLatLng = L.latLng(latlng.lat - offset, latlng.lng);
+
+  console.log(`🎯 [moveMapAndOpenPopup] Nowa pozycja mapy: ${newLatLng.lat}, ${newLatLng.lng}`);
+
+  // 🔹 Przesunięcie mapy przed otwarciem popupu
+  map.setView(newLatLng, map.getZoom(), { animate: true });
+
+  // 🔹 Obsługa zdarzenia "popupopen" – powiększenie ikony dopiero, gdy popup się otworzy
+  marker.on("popupopen", function () {
+      console.log("✅ [popupopen] Popup otwarty, powiększanie ikony...");
+
+      // Jeśli marker jest już powiększony, nie zmieniaj ponownie
+      if (marker._isEnlarged) return;
+
+      // Pobranie oryginalnej ikony i zapisanie jej
+      if (!marker.options.originalIcon) {
+          marker.options.originalIcon = marker.options.icon;
+      }
+
+      const originalIcon = marker.options.originalIcon;
+      const iconSize = originalIcon.options.iconSize;
+
+      // Powiększona wersja ikony
+      const enlargedIcon = L.icon({
+          iconUrl: originalIcon.options.iconUrl,
+          iconSize: [iconSize[0] * 2, iconSize[1] * 2], // 🔥 2x większa ikona
+          iconAnchor: [iconSize[0], iconSize[1]], // Dopasowanie punktu zakotwiczenia
+          popupAnchor: [0, -iconSize[1]] // Popup przesunięty wyżej
+      });
+
+      // Ustawienie powiększonej ikony
+      marker.setIcon(enlargedIcon);
+      marker._isEnlarged = true; // 🔹 Oznaczamy, że ikona jest już powiększona
+  });
+
+  // 🔹 Przywracamy oryginalną ikonę po zamknięciu popupu
+  marker.on("popupclose", function () {
+      console.log("🔄 [popupclose] Przywracanie oryginalnej ikony...");
+      resetIconSize(marker);
+  });
+
+  // 🔹 Otwieramy popup – ikona powiększy się dopiero po otwarciu
+  marker.openPopup();
+}
+
 // 🔹 Funkcja obsługująca otwarcie popupu i przesuwanie mapy
 map.on("popupopen", async function (e) {
   console.log("📌 [popupopen] Otwieranie popupu...");
@@ -389,68 +449,63 @@ map.on("popupopen", async function (e) {
 
 
 // 🔹 Funkcja przesuwająca mapę, aby lokalizacja była na dole ekranu i otwierająca popup
-// 🔹 Poprawiona funkcja przesuwająca mapę przed otwarciem popupu
-// 🔹 Poprawiona funkcja przesuwająca mapę i otwierająca popup
-// 🔹 Poprawiona funkcja przesuwająca mapę i otwierająca popup
-// 🔹 Funkcja przesuwająca mapę i otwierająca popup, powiększając ikonę
-// 🔹 Poprawiona funkcja przesuwająca mapę i otwierająca popup, powiększając ikonę tylko raz
-function moveMapAndOpenPopup(marker) {
-  console.log("📌 [moveMapAndOpenPopup] Przesuwanie mapy i otwieranie popupu...");
+async function loadMarkers(filename, icon, addToCluster = true) {
+  const kmlText = await fetchKml(filename);
 
-  const latlng = marker.getLatLng();
-  console.log(`📍 [moveMapAndOpenPopup] Współrzędne markera: ${latlng.lat}, ${latlng.lng}`);
+  const parser = new DOMParser();
+  const kml = parser.parseFromString(kmlText, "application/xml");
+  const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+  allPlacemarks.push(...placemarks); // Dodanie placemarks do globalnej listy
 
-  // Pobranie wysokości ekranu
-  const mapHeight = map.getSize().y;
+  placemarks.forEach((placemark) => {
+      const name =
+          placemark.getElementsByTagName("name")[0]?.textContent ||
+          "Brak nazwy";
+      const coordinates = placemark
+          .getElementsByTagName("coordinates")[0]
+          ?.textContent.trim();
 
-  // **Wykrywanie czy użytkownik jest na telefonie**
-  const isMobile = window.innerWidth <= 768;
+      if (coordinates) {
+          const [lon, lat] = coordinates.split(",");
+          const key = `${lat},${lon}`;
 
-  // 🔹 Mniejsze przesunięcie na smartfonach, by ikona była widoczna
-  let offsetFactor = isMobile ? 0.4 : 0.3;
-  const offset = map.containerPointToLatLng([0, mapHeight * offsetFactor]).lat - map.containerPointToLatLng([0, 0]).lat;
-  const newLatLng = L.latLng(latlng.lat - offset, latlng.lng);
+          if (!addedMarkers.has(key)) {
+              addedMarkers.add(key);
+              const markerOptions = { icon };
+              if (!addToCluster) {
+                  markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
+              }
 
-  console.log(`🎯 [moveMapAndOpenPopup] Nowa pozycja mapy: ${newLatLng.lat}, ${newLatLng.lng}`);
+              // 🔹 Tworzymy marker i ustawiamy `isDataLoaded = false` (domyślnie blokujemy popupy)
+              const marker = L.marker([lat, lon], markerOptions);
+              marker.isDataLoaded = false; 
 
-  // 🔹 Przesunięcie mapy przed otwarciem popupu
-  map.setView(newLatLng, map.getZoom(), { animate: true });
+              // 🔹 Dodajemy marker do klastra lub mapy
+              if (addToCluster) {
+                  markerCluster.addLayer(marker);
+              } else {
+                  marker.addTo(map);
+              }
 
-  // 🔹 Powiększamy ikonę markera tylko raz
-  map.once("moveend", function () {
-      console.log("✅ [moveMapAndOpenPopup] Mapa przesunięta, powiększanie ikony i otwieranie popupu...");
+              // 🔹 Obsługa kliknięcia – popup otworzy się dopiero po załadowaniu danych
+              marker.on("click", function () {
+                  moveMapAndOpenPopup(marker);
+              });
 
-      // Jeśli marker jest już powiększony, nie zmieniaj ponownie
-      if (marker._isEnlarged) return;
+              allMarkers.push({ marker, name, lat, lon });
 
-      // Pobranie oryginalnej ikony i zapisanie jej
-      if (!marker.options.originalIcon) {
-          marker.options.originalIcon = marker.options.icon;
+              // 🔹 **Ustawiamy `isDataLoaded = true` po zakończeniu przetwarzania**
+              setTimeout(() => {
+                  marker.isDataLoaded = true;
+                  console.log(`✅ [loadMarkers] Dane dla ${name} załadowane, odblokowano popup.`);
+              }, 500); // 🔥 Dodatkowy timeout na pewność, że dane się zapiszą
+          }
       }
-
-      const originalIcon = marker.options.originalIcon;
-      const iconSize = originalIcon.options.iconSize;
-
-      // Powiększona wersja ikony
-      const enlargedIcon = L.icon({
-          iconUrl: originalIcon.options.iconUrl,
-          iconSize: [iconSize[0] * 2, iconSize[1] * 2], // 🔥 2x większa ikona
-          iconAnchor: [iconSize[0], iconSize[1]], // Dopasowanie punktu zakotwiczenia
-          popupAnchor: [0, -iconSize[1]] // Popup przesunięty wyżej
-      });
-
-      // Ustawienie powiększonej ikony
-      marker.setIcon(enlargedIcon);
-      marker._isEnlarged = true; // 🔹 Oznaczamy, że ikona jest już powiększona
-      marker.openPopup();
-
-      // 🔹 Przywracamy oryginalną ikonę po zamknięciu popupu
-      marker.on("popupclose", function () {
-          console.log("🔄 [popupclose] Przywracanie oryginalnej ikony...");
-          resetIconSize(marker);
-      });
   });
 }
+
+
+
 
 
 map.on("zoomend", function () {

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -24,15 +23,15 @@
     <script src="https://cdn.jsdelivr.net/npm/fuzzball@2.1.3/dist/fuzzball.umd.min.js"></script>
     <script>
         window.fuzzball = fuzzball;
-      
+
     </script>
-    
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
     <script src="encoded_kml.js"></script>
     <script src="custom-functions.js"></script>
-    
-  
+
+
     <!-- Dodano obsługę dodatkowych funkcji -->
     <style>
       body {
@@ -66,7 +65,7 @@
 }
 /* 🔹 Domyślne style popupu dla komputerów */
 .leaflet-popup-content-wrapper {
-    max-width: 350px !important;  /* Poprawiona szerokość */
+    max-width: 400px !important;  /* Poprawiona szerokość */
     max-height: 450px !important; /* Zwiększona wysokość */
     overflow-y: auto !important;  /* Zapewnia przewijanie, jeśli treść jest za długa */
 }
@@ -511,8 +510,8 @@
     justify-content: center;
     align-items: center;
     color: white !important;
-    
-   
+
+
     bottom: 90px; /* 🔽 OPUŚĆ ALBO PODNIEŚ */
     right: 20px;
     z-index: 2000;
@@ -535,6 +534,35 @@
     }
 }
 
+<style>
+    /* 🔹 Styl ekranu ładowania */
+    #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+    }
+
+    .loading-text {
+        text-align: center;
+        animation: fadeInOut 1.5s infinite alternate;
+    }
+
+    /* 🔹 Efekt migania tekstu */
+    @keyframes fadeInOut {
+        0% { opacity: 0.3; }
+        100% { opacity: 1; }
+    }
+</style>
 
 
 </style>
@@ -546,7 +574,16 @@
 
 
   </head>
-  <body class="" oncontextmenu="return false;">
+  <body 
+  <!-- 🔹 Ekran ładowania -->
+<div id="loading-screen">
+    <div class="loading-text">Ładowanie danych...</div>
+</div>
+
+  
+  
+  
+  class="" oncontextmenu="return false;">
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -565,10 +602,10 @@
       <div id="suggestions"></div>
     </div>
     <div id="map">
-      
-    
+
+
     </button>
-    
+
       <a
     href="https://www.facebook.com/profile.php?id=61567062909549&locale=pl_PL"
     target="_blank"
@@ -687,6 +724,7 @@
         }),
       };
 
+
       const map = L.map("map").setView([52.392681, 19.275023], 6);
       const markerCluster = L.markerClusterGroup({
         showCoverageOnHover: false,
@@ -705,7 +743,7 @@
   const token = await generateToken(filename); // ✅ Czekamy na token
   const url = `https://campteam-9l04l41bs-marcincamps-projects.vercel.app/api/kml?id=${filename}&token=${token}`;
 
- 
+
 
   const response = await fetch(url);
   if (!response.ok) throw new Error(`❌ Błąd wczytywania pliku KML: ${url}`);
@@ -715,47 +753,54 @@
 
 
 async function loadMarkers(filename, icon, addToCluster = true) {
+    const kmlText = await fetchKml(filename);
 
-        const kmlText = await fetchKml(filename);
+    const parser = new DOMParser();
+    const kml = parser.parseFromString(kmlText, "application/xml");
+    const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
+    allPlacemarks.push(...placemarks); // Dodanie placemarks do globalnej listy
 
-        const parser = new DOMParser();
-        const kml = parser.parseFromString(kmlText, "application/xml");
-        const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
-        allPlacemarks.push(...placemarks); // Dodanie placemarks do globalnej listy
-
-        placemarks.forEach((placemark) => {
-          const name =
+    placemarks.forEach((placemark) => {
+        const name =
             placemark.getElementsByTagName("name")[0]?.textContent ||
             "Brak nazwy";
-          const coordinates = placemark
+        const coordinates = placemark
             .getElementsByTagName("coordinates")[0]
             ?.textContent.trim();
 
-          if (coordinates) {
+        if (coordinates) {
             const [lon, lat] = coordinates.split(",");
             const key = `${lat},${lon}`;
 
             if (!addedMarkers.has(key)) {
-              addedMarkers.add(key);
-              const markerOptions = { icon };
-              if (!addToCluster) {
-                markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
-              }
-              const marker = L.marker([lat, lon], markerOptions).bindPopup(
-                `<strong>${name}</strong>`
-              );
+                addedMarkers.add(key);
+                const markerOptions = { icon };
+                if (!addToCluster) {
+                    markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
+                }
 
-              if (addToCluster) {
-                markerCluster.addLayer(marker);
-              } else {
-                marker.addTo(map);
-              }
+                // 🔹 Tworzymy marker i ustawiamy `isDataLoaded = false` 
+                const marker = L.marker([lat, lon], markerOptions);
+                marker.isDataLoaded = false; // ❌ Blokujemy otwieranie popupu przed załadowaniem danych
 
-              allMarkers.push({ marker, name, lat, lon });
+                // 🔹 Dodajemy marker do klastra lub mapy
+                if (addToCluster) {
+                    markerCluster.addLayer(marker);
+                } else {
+                    marker.addTo(map);
+                }
+
+                // 🔹 Obsługa kliknięcia – popup otworzy się dopiero po załadowaniu danych
+                marker.on("click", function () {
+                    moveMapAndOpenPopup(marker);
+                });
+
+                allMarkers.push({ marker, name, lat, lon });
             }
-          }
-        });
-      }
+        }
+    });
+}
+
 
       function initializeSearch() {
     const searchInput = document.getElementById("search-input");
@@ -763,7 +808,7 @@ async function loadMarkers(filename, icon, addToCluster = true) {
     const suggestions = document.getElementById("suggestions");
 
     let showAll = false; // Czy pokazujemy więcej wyników?
-    
+
     searchInput.addEventListener("input", () => {
         const query = searchInput.value.toLowerCase().trim();
         suggestions.innerHTML = "";
@@ -844,7 +889,7 @@ async function loadMarkers(filename, icon, addToCluster = true) {
 // 🔹 Funkcja podświetlająca marker (zmienia ikonę na większą na chwilę)
 function highlightMarker(match) {
     const originalIcon = match.marker.options.icon;
-    
+
     const highlightIcon = L.icon({
         iconUrl: "/ikony/highlight.png", // Dodaj specjalną ikonę podświetlenia
         iconSize: [50, 50], 
@@ -864,7 +909,7 @@ function attachMarkerClickEvents() {
     // 🔹 Przechodzimy przez wszystkie markery w klastrze
     markerCluster.eachLayer(layer => {
         if (layer instanceof L.Marker) {
-            console.log(`🟢 [Cluster] Kliknięcie dla: ${layer.getLatLng().lat}, ${layer.getLatLng().lng}`);
+     
             layer.off("click");
             layer.on("click", function () {
                 moveMapAndOpenPopup(this);
@@ -875,7 +920,7 @@ function attachMarkerClickEvents() {
     // 🔹 Przechodzimy przez pojedyncze markery dodane bezpośrednio do mapy
     allMarkers.forEach(({ marker }) => {
         if (!markerCluster.hasLayer(marker)) { // Sprawdzamy, czy marker NIE jest w klastrze
-            console.log(`🟢 [Single] Kliknięcie dla: ${marker.getLatLng().lat}, ${marker.getLatLng().lng}`);
+           
             marker.off("click");
             marker.on("click", function () {
                 moveMapAndOpenPopup(this);
@@ -888,67 +933,84 @@ function attachMarkerClickEvents() {
 async function initializeMap() {
     console.log("🔄 [initializeMap] Rozpoczynam ładowanie mapy...");
 
-    // ✅ Najpierw ładujemy podstawowe warstwy (3 kluczowe warstwy KML)
+    // ✅ Pokaż ekran ładowania
+    document.getElementById("loading-screen").style.display = "flex";
+    document.getElementById("loading-screen").style.opacity = "1";
+
+    // 🔹 Najpierw ładujemy 2 kluczowe pliki KML (szybkie ładowanie)
     await Promise.all([
         loadMarkers("Kempingi.kml", icons.kempingi, false),
-        loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false),
-        loadMarkers("Kempingiopen.kml", icons.kempingiopen, false),
+        loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false)
     ]);
 
-    // ✅ Dodajemy markery do mapy
-    map.addLayer(markerCluster);
-    attachMarkerClickEvents(); // ✅ Obsługa kliknięcia dla markerów
-    initializeSearch(); // ✅ Inicjalizacja wyszukiwania
+    console.log("✅ [initializeMap] Kempingi i Pola namiotowe załadowane.");
 
-    // ✅ Wczytujemy szczegóły dla popupów (ale nie generujemy ich od razu)
+    // ✅ Wczytujemy szczegóły dla załadowanych markerów
     await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
 
-    // ✅ Dociągamy resztę warstw KML w tle po 3 sekundach
+    // ✅ Generujemy popupy
+    await generateAllPopups();
+
+    // ✅ Dodajemy pierwsze markery do mapy
+    map.addLayer(markerCluster);
+    attachMarkerClickEvents();
+    initializeSearch();
+
+    console.log("✅ [initializeMap] Podstawowe warstwy gotowe!");
+
+    // ✅ Ukrycie ekranu ładowania (animacja zanikania)
+    document.getElementById("loading-screen").style.opacity = "0";
+    setTimeout(() => {
+        document.getElementById("loading-screen").style.display = "none";
+    }, 500);
+
+    // 🔄 **Teraz ładujemy resztę plików KML w tle stopniowo**
+    const additionalFiles = [
+        { filename: "Kempingiopen.kml", icon: icons.kempingiopen },
+        { filename: "Polanamiotoweopen.kml", icon: icons.polanamiotoweopen },
+        { filename: "Parkingilesne.kml", icon: icons.parkingilesne },
+        { filename: "Kempingi1.kml", icon: icons.kempingi1 },
+        { filename: "Miejscenabiwak.kml", icon: icons.miejscenabiwak },
+        { filename: "Europa.kml", icon: icons.kempingi },
+        { filename: "AtrakcjeKulturowe.kml", icon: icons.atractionCultural },
+        { filename: "AtrakcjePrzyrodnicze.kml", icon: icons.atractionNature },
+        { filename: "AtrakcjeRozrywka.kml", icon: icons.atractionFun }
+    ];
+
     setTimeout(() => {
         console.log("⏳ [initializeMap] Ładowanie dodatkowych warstw KML w tle...");
-        loadAdditionalKml();
-    }, 3000);
+        additionalFiles.forEach(({ filename, icon }, index) => {
+            setTimeout(async () => {
+                await loadMarkers(filename, icon);
+                console.log(`✅ [initializeMap] ${filename} załadowane.`);
+            }, index * 1000); // Każdy plik ładowany co 1 sek.
+        });
+    }, 2000); // Opóźnienie startu dodatkowych plików o 2 sekundy
 
-    // ✅ Generujemy popupy po 5 sekundach, aby były gotowe wcześniej
-    setTimeout(() => {
-        console.log("🔄 [initializeMap] Generowanie popupów...");
-        generateAllPopups();
-    }, 5000);
+    // ✅ Po załadowaniu wszystkich plików – generujemy popupy dla całej mapy
+    await generateAllPopups();
 }
-async function loadAdditionalKml() {
-    await Promise.all([
-        loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, false),
-        loadMarkers("Parkingilesne.kml", icons.parkingilesne),
-        loadMarkers("Kempingi1.kml", icons.kempingi1, false),
-        loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak),
-        loadMarkers("Europa.kml", icons.kempingi),
-        loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural),
-        loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature),
-        loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun),
-    ]);
 
-    console.log("✅ [loadAdditionalKml] Wszystkie dodatkowe warstwy KML zostały załadowane.");
-}
 
 
 const popupCache = {}; // Pamięć podręczna dla gotowych popupów
 
 async function generateAllPopups() {
-    console.log("🔄 Generowanie treści popupów dla wszystkich markerów...");
+ 
 
-    allMarkers.forEach(({ marker, name, lat, lon }) => {
+    for (const { marker, name, lat, lon } of allMarkers) {
         if (!popupCache[name]) {
             // ✅ Generujemy treść popupu i zapisujemy w cache
-            const popupContent = generatePopupContent(name, lat, lon);
-            popupCache[name] = popupContent;
+            popupCache[name] = generatePopupContent(name, lat, lon);
         }
 
         // ✅ Przypisujemy gotowy popup do markera (zamiast generować go dynamicznie)
         marker.bindPopup(popupCache[name], { autoPan: true, minWidth: 200 });
-    });
+    }
 
-    console.log("✅ Wszystkie popupy wygenerowane i zapisane w pamięci.");
+ 
 }
+
 
 
 // Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
@@ -983,10 +1045,10 @@ initializeMap();
 
 
 
-   
 
-   
-   
+
+
+
 
 <script src="image-loader.js"></script>
 
@@ -996,7 +1058,7 @@ initializeMap();
   <div id="custom-popup-content"></div> <!-- Tu będą treści -->
 </div>
 
- 
+
 
 
 
@@ -1068,13 +1130,10 @@ initializeMap();
           <div class="filter-switch"></div>
       </label>
   </div>
-  
+
 
 <script src="filters.js" defer></script>
 
 
 </body> 
 </html>
-
-
-
