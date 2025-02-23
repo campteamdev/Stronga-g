@@ -26,7 +26,7 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"
     />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/fuzzball@2.1.3/dist/fuzzball.umd.min.js"></script>
     <script>
@@ -69,7 +69,7 @@
 
 /* 🔹 Okrągła niebieska ramka dla małej ikony "Dodaj zdjęcie", jeśli nie ma zdjęć */
 .add-photo-small.border-blue img {
-    border: 2px solid green; /* Niebieska obwódka */
+    border: 2px solid blue; /* Niebieska obwódka */
     border-radius: 50%;  /* Okrągły kształt */
     padding: 5px;  /* Dystans między ikoną a obwódką */
 }
@@ -97,7 +97,6 @@
 .leaflet-popup-content {
     max-width: 80vw; /* Maksymalna szerokość popupa - 80% szerokości ekranu */
     word-wrap: break-word;
-    
 }
 
 
@@ -511,7 +510,7 @@
   /* 🔹 Styl dla popupu na komputerze */
   .leaflet-popup-content-wrapper {
       max-width: 250px !important; 
-      max-height: 300px !important;
+      max-height: 350px !important;
   }
 
   /* 🔹 Styl dla popupu na telefonach */
@@ -538,14 +537,6 @@
     right: 20px;
     z-index: 2000;
 }
-
-
-
-
-
-
-
-
 @media (max-width: 768px) {
     .facebook-button,
     .link-button-mobile {
@@ -605,7 +596,6 @@
         z-index: 1000;
     }
 }
-
 
 <style>
     /* 🔹 Styl ekranu ładowania */
@@ -1010,27 +1000,21 @@ async function initializeMap() {
     document.getElementById("loading-screen").style.display = "flex";
     document.getElementById("loading-screen").style.opacity = "1";
 
-    // 🔹 Najpierw ładujemy pliki KML, które NIE będą grupowane
+    // 🔹 Najpierw ładujemy 2 kluczowe pliki KML (szybkie ładowanie)
     await Promise.all([
-        loadMarkers("Kempingi.kml", icons.kempingi, false),
-        loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false)
-    ]);
+    loadMarkers("Kempingi.kml", icons.kempingi, false),
+    loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false),
+    loadMarkers("Kempingiopen.kml", icons.kempingiopen, false),
+    loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, false),
+    loadMarkers("Kempingi1.kml", icons.kempingi1, false),
+    loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak, false),
+    loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural, false),
+    loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature, false),
+    loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun, false)
+]);
+
 
     console.log("✅ [initializeMap] Kempingi i Pola namiotowe załadowane.");
-
-    // 🔹 Teraz ładujemy pliki, które mają być grupowane
-    await Promise.all([
-        loadMarkers("Kempingiopen.kml", icons.kempingiopen, true),
-        loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, true),
-        loadMarkers("Kempingi1.kml", icons.kempingi1, true),
-        loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak, true),
-        loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural, true),
-        loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature, true),
-        loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun, true),
-        loadMarkers("Parkingilesne.kml", icons.parkingilesne, true)
-    ]);
-
-    console.log("✅ [initializeMap] Markery grupowane zostały załadowane.");
 
     // ✅ Wczytujemy szczegóły dla załadowanych markerów
     await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
@@ -1053,14 +1037,15 @@ async function initializeMap() {
 
     // 🔄 **Teraz ładujemy resztę plików KML w tle stopniowo**
     const additionalFiles = [
-        { filename: "Europa.kml", icon: icons.kempingi, group: false } // ❌ Nie grupujemy
+        { filename: "Europa.kml", icon: icons.kempingi },
+        { filename: "Parkingilesne.kml", icon: icons.parkingilesne }
     ];
 
     setTimeout(() => {
         console.log("⏳ [initializeMap] Ładowanie dodatkowych warstw KML w tle...");
-        additionalFiles.forEach(({ filename, icon, group }, index) => {
+        additionalFiles.forEach(({ filename, icon }, index) => {
             setTimeout(async () => {
-                await loadMarkers(filename, icon, group);
+                await loadMarkers(filename, icon);
                 console.log(`✅ [initializeMap] ${filename} załadowane.`);
             }, index * 1000); // Każdy plik ładowany co 1 sek.
         });
