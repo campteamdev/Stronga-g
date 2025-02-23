@@ -816,18 +816,20 @@
 
 
 async function loadMarkers(filename, icon, addToCluster = true) {
-    console.log(`📂 [loadMarkers] Ładowanie pliku: ${filename} (Grupowanie: ${addToCluster})`);
-
     const kmlText = await fetchKml(filename);
+
     const parser = new DOMParser();
     const kml = parser.parseFromString(kmlText, "application/xml");
     const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
-    
     allPlacemarks.push(...placemarks); // Dodanie placemarks do globalnej listy
 
     placemarks.forEach((placemark) => {
-        const name = placemark.getElementsByTagName("name")[0]?.textContent || "Brak nazwy";
-        const coordinates = placemark.getElementsByTagName("coordinates")[0]?.textContent.trim();
+        const name =
+            placemark.getElementsByTagName("name")[0]?.textContent ||
+            "Brak nazwy";
+        const coordinates = placemark
+            .getElementsByTagName("coordinates")[0]
+            ?.textContent.trim();
 
         if (coordinates) {
             const [lon, lat] = coordinates.split(",");
@@ -835,45 +837,31 @@ async function loadMarkers(filename, icon, addToCluster = true) {
 
             if (!addedMarkers.has(key)) {
                 addedMarkers.add(key);
-
-                // 🔹 Opcje markera
                 const markerOptions = { icon };
                 if (!addToCluster) {
-                    markerOptions.zIndexOffset = 9999; // ❌ Wyższy priorytet dla markerów NIEgrupowanych
+                    markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
                 }
 
-                // 🔹 Tworzymy marker i ustawiamy `isDataLoaded = false` (Blokada popupu przed załadowaniem)
+                // 🔹 Tworzymy marker i ustawiamy `isDataLoaded = false` 
                 const marker = L.marker([lat, lon], markerOptions);
-                marker.isDataLoaded = false;
+                marker.isDataLoaded = false; // ❌ Blokujemy otwieranie popupu przed załadowaniem danych
+
+                // 🔹 Dodajemy marker do klastra lub mapy
+                if (addToCluster) {
+                    markerCluster.addLayer(marker);
+                } else {
+                    marker.addTo(map);
+                }
 
                 // 🔹 Obsługa kliknięcia – popup otworzy się dopiero po załadowaniu danych
                 marker.on("click", function () {
                     moveMapAndOpenPopup(marker);
                 });
 
-                // ✅ Jeśli `addToCluster` == true, dodajemy marker do klastra
-                if (addToCluster) {
-                    if (!markerCluster.hasLayer(marker)) { 
-                        markerCluster.addLayer(marker); // Dodajemy do grupy tylko jeśli jeszcze go tam nie ma
-                        marker.isClustered = true;
-                    }
-                } else {
-                    marker.addTo(map); // 🔹 Jeśli NIE grupowany, dodajemy bezpośrednio do mapy
-                    marker.isClustered = false;
-                }
-
                 allMarkers.push({ marker, name, lat, lon });
-
-                // ✅ Oznaczamy, że dane markera są już załadowane
-                setTimeout(() => {
-                    marker.isDataLoaded = true;
-                    console.log(`✅ [loadMarkers] Marker ${name} załadowany.`);
-                }, 500);
             }
         }
     });
-
-    console.log(`✅ [loadMarkers] Załadowano ${placemarks.length} miejsc z ${filename}.`);
 }
 
 
@@ -1008,66 +996,60 @@ function attachMarkerClickEvents() {
 async function initializeMap() {
     console.log("🔄 [initializeMap] Rozpoczynam ładowanie mapy...");
 
-    // ✅ Pokaż ekran ładowania
     document.getElementById("loading-screen").style.display = "flex";
     document.getElementById("loading-screen").style.opacity = "1";
 
-    // ✅ Dodajemy `markerCluster` do mapy od razu
-    map.addLayer(markerCluster);
-
-    // 🔹 Najpierw ładujemy 2 kluczowe pliki KML (szybkie ładowanie)
+    // ✅ Wstępne kluczowe pliki
     await Promise.all([
         loadMarkers("Kempingi.kml", icons.kempingi, false),
-        loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false),  // NIE grupowane
-        loadMarkers("Kempingiopen.kml", icons.kempingiopen, true),  // 🟢 Grupowane
-        loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, true), // 🟢 Grupowane
-        loadMarkers("Kempingi1.kml", icons.kempingi1, true),  // 🟢 Teraz grupowane
-        loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak, true),  // 🟢 Teraz grupowane
-        loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural, true),  // 🟢 Teraz grupowane
-        loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature, true),  // 🟢 Teraz grupowane
-        loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun, true)  // 🟢 Teraz grupowane
+        loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false),
+        loadMarkers("Kempingiopen.kml", icons.kempingiopen, true),
+        loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, true),
+        loadMarkers("Kempingi1.kml", icons.kempingi1, true),
+        loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak, true),
+        loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural, true),
+        loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature, true),
+        loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun, true)
     ]);
 
     console.log("✅ [initializeMap] Kempingi i Pola namiotowe załadowane.");
 
-    // ✅ Wczytujemy szczegóły dla załadowanych markerów
     await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
-
-    // ✅ Generujemy popupy
     await generateAllPopups();
 
-    // ✅ Obsługa wyszukiwania i eventów kliknięcia
+    map.addLayer(markerCluster);
     attachMarkerClickEvents();
     initializeSearch();
 
     console.log("✅ [initializeMap] Podstawowe warstwy gotowe!");
 
-    // ✅ Ukrycie ekranu ładowania (animacja zanikania)
     document.getElementById("loading-screen").style.opacity = "0";
     setTimeout(() => {
         document.getElementById("loading-screen").style.display = "none";
     }, 500);
 
-    // 🔄 **Teraz ładujemy resztę plików KML w tle stopniowo**
+    // 🔄 **Ładowanie dodatkowych plików KML w tle**
     const additionalFiles = [
-        { filename: "Europa.kml", icon: icons.kempingi, group: true },
-        { filename: "Parkingilesne.kml", icon: icons.parkingilesne, group: true }
+        { filename: "Europa.kml", icon: icons.kempingi },
+        { filename: "Parkingilesne.kml", icon: icons.parkingilesne }
     ];
 
-    setTimeout(() => {
-        console.log("⏳ [initializeMap] Ładowanie dodatkowych warstw KML w tle...");
-        additionalFiles.forEach(({ filename, icon, group }, index) => {
-            setTimeout(async () => {
-                await loadMarkers(filename, icon, group);
-                console.log(`✅ [initializeMap] ${filename} załadowane.`);
-            }, index * 1000);
-        });
-    }, 2000);
+    console.log("⏳ [initializeMap] Ładowanie dodatkowych warstw KML w tle...");
+    
+    for (const { filename, icon } of additionalFiles) {
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Opóźnienie 1s
+        await loadMarkers(filename, icon);
+        console.log(`✅ [initializeMap] ${filename} załadowane.`);
+    }
 
-    // ✅ Po załadowaniu wszystkich plików – generujemy popupy dla całej mapy
+    console.log("✅ [initializeMap] Wszystkie dodatkowe pliki załadowane!");
+
+    // ✅ Teraz generujemy popupy dla CAŁEJ MAPY (łącznie z nowymi plikami)
     await generateAllPopups();
-}
+    attachMarkerClickEvents(); // Ponowne przypisanie eventów do nowych markerów
 
+    console.log("✅ [initializeMap] Wszystkie popupy wygenerowane!");
+}
 
 
 const popupCache = {}; // Pamięć podręczna dla gotowych popupów
@@ -1138,82 +1120,7 @@ initializeMap();
 
 
 
-<!-- 🔹 Przycisk do otwierania filtrów -->
 
-<!-- 🔹 Panel filtrów -->
-<div id="filter-panel" style="display: none;">
-  <h3 style="text-align:center; font-size: 16px; margin-bottom: 10px;">Filtry</h3>
-
-  <div class="filter-group">
-      <img src="ikony/Ikona_Kempingi.png" alt="Camping">
-      <label>
-          <span>Camping</span>
-          <input type="checkbox" class="filter-checkbox" id="camping-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-  <div class="filter-group">
-      <img src="ikony/Ikona_Pole_Namiotowe.png" alt="Pole Namiotowe">
-      <label>
-          <span>Pole Namiotowe</span>
-          <input type="checkbox" class="filter-checkbox" id="pola-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-  <div class="filter-group">
-      <img src="ikony/Ikona_Parking_Leśny.png" alt="Parkingi Leśne">
-      <label>
-          <span>Parkingi Leśne</span>
-          <input type="checkbox" class="filter-checkbox" id="parking-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-  <div class="filter-group">
-      <img src="ikony/Ikona_Miejsce_Biwakowe.png" alt="Miejsce na dziko/biwak">
-      <label>
-          <span>Miejsce na dziko</span>
-          <input type="checkbox" class="filter-checkbox" id="biwak-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-  <div class="filter-group">
-      <img src="ikony/atractionCultural.png" alt="Atrakcje Kulturowe">
-      <label>
-          <span>Atrakcje Kulturowe</span>
-          <input type="checkbox" class="filter-checkbox" id="kulturowe-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-  <div class="filter-group">
-      <img src="ikony/atractionNatural.png" alt="Atrakcje Przyrodnicze">
-      <label>
-          <span>Atrakcje Przyrodnicze</span>
-          <input type="checkbox" class="filter-checkbox" id="przyrodnicze-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-  <div class="filter-group">
-      <img src="ikony/atractionFun.png" alt="Atrakcje Rozrywka">
-      <label>
-          <span>Atrakcje Rozrywka</span>
-          <input type="checkbox" class="filter-checkbox" id="rozrywka-filter">
-          <div class="filter-switch"></div>
-      </label>
-  </div>
-
-
-<script src="filters.js" defer></script>
-<!-- 🔹 Nowy pełnoekranowy popup -->
-<div id="custom-popup">
-  <span class="custom-close-button">✖</span>
-  <div id="custom-popup-content"></div>
-</div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
