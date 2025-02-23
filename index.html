@@ -278,7 +278,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: white;
+    background: rgb(163, 161, 161);
     z-index: 10000;
     display: none; /* Ukryte domyślnie */
     flex-direction: column;
@@ -546,6 +546,10 @@
         height: 20px;
     }
 }
+.leaflet-popup-content-wrapper {
+    background: rgba(205, 203, 203, 0.95) !important; /* Półprzezroczyste tło na wszystkich urządzeniach */
+}
+
 /* 🔹 Pełnoekranowy popup na telefonach */
 @media (max-width: 768px) {
     .leaflet-popup-content-wrapper {
@@ -555,7 +559,8 @@
         max-height: 100vh !important;
         border-radius: 0 !important;
         overflow-y: auto !important;
-    }
+      
+      }
 
     .leaflet-popup-tip-container {
         display: none !important;
