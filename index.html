@@ -340,7 +340,7 @@
         overflow-y: auto !important; /* ✅ Pozwala na przewijanie treści w pionie */
 
         /* ✅ Przesunięcie popupu lekko w lewo (-5px) i w dół (20px) */
-        transform: translate(-5px, 15px) !important;
+        transform: translate(-5px, -5px) !important;
     }
 
     .leaflet-popup-tip-container {
@@ -359,7 +359,7 @@
     /* ✅ Nowy przycisk zamykania */
     .leaflet-popup-close-button {
         position: absolute !important;
-        top: 70px !important;
+        top: 15px !important;
         right: 15px !important;
         font-size: 24px !important;
         background: rgba(0, 0, 0, 0.7) !important;
@@ -1189,7 +1189,26 @@ initializeMap();
   <div id="custom-popup-content"></div>
 </div>
 
-
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const searchContainer = document.getElementById("search-container");
+  
+      map.on("popupopen", function () {
+          if (window.innerWidth <= 768) {
+              console.log("📌 [popupopen] Ukrywanie wyszukiwarki...");
+              searchContainer.style.display = "none";
+          }
+      });
+  
+      map.on("popupclose", function () {
+          if (window.innerWidth <= 768) {
+              console.log("📌 [popupclose] Przywracanie wyszukiwarki...");
+              searchContainer.style.display = "block";
+          }
+      });
+  });
+  </script>
+  
 
 </body> 
 </html>
