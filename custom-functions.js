@@ -216,19 +216,22 @@ function generatePopupContent(name, lat, lon) {
 
 
 
+if (descriptionsMap[name]) {
+  // Opis - Nagłówek z ramką (tylko jeśli jest opis)
+  popupContent += `<div style="border: 2px solid #388E3C; padding: 4px 10px; display: inline-block; 
+      font-size: 16px; font-weight: bold; color: black; 
+      user-select: none; border-radius: 14px; background-color: transparent;">Opis
+  </div><br><br>`; // Dodatkowe <br> dla odstępu
 
-  // Opis - Nagłówek z ramką
-popupContent += `<div style="border: 2px solid #388E3C; padding: 4px 10px; display: inline-block; 
-font-size: 16px; font-weight: bold; color: black; 
-user-select: none; border-radius: 14px; background-color: transparent;">Opis
-</div><br><br>`; // Dodatkowe <br> dla odstępu
+  // Treść opisu
+  popupContent += `<span style="font-size: 14px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>`;
 
-// Treść opisu
-popupContent += descriptionsMap[name] 
-? `<span style="font-size: 14px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-: `<span style="font-size: 14px; user-select: none;"><i>Brak opisu</i></span>`;
-popupContent += `<hr style="border: none; height: 2px; background-color: black; margin: 15px 0;">`;
-popupContent += `<br><br>`; // Dodatkowe <br> dla większej przerwy pod opisem
+  // Pozioma linia oddzielająca (tylko jeśli jest opis)
+  popupContent += `<hr style="border: none; height: 2px; background-color: black; margin: 15px 0;">`;
+
+  // Dodatkowa przerwa pod opisem
+  popupContent += `<br><br>`;
+}
 
 
   // Strona internetowa
