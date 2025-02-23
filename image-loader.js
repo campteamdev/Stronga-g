@@ -15,17 +15,27 @@ function sanitizeName(name) {
 }
 
 // ✅ POBIERANIE FOLDERÓW Z GITHUBA
+let cachedFolders = null;
+let lastFolderFetchTime = 0;
+
 async function getGitHubFolders() {
     const cacheKey = "github_folders";
     const cacheTimeKey = "github_folders_time";
     const now = Date.now();
 
+    if (cachedFolders && now - lastFolderFetchTime < CACHE_DURATION_FOLDERS) {
+        console.log("📂 📥 Używanie folderów z pamięci RAM.");
+        return cachedFolders;
+    }
+
     const cachedData = localStorage.getItem(cacheKey);
     const cacheTime = localStorage.getItem(cacheTimeKey);
 
     if (cachedData && cacheTime && now - parseInt(cacheTime) < CACHE_DURATION_FOLDERS) {
-        console.log("📂 📥 Ładowanie listy folderów z cache");
-        return JSON.parse(cachedData);
+        console.log("📂 📥 Ładowanie folderów z localStorage.");
+        cachedFolders = JSON.parse(cachedData);
+        lastFolderFetchTime = now;
+        return cachedFolders;
     }
 
     try {
@@ -33,23 +43,16 @@ async function getGitHubFolders() {
         if (!response.ok) throw new Error(response.statusText);
 
         const data = await response.json();
-        console.log("📂 🔍 Surowe dane pobrane z GitHuba:", data);
+        cachedFolders = data.filter(item => item.type === "dir").map(item => item.name);
 
-        const folders = data
-            .filter(item => item.type === "dir")
-            .map(item => item.name);
-        
-        console.log("📂 ✅ Lista folderów po przefiltrowaniu:", folders);
-        
-
-        // ✅ Zapisujemy do cache
-        localStorage.setItem(cacheKey, JSON.stringify(folders));
+        localStorage.setItem(cacheKey, JSON.stringify(cachedFolders));
         localStorage.setItem(cacheTimeKey, now);
+        lastFolderFetchTime = now;
 
-        console.log("📂 ✅ Lista folderów pobrana z GitHuba:", folders);
-        return folders;
+        console.log("📂 ✅ Foldery pobrane z GitHuba:", cachedFolders);
+        return cachedFolders;
     } catch (error) {
-        console.error("❌ Błąd pobierania folderów z GitHuba:", error);
+        console.error("❌ Błąd pobierania folderów:", error);
         return [];
     }
 }

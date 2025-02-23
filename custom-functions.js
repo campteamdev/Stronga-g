@@ -230,7 +230,7 @@ if (descriptionsMap[name]) {
   popupContent += `<hr style="border: none; height: 2px; background-color: black; margin: 15px 0;">`;
 
   // Dodatkowa przerwa pod opisem
-  popupContent += `<br><br>`;
+  popupContent += `<br>`;
 }
 
 
