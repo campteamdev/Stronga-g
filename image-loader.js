@@ -204,7 +204,6 @@ async function generateImageSlider(name, lat, lon) {
         console.log(`🔹 Slider dla ${name} już istnieje. Dodaję go do nowego popupu.`);
         return { sliderHTML: existingSlider.outerHTML, images: [] };
     }
-    
 
     const images = await getLocationImages(name);
     console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);
@@ -217,28 +216,29 @@ async function generateImageSlider(name, lat, lon) {
     const phoneCursor = phoneNumber ? "pointer" : "not-allowed";
     const phoneOpacity = phoneNumber ? "1" : "0.5";
 
-    // 🔹 Nagłówek popupu
+    // 🔹 Nagłówek popupu (nazwa lokalizacji)
     let locationTitle = `
     <div style="width: 100%; text-align: center; font-size: 18px; font-weight: bold; 
-                padding: 10px 0; background-color: #f8f8f8; border-radius: 8px;">
+                padding: 10px 0; background-color: #388E3C; border-radius: 8px;">
         ${name}
     </div>`;
 
     // 🔹 Slider tylko jeśli są zdjęcia
     let sliderHTML = images.length > 0 ? `
-        <div class="swiper-container ${sliderId}" style="width:100%; height: 160px; position: relative; overflow: hidden;">
-            <div class="swiper-wrapper">
-                ${images.map(img => `
-                    <div class="swiper-slide">
-                        <img data-src="${img}" class="zoomable-image swiper-lazy" 
-                             style="width:100%; height:160px; object-fit:cover; 
-                                    border-radius:8px; cursor:pointer;">
-                        <div class="swiper-lazy-preloader"></div>
-                    </div>
-                `).join("")}
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>` : '';
+    <div class="swiper-container ${sliderId}" 
+         style="width:100%; height: 160px; position: relative; overflow: hidden; margin-top: 20px;">
+        <div class="swiper-wrapper">
+            ${images.map(img => `
+                <div class="swiper-slide">
+                    <img data-src="${img}" class="zoomable-image swiper-lazy" 
+                         style="width:100%; height:160px; object-fit:cover; 
+                                border-radius:8px; cursor:pointer;">
+                    <div class="swiper-lazy-preloader"></div>
+                </div>
+            `).join("")}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>` : '';
 
     // 🔹 Klasa do obramowania niebieską ramką, jeśli brak zdjęć
     const addPhotoBorderClass = images.length === 0 ? 'border-blue' : '';
@@ -289,12 +289,23 @@ async function generateImageSlider(name, lat, lon) {
         </a>
     </div>`;
 
-    // 🔹 Układ popupu (Nazwa → Zdjęcia → Ikony)
-    let finalHTML = locationTitle + sliderHTML + topIconsSection + bottomIconsSection;
+    // 🔹 **Dodanie poziomych linii oddzielających sekcje**
+    let finalHTML = `
+        ${locationTitle}
+
+        ${sliderHTML}
+
+        <hr style="border: 1px solid black; margin: 15px 0;">  <!-- 🔹 Górna linia -->
+
+        ${topIconsSection}
+
+        ${bottomIconsSection}
+
+        <hr style="border: 1px solid black; margin: 15px 0;">  <!-- 🔹 Dolna linia -->
+    `;
 
     return { sliderHTML: finalHTML, images };
 }
-
 
 
 

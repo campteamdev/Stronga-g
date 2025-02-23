@@ -217,16 +217,19 @@ function generatePopupContent(name, lat, lon) {
 
 
 
-  // Opis
-  popupContent += `<div style="border:2px solidrgb(18, 161, 18); padding:4px; display:inline-block; font-size:12px;
-      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
-      border-radius: 14px; background-color: #eaffea;">
-      </div><br>`;
+  // Opis - Nagłówek z ramką
+popupContent += `<div style="border: 2px solid #388E3C; padding: 4px 10px; display: inline-block; 
+font-size: 16px; font-weight: bold; color: black; 
+user-select: none; border-radius: 14px; background-color: transparent;">Opis
+</div><br><br>`; // Dodatkowe <br> dla odstępu
 
-  popupContent += descriptionsMap[name] 
-    ? `<span style="font-size:12px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
-    : `<span style="font-size:12px; user-select: none;"><i></i></span>`;
-    popupContent += `<br>`;
+// Treść opisu
+popupContent += descriptionsMap[name] 
+? `<span style="font-size: 14px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
+: `<span style="font-size: 14px; user-select: none;"><i>Brak opisu</i></span>`;
+popupContent += `<hr style="border: none; height: 2px; background-color: black; margin: 15px 0;">`;
+popupContent += `<br><br>`; // Dodatkowe <br> dla większej przerwy pod opisem
+
 
   // Strona internetowa
 if (websiteLinksMap[name]) {
@@ -261,7 +264,7 @@ if (amenitiesMap[name] && amenitiesMap[name].trim()) {
 
   if (amenitiesList.length > 0) {
       popupContent += `<div style="border:2px solid rgb(18, 161, 18); padding:4px; display:inline-block; 
-                        font-size:12px; font-weight: bold; user-select: none; border-radius: 8px;">
+                        font-size:16px; font-weight: bold; user-select: none; border-radius: 8px;">
                         Infrastruktura:</div><br><br>`;
 
       popupContent += amenitiesList.map(amenity => 
