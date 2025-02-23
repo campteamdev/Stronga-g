@@ -1018,6 +1018,42 @@ async function initializeMap() {
     await generateAllPopups();
 
     map.addLayer(markerCluster);
+
+    // ✅ Pamięć dla ostatnio otwartego popupu
+    let lastOpenedPopup = null;
+    let lastOpenedMarker = null;
+
+    // ✅ Zapamiętywanie popupu przed rozbiciem klastra
+    markerCluster.on("clusterclick", function (event) {
+        const markers = event.layer.getAllChildMarkers();
+        markers.forEach(marker => {
+            if (marker.isPopupOpen()) {
+                lastOpenedPopup = marker.getPopup();
+                lastOpenedMarker = marker;
+            }
+        });
+    });
+
+    // ✅ Ponowne otwieranie popupu po rozbiciu klastra
+    map.on("zoomend", function () {
+        if (lastOpenedMarker && lastOpenedPopup) {
+            setTimeout(() => {
+                lastOpenedMarker.openPopup();
+                lastOpenedPopup = null; // Reset pamięci po otwarciu
+                lastOpenedMarker = null;
+            }, 300);
+        }
+    });
+
+    // ✅ Zapobieganie zamykaniu popupów na telefonach
+    map.on("popupopen", function (event) {
+        setTimeout(() => {
+            if (event.popup && map.hasLayer(event.popup._source)) {
+                event.popup.update();
+            }
+        }, 100);
+    });
+
     attachMarkerClickEvents();
     initializeSearch();
 
