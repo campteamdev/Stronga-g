@@ -287,16 +287,18 @@ function updatePopups(markers) {
       // Wykrywanie, czy użytkownik korzysta z telefonu
       const isMobile = window.innerWidth <= 768;
 
-      const popupOptions = {
-          minWidth: 200, // Minimalna szerokość dla obu urządzeń
-          maxWidth: isMobile ? window.innerWidth * 0.7 : 350, // 90% szerokości ekranu na telefonie, 260px na komputerze
-          maxHeight: isMobile ? window.innerHeight * 0.5 : 400, // 50% wysokości ekranu na telefonie, 350px na komputerze
-          autoPan: true,
-          closeButton: true, // Przyciski zamykania poprawione
-          className: isMobile ? "mobile-popup" : "desktop-popup" // Dodajemy różne style
-      };
+     // 🔹 Opcje popupu – pełny ekran na smartfonach
+const popupOptions = {
+  minWidth: isMobile ? window.innerWidth : 300,
+  maxWidth: isMobile ? window.innerWidth : 400,
+  maxHeight: isMobile ? window.innerHeight : 450,
+  className: isMobile ? "mobile-popup" : "desktop-popup",
+  closeButton: false // ❌ Ukrywamy domyślny przycisk zamykania Leaflet
+};
 
-      marker.bindPopup(popupContent, popupOptions);
+// 🔹 Otwieramy popup z nowymi opcjami
+marker.bindPopup(generatePopupContent(marker.name, latlng.lat, latlng.lng), popupOptions).openPopup();
+
   });
 }
 
@@ -389,7 +391,86 @@ function moveMapAndOpenPopup(marker) {
 
   // 🔹 Otwieramy popup – ikona powiększy się dopiero po otwarciu
   marker.openPopup();
+  setTimeout(() => {
+    if (isMobile) {
+        const popupContainer = document.querySelector(".mobile-popup");
+        if (popupContainer) {
+            let closeButton = popupContainer.querySelector(".custom-close-button");
+            if (!closeButton) {
+                closeButton = document.createElement("div");
+                closeButton.classList.add("custom-close-button");
+                closeButton.innerHTML = "✖";
+                closeButton.onclick = () => map.closePopup();
+                popupContainer.appendChild(closeButton);
+            }
+        }
+    }
+}, 200);
+
 }
+function openFullScreenPopup(content) {
+  console.log("📱 [openFullScreenPopup] Otwieranie pełnoekranowego popupu...");
+
+  const popupContainer = document.getElementById("custom-popup");
+  const popupContent = document.getElementById("custom-popup-content");
+
+  popupContent.innerHTML = content; // Wstawienie treści popupu
+  popupContainer.style.display = "flex"; // ✅ Teraz popup będzie widoczny
+  popupContainer.style.opacity = "1"; // ✅ Upewnienie się, że jest widoczny
+}
+
+
+function closeFullScreenPopup() {
+  console.log("❌ [closeFullScreenPopup] Zamknięcie popupu...");
+  const popupContainer = document.getElementById("custom-popup");
+  const popupContent = document.getElementById("custom-popup-content");
+
+  popupContainer.style.display = "none"; // ✅ Ukrycie popupu
+  popupContent.innerHTML = ""; // ✅ Usunięcie treści, aby uniknąć błędów
+}
+
+// 🔹 Dodanie event listenera do przycisku zamykania
+document.querySelector(".custom-close-button").addEventListener("click", closeFullScreenPopup);
+
+// 🔹 Modyfikacja obsługi otwierania popupów
+map.on("popupopen", function (e) {
+  const popupWrapper = e.popup._container;
+
+  if (popupWrapper) {
+      console.log("✅ [popupopen] Popup wykryty – wymuszam pełny ekran!");
+
+      // ❌ Usunięcie domyślnych stylów Leaflet
+      popupWrapper.style.removeProperty("top");
+      popupWrapper.style.removeProperty("left");
+      popupWrapper.style.removeProperty("transform");
+
+      // ✅ Wymuszenie pełnego ekranu i poprawnego pozycjonowania
+      popupWrapper.style.position = "fixed";
+      popupWrapper.style.top = "0";    
+      popupWrapper.style.left = "0";   
+      popupWrapper.style.width = "100vw";
+      popupWrapper.style.height = "100vh";
+      popupWrapper.style.transform = "none";
+      popupWrapper.style.borderRadius = "0";
+      popupWrapper.style.overflow = "auto";
+      popupWrapper.style.zIndex = "10000";
+      popupWrapper.style.background = "white";
+      popupWrapper.style.opacity = "1";
+      popupWrapper.style.visibility = "visible";
+
+      console.log("🚀 [popupopen] Popup wymuszony na pełnym ekranie!");
+  } else {
+      console.warn("⚠️ [popupopen] Brak popupu do modyfikacji!");
+  }
+});
+
+
+// ✅ **Wymuszenie natychmiastowego zamknięcia popupu po kliknięciu w mapę**
+map.on("click", function () {
+  map.closePopup();
+});
+
+
 
 // 🔹 Funkcja obsługująca otwarcie popupu i przesuwanie mapy
 map.on("popupopen", async function (e) {
@@ -414,7 +495,23 @@ map.on("popupopen", async function (e) {
       console.warn("⚠️ [popupopen] Brak zawartości popupu!");
       return;
   }
+  const popupWrapper = e.popup._container;
+  if (!popupWrapper) {
+      console.warn("⚠️ [popupopen] Brak kontenera popupu!");
+      return;
+  }
 
+  // Wymuszenie pełnego ekranu tylko na telefonach
+  if (window.innerWidth <= 768) {
+      popupWrapper.style.position = "fixed";
+      popupWrapper.style.width = "100vw";
+      popupWrapper.style.height = "100vh";
+      popupWrapper.style.left = "0";
+      popupWrapper.style.top = "0";
+      popupWrapper.style.transform = "none"; // Usunięcie przesunięcia Leaflet
+      popupWrapper.style.borderRadius = "0"; // Usunięcie zaokrągleń
+      popupWrapper.style.zIndex = "10000"; // Przypisanie najwyższego indeksu
+  }
   // Dodanie strzałki przewijania, jeśli nie istnieje
   let scrollIndicator = contentWrapper.querySelector(".scroll-indicator");
   if (!scrollIndicator) {
@@ -539,8 +636,9 @@ map.eachLayer(layer => {
 
 
 // 🔹 Funkcja otwierająca wysuwany popup
+// 🔹 Funkcja otwierająca pełnoekranowy popup
 function openCustomPopup(marker) {
-  console.log("📌 [openCustomPopup] Otwieranie niestandardowego popupu...");
+  console.log("📌 [openCustomPopup] Otwieranie pełnoekranowego popupu...");
 
   const latlng = marker.getLatLng();
   console.log(`📍 [openCustomPopup] Współrzędne markera: ${latlng.lat}, ${latlng.lng}`);
@@ -551,39 +649,32 @@ function openCustomPopup(marker) {
       return;
   }
 
-  const name = popupContent.match(/<strong>(.*?)<\/strong>/)?.[1] || "Brak nazwy";
-  console.log(`📂 [openCustomPopup] Nazwa miejsca: ${name}`);
+  // Wstawienie treści popupu do kontenera
+  document.getElementById("custom-popup-content").innerHTML = popupContent;
 
-  generatePopupContent(name, latlng.lat, latlng.lng).then(async (popupHTML) => {
-      console.log("📌 [openCustomPopup] Generowanie zawartości popupu...");
+  // Pokaż pełnoekranowy popup
+  document.getElementById("custom-popup").style.display = "flex";
 
-      const { sliderHTML, images } = await generateImageSlider(name, latlng.lat, latlng.lng);
-      showCustomPopup(popupHTML + sliderHTML);
-
-      console.log(`📌 [openCustomPopup] Przesuwanie mapy, aby marker był nad popupem...`);
-      const mapHeight = map.getSize().y;
-      const offsetLat = map.containerPointToLatLng([0, mapHeight * 0.3]).lat - map.containerPointToLatLng([0, 0]).lat;
-      const newLatLng = L.latLng(latlng.lat - offsetLat, latlng.lng);
-      map.setView(newLatLng, map.getZoom(), { animate: true });
-
-      console.log("✅ [openCustomPopup] Popup otwarty!");
-  });
-}
-
-// 🔹 Funkcja do wyświetlenia popupu
-function showCustomPopup(content) {
-  console.log("📌 [showCustomPopup] Wyświetlanie wysuwanego popupu...");
-  const popup = document.getElementById("custom-popup");
-  document.getElementById("custom-popup-content").innerHTML = content;
-  popup.style.bottom = "0";
+  console.log("✅ [openCustomPopup] Pełnoekranowy popup otwarty!");
 }
 
 // 🔹 Funkcja zamykająca popup
 function closeCustomPopup() {
-  console.log("📌 [closeCustomPopup] Zamknięcie wysuwanego popupu...");
-  document.getElementById("custom-popup").style.bottom = "-100%";
+  console.log("❌ [closeCustomPopup] Zamknięcie popupu...");
+  document.getElementById("custom-popup").style.display = "none";
 }
 
-// 🔹 Obsługa zamknięcia popupu
+// 🔹 Obsługa zamykania popupu
 document.getElementById("close-popup").addEventListener("click", closeCustomPopup);
 map.on("click", closeCustomPopup);
+
+// 🔹 Modyfikacja obsługi kliknięcia na marker
+map.eachLayer(layer => {
+  if (layer instanceof L.Marker) {
+      console.log(`🟢 [map.eachLayer] Podpinam kliknięcie do markera na pozycji: ${layer.getLatLng().lat}, ${layer.getLatLng().lng}`);
+      layer.off("click");
+      layer.on("click", function () {
+          openCustomPopup(this); // ✅ Używa poprawionej funkcji
+      });
+  }
+});
