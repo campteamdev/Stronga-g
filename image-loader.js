@@ -245,7 +245,7 @@ async function generateImageSlider(name, lat, lon) {
 
     // 🔹 Górny rząd ikon (Zadzwoń, Dodaj zdjęcie)
     let topIconsSection = `
-    <div style="display: flex; justify-content: center; align-items: center; gap: 30px; 
+    <div style="display: flex; justify-content: center; align-items: center; gap: 70px; 
                 margin-top: 20px; width: 100%;">
         <a href="${phoneLink}" 
            style="display: flex; justify-content: center; align-items: center; 
@@ -268,7 +268,7 @@ async function generateImageSlider(name, lat, lon) {
 
     // 🔹 Dolny rząd ikon (Opinia, Prowadź)
     let bottomIconsSection = `
-    <div style="display: flex; justify-content: center; align-items: center; gap: 30px; 
+    <div style="display: flex; justify-content: center; align-items: center; gap: 70px; 
                 margin-top: 15px; width: 100%;">
         <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
            target="_blank"

@@ -151,7 +151,7 @@ async function loadKmlData() {
 function shortenText(text, id) {
   if (!text) return ""; // Jeśli brak treści, zwróć pusty ciąg
   const words = text.split(" ");
-  if (words.length > 30) { // Przybliżona liczba słów na 3 linijki
+  if (words.length > 90) { // Przybliżona liczba słów na 3 linijki
     const shortText = words.slice(0, 30).join(" ") + "...";
     return `
       <span id="${id}-short">${shortText}</span>
@@ -226,6 +226,7 @@ function generatePopupContent(name, lat, lon) {
   popupContent += descriptionsMap[name] 
     ? `<span style="font-size:12px; user-select: none;">${shortenText(descriptionsMap[name], `opis-${name}`)}</span>` 
     : `<span style="font-size:12px; user-select: none;"><i></i></span>`;
+    popupContent += `<br>`;
 
   // Strona internetowa
 if (websiteLinksMap[name]) {
@@ -261,7 +262,7 @@ if (amenitiesMap[name] && amenitiesMap[name].trim()) {
   if (amenitiesList.length > 0) {
       popupContent += `<div style="border:2px solid rgb(18, 161, 18); padding:4px; display:inline-block; 
                         font-size:12px; font-weight: bold; user-select: none; border-radius: 8px;">
-                        Infrastruktura:</div><br>`;
+                        Infrastruktura:</div><br><br>`;
 
       popupContent += amenitiesList.map(amenity => 
           `<span style="display:inline-block; font-size:12px; font-weight: bold; margin-right: 6px; user-select: none;">
