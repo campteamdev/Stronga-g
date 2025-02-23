@@ -996,96 +996,65 @@ function attachMarkerClickEvents() {
 async function initializeMap() {
     console.log("🔄 [initializeMap] Rozpoczynam ładowanie mapy...");
 
+    // ✅ Pokaż ekran ładowania
     document.getElementById("loading-screen").style.display = "flex";
     document.getElementById("loading-screen").style.opacity = "1";
 
-    // ✅ Wstępne kluczowe pliki
+    // 🔹 Najpierw ładujemy 2 kluczowe pliki KML (szybkie ładowanie)
     await Promise.all([
-        loadMarkers("Kempingi.kml", icons.kempingi, false),
-        loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false),
-        loadMarkers("Kempingiopen.kml", icons.kempingiopen, true),
-        loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, true),
-        loadMarkers("Kempingi1.kml", icons.kempingi1, true),
-        loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak, true),
-        loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural, true),
-        loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature, true),
-        loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun, true)
-    ]);
+    loadMarkers("Kempingi.kml", icons.kempingi, false),
+    loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false),
+    loadMarkers("Kempingiopen.kml", icons.kempingiopen, false),
+    loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, false),
+    loadMarkers("Kempingi1.kml", icons.kempingi1, false),
+    loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak, false),
+    loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural, false),
+    loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature, false),
+    loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun, false)
+]);
+
 
     console.log("✅ [initializeMap] Kempingi i Pola namiotowe załadowane.");
 
+    // ✅ Wczytujemy szczegóły dla załadowanych markerów
     await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
+
+    // ✅ Generujemy popupy
     await generateAllPopups();
 
+    // ✅ Dodajemy pierwsze markery do mapy
     map.addLayer(markerCluster);
-
-    // ✅ Pamięć dla ostatnio otwartego popupu
-    let lastOpenedPopup = null;
-    let lastOpenedMarker = null;
-
-    // ✅ Zapamiętywanie popupu przed rozbiciem klastra
-    markerCluster.on("clusterclick", function (event) {
-        const markers = event.layer.getAllChildMarkers();
-        markers.forEach(marker => {
-            if (marker.isPopupOpen()) {
-                lastOpenedPopup = marker.getPopup();
-                lastOpenedMarker = marker;
-            }
-        });
-    });
-
-    // ✅ Ponowne otwieranie popupu po rozbiciu klastra
-    map.on("zoomend", function () {
-        if (lastOpenedMarker && lastOpenedPopup) {
-            setTimeout(() => {
-                lastOpenedMarker.openPopup();
-                lastOpenedPopup = null; // Reset pamięci po otwarciu
-                lastOpenedMarker = null;
-            }, 300);
-        }
-    });
-
-    // ✅ Zapobieganie zamykaniu popupów na telefonach
-    map.on("popupopen", function (event) {
-        setTimeout(() => {
-            if (event.popup && map.hasLayer(event.popup._source)) {
-                event.popup.update();
-            }
-        }, 100);
-    });
-
     attachMarkerClickEvents();
     initializeSearch();
 
     console.log("✅ [initializeMap] Podstawowe warstwy gotowe!");
 
+    // ✅ Ukrycie ekranu ładowania (animacja zanikania)
     document.getElementById("loading-screen").style.opacity = "0";
     setTimeout(() => {
         document.getElementById("loading-screen").style.display = "none";
     }, 500);
 
-    // 🔄 **Ładowanie dodatkowych plików KML w tle**
+    // 🔄 **Teraz ładujemy resztę plików KML w tle stopniowo**
     const additionalFiles = [
         { filename: "Europa.kml", icon: icons.kempingi },
         { filename: "Parkingilesne.kml", icon: icons.parkingilesne }
     ];
 
-    console.log("⏳ [initializeMap] Ładowanie dodatkowych warstw KML w tle...");
-    
-    for (const { filename, icon } of additionalFiles) {
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Opóźnienie 1s
-        await loadMarkers(filename, icon);
-        console.log(`✅ [initializeMap] ${filename} załadowane.`);
-    }
+    setTimeout(() => {
+        console.log("⏳ [initializeMap] Ładowanie dodatkowych warstw KML w tle...");
+        additionalFiles.forEach(({ filename, icon }, index) => {
+            setTimeout(async () => {
+                await loadMarkers(filename, icon);
+                console.log(`✅ [initializeMap] ${filename} załadowane.`);
+            }, index * 1000); // Każdy plik ładowany co 1 sek.
+        });
+    }, 2000); // Opóźnienie startu dodatkowych plików o 2 sekundy
 
-    console.log("✅ [initializeMap] Wszystkie dodatkowe pliki załadowane!");
-
-    // ✅ Teraz generujemy popupy dla CAŁEJ MAPY (łącznie z nowymi plikami)
+    // ✅ Po załadowaniu wszystkich plików – generujemy popupy dla całej mapy
     await generateAllPopups();
-    attachMarkerClickEvents(); // Ponowne przypisanie eventów do nowych markerów
-
-    console.log("✅ [initializeMap] Wszystkie popupy wygenerowane!");
 }
+
 
 
 const popupCache = {}; // Pamięć podręczna dla gotowych popupów
