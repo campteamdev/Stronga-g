@@ -401,26 +401,21 @@ async function initializeMap() {
     document.getElementById("loading-screen").style.display = "flex";
     document.getElementById("loading-screen").style.opacity = "1";
 
-    // 🔹 Najpierw ładujemy 2 kluczowe pliki KML bez grupowania
+    // 🔹 Najpierw ładujemy 2 kluczowe pliki KML (szybkie ładowanie)
     await Promise.all([
-        loadMarkers("Kempingi.kml", icons.kempingi, false),
-        loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false)
-    ]);
+    loadMarkers("Kempingi.kml", icons.kempingi, false),
+    loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false),
+    loadMarkers("Kempingiopen.kml", icons.kempingiopen, false),
+    loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, false),
+    loadMarkers("Kempingi1.kml", icons.kempingi1, false),
+    loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak, false),
+    loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural, false),
+    loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature, false),
+    loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun, false)
+]);
+
 
     console.log("✅ [initializeMap] Kempingi i Pola namiotowe załadowane.");
-
-    // 🔹 Teraz ładujemy resztę markerów do klastra
-    await Promise.all([
-        loadMarkers("Kempingiopen.kml", icons.kempingiopen, true),
-        loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, true),
-        loadMarkers("Kempingi1.kml", icons.kempingi1, true),
-        loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak, true),
-        loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural, true),
-        loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature, true),
-        loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun, true)
-    ]);
-
-    console.log("✅ [initializeMap] Wszystkie warstwy załadowane.");
 
     // ✅ Wczytujemy szczegóły dla załadowanych markerów
     await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
@@ -451,7 +446,7 @@ async function initializeMap() {
         console.log("⏳ [initializeMap] Ładowanie dodatkowych warstw KML w tle...");
         additionalFiles.forEach(({ filename, icon }, index) => {
             setTimeout(async () => {
-                await loadMarkers(filename, icon, true);
+                await loadMarkers(filename, icon);
                 console.log(`✅ [initializeMap] ${filename} załadowane.`);
             }, index * 1000); // Każdy plik ładowany co 1 sek.
         });
