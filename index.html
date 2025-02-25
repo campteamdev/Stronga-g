@@ -401,96 +401,65 @@ async function initializeMap() {
     document.getElementById("loading-screen").style.display = "flex";
     document.getElementById("loading-screen").style.opacity = "1";
 
-    // 🔹 **Ładowanie kluczowych plików KML (bez grupowania)**
-    const coreFiles = [
-        { filename: "Kempingi.kml", icon: icons.kempingi, addToCluster: false },
-        { filename: "Polanamiotowe.kml", icon: icons.polanamiotowe, addToCluster: false }
-    ];
-
-    // 🔹 **Ładowanie pozostałych plików KML (grupowane)**
-    const groupedFiles = [
-        { filename: "Kempingiopen.kml", icon: icons.kempingiopen, addToCluster: true },
-        { filename: "Polanamiotoweopen.kml", icon: icons.polanamiotoweopen, addToCluster: true },
-        { filename: "Kempingi1.kml", icon: icons.kempingi1, addToCluster: true },
-        { filename: "Miejscenabiwak.kml", icon: icons.miejscenabiwak, addToCluster: true },
-        { filename: "AtrakcjeKulturowe.kml", icon: icons.atractionCultural, addToCluster: true },
-        { filename: "AtrakcjePrzyrodnicze.kml", icon: icons.atractionNature, addToCluster: true },
-        { filename: "AtrakcjeRozrywka.kml", icon: icons.atractionFun, addToCluster: true }
-    ];
-
-    // 🔹 **Ładowanie dodatkowych plików w tle (grupowane)**
-    const additionalFiles = [
-        { filename: "Europa.kml", icon: icons.kempingi, addToCluster: true },
-        { filename: "Parkingilesne.kml", icon: icons.parkingilesne, addToCluster: true }
-    ];
-
-    // 🔥 **Ładujemy kluczowe pliki KML jako pierwsze (szybkie uruchomienie mapy)**
-    await Promise.all(coreFiles.map(file => loadMarkers(file.filename, file.icon, file.addToCluster)));
+    // 🔹 Najpierw ładujemy 2 kluczowe pliki KML bez grupowania
+    await Promise.all([
+        loadMarkers("Kempingi.kml", icons.kempingi, false),
+        loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false)
+    ]);
 
     console.log("✅ [initializeMap] Kempingi i Pola namiotowe załadowane.");
 
-    // ✅ **Wczytujemy szczegóły i popupy dla Kempingów i Pól namiotowych**
+    // 🔹 Teraz ładujemy resztę markerów do klastra
+    await Promise.all([
+        loadMarkers("Kempingiopen.kml", icons.kempingiopen, true),
+        loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, true),
+        loadMarkers("Kempingi1.kml", icons.kempingi1, true),
+        loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak, true),
+        loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural, true),
+        loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature, true),
+        loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun, true)
+    ]);
+
+    console.log("✅ [initializeMap] Wszystkie warstwy załadowane.");
+
+    // ✅ Wczytujemy szczegóły dla załadowanych markerów
     await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
+
+    // ✅ Generujemy popupy
     await generateAllPopups();
 
-    // ✅ **Teraz dodajemy markery Kempingów i Pól namiotowych do mapy**
+    // ✅ Dodajemy pierwsze markery do mapy
     map.addLayer(markerCluster);
     attachMarkerClickEvents();
     initializeSearch();
 
     console.log("✅ [initializeMap] Podstawowe warstwy gotowe!");
 
-    // ✅ **Ukrycie ekranu ładowania (animacja zanikania)**
+    // ✅ Ukrycie ekranu ładowania (animacja zanikania)
     document.getElementById("loading-screen").style.opacity = "0";
     setTimeout(() => {
         document.getElementById("loading-screen").style.display = "none";
     }, 500);
 
-    // 🔥 **W tle równocześnie ładujemy resztę plików KML**
-    console.log("⏳ [initializeMap] Ładowanie pozostałych warstw KML...");
-    await Promise.all(groupedFiles.map(file => loadMarkers(file.filename, file.icon, file.addToCluster)));
-    console.log("✅ [initializeMap] Pozostałe pliki KML załadowane.");
+    // 🔄 **Teraz ładujemy resztę plików KML w tle stopniowo**
+    const additionalFiles = [
+        { filename: "Europa.kml", icon: icons.kempingi },
+        { filename: "Parkingilesne.kml", icon: icons.parkingilesne }
+    ];
 
-    // ✅ **Ponowne generowanie popupów (dla reszty plików)**
+    setTimeout(() => {
+        console.log("⏳ [initializeMap] Ładowanie dodatkowych warstw KML w tle...");
+        additionalFiles.forEach(({ filename, icon }, index) => {
+            setTimeout(async () => {
+                await loadMarkers(filename, icon, true);
+                console.log(`✅ [initializeMap] ${filename} załadowane.`);
+            }, index * 1000); // Każdy plik ładowany co 1 sek.
+        });
+    }, 2000); // Opóźnienie startu dodatkowych plików o 2 sekundy
+
+    // ✅ Po załadowaniu wszystkich plików – generujemy popupy dla całej mapy
     await generateAllPopups();
-
-    // 🔥 **Dodatkowe pliki KML ładowane w tle**
-    additionalFiles.forEach(({ filename, icon }, index) => {
-        setTimeout(async () => {
-            await loadMarkers(filename, icon, true);
-            console.log(`✅ [initializeMap] ${filename} załadowane.`);
-        }, index * 1000);
-    });
-
-    // 🔹 **Zapobieganie zamykaniu popupów na telefonach**
-    document.addEventListener("touchstart", function (event) {
-        if (event.target.closest(".leaflet-popup-content")) {
-            event.stopPropagation(); // ✅ Pozwól na interakcję z popupem
-        }
-    }, { passive: false });
-
-    // 🔹 **Wymuszenie pełnoekranowych popupów na telefonach**
-    map.on("popupopen", function (e) {
-        if (window.innerWidth <= 768) {
-            const popupWrapper = e.popup._container;
-            if (popupWrapper) {
-                popupWrapper.style.position = "fixed";
-                popupWrapper.style.width = "100vw";
-                popupWrapper.style.height = "100vh";
-                popupWrapper.style.top = "0";
-                popupWrapper.style.left = "0";
-                popupWrapper.style.transform = "none";
-                popupWrapper.style.borderRadius = "0";
-                popupWrapper.style.overflow = "auto";
-                popupWrapper.style.zIndex = "10000";
-                popupWrapper.style.background = "white";
-            }
-        }
-    });
-
-    console.log("✅ [initializeMap] Mapa w pełni załadowana!");
 }
-
 
 
 

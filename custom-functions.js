@@ -580,9 +580,9 @@ async function loadMarkers(filename, icon, addToCluster = true) {
                   markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
               }
 
-              // 🔹 Tworzymy marker i ustawiamy `isDataLoaded = false` (domyślnie blokujemy popupy)
+              // 🔹 Tworzymy marker i ustawiamy `isDataLoaded = false`
               const marker = L.marker([lat, lon], markerOptions);
-              marker.isDataLoaded = false; 
+              marker.isDataLoaded = false;
 
               // 🔹 Dodajemy marker do klastra lub mapy
               if (addToCluster) {
@@ -591,9 +591,10 @@ async function loadMarkers(filename, icon, addToCluster = true) {
                   marker.addTo(map);
               }
 
-              // 🔹 Obsługa kliknięcia – popup otworzy się dopiero po załadowaniu danych
-              marker.on("click", function () {
+              // 🔹 Obsługa kliknięcia – popup otworzy się i NIE zamknie od razu
+              marker.on("click", function (e) {
                   moveMapAndOpenPopup(marker);
+                  e.originalEvent.stopPropagation(); // Zapobiega zamknięciu
               });
 
               allMarkers.push({ marker, name, lat, lon });
@@ -602,11 +603,12 @@ async function loadMarkers(filename, icon, addToCluster = true) {
               setTimeout(() => {
                   marker.isDataLoaded = true;
                   console.log(`✅ [loadMarkers] Dane dla ${name} załadowane, odblokowano popup.`);
-              }, 500); // 🔥 Dodatkowy timeout na pewność, że dane się zapiszą
+              }, 500);
           }
       }
   });
 }
+
 
 
 
