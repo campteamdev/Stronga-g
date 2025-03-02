@@ -1,7 +1,9 @@
 window.activePopupMarker = null;
 
 // ✅ Inicjalizacja grupowania markerów
-const markerClusterGroup = L.markerClusterGroup();
+const markerClusterGroup = L.markerClusterGroup({
+    removeOutsideVisibleBounds: false // 🚀 Zapobiega usuwaniu markerów poza widokiem
+});
 markerClusterGroup.on("clusterclick", function (event) {
     console.log("🛑 Marker jest w grupie – popup nie zostanie otwarty.");
     event.originalEvent.preventDefault(); // Blokuje otwarcie popupu
