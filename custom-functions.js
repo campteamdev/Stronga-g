@@ -1,8 +1,15 @@
-// ✅ Inicjalizacja grupowania markerów z opcją disableClusteringAtZoom
-const markerClusterGroup = L.markerClusterGroup({
-    disableClusteringAtZoom: 10 // 🔹 Zapobiega zamykaniu popupów na dużych zbliżeniach
-});
 
+// ✅ Inicjalizacja grupowania markerów
+const markerClusterGroup = L.markerClusterGroup();
+markerClusterGroup.on("clustermouseover", function (event) {
+    if (window.lastOpenedPopup) {
+        const { marker, id, content } = window.lastOpenedPopup;
+        if (marker && !marker.getPopup().isOpen()) {
+            console.log(`🔄 Przywracanie popupu dla ${id}`);
+            marker.bindPopup(content).openPopup();
+        }
+    }
+});
 
 window.map = L.map("map", {
     zoomAnimation: false,
@@ -294,6 +301,9 @@ if (!window.imageCache) window.imageCache = {};
 if (!window.pendingRequests) window.pendingRequests = {};  
 
 async function loadPopupData(marker, id) {
+    // ✅ Zapamiętaj ID i marker otwartego popupu
+    window.lastOpenedPopup = { marker, id };
+
     // ✅ Jeśli popup już otwarty – nie pobieramy ponownie
     if (marker.getPopup() && marker.getPopup().isOpen()) {
         console.log(`🛑 Popup dla ${id} już otwarty – pomijam pobieranie.`);
@@ -348,6 +358,9 @@ async function loadPopupData(marker, id) {
 
     // ✅ Renderowanie popupu
     renderPopup(marker, id, kmlText, images);
+
+    // ✅ Zapisujemy dane popupu
+    window.lastOpenedPopup.content = marker.getPopup().getContent();
 }
 
 // ✅ Funkcja renderująca popup
