@@ -153,5 +153,33 @@ body {
         overflow-y: auto !important;
         transform: translate(-5px, -5px) !important;
     }
+    #add-button {
+      position: fixed;
+      bottom: 20px; /* 🔽 Odstęp od dolnej krawędzi */
+      right: 20px;  /* 🔽 Odstęp od prawej krawędzi */
+      width: 50px;
+      height: 50px;
+      background-color: #1f5e2f; /* ✅ Zielone tło */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      z-index: 1000; /* 🔝 Zawsze na wierzchu */
+  }
+  
+  #add-button img {
+      width: 30px;
+      height: 30px;
+  }
+  
+  #add-button:hover {
+      background-color: #178b29; /* ✅ Jaśniejszy zielony */
+      transform: scale(1.1); /* ✅ Powiększenie przy najechaniu */
+  }
+  
+  
+  
   }
   
