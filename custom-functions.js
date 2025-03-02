@@ -317,13 +317,13 @@ function getIconForMarker(id) {
     const iconMapping = {
         K1: { url: "/ikony/Ikona_Kempingi_Polecane.png", defaultSize: 50 },
         P1: { url: "/ikony/Ikona_Pole_Namiotowe.png", defaultSize: 50 },
-        Ko1: { url: "/ikony/Ikona_Kempingi.png", defaultSize: 30 },
-        Po1: { url: "/ikony/Ikona_Pole_Namiotowe.png", defaultSize: 30 },
-        A1: { url: "/ikony/atractionFun.png", defaultSize: 20 },
-        Pl: { url: "/ikony/Ikona_Parking_Le%C5%9Bny.png", defaultSize: 20 },
-        Mb: { url: "/ikony/Ikona_Miejsce_Biwakowe.png", defaultSize: 20 },
-        E1: { url: "/ikony/Ikona_Kempingi.png", defaultSize: 20 },
-        Ok: { url: "/ikony/atractionNature.png", defaultSize: 20 }
+        Ko1: { url: "/ikony/Ikona_Kempingi.png", defaultSize: 50 },
+        Po1: { url: "/ikony/Ikona_Pole_Namiotowe.png", defaultSize: 50 },
+        A1: { url: "/ikony/atractionFun.png", defaultSize: 30 },
+        Pl: { url: "/ikony/Ikona_Parking_Le%C5%9Bny.png", defaultSize: 40 },
+        Mb: { url: "/ikony/Ikona_Miejsce_Biwakowe.png", defaultSize: 40 },
+        E1: { url: "/ikony/Ikona_Kempingi.png", defaultSize: 30 },
+        Ok: { url: "/ikony/atractionNature.png", defaultSize: 30 }
     };
 
     // Sprawdzenie, czy ID pasuje do którejś kategorii

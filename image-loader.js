@@ -73,7 +73,7 @@ async function getLocationImages(name) {
     // ✅ Sprawdzenie cache dla zdjęć (15 min)
     const cachedData = localStorage.getItem(cacheKey);
     const cacheTime = localStorage.getItem(cacheTimeKey);
-    if (cachedData && cacheTime && now - parseInt(cacheTime) < 15 * 60 * 1000) {
+    if (cachedData && cacheTime && now - parseInt(cacheTime) < 60 * 60 * 1000) {
         console.log(`📂 📥 Zdjęcia dla "${name}" już są w cache.`);
         return JSON.parse(cachedData);
     }
