@@ -1,23 +1,14 @@
+// ✅ Inicjalizacja grupowania markerów z opcją disableClusteringAtZoom
+const markerClusterGroup = L.markerClusterGroup({
+    disableClusteringAtZoom: 10 // 🔹 Zapobiega zamykaniu popupów na dużych zbliżeniach
+});
 
-// ✅ Inicjalizacja grupowania markerów
-const markerClusterGroup = L.markerClusterGroup();
 
 window.map = L.map("map", {
     zoomAnimation: false,
     fadeAnimation: false,
     markerZoomAnimation: false
 }).setView([52.392681, 19.275023], 6);
-let activePopup = null;
-
-map.on("popupopen", (e) => {
-    activePopup = e.popup;
-});
-
-markerClusterGroup.on("animationend", () => {
-    if (activePopup) {
-        activePopup._source.openPopup();
-    }
-});
 
 
 // ✅ Dopasowywanie folderu do nazwy
