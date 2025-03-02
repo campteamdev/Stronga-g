@@ -474,75 +474,7 @@ async function initializeMap() {
     console.log("✅ [initializeMap] Mapa gotowa!");
 }
 
-window.markerNames = {};
-window.markerObjects = {};
 
-
-async function loadMainMarkers() {
-    console.log("⏳ Rozpoczynam ładowanie markerów z 001.kml...");
-
-    const kmlText = await fetchKml("001.kml");
-    if (!kmlText) {
-        console.error("❌ Plik 001.kml nie został poprawnie pobrany.");
-        return;
-    }
-
-    const parser = new DOMParser();
-    const kml = parser.parseFromString(kmlText, "application/xml");
-    const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
-
-    if (placemarks.length === 0) {
-        console.warn("⚠️ Brak placemarks w 001.kml!");
-        return;
-    }
-
-    placemarks.forEach(placemark => {
-        let idNode = placemark.querySelector("Data[name='id'] > value");
-        let nameNode = placemark.querySelector("Data[name='name'] > value");
-
-        let id = idNode ? idNode.textContent.trim() : `Brak ID`;
-        let name = nameNode ? nameNode.textContent.trim() : `Nieznana lokalizacja`;
-
-        if (!name) {
-            console.warn(`⚠️ Brak nazwy w Data[name='name'] dla ID: ${id}, próbuję <name>...`);
-            let altNameNode = placemark.getElementsByTagName("name")[0];
-            if (altNameNode) {
-                name = altNameNode.textContent.trim();
-                console.log(`✅ Znaleziono nazwę w <name>: ${name}`);
-            }
-        }
-
-        if (!name) {
-            console.error(`❌ ID: ${id} - Nie znaleziono nazwy w żadnym miejscu!`);
-            name = `Nieznana lokalizacja`;
-        }
-
-        let coordinatesNode = placemark.getElementsByTagName("coordinates")[0];
-        const coordinates = coordinatesNode ? coordinatesNode.textContent.trim() : null;
-
-        if (!coordinates) {
-            console.warn(`⚠️ Pomiń marker - brak koordynatów! ID: ${id}`);
-            return;
-        }
-
-        const [lon, lat] = coordinates.split(",");
-        const icon = getIconForMarker(id);
-        const marker = L.marker([lat, lon], { icon });
-
-        marker.id = id;
-        marker.name = name;
-        marker.addTo(map);
-        marker.on("click", () => loadPopupData(marker, id));
-
-        // ✅ Poprawione: zapisujemy ID → Nazwa oraz Nazwa → Marker
-        markerNames[id] = name;
-        markerObjects[name.toLowerCase()] = marker;
-
-       
-    });
-
-    console.log("✅ Wszystkie markery zostały załadowane:", markerNames);
-}
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
