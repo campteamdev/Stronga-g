@@ -3,6 +3,64 @@ body {
   padding: 0;
 }
 
+/* 🔵 Animacja pulsowania */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* 🎯 Pulsująca ikona "Dodaj zdjęcie" */
+.pulsing-icon {
+  animation: pulse 1.5s infinite;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* 📌 Domyślnie ukrywamy przycisk na komputerach */
+#add-button {
+  position: absolute;  /* ✅ Umieszczenie przycisku na mapie */
+  bottom: 20px;  /* 🔽 Odstęp od dolnej krawędzi */
+  right: 20px;  /* 🔽 Odstęp od prawej krawędzi */
+  z-index: 1001;  /* 🔝 Nad innymi elementami */
+  display: none;  /* ❌ Domyślnie ukryte na komputerach */
+}
+
+/* 🎨 Styl obrazka */
+#add-button img {
+  --icon-size: 70px;  /* 🎯 Łatwa zmiana rozmiaru ikony */
+  
+  width: var(--icon-size);
+  height: var(--icon-size);
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;  /* ✅ Zapobiega rozciąganiu */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* 📱 Pokaż ikonę tylko na telefonach */
+@media (max-width: 768px) {
+  #add-button {
+      display: block; /* ✅ Pokazujemy na telefonach */
+  }
+
+  /* 🔍 Możliwość zmiany wielkości ikony na telefonie */
+  #add-button img {
+      --icon-size: 70px;  /* 🛠️ Tutaj zmieniasz wielkość na telefonach */
+  }
+}
+
+/* 🌀 Animacja pulsowania */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+  #add-button img {
+      animation: pulse 1.5s infinite;
+  }
+}
+
+
 /* ✅ Mapa zajmuje całe okno, pasek na nią nachodzi */
 #map {
   width: 100%;
@@ -153,33 +211,6 @@ body {
         overflow-y: auto !important;
         transform: translate(-5px, -5px) !important;
     }
-    #add-button {
-      position: fixed;
-      bottom: 20px; /* 🔽 Odstęp od dolnej krawędzi */
-      right: 20px;  /* 🔽 Odstęp od prawej krawędzi */
-      width: 50px;
-      height: 50px;
-      background-color: #1f5e2f; /* ✅ Zielone tło */
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.2s ease, transform 0.2s ease;
-      z-index: 1000; /* 🔝 Zawsze na wierzchu */
-  }
-  
-  #add-button img {
-      width: 30px;
-      height: 30px;
-  }
-  
-  #add-button:hover {
-      background-color: #178b29; /* ✅ Jaśniejszy zielony */
-      transform: scale(1.1); /* ✅ Powiększenie przy najechaniu */
-  }
-  
-  
-  
+ 
   }
   

@@ -5,7 +5,7 @@ const markerClusterGroup = L.markerClusterGroup({
     removeOutsideVisibleBounds: false // 🚀 Zapobiega usuwaniu markerów poza widokiem
 });
 markerClusterGroup.on("clusterclick", function (event) {
-    console.log("🛑 Marker jest w grupie – popup nie zostanie otwarty.");
+
     event.originalEvent.preventDefault(); // Blokuje otwarcie popupu
 });
 
@@ -28,7 +28,7 @@ async function getGitHubFolders() {
         const data = await response.json();
 
         const folders = data.filter(item => item.type === "dir").map(item => item.name);
-        console.log("📂 ✅ Lista folderów pobrana:", folders);
+      
         return folders;
     } catch (error) {
         console.error("❌ Błąd pobierania folderów:", error);
@@ -50,21 +50,20 @@ function restoreActivePopup() {
     const marker = window.activePopupMarker;
 
     if (window.popupClosedByUser) {
-        console.log(`🛑 Popup dla ${marker.id} został zamknięty przez użytkownika – nie otwieram.`);
         return;
     }
 
     if (marker.getPopup() && marker.getPopup().isOpen()) {
-        console.log(`✅ Popup dla ${marker.id} już otwarty – nie otwieram ponownie.`);
+     
         return;
     }
 
     if (!map.getBounds().contains(marker.getLatLng())) {
-        console.log(`🛑 Marker ${marker.id} jest poza widokiem – nie otwieram popupu.`);
+      
         return;
     }
 
-    console.log(`🔄 Otwieram popup dla aktywnego markera: ${marker.id}`);
+   
     marker.openPopup();
 
     window.lastOpenedPopup = {
@@ -75,10 +74,7 @@ function restoreActivePopup() {
 
 map.on("popupclose", function (event) {
     if (window.activePopupMarker === event.popup._source) {
-        console.log(`❌ Popup dla ${window.activePopupMarker.id} został zamknięty.`);
-        console.log("🧐 Popup content tuż przed zamknięciem:", event.popup.getContent());
-        console.log("➡️ Ustawiam `popupClosedByUser` na TRUE");
-        
+      
         window.popupClosedByUser = true;
 
         window.lastOpenedPopup = {
@@ -86,7 +82,6 @@ map.on("popupclose", function (event) {
             content: event.popup.getContent()
         };
 
-        console.log("📌 Zapisuję ostatni otwarty popup:", window.lastOpenedPopup);
         window.activePopupMarker = null;
     }
 });
@@ -119,7 +114,7 @@ async function getLocationImages(name) {
     const cachedData = localStorage.getItem(cacheKey);
     const cacheTime = localStorage.getItem(cacheTimeKey);
     if (cachedData && cacheTime && now - parseInt(cacheTime) < 15 * 60 * 1000) {
-        console.log(`📂 📥 Zdjęcia dla "${name}" już są w cache.`);
+
         return JSON.parse(cachedData);
     }
 
@@ -168,17 +163,17 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors"
 }).addTo(map);
 
-console.log("✅ Mapa zainicjalizowana!");
+
 
 // ✅ Pobranie tokena dla plików KML
 async function generateToken(filename) {
     try {
         const response = await fetch(`https://campteam-9l04l41bs-marcincamps-projects.vercel.app/api/token?filename=${filename}`);
         const data = await response.json();
-        console.log(`🔑 Token dla ${filename}:`, data.token);
+
         return data.token;
     } catch (error) {
-        console.error(`❌ Błąd pobierania tokena dla ${filename}:`, error);
+     
         return null;
     }
 }
@@ -192,17 +187,16 @@ async function fetchKml(filename) {
     try {
         // ✅ Jeśli plik już jest w cache, zwracamy go bez wysyłania nowego zapytania
         if (kmlCache[filename]) {
-            console.log(`📂 [CACHE] Plik KML ${filename} pobrany z cache.`);
+           
             return kmlCache[filename];
         }
 
         // ✅ Jeśli zapytanie już trwa, czekamy na jego zakończenie zamiast wysyłać kolejne
         if (pendingRequests[filename]) {
-            console.log(`⏳ [WAIT] Oczekiwanie na zakończenie zapytania dla ${filename}`);
+            
             return await pendingRequests[filename];
         }
 
-        console.log(`📥 Pobieranie ${filename}`);
 
         // 🔹 Zapamiętujemy zapytanie, aby inne nie zostały wysłane równolegle
         pendingRequests[filename] = (async () => {
@@ -213,7 +207,7 @@ async function fetchKml(filename) {
             }
 
             const url = `https://campteam-9l04l41bs-marcincamps-projects.vercel.app/api/kml?id=${filename}&token=${token}`;
-            console.log(`📥 Pobieranie: ${url}`);
+         
 
             const response = await fetch(url);
             if (!response.ok) throw new Error(`Błąd HTTP ${response.status}`);
@@ -241,7 +235,7 @@ async function fetchKml(filename) {
 
 
 async function loadMainMarkers() {
-    console.log("⏳ Rozpoczynam ładowanie markerów z 001.kml...");
+   
 
     // 🛠️ RESET MARKERÓW PRZED PONOWNYM WCZYTANIEM
     markerObjects = {};  
@@ -292,7 +286,7 @@ async function loadMainMarkers() {
     // Jeśli ID zaczyna się od K1- lub P1_, dodajemy marker bezpośrednio na mapę
     if (id.startsWith("K1_") || id.startsWith("P1_")) {
         map.addLayer(marker);
-        console.log(`🚀 ${id} dodany bezpośrednio na mapę, BEZ grupowania.`);
+
     } else {
         markerClusterGroup.addLayer(marker);
     }
@@ -301,7 +295,7 @@ async function loadMainMarkers() {
 
     // ✅ Dodajemy całą grupę markerów do mapy jednocześnie (dużo szybciej!)
     map.addLayer(markerClusterGroup);
-    console.log("✅ Wszystkie markery zostały załadowane i zgrupowane!");
+   
 }
 
 function getIconForMarker(id) {
@@ -357,17 +351,16 @@ if (!window.imageCache) window.imageCache = {};
 if (!window.pendingRequests) window.pendingRequests = {};  
 
 async function loadPopupData(marker, id) {
-    console.log(`📍 Otwieram popup dla ${id}`);
-    console.log("🔄 PRZED otwarciem popupu, `popupClosedByUser` =", window.popupClosedByUser);
+   
 
         // ✅ Resetujemy flagę zamknięcia przez użytkownika
     window.popupClosedByUser = false;
-    console.log("✅ Ustawiam `popupClosedByUser` na FALSE");
+   
     // ✅ Zapisujemy marker jako aktywny
     window.activePopupMarker = marker;
 
     if (marker.getPopup() && marker.getPopup().isOpen()) {
-        console.log(`🛑 Popup dla ${id} już otwarty – pomijam pobieranie.`);
+       
         return;
     }
  
@@ -376,7 +369,7 @@ async function loadPopupData(marker, id) {
     // ✅ Otwieramy popup dopiero po pobraniu danych
     setTimeout(() => {
         if (popupCache[id]) {
-            console.log("📌 Treść popupu już w cache – otwieram.");
+         
             marker.openPopup();
         }
     }, 500);
@@ -386,12 +379,11 @@ async function loadPopupData(marker, id) {
     let images = imageCache[id] || null;
 
     if (pendingRequests[id]) {
-        console.log(`⏳ [WAIT] Oczekiwanie na pobranie KML dla ${id}`);
+       
         await pendingRequests[id];
         return renderPopup(marker, id, popupCache[id], imageCache[id]);
     }
 
-    console.log(`📥 Pobieranie danych dla ${id}...`);
 
     pendingRequests[id] = (async () => {
         try {
@@ -460,7 +452,7 @@ async function renderPopup(marker, id, kmlText, images) {
                  || placemark.querySelector("Data[name='phone'] > value");
     let phoneNumber = phoneNode ? phoneNode.textContent.trim() : null;
     
-    console.log(`📞 Numer telefonu dla ${name}: ${phoneNumber || "Brak"}`);
+    
 
     // ✅ Pobieramy udogodnienia
     let amenitiesNode = placemark.querySelector("Data[name='Udogodnienia:'] > value");
@@ -534,7 +526,7 @@ async function renderPopup(marker, id, kmlText, images) {
 
 // ✅ Inicjalizacja mapy
 async function initializeMap() {
-    console.log("🔄 [initializeMap] Rozpoczynam inicjalizację...");
+    
 
     document.getElementById("loading-screen").style.display = "flex";
 
@@ -545,17 +537,17 @@ async function initializeMap() {
         document.getElementById("loading-screen").style.display = "none";
     }, 500);
 
-    console.log("✅ [initializeMap] Mapa gotowa!");
+   
 }
 
 
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        console.log("⏳ Inicjalizacja aplikacji...");
+       
         await loadMainMarkers();
         initializeSearch();  // Funkcja z filters.js
-        console.log("✅ Aplikacja gotowa!");
+       
     } catch (error) {
         console.error("❌ Błąd inicjalizacji:", error);
     }

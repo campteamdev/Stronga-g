@@ -32,7 +32,7 @@ async function getGitHubFolders() {
     const cacheTime = localStorage.getItem(cacheTimeKey);
 
     if (cachedData && cacheTime && now - parseInt(cacheTime) < CACHE_DURATION_FOLDERS) {
-        console.log("📂 📥 Ładowanie listy folderów z cache");
+       
         return JSON.parse(cachedData);
     }
 
@@ -41,23 +41,23 @@ async function getGitHubFolders() {
         if (!response.ok) throw new Error(response.statusText);
 
         const data = await response.json();
-        console.log("📂 🔍 Surowe dane pobrane z GitHuba:", data);
+   
 
         const folders = data
             .filter(item => item.type === "dir")
             .map(item => item.name);
         
-        console.log("📂 ✅ Lista folderów po przefiltrowaniu:", folders);
+        
         
 
         // ✅ Zapisujemy do cache
         localStorage.setItem(cacheKey, JSON.stringify(folders));
         localStorage.setItem(cacheTimeKey, now);
 
-        console.log("📂 ✅ Lista folderów pobrana z GitHuba:", folders);
+      
         return folders;
     } catch (error) {
-        console.error("❌ Błąd pobierania folderów z GitHuba:", error);
+
         return [];
     }
 }
@@ -74,7 +74,7 @@ async function getLocationImages(name) {
     const cachedData = localStorage.getItem(cacheKey);
     const cacheTime = localStorage.getItem(cacheTimeKey);
     if (cachedData && cacheTime && now - parseInt(cacheTime) < 60 * 60 * 1000) {
-        console.log(`📂 📥 Zdjęcia dla "${name}" już są w cache.`);
+
         return JSON.parse(cachedData);
     }
 
@@ -123,7 +123,7 @@ async function getLocationImages(name) {
         return [];
     }
 
-    console.log(`📂 🔍 Dopasowany folder: "${bestMatch}" dla lokalizacji "${name}" (skuteczność: ${bestScore}%)`);
+
 
     // ✅ Pobieramy listę plików z folderu na GitHubie
     try {
@@ -131,7 +131,7 @@ async function getLocationImages(name) {
         if (!response.ok) throw new Error(response.statusText);
 
         const data = await response.json();
-        console.log(`📂 📥 Lista plików w folderze "${bestMatch}":`, data);
+     
 
         const allImages = data
             .filter(file => file.download_url && /\.(jpg|jpeg|webp)$/i.test(file.name))
@@ -142,7 +142,6 @@ async function getLocationImages(name) {
             return [];
         }
 
-        console.log(`✅ Znaleziono ${allImages.length} zdjęć dla "${name}".`);
 
         // ✅ Zapisujemy do cache, aby przyspieszyć kolejne ładowania
         localStorage.setItem(cacheKey, JSON.stringify(allImages));
@@ -150,7 +149,7 @@ async function getLocationImages(name) {
 
         return allImages;
     } catch (error) {
-        console.error(`❌ Błąd pobierania zdjęć z GitHuba dla "${name}":`, error);
+  
 
         // ❌ **Czyszczenie cache w razie błędu**
         localStorage.removeItem(cacheKey);
@@ -185,7 +184,7 @@ function initializeSwiper(name, images) {
             },
             on: {
                 init: function () {
-                    console.log(`✅ Swiper poprawnie zainicjalizowany dla: ${name}`);
+                
                     forceLazyLoad(sliderId);
                 },
                 slideChangeTransitionStart: function () {
@@ -194,7 +193,6 @@ function initializeSwiper(name, images) {
             }
         });
 
-        console.log(`✅ Swiper zainicjalizowany dla ${name}`);
 
         // 🔹 Obsługa powiększenia zdjęcia
         document.querySelectorAll(`${sliderId} .zoomable-image`).forEach((img, index) => {
@@ -206,8 +204,7 @@ function initializeSwiper(name, images) {
 
 async function generateImageSlider(name, lat, lon, phoneNumber) {
     const images = await getLocationImages(name);
-    
-    console.log(`✅ Generowanie slidera dla: ${name} (${images.length} zdjęć)`);
+
 
     const safeName = sanitizeName(name);
     const sliderId = `swiper-container-${safeName}`;
@@ -249,11 +246,14 @@ const phoneOpacity = phoneNumber && phoneNumber !== "" ? "1" : "0.5";
         </a>
 
         <!-- 🔹 Ikona "Dodaj zdjęcie" -->
+        <a 
+        <!-- 🔹 Ikona "Dodaj zdjęcie" (PULSUJĄCA) -->
         <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
            target="_blank"
            style="display: inline-block; width: 40px; height: 40px;">
             <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.png" 
                  alt="Dodaj zdjęcie"
+                 class="pulsing-icon"
                  style="width: 40px; height: 40px;">
         </a>
 
@@ -404,7 +404,7 @@ function openFullscreen(images, index) {
     fullscreenContainer.appendChild(nextArrow);
     document.body.appendChild(fullscreenContainer);
 
-    console.log("✅ Powiększenie zdjęcia otwarte:", images[currentIndex]);
+
 }
 
 // 🔹 Nasłuchiwanie otwarcia popupu i dodawanie zdjęć
@@ -415,7 +415,7 @@ map.on("popupopen", async function (e) {
         if (!nameElement) return;
 
         const name = nameElement.textContent.trim();
-        console.log(`📂 🔍 Otwieranie popupu dla: ${name}`);
+        
 
         // Pobieramy współrzędne markera z popupu
         const lat = e.popup._source.getLatLng().lat;
@@ -426,12 +426,12 @@ map.on("popupopen", async function (e) {
 
         if (sliderHTML) {
             popup.insertAdjacentHTML("afterbegin", sliderHTML);
-            console.log(`📂 ✅ HTML slidera dodany do popupu dla: ${name}`);
+
 
             // Sprawdzenie obecności slidera
             setTimeout(() => {
                 const safeSliderId = `swiper-container-${sanitizeName(name)}`;
-                console.log(`📂 📌 Sprawdzam obecność slidera:`, document.querySelector(`.${safeSliderId}`));
+       
             }, 500);
 
             initializeSwiper(name, images);
