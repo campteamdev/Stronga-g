@@ -42,6 +42,24 @@ function sanitizeGitHubName(name) {
         .replace(/\s+/g, "-")  // Zamiana spacji na myślniki
         .normalize("NFD").replace(/[\u0300-\u036f]/g, "");  // Usunięcie polskich znaków
 }
+function restoreLastPopup() {
+    if (window.lastOpenedPopup) {
+        const { marker, content } = window.lastOpenedPopup;
+        if (marker && content && !marker.getPopup().isOpen()) {
+            console.log(`🔄 Wymuszam ponowne otwarcie popupu dla ${marker.id}`);
+            marker.bindPopup(content).openPopup();
+        }
+    }
+}
+
+// ✅ Obsługa zamykania popupów przez grupowanie
+markerClusterGroup.on("animationend", restoreLastPopup);
+
+// ✅ Obsługa zamykania popupów przy przesuwaniu mapy
+map.on("moveend", restoreLastPopup);
+
+// ✅ Obsługa zamykania popupów po zmianie zoomu
+map.on("zoomend", restoreLastPopup);
 
 
 async function findBestMatchFolder(name) {
@@ -301,23 +319,18 @@ if (!window.imageCache) window.imageCache = {};
 if (!window.pendingRequests) window.pendingRequests = {};  
 
 async function loadPopupData(marker, id) {
-    // ✅ Zapamiętaj ID i marker otwartego popupu
     window.lastOpenedPopup = { marker, id };
 
-    // ✅ Jeśli popup już otwarty – nie pobieramy ponownie
     if (marker.getPopup() && marker.getPopup().isOpen()) {
         console.log(`🛑 Popup dla ${id} już otwarty – pomijam pobieranie.`);
         return;
     }
 
-    // ✅ Natychmiastowe otwarcie popupu z informacją "Ładowanie..."
     marker.bindPopup("<b>Ładowanie danych...</b>").openPopup();
 
-    // ✅ Jeśli dane są w cache, używamy ich bez pobierania
     let kmlText = popupCache[id] || null;
     let images = imageCache[id] || null;
 
-    // ✅ Jeśli zapytanie już trwa, czekamy na wynik zamiast wysyłać nowe
     if (pendingRequests[id]) {
         console.log(`⏳ [WAIT] Oczekiwanie na pobranie KML dla ${id}`);
         await pendingRequests[id];
@@ -326,7 +339,6 @@ async function loadPopupData(marker, id) {
 
     console.log(`📥 Pobieranie danych dla ${id}...`);
 
-    // ✅ Pobieranie KML i obrazków jednocześnie
     pendingRequests[id] = (async () => {
         try {
             const [kmlData, imageData] = await Promise.all([
@@ -334,7 +346,6 @@ async function loadPopupData(marker, id) {
                 images ? Promise.resolve(images) : getLocationImages(id)
             ]);
 
-            // ✅ Zapisujemy do cache
             if (kmlData) popupCache[id] = kmlData;
             if (imageData) imageCache[id] = imageData;
 
@@ -356,12 +367,13 @@ async function loadPopupData(marker, id) {
     kmlText = result.kmlData;
     images = result.imageData;
 
-    // ✅ Renderowanie popupu
-    renderPopup(marker, id, kmlText, images);
+    // ✅ Tworzymy treść popupu i zapisujemy do globalnej zmiennej
+    const popupContent = `<div>${id}</div>`;
+    window.lastOpenedPopup.content = popupContent;
 
-    // ✅ Zapisujemy dane popupu
-    window.lastOpenedPopup.content = marker.getPopup().getContent();
+    renderPopup(marker, id, kmlText, images);
 }
+
 
 // ✅ Funkcja renderująca popup
 async function renderPopup(marker, id, kmlText, images) {
