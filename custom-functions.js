@@ -1,15 +1,23 @@
+window.activePopupMarker = null;
 
 // ✅ Inicjalizacja grupowania markerów
 const markerClusterGroup = L.markerClusterGroup();
-markerClusterGroup.on("clustermouseover", function (event) {
-    if (window.lastOpenedPopup) {
-        const { marker, id, content } = window.lastOpenedPopup;
-        if (marker && !marker.getPopup().isOpen()) {
-            console.log(`🔄 Przywracanie popupu dla ${id}`);
-            marker.bindPopup(content).openPopup();
-        }
-    }
+markerClusterGroup.on("clusterclick", function (event) {
+    console.log("🛑 Marker jest w grupie – popup nie zostanie otwarty.");
+    event.originalEvent.preventDefault(); // Blokuje otwarcie popupu
 });
+
+markerClusterGroup.on("spiderfied", function (event) {
+    console.log("✅ Rozgrupowano markery – teraz można otworzyć popup.");
+
+    event.markers.forEach(marker => {
+        marker.on("click", async function () {
+            console.log(`📍 Otwieram popup dla ${marker.id}`);
+            await loadPopupData(marker, marker.id);
+        });
+    });
+});
+
 
 window.map = L.map("map", {
     zoomAnimation: false,
@@ -51,16 +59,45 @@ function restoreLastPopup() {
         }
     }
 }
+function restoreActivePopup() {
+    if (!window.activePopupMarker) return;
 
-// ✅ Obsługa zamykania popupów przez grupowanie
-markerClusterGroup.on("animationend", restoreLastPopup);
+    const marker = window.activePopupMarker;
 
-// ✅ Obsługa zamykania popupów przy przesuwaniu mapy
-map.on("moveend", restoreLastPopup);
+    // 🔹 Sprawdzenie, czy popup już jest otwarty – jeśli tak, nie otwieramy go ponownie
+    if (marker.getPopup() && marker.getPopup().isOpen()) {
+        console.log(`✅ Popup dla ${marker.id} już otwarty – nie otwieram ponownie.`);
+        return;
+    }
 
-// ✅ Obsługa zamykania popupów po zmianie zoomu
-map.on("zoomend", restoreLastPopup);
+    // 🔹 Sprawdzenie, czy marker jest nadal widoczny w aktualnym widoku mapy
+    if (!map.getBounds().contains(marker.getLatLng())) {
+        console.log(`🛑 Marker ${marker.id} jest poza widokiem – nie otwieram popupu.`);
+        return;
+    }
 
+    console.log(`🔄 Otwieram popup dla aktywnego markera: ${marker.id}`);
+    marker.openPopup();
+}
+
+
+map.on("click", function () {
+    if (window.activePopupMarker) {
+        console.log("❌ Zamykam popup, bo użytkownik kliknął w mapę.");
+        window.activePopupMarker.closePopup();
+        window.activePopupMarker = null;
+    }
+});
+
+// ✅ Obsługa zamykania popupów przy zmianie zoomu, przesuwaniu mapy i grupowaniu
+markerClusterGroup.on("animationend", restoreActivePopup);
+
+map.on("popupclose", function (event) {
+    if (window.activePopupMarker === event.popup._source) {
+        console.log(`❌ Użytkownik zamknął popup – czyszczę activePopupMarker`);
+        window.activePopupMarker = null;
+    }
+});
 
 async function findBestMatchFolder(name) {
     const folders = await getGitHubFolders();
@@ -319,7 +356,8 @@ if (!window.imageCache) window.imageCache = {};
 if (!window.pendingRequests) window.pendingRequests = {};  
 
 async function loadPopupData(marker, id) {
-    window.lastOpenedPopup = { marker, id };
+    // ✅ Zapamiętujemy aktywny marker, dla którego otworzył się popup
+    window.activePopupMarker = marker;
 
     if (marker.getPopup() && marker.getPopup().isOpen()) {
         console.log(`🛑 Popup dla ${id} już otwarty – pomijam pobieranie.`);
@@ -367,13 +405,9 @@ async function loadPopupData(marker, id) {
     kmlText = result.kmlData;
     images = result.imageData;
 
-    // ✅ Tworzymy treść popupu i zapisujemy do globalnej zmiennej
-    const popupContent = `<div>${id}</div>`;
-    window.lastOpenedPopup.content = popupContent;
-
+    // ✅ Renderujemy popup
     renderPopup(marker, id, kmlText, images);
 }
-
 
 // ✅ Funkcja renderująca popup
 async function renderPopup(marker, id, kmlText, images) {
