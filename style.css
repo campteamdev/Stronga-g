@@ -1,341 +1,157 @@
 body {
-    margin: 0;
-    padding: 0;
-  }
-
-/* 🔹 Okrągła niebieska ramka dla małej ikony "Dodaj zdjęcie", jeśli nie ma zdjęć */
-.add-photo-small.border-blue img {
-border: 2px solid blue; /* Niebieska obwódka */
-border-radius: 50%;  /* Okrągły kształt */
-padding: 5px;  /* Dystans między ikoną a obwódką */
+  margin: 0;
+  padding: 0;
 }
-
-
-/* 🔹 Nagłówek popupa */
-#custom-popup-header {
-font-size: 18px;
-font-weight: bold;
-padding-bottom: 10px;
-border-bottom: 2px solid #66cc66;
-text-align: center;
-}
-
-
 
 /* ✅ Mapa zajmuje całe okno, pasek na nią nachodzi */
 #map {
-width: 100%;
-height: 100vh; /* ✅ Pełna wysokość ekranu */
-position: absolute; /* 🔹 Zapewnia, że pasek dolny się nie przesuwa */
-top: 0;
-left: 0;
-z-index: 0; /* Upewnia się, że pasek dolny będzie nad mapą */
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* ✅ Kontener wyszukiwarki */
+#search-container {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  max-width: 600px;
+  z-index: 1000;
+}
+
+/* ✅ Pasek wyszukiwania */
+#search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: lightgray;
+  border: 2px solid green;
+  border-radius: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 4px 10px;
+}
+
+/* ✅ Pole wyszukiwania */
+#search-input {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background-color: lightgray;
+  border-radius: 3px;
+  min-width: 0;
+}
+
+/* ✅ Przycisk szukaj */
+#search-button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 5px;
+  flex-shrink: 0;
+}
+
+#search-button:hover {
+  background-color: darkgreen;
+}
+
+/* ✅ Styl dla listy podpowiedzi */
+#suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid green;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1001;
+  min-width: 200px;
+}
+
+/* ✅ Styl pojedynczego wyniku */
+.suggestion-item {
+  display: block;
+  width: calc(100% - 10px);
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+/* ✅ Podświetlenie wyniku */
+.suggestion-item:hover,
+.suggestion-item.active {
+  background: #1f5e2f;
+  color: white;
+}
+
+/* ✅ Ustawienia dla mapy na telefonach */
+@media (max-width: 768px) {
+  #map {
+      height: calc(100vh - 1px) !important; /* ✅ Pełna wysokość ekranu */
+      min-height: 500px;
+  }
 }
 
 
+  .leaflet-popup-content-wrapper {
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+      border-radius: 0 !important;
+      overflow-y: auto !important;
+      transform: translate(-5px, -5px) !important;
+  }
 
-  #search-container {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
-    z-index: 1000;
+  .leaflet-popup-tip-container {
+      display: none !important;
   }
-  #search-bar {
-    display: flex;
-    flex-wrap: wrap; /* Zapewnia poprawną responsywność */
-    background-color: lightgray;
-    border: 2px solid green;
-    border-radius: 5px;
-    padding: 5px;
-    box-sizing: border-box;
-    box-shadow: rgba(0, 0, 0, 0.3) 0 4px 10px;
-  }
-  #search-input {
-    flex: 1;
-    padding: 5px;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    background-color: lightgray;
-    border-radius: 3px;
-    min-width: 0; /* Rozwiązanie dla problemów z flexbox */
-  }
-  #search-button {
-    background-color: green;
-    color: white;/* ✅ Pasek dolny NAŁOŻONY na mapę */
 
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-left: 5px;
-    flex-shrink: 0; /* Zapobiega zmniejszaniu przycisku */
+  .leaflet-popup-content {
+      width: 100%;
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+      padding: 15px;
   }
-  #search-button:hover {
-    background-color: darkgreen;
+
+  /* ✅ Nowy przycisk zamykania */
+  .leaflet-popup-close-button {
+      position: absolute !important;
+      top: 15px !important;
+      right: 15px !important;
+      font-size: 24px !important;
+      background: rgba(0, 0, 0, 0.7) !important;
+      color: white !important;
+      border: none !important;
+      padding: 10px !important;
+      border-radius: 50% !important;
+      cursor: pointer !important;
+      z-index: 10001 !important;
   }
-  #suggestions {
-    margin-top: 5px;
-    background-color: white;
-    border: 1px solid green;
-    border-radius: 5px;
-    max-height: 150px;
-    overflow-y: auto;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: none;
-  }
-  .suggestion {
-    padding: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-  }
-  .suggestion:last-child {
-    border-bottom: none;
-  }
-  .suggestion:hover {
-    background-color: lightgreen;
-  }
-  .details-button {
-    display: inline-block;
-    margin: 5px 0;
-    padding: 5px 10px;
-    border: 2px solid #ffc107;
-    color: #000;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px;
-  }
-  .details-button:hover {
-    background-color: #fff8e1;
-  }
-  .navigate-button {
-    display: inline-block;
-    margin: 5px 0;
-    padding: 5px 10px;
-    border: 2px solid #28a745;
-    color: #28a745;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px;
-  }
-  .navigate-button:hover {
-    background-color: #e9f7ef;
-    color: #155724;
-  }
-  .phone-link {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  .phone-link:hover {
-    text-decoration: underline;
-  }
-  .update-button {
-    display: inline-block;
-    margin: 5px 0;
-    padding: 5px 10px;
-    border: 2px solid #007bff;
-    color: #007bff;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px;
-  }
-  .update-button:hover {
-    background-color: #e6f0ff;
-    color: #0056b3;
-  }
-  .link-button {
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    z-index: 1000;
-    transform: translateX(-50%);
-    background-color: #008000;
-    color: white;
-    padding: 7px 28px;
-    border-radius: 8px;
-    border: 2px solid #006e00;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 4px 10px;
-    text-decoration: none;
-    color: white !important;
-    font-weight: bold;
-    letter-spacing: 0.4px;
-    white-space: nowrap;
-  }
-  @media (max-width: 600px) {
-    .link-button {
-      display: none;
+  @media (max-width: 768px) {
+    .mobile-fullscreen-popup {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+        border-radius: 0 !important;
+        overflow-y: auto !important;
+        transform: translate(-5px, -5px) !important;
     }
   }
-  @media (min-width: 1000px) {
-    .link-button-mobile {
-      display: none;
-    }
-  }
-  .link-button-mobile {
-position: absolute;
-width: 50px;
-height: 50px;
-border-radius: 100%;
-background-color: #008000;
-display: flex;
-justify-content: center;
-align-items: center;
-color: white !important;
-border: 2px solid #006e00;
-box-shadow: rgba(0, 0, 0, 0.2) 0 4px 10px;
-bottom: 30px; /* 🔽 Opuszczony przycisk */
-right: 20px;
-z-index: 2000;
-}
-
-.leaflet-popup-content {
-padding-top: 15px;
-scrollbar-width: none !important; /* 🔍 Ukrywa pasek przewijania w Firefox */
-scrollbar-color: transparent transparent !important; /* Pasek i tło przezroczyste */
-}
-
-
-/* 🔹 Dla Chrome, Safari, Edge */
-.leaflet-popup-content::-webkit-scrollbar {
-width: 8px !important;
-}
-
-.leaflet-popup-content::-webkit-scrollbar-thumb {
-background-color: transparent !important; /* 🔍 Pasek całkowicie przezroczysty */
-border-radius: 5px !important;
-}
-
-
-.leaflet-popup-content::-webkit-scrollbar-track {
-background-color: transparent !important; /* 🔹 Tło przezroczyste */
-}
-
-.swiper-container {
-margin-bottom: 20px !important; /* Dodaje odstęp pod sliderem */
-}
-
-
-
-/* 🔹 Styl dla kółka z plusem */
-.add-photo-slide {
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-}
-
-.add-photo-link {
-display: flex;
-align-items: center;
-justify-content: center;
-text-decoration: none;
-width: 100%;
-height: 100%;
-}
-
-.add-photo-circle {
-width: 60px;
-height: 60px;
-background-color: #4CAF50; /* Zielony kolor */
-color: white;
-font-size: 36px;
-font-weight: bold;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-transition: background 0.3s ease-in-out;
-}
-
-.add-photo-circle:hover {
-background-color: #388E3C; /* Ciemniejszy zielony */
-}
-
-
-
-.facebook-button {
-position: absolute;
-width: 50px;
-height: 50px;
-border-radius: 100%;
-background-color: transparent; /* ❌ Usunięcie niebieskiego koła */
-display: flex;
-justify-content: center;
-align-items: center;
-color: white !important;
-
-
-bottom: 90px; /* 🔽 OPUŚĆ ALBO PODNIEŚ */
-right: 20px;
-z-index: 2000;
-}
-@media (max-width: 768px) {
-.facebook-button,
-.link-button-mobile {
-    width: 40px;  /* 🔽 Zmniejszone z 50px */
-    height: 40px; /* 🔽 Zmniejszone z 50px */
-}
-
-.facebook-button img {
-    width: 30px;  /* 🔽 Zmniejszone logo Facebook */
-    height: 30px;
-}
-
-.link-button-mobile svg {
-    width: 20px;  /* 🔽 Zmniejszona ikona dodawania miejsca */
-    height: 20px;
-}
-}
-.leaflet-popup-content-wrapper {
-background: rgb(237, 236, 236) !important; /* Półprzezroczyste tło na wszystkich urządzeniach */
-}
-
-/* 🔹 Pełnoekranowy popup na telefonach */
-@media (max-width: 768px) {
-.leaflet-popup-content-wrapper {
-    width: 100vw !important;
-    height: 100vh !important;
-    max-width: 100vw !important;
-    max-height: 100vh !important;
-    border-radius: 0 !important;
-    overflow-y: auto !important;
-   /* ✅ Przesunięcie popupu lekko w lewo (-5px) i w dół (20px) */
-   transform: translate(-5px, -5px) !important;
-  }
-
-.leaflet-popup-tip-container {
-    display: none !important;
-}
-
-.leaflet-popup-content {
-    width: 100%;
-    height: calc(100vh - 50px);
-    overflow-y: auto;
-    padding: 15px;
-}
-/* ✅ Nowy przycisk zamykania */
-.leaflet-popup-close-button {
-    position: absolute !important;
-    top: 15px !important;
-    right: 15px !important;
-    font-size: 24px !important;
-    background: rgba(0, 0, 0, 0.7) !important;
-    color: white !important;
-    border: none !important;
-    padding: 10px !important;
-    border-radius: 50% !important;
-    cursor: pointer !important;
-    z-index: 10001 !important;
-   
-  }
-
-
-}
+  

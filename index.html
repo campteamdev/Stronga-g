@@ -1,553 +1,74 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MB2PNH4K2N"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-MB2PNH4K2N');
-    </script>
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa Kempingów</title>
 
-    <!-- ✅ CSS powinien być ładowany pierwszy -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- ✅ CSS -->
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="filters.css">
 
-    <!-- ✅ Skrypty zewnętrzne (biblioteki) -->
+    <!-- ✅ Biblioteki JS -->
+    <!-- ✅ Leaflet MarkerCluster -->
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fuzzball@2.1.3/dist/fuzzball.umd.min.js"></script>
     <script>window.fuzzball = fuzzball;</script>
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-
-    <!-- ✅ Swiper.js ładowany PO załadowaniu CSS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-    <!-- ✅ Kluczowe skrypty - usunięto `defer` -->
-    <script src="encoded_kml.js"></script>
-    <script src="custom-functions.js"></script>
-  </head>
-  <body onload="initializeMap()"> <!-- ✅ Teraz mapa ładuje się na pewno -->
-
-  <!-- 🔹 Ekran ładowania -->
-<div id="loading-screen">
-    <div class="loading-text">Ładowanie danych...</div>
-</div>
-
-  
-  
-  
-  class="" oncontextmenu="return false;">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-W68222TL"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div id="search-container">
-      <div id="search-bar">
-        <input type="text" id="search-input" placeholder="Znajdź obiekt..." />
-        <button id="search-button">Szukaj</button>
-      </div>
-      <div id="suggestions"></div>
-    </div>
-    <div id="map">
-
-
-    </button>
-
-      <a
-    href="https://www.facebook.com/profile.php?id=61567062909549&locale=pl_PL"
-    target="_blank"
-    class="facebook-button"
->
-    <img src="/ikony/face.png" alt="Facebook"
-         style="width: 40px; height: 40px;">
-</a>
-
-      <!-- <a
-        href="https://www.campteam.pl/dodaj"
-        target="_blank"
-        class="link-button"
-        >Dodaj miejsce na mapie</a
-      > -->
-      <a
-        href="https://www.campteam.pl/dodaj"
-        target="_blank"
-        class="link-button-mobile"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-map-pin-plus-inside"
-        >
-          <path
-            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
-          />
-          <path d="M12 7v6" />
-          <path d="M9 10h6" />
-        </svg>
-      </a>
-    </div>
-    <script>
-      const urls = {
-        kempingi: "/Kempingi.kml",
-        polanamiotowe: "/Polanamiotowe.kml",
-        kempingiopen: "/Kempingiopen.kml",
-        polanamiotoweopen: "/Polanamiotoweopen.kml",
-        parkingilesne: "/Parkingilesne.kml",
-        kempingi1: "/Kempingi1.kml",
-        AtrakcjeKulturowe: "/AtrakcjeKulturowe.kml",
-        AtrakcjePrzyrodnicze: "/AtrakcjePrzyrodnicze.kml",
-        AtrakcjeRozrywka: "/AtrakcjeRozrywka.kml",
-        miejscenabiwak: "/Miejscenabiwak.kml",
-        europa: "/Europa.kml", // Dodajemy URL do pliku europa.kml
-      };
-
-      const icons = {
-        kempingi: L.icon({
-          iconUrl: "/ikony/Ikona_Kempingi_Polecane.png",
-          iconSize: [40, 40],
-          iconAnchor: [20, 20],
-          popupAnchor: [0, -20],
-        }),
-        polanamiotowe: L.icon({
-          iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
-          iconSize: [40, 40],
-          iconAnchor: [20, 20],
-          popupAnchor: [0, -20],
-        }),
-        kempingiopen: L.icon({
-          iconUrl: "/ikony/Ikona_Kempingi.png",
-          iconSize: [30, 30],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        polanamiotoweopen: L.icon({
-          iconUrl: "/ikony/Ikona_Pole_Namiotowe.png",
-          iconSize: [40, 40],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        parkingilesne: L.icon({
-          iconUrl: "/ikony/Ikona_Parking_Le%C5%9Bny.png",
-          iconSize: [30, 30],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        kempingi1: L.icon({
-          iconUrl: "/ikony/Ikona_Kempingi.png",
-          iconSize: [30, 30],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        atractionCultural: L.icon({
-          iconUrl: "/ikony/atractionCultural.png",
-          iconSize: [35, 35],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        atractionFun: L.icon({
-          iconUrl: "/ikony/atractionFun.png",
-          iconSize: [35, 35],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        atractionNature: L.icon({
-          iconUrl: "/ikony/atractionNature.png",
-          iconSize: [35, 35],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-        miejscenabiwak: L.icon({
-          iconUrl: "/ikony/Ikona_Miejsce_Biwakowe.png",
-          iconSize: [30, 30],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -10],
-        }),
-      };
-
-
-      const map = L.map("map").setView([52.392681, 19.275023], 6);
-      const markerCluster = L.markerClusterGroup({
-        showCoverageOnHover: false,
-        maxClusterRadius: 50,
-      });
-
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "&copy; OpenStreetMap contributors",
-      }).addTo(map);
-
-      const addedMarkers = new Set();
-      const allMarkers = [];
-      const allPlacemarks = []; // Przechowywanie placemarks
-
-      async function fetchKml(filename) {
-  const token = await generateToken(filename); // ✅ Czekamy na token
-  const url = `https://campteam-9l04l41bs-marcincamps-projects.vercel.app/api/kml?id=${filename}&token=${token}`;
-
-
-
-  const response = await fetch(url);
-  if (!response.ok) throw new Error(`❌ Błąd wczytywania pliku KML: ${url}`);
-
-  return response.text();
-}
-
-
-async function loadMarkers(filename, icon, addToCluster = true) {
-    const kmlText = await fetchKml(filename);
-
-    const parser = new DOMParser();
-    const kml = parser.parseFromString(kmlText, "application/xml");
-    const placemarks = Array.from(kml.getElementsByTagName("Placemark"));
-    allPlacemarks.push(...placemarks); // Dodanie placemarks do globalnej listy
-
-    placemarks.forEach((placemark) => {
-        const name =
-            placemark.getElementsByTagName("name")[0]?.textContent ||
-            "Brak nazwy";
-        const coordinates = placemark
-            .getElementsByTagName("coordinates")[0]
-            ?.textContent.trim();
-
-        if (coordinates) {
-            const [lon, lat] = coordinates.split(",");
-            const key = `${lat},${lon}`;
-
-            if (!addedMarkers.has(key)) {
-                addedMarkers.add(key);
-                const markerOptions = { icon };
-                if (!addToCluster) {
-                    markerOptions.zIndexOffset = 9999; // Wyższy zIndex dla markerów poza grupowaniem
-                }
-
-                // 🔹 Tworzymy marker i ustawiamy `isDataLoaded = false` 
-                const marker = L.marker([lat, lon], markerOptions);
-                marker.isDataLoaded = false; // ❌ Blokujemy otwieranie popupu przed załadowaniem danych
-
-                // 🔹 Dodajemy marker do klastra lub mapy
-                if (addToCluster) {
-                    markerCluster.addLayer(marker);
-                } else {
-                    marker.addTo(map);
-                }
-
-                // 🔹 Obsługa kliknięcia – popup otworzy się dopiero po załadowaniu danych
-                marker.on("click", function () {
-                    moveMapAndOpenPopup(marker);
-                });
-
-                allMarkers.push({ marker, name, lat, lon });
-            }
-        }
-    });
-}
-
-
-      function initializeSearch() {
-    const searchInput = document.getElementById("search-input");
-    const searchButton = document.getElementById("search-button");
-    const suggestions = document.getElementById("suggestions");
-
-    let showAll = false; // Czy pokazujemy więcej wyników?
-
-    searchInput.addEventListener("input", () => {
-        const query = searchInput.value.toLowerCase().trim();
-        suggestions.innerHTML = "";
-        if (!query) {
-            suggestions.style.display = "none";
-            return;
-        }
-
-        let matches = allMarkers.map((m) => ({
-            marker: m.marker,
-            name: m.name,
-            lat: m.lat,
-            lon: m.lon,
-            score: fuzzball.token_set_ratio(query, m.name) // Obliczanie podobieństwa
-        }));
-
-        // Sortujemy wyniki według podobieństwa
-        matches.sort((a, b) => b.score - a.score);
-
-        // Liczba wyników do wyświetlenia (4 domyślnie, 10 po kliknięciu "Pokaż więcej")
-        const resultsToShow = showAll ? 10 : 4;
-        matches = matches.slice(0, resultsToShow);
-
-        matches.forEach((match) => {
-            const suggestion = document.createElement("div");
-            suggestion.className = "suggestion";
-            suggestion.textContent = match.name;
-            suggestion.addEventListener("click", () => {
-                highlightMarker(match); // Podświetlenie markera
-                map.setView([match.lat, match.lon], 15);
-                match.marker.openPopup();
-                suggestions.style.display = "none";
-                searchInput.value = match.name;
-            });
-            suggestions.appendChild(suggestion);
-        });
-
-        // Dodanie przycisku "Pokaż więcej" jeśli jest więcej wyników
-        if (!showAll && allMarkers.length > 4) {
-            const showMoreBtn = document.createElement("div");
-            showMoreBtn.className = "suggestion show-more";
-            showMoreBtn.textContent = "Pokaż więcej...";
-            showMoreBtn.addEventListener("click", () => {
-                showAll = true;
-                searchInput.dispatchEvent(new Event("input")); // Odświeżenie wyników
-            });
-            suggestions.appendChild(showMoreBtn);
-        }
-
-        suggestions.style.display = matches.length > 0 ? "block" : "none";
-    });
-
-    searchButton.addEventListener("click", () => {
-        const query = searchInput.value.toLowerCase().trim();
-        if (!query) return;
-
-        let matches = allMarkers.map((m) => ({
-            marker: m.marker,
-            name: m.name,
-            lat: m.lat,
-            lon: m.lon,
-            score: fuzzball.token_set_ratio(query, m.name)
-        }));
-
-        matches.sort((a, b) => b.score - a.score);
-        const bestMatch = matches[0];
-
-        if (bestMatch && bestMatch.score > 60) { // Jeśli wynik dopasowania jest dobry
-            highlightMarker(bestMatch);
-            map.setView([bestMatch.lat, bestMatch.lon], 15);
-            bestMatch.marker.openPopup();
-        } else {
-            alert("Nie znaleziono obiektu.");
-        }
-    });
-}
-
-// 🔹 Funkcja podświetlająca marker (zmienia ikonę na większą na chwilę)
-function highlightMarker(match) {
-    const originalIcon = match.marker.options.icon;
-
-    const highlightIcon = L.icon({
-        iconUrl: "/ikony/highlight.png", // Dodaj specjalną ikonę podświetlenia
-        iconSize: [50, 50], 
-        iconAnchor: [25, 25],
-        popupAnchor: [0, -25]
-    });
-
-    match.marker.setIcon(highlightIcon);
-
-    setTimeout(() => {
-        match.marker.setIcon(originalIcon);
-    }, 1500);
-}
-function attachMarkerClickEvents() {
     
 
-    // 🔹 Przechodzimy przez wszystkie markery w klastrze
-    markerCluster.eachLayer(layer => {
-        if (layer instanceof L.Marker) {
-     
-            layer.off("click");
-            layer.on("click", function () {
-                moveMapAndOpenPopup(this);
-            });
-        }
-    });
+    <!-- ✅ Główny plik JS -->
 
-    // 🔹 Przechodzimy przez pojedyncze markery dodane bezpośrednio do mapy
-    allMarkers.forEach(({ marker }) => {
-        if (!markerCluster.hasLayer(marker)) { // Sprawdzamy, czy marker NIE jest w klastrze
-           
-            marker.off("click");
-            marker.on("click", function () {
-                moveMapAndOpenPopup(this);
-            });
-        }
-    });
-}
-
-// 🔹 Wywołaj po załadowaniu wszystkich markerów
-async function initializeMap() {
-    console.log("🔄 [initializeMap] Rozpoczynam ładowanie mapy...");
-
-    // ✅ Pokaż ekran ładowania
-    document.getElementById("loading-screen").style.display = "flex";
-    document.getElementById("loading-screen").style.opacity = "1";
-
-    // 🔹 Najpierw ładujemy 2 kluczowe pliki KML (szybkie ładowanie)
-    await Promise.all([
-    loadMarkers("Kempingi.kml", icons.kempingi, false),
-    loadMarkers("Polanamiotowe.kml", icons.polanamiotowe, false),
-    loadMarkers("Kempingiopen.kml", icons.kempingiopen, false),
-    loadMarkers("Polanamiotoweopen.kml", icons.polanamiotoweopen, false),
-    loadMarkers("Kempingi1.kml", icons.kempingi1, false),
-    loadMarkers("Miejscenabiwak.kml", icons.miejscenabiwak, false),
-    loadMarkers("AtrakcjeKulturowe.kml", icons.atractionCultural, false),
-    loadMarkers("AtrakcjePrzyrodnicze.kml", icons.atractionNature, false),
-    loadMarkers("AtrakcjeRozrywka.kml", icons.atractionFun, false)
-]);
+<script src="image-loader.js" defer></script>
+<script src="filters.js"></script>
+<script src="custom-functions.js" defer></script>
 
 
-    console.log("✅ [initializeMap] Kempingi i Pola namiotowe załadowane.");
 
-    // ✅ Wczytujemy szczegóły dla załadowanych markerów
-    await loadDetailsAndUpdatePopups(allMarkers, allPlacemarks);
 
-    // ✅ Generujemy popupy
-    await generateAllPopups();
+</head>
+<body>
 
-    // ✅ Dodajemy pierwsze markery do mapy
-    map.addLayer(markerCluster);
-    attachMarkerClickEvents();
-    initializeSearch();
+    <!-- 🔹 Ekran ładowania -->
+    <div id="loading-screen">
+        <div class="loading-text">Ładowanie danych...</div>
+    </div>
 
-    console.log("✅ [initializeMap] Podstawowe warstwy gotowe!");
+    <div id="search-container">
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Znajdź obiekt...">
+            <button id="search-button">Szukaj</button>
+        </div>
+        <div id="suggestions"></div>
+    </div>
 
-    // ✅ Ukrycie ekranu ładowania (animacja zanikania)
-    document.getElementById("loading-screen").style.opacity = "0";
-    setTimeout(() => {
-        document.getElementById("loading-screen").style.display = "none";
-    }, 500);
+    <div id="map"></div>
 
-    // 🔄 **Teraz ładujemy resztę plików KML w tle stopniowo**
-    const additionalFiles = [
-        { filename: "Europa.kml", icon: icons.kempingi },
-        { filename: "Parkingilesne.kml", icon: icons.parkingilesne }
-    ];
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+    const searchContainer = document.getElementById("search-container");
 
-    setTimeout(() => {
-        console.log("⏳ [initializeMap] Ładowanie dodatkowych warstw KML w tle...");
-        additionalFiles.forEach(({ filename, icon }, index) => {
-            setTimeout(async () => {
-                await loadMarkers(filename, icon);
-                console.log(`✅ [initializeMap] ${filename} załadowane.`);
-            }, index * 1000); // Każdy plik ładowany co 1 sek.
+    if (typeof map !== "undefined") {  // ✅ Sprawdzenie czy `map` istnieje
+        map.on("popupopen", function () {
+            if (window.innerWidth <= 768) searchContainer.style.display = "none";
         });
-    }, 2000); // Opóźnienie startu dodatkowych plików o 2 sekundy
 
-    // ✅ Po załadowaniu wszystkich plików – generujemy popupy dla całej mapy
-    await generateAllPopups();
-}
-
-
-
-const popupCache = {}; // Pamięć podręczna dla gotowych popupów
-
-async function generateAllPopups() {
- 
-
-    for (const { marker, name, lat, lon } of allMarkers) {
-        if (!popupCache[name]) {
-            // ✅ Generujemy treść popupu i zapisujemy w cache
-            popupCache[name] = generatePopupContent(name, lat, lon);
-        }
-
-        // ✅ Przypisujemy gotowy popup do markera (zamiast generować go dynamicznie)
-        marker.bindPopup(popupCache[name], { autoPan: true, minWidth: 200 });
+        map.on("popupclose", function () {
+            if (window.innerWidth <= 768) searchContainer.style.display = "block";
+        });
+    } else {
+        console.error("❌ Błąd: `map` nie została poprawnie zainicjalizowana!");
     }
-
- 
-}
-
-
-
-// Blokowanie kopiowania na wszystkich urządzeniach (Windows, Mac, iPhone, Android)
-document.addEventListener("copy", (event) => {
-  event.preventDefault();
-  alert("Kopiowanie jest zablokowane!");
 });
-document.addEventListener("cut", (event) => {
-  event.preventDefault();
-  alert("Wycinanie jest zablokowane!");
-});
-document.addEventListener("paste", (event) => {
-  event.preventDefault();
-});
-document.addEventListener("selectstart", (event) => {
-  event.preventDefault();
-});
-document.addEventListener("contextmenu", (event) => {
-  event.preventDefault();
-});
-
-document.addEventListener("touchstart", function (event) {
-    if (event.target.closest(".leaflet-popup-content")) {
-        event.stopPropagation(); // ✅ Pozwól na interakcję z popupem
-    }
-}, { passive: false });
-
-initializeMap();
 
     </script>
 
 
-
-
-
-
-
-
-<script src="image-loader.js"></script>
-
-<!-- 🔹 Panel wysuwanego popupu -->
-<div id="custom-popup">
-  <span id="close-popup">&times;</span> <!-- Przycisk zamknięcia -->
-  <div id="custom-popup-content"></div> <!-- Tu będą treści -->
-</div>
-
-
-
-
-
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-      const searchContainer = document.getElementById("search-container");
-  
-      map.on("popupopen", function () {
-          if (window.innerWidth <= 768) {
-              console.log("📌 [popupopen] Ukrywanie wyszukiwarki...");
-              searchContainer.style.display = "none";
-          }
-      });
-  
-      map.on("popupclose", function () {
-          if (window.innerWidth <= 768) {
-              console.log("📌 [popupclose] Przywracanie wyszukiwarki...");
-              searchContainer.style.display = "block";
-          }
-      });
-  });
-  </script>
-  
-
-</body> 
+</body>
 </html>

@@ -1,124 +1,160 @@
-console.log("✅ filters.js załadowany!");
-
-document.addEventListener("DOMContentLoaded", function () {
-    const filterButton = document.getElementById("filter-button");
-    const filterPanel = document.getElementById("filter-panel");
-
-    if (!filterButton || !filterPanel) {
-        console.error("❌ Elementy filtrów nie znalezione w HTML!");
-        return;
-    }
-
-    filterButton.addEventListener("click", function () {
-        filterPanel.style.display = (filterPanel.style.display === "none") ? "block" : "none";
-
-        if (filterPanel.style.display === "block") {
-            hideAllMarkers();
-        } else {
-            showAllMarkers();
-        }
-    });
-
-    document.querySelectorAll(".filter-checkbox").forEach((checkbox) => {
-        checkbox.addEventListener("change", applyFilters);
-    });
-});
-
-// ✅ Ukrywanie wszystkich markerów
-function hideAllMarkers() {
-    if (!map || !markerCluster) {
-        console.error("❌ Błąd: mapa lub markerCluster nie są dostępne!");
-        return;
-    }
-
-    allMarkers.forEach(({ marker }) => {
-        if (map.hasLayer(marker)) {
-            map.removeLayer(marker);
-        }
-    });
-
-    markerCluster.clearLayers(); // Usuwamy z klastra
-    console.log("🛑 Wszystkie markery ukryte!");
+// ✅ Globalna funkcja normalizująca tekst – teraz dostępna wszędzie
+function normalizeText(text) {
+    if (!text) return "";
+    return text
+        .toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9\s]/g, "");
 }
 
-// ✅ Przywracanie wszystkich markerów
-function showAllMarkers() {
-    if (!map || !markerCluster) {
-        console.error("❌ Błąd: mapa lub markerCluster nie są dostępne!");
-        return;
-    }
-
-    allMarkers.forEach(({ marker }) => {
-        if (!map.hasLayer(marker)) {
-            map.addLayer(marker);
-        }
-        markerCluster.addLayer(marker);
-    });
-
-    console.log("📌 Przywrócono wszystkie markery!");
-}
-
-// ✅ Stosowanie filtrów
-function applyFilters() {
-    if (!allMarkers || allMarkers.length === 0) {
-        console.error("❌ Brak markerów do filtrowania!");
-        return;
-    }
-
-    const filterFiles = {
-        camping: ["Kempingi.kml", "Kempingi1.kml", "Kempingiopen.kml"],
-        pola: ["Polanamiotowe.kml", "Polanamiotoweopen.kml"],
-        parking: ["Parkingilesne.kml"],
-        biwak: ["Miejscenabiwak.kml"],
-        kulturowe: ["AtrakcjeKulturowe.kml"],
-        przyrodnicze: ["AtrakcjePrzyrodnicze.kml"],
-        rozrywka: ["AtrakcjeRozrywka.kml"],
-    };
-
-    const activeFilters = {
-        camping: document.getElementById("camping-filter")?.checked || false,
-        pola: document.getElementById("pola-filter")?.checked || false,
-        parking: document.getElementById("parking-filter")?.checked || false,
-        biwak: document.getElementById("biwak-filter")?.checked || false,
-        kulturowe: document.getElementById("kulturowe-filter")?.checked || false,
-        przyrodnicze: document.getElementById("przyrodnicze-filter")?.checked || false,
-        rozrywka: document.getElementById("rozrywka-filter")?.checked || false,
-    };
-
-    console.log("🎯 Aktywne filtry:", activeFilters);
-
-    // Jeśli wszystkie filtry są wyłączone → przywróć wszystkie markery
-    if (Object.values(activeFilters).every(v => !v)) {
-        showAllMarkers();
-        return;
-    }
-
-    hideAllMarkers(); // Usuwamy wszystkie przed zastosowaniem filtrów
-
-    let addedMarkers = 0;
+// ✅ Inicjalizacja wyszukiwarki z podpowiedziami
+function initializeSearch() {
+    console.log("🔍 [initializeSearch] Uruchamianie...");
     
-    allMarkers.forEach(({ marker, kmlFile }) => {
-        if (!kmlFile) {
-            console.warn("🚨 Brak przypisanego pliku KML do markera:", marker);
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+    const suggestions = document.getElementById("suggestions");
+
+    searchInput.addEventListener("input", () => {
+        const query = normalizeText(searchInput.value.trim());
+        suggestions.innerHTML = ""; 
+
+        if (!query) {
+            suggestions.style.display = "none";
             return;
         }
 
-        for (const [filter, files] of Object.entries(filterFiles)) {
-            if (activeFilters[filter] && files.some(file => kmlFile.includes(file))) {
-                if (!map.hasLayer(marker)) {
-                    markerCluster.addLayer(marker);
-                    map.addLayer(marker);
-                    addedMarkers++;
-                }
-                break; // Zapobiega wielokrotnemu dodaniu markera
+        let matches = [];
+
+        console.log("🔎 [input] Szukam dla:", query);
+        console.log("🔎 markerNames:", markerNames);
+
+        for (const [id, name] of Object.entries(markerNames)) {
+            const normalizedName = normalizeText(name);
+            if (normalizedName.includes(query)) { 
+                matches.push({ id, name });
             }
+        }
+
+        matches.sort((a, b) => a.name.localeCompare(b.name, "pl"));
+
+        if (matches.length === 0) {
+            suggestions.style.display = "none";
+            return;
+        }
+
+        suggestions.style.display = "flex";
+        suggestions.style.flexDirection = "column";
+
+        matches.slice(0, 5).forEach(match => {
+            const suggestionItem = document.createElement("div");
+            suggestionItem.classList.add("suggestion-item");
+            suggestionItem.textContent = match.name;
+            suggestionItem.dataset.id = match.id;
+
+            suggestionItem.addEventListener("click", () => {
+                console.log(`✅ Kliknięto na podpowiedź: ${match.name} (ID: ${match.id})`);
+                selectSearchResult(match.id);
+            });
+
+            suggestions.appendChild(suggestionItem);
+        });
+    });
+
+    searchButton.addEventListener("click", () => {
+        handleSearch();
+    });
+
+    searchInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            handleSearch();
         }
     });
 
-    console.log(`✅ Filtry zastosowane! Dodano ${addedMarkers} markerów.`);
+    function handleSearch() {
+        const query = normalizeText(searchInput.value.trim());
+        if (!query) return;
+
+        console.log("🔎 [handleSearch] Szukam dla:", query);
+
+        let bestMatch = Object.entries(markerNames)
+            .map(([id, name]) => ({
+                id,
+                name,
+                score: fuzzball.token_set_ratio(query, normalizeText(name))
+            }))
+            .sort((a, b) => b.score - a.score)[0];
+
+        console.log("🔍 Najlepszy wynik:", bestMatch);
+
+        if (bestMatch && bestMatch.score >= 60) {
+            selectSearchResult(bestMatch.id);
+        } else {
+            alert("⚠️ Brak wyników wyszukiwania!");
+        }
+    }
 }
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".filter-checkbox").forEach((checkbox) => {
-        checkbox.addEventListener("change", applyFilters);
+
+function selectSearchResult(id) {
+    console.log(`🔍 [selectSearchResult] Wybrano ID: ${id}`);
+
+    const name = markerNames[id]; 
+    if (!name) {
+        console.error(`❌ Błąd: Nie znaleziono nazwy dla ID: ${id}`);
+        return;
+    }
+
+    // ✅ Próbujemy różne warianty kluczy
+    const normalizedKey = normalizeText(name);
+    const idKey = id.toLowerCase();
+    
+    console.log("🔎 Sprawdzam w markerObjects:", { idKey, normalizedKey });
+
+    let marker = markerObjects[idKey] || markerObjects[normalizedKey];
+
+    // ✅ Jeśli marker nadal nie znaleziony, wyświetlamy dostępne klucze
+    if (!marker) {
+        console.error(`❌ Nie znaleziono markera dla ID: ${id} ani nazwy: ${name}`);
+        console.log("🔍 markerObjects dostępne klucze:", Object.keys(markerObjects));
+        console.log("🔍 Próbuję ręczne wyszukanie:", markerObjects);
+        
+        // 🛠 Dodatkowe wyszukiwanie przez iterację
+        for (let key of Object.keys(markerObjects)) {
+            if (normalizeText(key) === normalizedKey) {
+                marker = markerObjects[key];
+                console.log(`✅ Znaleziono ręcznie marker dla: ${name}`);
+                break;
+            }
+        }
+    }
+
+    if (!marker) {
+        console.error(`❌ Marker nadal nie znaleziony: ${name} (ID: ${id})`);
+        return;
+    }
+
+    console.log(`📍 [selectSearchResult] Znaleziono marker: ${name}, ID: ${id}`);
+
+    // 📍 Otwieramy popup
+    loadPopupData(marker, id).then(() => {
+        map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 12), { duration: 0.5 });
+
+        map.once("moveend", () => {
+            marker.openPopup();
+            if (window.innerWidth < 768) {
+                setTimeout(() => {
+                    document.querySelector(".leaflet-popup-content-wrapper").classList.add("mobile-fullscreen-popup");
+                }, 300);
+            }
+        });
     });
-});
+
+    document.getElementById("search-input").value = "";
+    document.getElementById("suggestions").innerHTML = "";
+    document.getElementById("suggestions").style.display = "none";
+}
+
+
+// ✅ Udostępniamy funkcję globalnie
+window.initializeSearch = initializeSearch;
