@@ -1,4 +1,6 @@
 
+// ✅ Inicjalizacja grupowania markerów
+const markerClusterGroup = L.markerClusterGroup();
 
 window.map = L.map("map", {
     zoomAnimation: false,
@@ -186,6 +188,7 @@ async function loadMainMarkers() {
     // 🛠️ RESET MARKERÓW PRZED PONOWNYM WCZYTANIEM
     markerObjects = {};  
     markerNames = {};  
+    markerClusterGroup.clearLayers(); // Czyścimy grupę przed ponownym dodaniem markerów
 
     const kmlText = await fetchKml("001.kml");
     if (!kmlText) {
@@ -221,24 +224,18 @@ async function loadMainMarkers() {
 
         // 🛠️ POPRAWKA: Jedna normalizacja nazwy
         const normalizedKey = normalizeText(name);
-        markerObjects[id.toLowerCase()] = marker; // ID zapisujemy jako małe litery
+        markerObjects[id.toLowerCase()] = marker;
         markerObjects[normalizedKey] = marker;
         markerNames[id] = name;
-        console.log(`📍 Dodano marker: ${id} → ${name}`);
-        console.log(`🔍 markerObjects['${id}'] =`, markerObjects[id]);
-        console.log(`🔍 markerObjects['${normalizeText(name)}'] =`, markerObjects[normalizeText(name)]);
-        
+
         marker.on("click", () => loadPopupData(marker, id));
-        marker.addTo(map);
+
+        // ✅ Zamiast dodawać pojedynczo do mapy, dodajemy do grupy
+        markerClusterGroup.addLayer(marker);
     });
 
-    // ✅ Dodajemy całą grupę markerów jednocześnie (dużo szybciej!)
+    // ✅ Dodajemy całą grupę markerów do mapy jednocześnie (dużo szybciej!)
     map.addLayer(markerClusterGroup);
-    console.log("✅ Wszystkie markery zostały załadowane:", markerNames);
-    console.log("✅ Klucze w markerObjects:", Object.keys(markerObjects));
-    console.log("✅ Sprawdzenie: markerObjects['górska sadyba'] =", markerObjects["górska sadyba"]);
-    console.log("✅ Sprawdzenie: markerObjects['K1_5'] =", markerObjects["K1_5"]);
-    
     console.log("✅ Wszystkie markery zostały załadowane i zgrupowane!");
 }
 
