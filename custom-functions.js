@@ -289,7 +289,14 @@ async function loadMainMarkers() {
         marker.on("click", () => loadPopupData(marker, id));
 
         // ✅ Zamiast dodawać pojedynczo do mapy, dodajemy do grupy
+    // Jeśli ID zaczyna się od K1- lub P1_, dodajemy marker bezpośrednio na mapę
+    if (id.startsWith("K1_") || id.startsWith("P1_")) {
+        map.addLayer(marker);
+        console.log(`🚀 ${id} dodany bezpośrednio na mapę, BEZ grupowania.`);
+    } else {
         markerClusterGroup.addLayer(marker);
+    }
+    
     });
 
     // ✅ Dodajemy całą grupę markerów do mapy jednocześnie (dużo szybciej!)
