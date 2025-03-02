@@ -202,19 +202,17 @@ function initializeSwiper(name, images) {
     }, 500);
 }
 
+// ✅ Funkcja generująca slider + ikony
 async function generateImageSlider(name, lat, lon, phoneNumber) {
     const images = await getLocationImages(name);
-
-
     const safeName = sanitizeName(name);
     const sliderId = `swiper-container-${safeName}`;
     const prevBtnId = `swiper-prev-${safeName}`;
     const nextBtnId = `swiper-next-${safeName}`;
 
-   // ✅ Jeśli numer telefonu istnieje, generujemy aktywną ikonę, w przeciwnym razie szara, nieaktywna
-const phoneLink = phoneNumber && phoneNumber !== "" ? `tel:${phoneNumber}` : "#";
-const phoneCursor = phoneNumber && phoneNumber !== "" ? "pointer" : "not-allowed";
-const phoneOpacity = phoneNumber && phoneNumber !== "" ? "1" : "0.5";
+    const phoneLink = phoneNumber && phoneNumber !== "" ? `tel:${phoneNumber}` : "#";
+    const phoneCursor = phoneNumber && phoneNumber !== "" ? "pointer" : "not-allowed";
+    const phoneOpacity = phoneNumber && phoneNumber !== "" ? "1" : "0.5";
 
     let sliderHTML = images.length > 0 ? `
         <div class="swiper-container ${sliderId}" style="width:100%; height: 140px; position: relative; overflow: hidden;">
@@ -245,11 +243,11 @@ const phoneOpacity = phoneNumber && phoneNumber !== "" ? "1" : "0.5";
                  style="width: 40px; height: 40px;">
         </a>
 
-        <!-- 🔹 Ikona "Dodaj zdjęcie" -->
-        <a 
-        <!-- 🔹 Ikona "Dodaj zdjęcie" (PULSUJĄCA) -->
-        <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
-           target="_blank"
+        <!-- 🔹 Ikona "Dodaj zdjęcie" (OTWIERA FORMULARZ) -->
+        <a href="#" class="open-photo-form" 
+           data-location="${name}" 
+           data-lat="${lat}" 
+           data-lon="${lon}"
            style="display: inline-block; width: 40px; height: 40px;">
             <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.png" 
                  alt="Dodaj zdjęcie"
@@ -258,7 +256,7 @@ const phoneOpacity = phoneNumber && phoneNumber !== "" ? "1" : "0.5";
         </a>
 
         <!-- 🔹 Ikona "Opinia" -->
-        <a href="https://www.campteam.pl/dodaj/dodaj-zdj%C4%99cie-lub-opini%C4%99" 
+        <a href="#" 
            target="_blank"
            style="display: inline-block; width: 40px; height: 40px;">
             <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/opinia.png" 
@@ -281,10 +279,6 @@ const phoneOpacity = phoneNumber && phoneNumber !== "" ? "1" : "0.5";
     return { sliderHTML: finalHTML, images };
 }
 
-
-// 🔹 Funkcja do powiększania zdjęcia i zmiany
-// 🔹 Funkcja do powiększania zdjęcia i zmiany za pomocą strzałek
-// 🔹 Funkcja do powiększania zdjęcia i zmiany za pomocą strzałek
 function openFullscreen(images, index) {
     // Upewniamy się, że nie tworzymy wielu pełnoekranowych widoków
     let existingFullscreen = document.getElementById("fullscreen-view");

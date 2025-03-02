@@ -539,6 +539,45 @@ async function initializeMap() {
 
    
 }
+document.body.addEventListener("click", function (event) {
+    const clickedElement = event.target.closest(".open-photo-form, .open-photo-form img");
+
+    if (clickedElement) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        console.log("🟢 Kliknięto ikonę 'Dodaj zdjęcie'. Otwieram popup...");
+
+        const photoFormPopup = document.getElementById("photo-form-popup");
+        const zohoIframe = document.getElementById("zoho-iframe");
+
+        if (!photoFormPopup || !zohoIframe) {
+            console.error("❌ Błąd: Popup lub iframe nie istnieją!");
+            return;
+        }
+
+        // ✅ Dodajemy klasę `active`, żeby pokazać popup
+        photoFormPopup.classList.add("active");
+
+        // ✅ Ustawiamy `src` dla iframe tylko jeśli jest pusty lub nie załadowany
+        if (!zohoIframe.src || zohoIframe.src.trim() === "") {
+            console.log("🔹 iframe src jest pusty, ustawiam URL...");
+            zohoIframe.src = "https://forms.zohopublic.eu/campteamdevgm1/form/Dodaniezdjcia/formperma/LqnbyLFmsQpeQlMXegiuEMKOOeG20xkBIcJKtmKnXCE";
+            console.log("✅ `iframe` src ustawione!");
+        } else {
+            console.log("ℹ️ `iframe` src już ustawione, nie zmieniam.");
+        }
+    }
+});
+
+// 🔹 Zamknięcie popupu po kliknięciu "X"
+document.getElementById("close-photo-popup").addEventListener("click", function () {
+    console.log("❌ Zamykam popup...");
+    const photoFormPopup = document.getElementById("photo-form-popup");
+    if (photoFormPopup) {
+        photoFormPopup.classList.remove("active");
+    }
+});
 
 
 

@@ -1,3 +1,4 @@
+/* ✅ Resetowanie marginesów i paddingu */
 body {
   margin: 0;
   padding: 0;
@@ -9,59 +10,42 @@ body {
   50% { transform: scale(1.2); }
 }
 
-/* 🎯 Pulsująca ikona "Dodaj zdjęcie" */
 .pulsing-icon {
   animation: pulse 1.5s infinite;
   transition: transform 0.3s ease-in-out;
 }
 
-/* 📌 Domyślnie ukrywamy przycisk na komputerach */
+/* 📌 Przycisk "Dodaj zdjęcie" */
 #add-button {
-  position: absolute;  /* ✅ Umieszczenie przycisku na mapie */
-  bottom: 20px;  /* 🔽 Odstęp od dolnej krawędzi */
-  right: 20px;  /* 🔽 Odstęp od prawej krawędzi */
-  z-index: 1001;  /* 🔝 Nad innymi elementami */
-  display: none;  /* ❌ Domyślnie ukryte na komputerach */
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1001;
+  display: none;
 }
 
-/* 🎨 Styl obrazka */
 #add-button img {
-  --icon-size: 70px;  /* 🎯 Łatwa zmiana rozmiaru ikony */
-  
+  --icon-size: 70px;
   width: var(--icon-size);
   height: var(--icon-size);
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;  /* ✅ Zapobiega rozciąganiu */
+  object-fit: contain;
   transition: transform 0.3s ease-in-out;
 }
 
 /* 📱 Pokaż ikonę tylko na telefonach */
 @media (max-width: 768px) {
   #add-button {
-      display: block; /* ✅ Pokazujemy na telefonach */
+      display: block;
   }
-
-  /* 🔍 Możliwość zmiany wielkości ikony na telefonie */
   #add-button img {
-      --icon-size: 70px;  /* 🛠️ Tutaj zmieniasz wielkość na telefonach */
-  }
-}
-
-/* 🌀 Animacja pulsowania */
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-@media (max-width: 768px) {
-  #add-button img {
+      --icon-size: 70px;
       animation: pulse 1.5s infinite;
   }
 }
 
-
-/* ✅ Mapa zajmuje całe okno, pasek na nią nachodzi */
+/* ✅ Mapa zajmuje całe okno */
 #map {
   width: 100%;
   height: 100vh;
@@ -94,7 +78,6 @@ body {
   box-shadow: rgba(0, 0, 0, 0.3) 0 4px 10px;
 }
 
-/* ✅ Pole wyszukiwania */
 #search-input {
   flex: 1;
   padding: 5px;
@@ -106,7 +89,6 @@ body {
   min-width: 0;
 }
 
-/* ✅ Przycisk szukaj */
 #search-button {
   background-color: green;
   color: white;
@@ -122,7 +104,7 @@ body {
   background-color: darkgreen;
 }
 
-/* ✅ Styl dla listy podpowiedzi */
+/* ✅ Lista podpowiedzi */
 #suggestions {
   position: absolute;
   top: 100%;
@@ -139,7 +121,6 @@ body {
   min-width: 200px;
 }
 
-/* ✅ Styl pojedynczego wyniku */
 .suggestion-item {
   display: block;
   width: calc(100% - 10px);
@@ -150,23 +131,128 @@ body {
   transition: background 0.3s ease-in-out;
 }
 
-/* ✅ Podświetlenie wyniku */
 .suggestion-item:hover,
 .suggestion-item.active {
   background: #1f5e2f;
   color: white;
 }
 
-/* ✅ Ustawienia dla mapy na telefonach */
+/* ✅ Mapa na telefonach */
 @media (max-width: 768px) {
   #map {
-      height: calc(100vh - 1px) !important; /* ✅ Pełna wysokość ekranu */
+      height: calc(100vh - 1px) !important;
       min-height: 500px;
   }
 }
 
+/* 📌 Popup formularza dodawania zdjęć */
+#photo-form-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2147483647;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
 
-  .leaflet-popup-content-wrapper {
+/* ✅ Aktywny popup */
+#photo-form-popup.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 📌 Zawartość popupu */
+.popup-content {
+  background: white;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+  max-height: 90vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+/* 📌 Styl iframe */
+#zoho-iframe {
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  max-height: 90vh;
+  border: none;
+}
+
+/* 📌 Ukrywanie popupu Leaflet, gdy `photo-form-popup` jest otwarty */
+.popup-hidden .leaflet-popup-pane {
+  display: none !important;
+}
+
+/* 📌 Przycisk zamykania popupu */
+#close-photo-popup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+/* 📌 Poprawki dla Leaflet.js */
+.leaflet-popup-content-wrapper {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  border-radius: 0 !important;
+  overflow-y: auto !important;
+  transform: translate(-5px, -5px) !important;
+}
+
+.leaflet-popup-tip-container {
+  display: none !important;
+}
+
+.leaflet-popup-content {
+  width: 100%;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+  padding: 15px;
+}
+
+/* ✅ Nowy przycisk zamykania w Leaflet */
+.leaflet-popup-close-button {
+  position: absolute !important;
+  top: 15px !important;
+  right: 15px !important;
+  font-size: 24px !important;
+  background: rgba(0, 0, 0, 0.7) !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  z-index: 10001 !important;
+}
+
+/* 📌 Pełnoekranowy popup na telefonach */
+@media (max-width: 768px) {
+  .mobile-fullscreen-popup {
       width: 100vw !important;
       height: 100vh !important;
       max-width: 100vw !important;
@@ -175,42 +261,4 @@ body {
       overflow-y: auto !important;
       transform: translate(-5px, -5px) !important;
   }
-
-  .leaflet-popup-tip-container {
-      display: none !important;
-  }
-
-  .leaflet-popup-content {
-      width: 100%;
-      height: calc(100vh - 50px);
-      overflow-y: auto;
-      padding: 15px;
-  }
-
-  /* ✅ Nowy przycisk zamykania */
-  .leaflet-popup-close-button {
-      position: absolute !important;
-      top: 15px !important;
-      right: 15px !important;
-      font-size: 24px !important;
-      background: rgba(0, 0, 0, 0.7) !important;
-      color: white !important;
-      border: none !important;
-      padding: 10px !important;
-      border-radius: 50% !important;
-      cursor: pointer !important;
-      z-index: 10001 !important;
-  }
-  @media (max-width: 768px) {
-    .mobile-fullscreen-popup {
-        width: 100vw !important;
-        height: 100vh !important;
-        max-width: 100vw !important;
-        max-height: 100vh !important;
-        border-radius: 0 !important;
-        overflow-y: auto !important;
-        transform: translate(-5px, -5px) !important;
-    }
- 
-  }
-  
+}
