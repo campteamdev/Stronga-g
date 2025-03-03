@@ -313,7 +313,7 @@ function getIconForMarker(id) {
         P1: { url: "/ikony/Ikona_Pole_Namiotowe.webp", defaultSize: 50 },
         Ko1: { url: "/ikony/Ikona_Kempingi.webp", defaultSize: 50 },
         Po1: { url: "/ikony/Ikona_Pole_Namiotowe.webp", defaultSize: 50 },
-        A1: { url: "/ikony/atractionFun.webp", defaultSize: 30 },
+        A1: { url: "/ikony/atractionNature.webp", defaultSize: 30 },
         Pl: { url: "/ikony/Ikona_Parking_Le%C5%9Bny.webp", defaultSize: 40 },
         Mb: { url: "/ikony/Ikona_Miejsce_Biwakowe.webp", defaultSize: 40 },
         E1: { url: "/ikony/Ikona_Kempingi.webp", defaultSize: 30 },
