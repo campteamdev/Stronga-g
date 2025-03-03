@@ -238,7 +238,7 @@ async function generateImageSlider(name, lat, lon, phoneNumber) {
         <!-- 🔹 Ikona "Zadzwoń" -->
         <a href="${phoneLink}" 
            style="display: inline-block; width: 40px; height: 40px; opacity: ${phoneOpacity}; cursor: ${phoneCursor};">
-            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/zadzwon.png" 
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/zadzwon.webp" 
                  alt="Zadzwoń"
                  style="width: 40px; height: 40px;">
         </a>
@@ -249,7 +249,7 @@ async function generateImageSlider(name, lat, lon, phoneNumber) {
            data-lat="${lat}" 
            data-lon="${lon}"
            style="display: inline-block; width: 40px; height: 40px;">
-            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.png" 
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/add%20photo.webp" 
                  alt="Dodaj zdjęcie"
                  class="pulsing-icon"
                  style="width: 40px; height: 40px;">
@@ -259,7 +259,7 @@ async function generateImageSlider(name, lat, lon, phoneNumber) {
         <a href="#" 
            target="_blank"
            style="display: inline-block; width: 40px; height: 40px;">
-            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/opinia.png" 
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/opinia.webp" 
                  alt="Dodaj opinię"
                  style="width: 40px; height: 40px;">
         </a>
@@ -268,7 +268,7 @@ async function generateImageSlider(name, lat, lon, phoneNumber) {
         <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" 
            target="_blank"
            style="display: inline-block; width: 40px; height: 40px;">
-            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/prowadz.png" 
+            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/prowadz.webp" 
                  alt="Prowadź"
                  style="width: 40px; height: 40px;">
         </a>

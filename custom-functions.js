@@ -309,15 +309,15 @@ function getIconForMarker(id) {
 
     // Mapa ikon z domyślnymi rozmiarami
     const iconMapping = {
-        K1: { url: "/ikony/Ikona_Kempingi_Polecane.png", defaultSize: 50 },
-        P1: { url: "/ikony/Ikona_Pole_Namiotowe.png", defaultSize: 50 },
-        Ko1: { url: "/ikony/Ikona_Kempingi.png", defaultSize: 50 },
-        Po1: { url: "/ikony/Ikona_Pole_Namiotowe.png", defaultSize: 50 },
-        A1: { url: "/ikony/atractionFun.png", defaultSize: 30 },
-        Pl: { url: "/ikony/Ikona_Parking_Le%C5%9Bny.png", defaultSize: 40 },
-        Mb: { url: "/ikony/Ikona_Miejsce_Biwakowe.png", defaultSize: 40 },
-        E1: { url: "/ikony/Ikona_Kempingi.png", defaultSize: 30 },
-        Ok: { url: "/ikony/atractionNature.png", defaultSize: 30 }
+        K1: { url: "/ikony/Ikona_Kempingi_Polecane.webp", defaultSize: 50 },
+        P1: { url: "/ikony/Ikona_Pole_Namiotowe.webp", defaultSize: 50 },
+        Ko1: { url: "/ikony/Ikona_Kempingi.webp", defaultSize: 50 },
+        Po1: { url: "/ikony/Ikona_Pole_Namiotowe.webp", defaultSize: 50 },
+        A1: { url: "/ikony/atractionFun.webp", defaultSize: 30 },
+        Pl: { url: "/ikony/Ikona_Parking_Le%C5%9Bny.webp", defaultSize: 40 },
+        Mb: { url: "/ikony/Ikona_Miejsce_Biwakowe.webp", defaultSize: 40 },
+        E1: { url: "/ikony/Ikona_Kempingi.webp", defaultSize: 30 },
+        Ok: { url: "/ikony/camperService.webp", defaultSize: 30 }
     };
 
     // Sprawdzenie, czy ID pasuje do którejś kategorii
