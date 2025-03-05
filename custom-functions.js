@@ -317,7 +317,7 @@ function getIconForMarker(id) {
         Pl: { url: "/ikony/Ikona_Parking_Le%C5%9Bny.webp", defaultSize: 40 },
         Mb: { url: "/ikony/Ikona_Miejsce_Biwakowe.webp", defaultSize: 40 },
         E1: { url: "/ikony/Ikona_Kempingi.webp", defaultSize: 30 },
-        Ok: { url: "/ikony/camperService.webp", defaultSize: 30 }
+        Ok: { url: "/ikony/ok.webp", defaultSize: 40 }
     };
 
     // Sprawdzenie, czy ID pasuje do którejś kategorii
