@@ -1,75 +1,51 @@
-const COMMENTS_API_URL = "https://campteam-9l04l41bs-marcincamps-projects.vercel.app/api/comments";
+const COMMENTS_API_URL = "https://campteam-project-ha31an8nf-marcincamps-projects.vercel.app/api/comments";
 
-
-// ✅ Pobieranie komentarzy dla danego miejsca
-async function fetchComments(placeId) {
-    try {
-        const response = await fetch(`${COMMENTS_API_URL}?id=${placeId}`);
-        if (!response.ok) throw new Error("Błąd pobierania komentarzy.");
-
-        return await response.json();
-    } catch (error) {
-        console.error("❌ Błąd pobierania komentarzy:", error);
-        return [];
+// 🔹 Otwieranie popupu komentarzy
+document.body.addEventListener("click", function (event) {
+    const commentButton = event.target.closest(".open-comments");
+    if (commentButton) {
+        event.preventDefault();
+        const placeId = commentButton.dataset.placeid;
+        openCommentPopup(placeId);
     }
-}
+});
 
-// ✅ Dodanie formularza komentarzy do popupu
-function addCommentFormToPopup(marker, placeId) {
-    // 🛠️ Pobranie komentarzy i ich wyświetlenie
-    fetchComments(placeId).then(comments => {
-        const commentList = comments.map(comment => `
+async function openCommentPopup(placeId) {
+    console.log(`📥 Pobieranie komentarzy dla: ${placeId}`);
+
+    const popup = document.getElementById("comment-form-popup");
+    const commentListDiv = document.getElementById("comments-list");
+    const submitButton = document.getElementById("submit-comment");
+
+    popup.classList.add("active");
+
+    // Czyszczenie starej zawartości
+    commentListDiv.innerHTML = "<p>Ładowanie opinii...</p>";
+
+    // Pobieranie opinii
+    const comments = await fetchComments(placeId);
+    if (comments.length === 0) {
+        commentListDiv.innerHTML = "<p>Brak opinii. Bądź pierwszym, który doda swoją!</p>";
+    } else {
+        commentListDiv.innerHTML = comments.map(comment => `
             <div class="comment">
-                <strong>${comment.author}</strong>:
-                <p>${comment.text}</p>
+                <strong>${comment.user}</strong>: ${comment.text}
+                <span class="comment-date">${new Date(comment.timestamp).toLocaleString()}</span>
             </div>
         `).join("");
-
-        // 📝 Formularz dodawania komentarza
-        const formHTML = `
-            <div id="comments-section">
-                <h3>Komentarze</h3>
-                <div id="comments-list">${commentList || "Brak komentarzy"}</div>
-                <textarea id="comment-input" placeholder="Dodaj komentarz..."></textarea>
-                <input type="text" id="comment-author" placeholder="Twoje imię">
-                <button id="submit-comment">Dodaj</button>
-            </div>
-        `;
-
-        marker.bindPopup(formHTML).openPopup();
-
-        // 🎯 Obsługa wysyłania komentarza
-        document.getElementById("submit-comment").addEventListener("click", async () => {
-            const text = document.getElementById("comment-input").value.trim();
-            const author = document.getElementById("comment-author").value.trim();
-
-            if (!text || !author) return alert("⚠️ Wypełnij wszystkie pola!");
-
-            await submitComment(placeId, author, text);
-            addCommentFormToPopup(marker, placeId);
-        });
-    });
-}
-
-// ✅ Wysyłanie komentarza do API (zapis na AWS S3)
-async function submitComment(placeId, author, text) {
-    try {
-        const response = await fetch(COMMENTS_API_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id: placeId, author, text }),
-        });
-
-        if (!response.ok) throw new Error("Błąd zapisu komentarza.");
-        alert("✅ Komentarz dodany!");
-    } catch (error) {
-        console.error("❌ Błąd dodawania komentarza:", error);
     }
-}
 
-// ✅ Integracja z markerami na mapie
-map.on("popupopen", function (e) {
-    const marker = e.popup._source;
-    const placeId = marker.id;
-    addCommentFormToPopup(marker, placeId);
-});
+    // Obsługa dodawania opinii
+    submitButton.onclick = async function () {
+        const text = document.getElementById("comment-input").value.trim();
+        const user = document.getElementById("comment-author").value.trim();
+
+        if (!text || !user) {
+            alert("⚠️ Wypełnij wszystkie pola!");
+            return;
+        }
+
+        await submitComment(placeId, user, text);
+        openCommentPopup(placeId); // 🔄 Odświeżenie opinii po dodaniu
+    };
+}

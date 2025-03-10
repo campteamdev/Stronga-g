@@ -592,4 +592,83 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     initializeMap();
 });
+// ✅ Obsługa kliknięcia w ikonę "Opinia" i otwieranie popupu komentarzy
+document.body.addEventListener("click", function (event) {
+    const clickedElement = event.target.closest(".open-comments, .open-comments img");
+
+    if (clickedElement) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        console.log("🟢 Kliknięto ikonę 'Dodaj opinię'. Otwieram popup...");
+
+        const commentFormPopup = document.getElementById("comment-form-popup");
+        const commentIframe = document.getElementById("comment-iframe");
+
+        if (!commentFormPopup || !commentIframe) {
+            console.error("❌ Błąd: Popup lub iframe nie istnieją!");
+            return;
+        }
+
+        // ✅ Dodajemy klasę `active`, żeby pokazać popup
+        commentFormPopup.classList.add("active");
+
+        // ✅ Ustawiamy `src` dla iframe tylko jeśli jest pusty lub nie załadowany
+        const placeId = clickedElement.dataset.placeid; // Pobieramy ID miejsca
+        const commentsUrl = `https://forms.zohopublic.eu/campteamdevgm1/form/Dodaniezdjcia/formperma/LqnbyLFmsQpeQlMXegiuEMKOOeG20xkBIcJKtmKnXCE`;
+
+        if (!commentIframe.src || commentIframe.src.trim() === "") {
+            console.log("🔹 iframe src jest pusty, ustawiam URL...");
+            commentIframe.src = commentsUrl;
+            console.log("✅ `iframe` src ustawione:", commentsUrl);
+        } else {
+            console.log("ℹ️ `iframe` src już ustawione, nie zmieniam.");
+        }
+    }
+});
+
+// 🔹 Zamknięcie popupu po kliknięciu "X"
+document.getElementById("close-comment-popup").addEventListener("click", function () {
+    console.log("❌ Zamykam popup komentarzy...");
+    const commentFormPopup = document.getElementById("comment-form-popup");
+    if (commentFormPopup) {
+        commentFormPopup.classList.remove("active");
+    }
+});
+document.body.addEventListener("click", function (event) {
+    const clickedElement = event.target.closest(".open-comments, .open-comments img");
+
+    if (clickedElement) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        console.log("🟢 Kliknięto ikonę 'Dodaj opinię'. Otwieram popup...");
+
+        const commentFormPopup = document.getElementById("comment-form-popup");
+        const commentIframe = document.getElementById("comment-iframe");
+
+        if (!commentFormPopup || !commentIframe) {
+            console.error("❌ Błąd: Popup lub iframe nie istnieją!");
+            return;
+        }
+
+        // ✅ Ustawienie stałego linku do formularza Zoho
+        const commentsUrl = "https://forms.zohopublic.eu/campteamdevgm1/form/Dodaniezdjcia/formperma/LqnbyLFmsQpeQlMXegiuEMKOOeG20xkBIcJKtmKnXCE";
+
+        console.log("🔹 Ustawiam `iframe.src`:", commentsUrl);
+        commentIframe.src = commentsUrl;
+
+        // ✅ Pokazujemy popup
+        commentFormPopup.classList.add("active");
+    }
+});
+
+// 🔹 Zamknięcie popupu po kliknięciu "X"
+document.getElementById("close-comment-popup").addEventListener("click", function () {
+    console.log("❌ Zamykam popup komentarzy...");
+    const commentFormPopup = document.getElementById("comment-form-popup");
+    if (commentFormPopup) {
+        commentFormPopup.classList.remove("active");
+    }
+});
 

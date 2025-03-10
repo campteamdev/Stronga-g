@@ -255,14 +255,14 @@ async function generateImageSlider(name, lat, lon, phoneNumber) {
                  style="width: 40px; height: 40px;">
         </a>
 
-        <!-- 🔹 Ikona "Opinia" -->
-        <a href="#" 
-           target="_blank"
-           style="display: inline-block; width: 40px; height: 40px;">
-            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/opinia.webp" 
-                 alt="Dodaj opinię"
-                 style="width: 40px; height: 40px;">
-        </a>
+     <!-- 🔹 Ikona "Opinia" (OTWIERA POPUP KOMENTARZY) -->
+<a href="#" class="open-comments" 
+   data-placeid="${name}" 
+   style="display: inline-block; width: 40px; height: 40px;">
+    <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/opinia.webp" 
+         alt="Dodaj opinię"
+         style="width: 40px; height: 40px;">
+</a>
 
         <!-- 🔹 Ikona "Prowadź" -->
         <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}" 

@@ -15,13 +15,12 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-/* 📌 Przycisk "Dodaj zdjęcie" */
 #add-button {
   position: absolute;
   bottom: 20px;
   right: 20px;
   z-index: 1001;
-  display: none;
+  display: block; /* ✅ Zmiana z "none" na "block" */
 }
 
 #add-button img {
@@ -32,18 +31,16 @@ body {
   max-height: 100%;
   object-fit: contain;
   transition: transform 0.3s ease-in-out;
+  animation: pulse 1.5s infinite;
 }
 
-/* 📱 Pokaż ikonę tylko na telefonach */
+/* ❌ Usuwamy ukrywanie przycisku na większych ekranach */
 @media (max-width: 768px) {
-  #add-button {
-      display: block;
-  }
-  #add-button img {
-      --icon-size: 70px;
-      animation: pulse 1.5s infinite;
-  }
+#add-button {
+    display: block;
 }
+}
+
 
 /* ✅ Mapa zajmuje całe okno */
 #map {
@@ -84,7 +81,7 @@ body {
   border: none;
   outline: none;
   font-size: 14px;
-  background-color: lightgray;
+  background-color: rgb(223, 216, 216);
   border-radius: 3px;
   min-width: 0;
 }
@@ -212,6 +209,73 @@ body {
   cursor: pointer;
   z-index: 10001;
 }
+/* 📌 Popup formularza komentarzy */
+#comment-form-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2147483647;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* ✅ Aktywny popup */
+#comment-form-popup.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 📌 Zawartość popupu */
+.comment-popup-content {
+  background: white;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+  max-height: 90vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+/* 📌 Styl iframe */
+#comment-iframe {
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  max-height: 90vh;
+  border: none;
+}
+
+/* 📌 Ukrywanie popupu Leaflet, gdy `comment-form-popup` jest otwarty */
+.popup-hidden .leaflet-popup-pane {
+  display: none !important;
+}
+
+/* 📌 Przycisk zamykania popupu */
+#close-comment-popup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10001;
+}
 
 /* 📌 Poprawki dla Leaflet.js */
 .leaflet-popup-content-wrapper {
@@ -261,4 +325,30 @@ body {
       overflow-y: auto !important;
       transform: translate(-5px, -5px) !important;
   }
+/* 📌 Lista komentarzy */
+#comments-list {
+  max-height: 300px;
+  overflow-y: auto;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* 📌 Pojedynczy komentarz */
+.comment {
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* 📌 Data dodania */
+.comment-date {
+  display: block;
+  font-size: 12px;
+  color: gray;
+  margin-top: 4px;
+}
+
 }
