@@ -52,10 +52,7 @@
 </head>
 <body>
 
-    <!-- 🔹 Ekran ładowania -->
-    <div id="loading-screen">
-        <div class="loading-text">Ładowanie danych...</div>
-    </div>
+ 
 
     <div id="search-container">
         <div id="search-bar">
@@ -67,12 +64,23 @@
     <div id="map-container">
         <div id="map"></div>
     
-        <!-- 🟢 Przycisk dodawania (widoczny tylko na telefonach) -->
-        <a href="https://www.campteam.pl/dodaj" target="_blank" id="add-button">
-            <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/dodaj.webp" alt="Dodaj">
+    <!-- 🟢 Przycisk dodawania (widoczny tylko na telefonach) -->
+<div id="add-container">
+    <a href="#" id="add-button">
+        <img src="https://raw.githubusercontent.com/campteamdev/Stronga-g/main/ikony/dodaj.webp" alt="Dodaj">
+    </a>
+
+    <!-- Ukryte opcje -->
+    <div id="add-options">
+        <a href="https://www.campteam.pl/dodaj/kempingi-pola-namiotowe" class="add-option">
+            Dodaj Kemping/Pole Namiotowe
+        </a>
+        <a href="https://www.campteam.pl/dodaj/atrakcje-turystyczne-miejsca-biwakowe" class="add-option">
+            Dodaj Nocleg na dziko
         </a>
     </div>
-    
+</div>
+
     
 
     <script>
@@ -91,6 +99,9 @@
         console.error("❌ Błąd: `map` nie została poprawnie zainicjalizowana!");
     }
 });
+<div id="loading-message" style="display: none; text-align: center; padding: 10px;">
+    ⏳ Trwa ładowanie formularza...
+</div>
 
     </script>
 <!-- 📌 Popup dla formularza Zoho -->

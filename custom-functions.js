@@ -671,4 +671,19 @@ document.getElementById("close-comment-popup").addEventListener("click", functio
         commentFormPopup.classList.remove("active");
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const addButton = document.getElementById("add-button");
+    const addContainer = document.getElementById("add-container");
 
+    addButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        addContainer.classList.toggle("open");
+    });
+
+    // Zamknięcie opcji po kliknięciu poza
+    document.addEventListener("click", function (event) {
+        if (!addContainer.contains(event.target)) {
+            addContainer.classList.remove("open");
+        }
+    });
+});

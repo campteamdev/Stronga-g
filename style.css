@@ -15,12 +15,16 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-#add-button {
+#add-container {
   position: absolute;
   bottom: 20px;
   right: 20px;
   z-index: 1001;
-  display: block; /* ✅ Zmiana z "none" na "block" */
+}
+
+#add-button {
+  display: block;
+  cursor: pointer;
 }
 
 #add-button img {
@@ -34,11 +38,49 @@ body {
   animation: pulse 1.5s infinite;
 }
 
-/* ❌ Usuwamy ukrywanie przycisku na większych ekranach */
-@media (max-width: 768px) {
-#add-button {
-    display: block;
+/* Kontener na opcje */
+#add-options {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease-in-out;
 }
+
+.add-option {
+  display: block;
+  background: rgba(34, 150, 34, 0.9);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.add-option:hover {
+  background: rgba(34, 150, 34, 1);
+}
+
+/* Po otwarciu */
+#add-container.open #add-options {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Ukrywamy przycisk na większych ekranach */
+@media (max-width: 768px) {
+  #add-button {
+      display: block;
+  }
 }
 
 
@@ -194,21 +236,86 @@ body {
 .popup-hidden .leaflet-popup-pane {
   display: none !important;
 }
-
-/* 📌 Przycisk zamykania popupu */
 #close-photo-popup {
+  all: unset; /* Resetuje domyślne style */
   position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 24px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: none;
-  padding: 10px;
+  top: var(--close-btn-top, 10px); /* Możliwość dostosowania pozycji */
+  right: var(--close-btn-right, 15px); /* Możliwość przesunięcia w lewo */
+  font-size: var(--close-btn-size, 18px); /* Możliwość zmiany rozmiaru */
+  background: rgba(255, 255, 255, 0.9); /* Jaśniejsze tło */
+  color: black;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 5px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 10001;
+  width: var(--close-btn-width, 30px);
+  height: var(--close-btn-height, 30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
 }
+
+#close-photo-popup:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+#close-comment-popup {
+  all: unset; /* Resetuje domyślne style */
+  position: absolute;
+  top: var(--close-btn-top, 10px); /* Możliwość dostosowania pozycji */
+  right: var(--close-btn-right, 15px); /* Możliwość przesunięcia w lewo */
+  font-size: var(--close-btn-size, 18px); /* Możliwość zmiany rozmiaru */
+  background: rgba(255, 255, 255, 0.9); /* Jaśniejsze tło */
+  color: black;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10001;
+  width: var(--close-btn-width, 30px);
+  height: var(--close-btn-height, 30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+#close-comment-popup:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+
+/* 📌 Poprawiona wersja dla Leaflet.js */
+.leaflet-popup-close-button {
+  all: unset; /* Resetuje domyślne style Leaflet */
+  position: absolute !important;
+  top: var(--close-btn-top, 10px) !important;
+  right: var(--close-btn-right, 15px) !important;
+  font-size: var(--close-btn-size, 18px) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: black !important;
+  border: 2px solid rgba(0, 0, 0, 0.2) !important;
+  padding: 5px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  z-index: 10001 !important;
+  width: var(--close-btn-width, 30px) !important;
+  height: var(--close-btn-height, 30px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+.leaflet-popup-close-button:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  transform: scale(1.1) !important;
+}
+
+
 /* 📌 Popup formularza komentarzy */
 #comment-form-popup {
   position: fixed;
@@ -262,20 +369,7 @@ body {
   display: none !important;
 }
 
-/* 📌 Przycisk zamykania popupu */
-#close-comment-popup {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 24px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10001;
-}
+
 
 /* 📌 Poprawki dla Leaflet.js */
 .leaflet-popup-content-wrapper {
@@ -299,20 +393,6 @@ body {
   padding: 15px;
 }
 
-/* ✅ Nowy przycisk zamykania w Leaflet */
-.leaflet-popup-close-button {
-  position: absolute !important;
-  top: 15px !important;
-  right: 15px !important;
-  font-size: 24px !important;
-  background: rgba(0, 0, 0, 0.7) !important;
-  color: white !important;
-  border: none !important;
-  padding: 10px !important;
-  border-radius: 50% !important;
-  cursor: pointer !important;
-  z-index: 10001 !important;
-}
 
 /* 📌 Pełnoekranowy popup na telefonach */
 @media (max-width: 768px) {
