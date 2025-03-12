@@ -385,6 +385,27 @@ body {
   color: gray;
   margin-top: 4px;
 }
+
+/* ✅ Naprawa problemu z powiększonymi zdjęciami */
+#fullscreen-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2147483647 !important; /* 📌 Ustawiamy najwyższy możliwy z-index */
+}
+
+#fullscreen-view img {
+  max-width: 95%;
+  max-height: 95%;
+  cursor: pointer;
+}
+
 /* 🔹 Panel popupu na dole ekranu */
 /* 🔹 Panel popupu (na komputerze i telefonie taki sam) */
 /* 🔹 Panel popupu */
