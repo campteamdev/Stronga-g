@@ -694,6 +694,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function openPopupPanel(content) {
     const popupPanel = document.getElementById("popup-panel");
     const popupBody = document.getElementById("popup-body");
+    const mapElement = document.getElementById("map"); // Mapa
 
     if (!popupPanel || !popupBody) {
         console.error("❌ Brak #popup-panel w DOM!");
@@ -713,6 +714,10 @@ function openPopupPanel(content) {
     // ✅ Ukrywamy domyślne popupy Leaflet
     document.querySelectorAll(".leaflet-popup").forEach(el => el.style.display = "none");
 
+    // ✅ Blokujemy przewijanie strony i mapy
+    document.body.style.overflow = "hidden"; // 📌 Blokuje przewijanie całej strony
+    if (mapElement) mapElement.style.pointerEvents = "none"; // 📌 Blokuje mapę
+
     // ✅ Ustawiamy widoczność popupu (ale ukrywamy jego treść)
     popupPanel.style.visibility = "visible";
     popupPanel.style.opacity = "0"; // Ukrywamy, żeby uniknąć przesunięć CLS
@@ -729,33 +734,28 @@ function openPopupPanel(content) {
     setTimeout(() => {
         popupBody.innerHTML = content;
     }, 200);
-
-    // ✅ Blokujemy przewijanie mapy
-    document.body.classList.add("popup-open");
 }
 
 function closePopupPanel() {
     const popupPanel = document.getElementById("popup-panel");
-    const closeButton = document.getElementById("close-popup");
+    const mapElement = document.getElementById("map"); // Mapa
 
     if (!popupPanel) return;
-
-    // ✅ Zapobiegamy wielokrotnemu kliknięciu podczas zamykania
-    closeButton.style.pointerEvents = "none";
 
     // ✅ Ukrywamy popup stopniowo
     popupPanel.style.opacity = "0"; // 📌 Płynne zanikanie
     popupPanel.style.height = "0vh"; // 📌 Zamknięcie popupu
     popupPanel.classList.remove("active");
 
+    // ✅ Przywracamy przewijanie po zamknięciu popupu
+    document.body.style.overflow = "auto"; // 📌 Przywraca przewijanie strony
+    if (mapElement) mapElement.style.pointerEvents = "auto"; // 📌 Przywraca działanie mapy
+
     // ✅ Po zakończeniu animacji ukrywamy go całkowicie
     popupPanel.addEventListener("transitionend", function onTransitionEnd() {
-        popupPanel.style.visibility = "hidden"; // 📌 Ukrywamy, ale nie zmieniamy układu
+        popupPanel.style.visibility = "hidden"; // 📌 Ukrywamy bez zmiany układu
         popupPanel.style.display = "none"; // 📌 Usuwamy z widoku
         document.body.classList.remove("popup-open");
-
-        // ✅ Przywracamy działanie przycisku zamykania po zakończeniu animacji
-        closeButton.style.pointerEvents = "auto";
 
         // ✅ Usuwamy event po pierwszym wywołaniu (żeby nie dodawać go ponownie)
         popupPanel.removeEventListener("transitionend", onTransitionEnd);
@@ -767,8 +767,6 @@ function closePopupPanel() {
 document.getElementById("close-popup").addEventListener("click", closePopupPanel);
 
 let isClosing = false;
-
-const popupPanel = document.getElementById("popup-panel");
 
 popupPanel.addEventListener("touchstart", function (e) {
     startY = e.touches[0].clientY;
@@ -787,4 +785,7 @@ popupPanel.addEventListener("touchmove", function (e) {
             isClosing = false; // Resetujemy blokadę po 200ms
         }, 200);
     }
-}, { passive: true }); // 📌 `passive: true` poprawia responsywność dotyku
+
+    e.preventDefault(); // 📌 Zapobiega przewijaniu strony
+    e.stopPropagation(); // 📌 Zapobiega przesuwaniu mapy
+}, { passive: false }); // `passive: false` pozwala użyć `preventDefault()`
