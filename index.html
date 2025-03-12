@@ -34,7 +34,7 @@
     <!-- ✅ Główny plik JS -->
 
 <script src="image-loader.js" defer></script>
-<script src="filters.js"></script>
+<script src="filters.js" defer></script>
 <script src="custom-functions.js" defer></script>
 
 
@@ -112,12 +112,7 @@
     </div>
 </div>
 <!-- 📌 Popup dla komentarzy -->
-<div id="comment-form-popup" class="popup">
-    <div class="popup-content">
-        <span id="close-comment-popup" class="close-button">&times;</span>
-        <iframe id="comment-iframe" frameborder="0"></iframe>
-    </div>
-</div>
+
 <!-- 📌 Popup dla dodawania opinii -->
 <div id="comment-form-popup" class="popup">
     <div class="popup-content">
@@ -126,6 +121,16 @@
     </div>
 </div>
 
+<!-- Nowy popup wysuwany z dołu -->
+<div id="popup-panel">
+    <div id="popup-header">
+        <div id="drag-handle"></div> <!-- 🔹 Uchwyt do przesuwania -->
+        <span id="close-popup">&times;</span>
+    </div>
+    <div id="popup-content">
+        <div id="popup-body"></div>
+    </div>
+</div>
 
 
 </body>

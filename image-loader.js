@@ -299,7 +299,7 @@ function openFullscreen(images, index) {
     fullscreenContainer.style.display = "flex";
     fullscreenContainer.style.justifyContent = "center";
     fullscreenContainer.style.alignItems = "center";
-    fullscreenContainer.style.zIndex = "9999";
+    fullscreenContainer.style.zIndex = "11000";
 
     const img = document.createElement("img");
     img.src = images[currentIndex];
@@ -402,6 +402,8 @@ function openFullscreen(images, index) {
 }
 
 // 🔹 Nasłuchiwanie otwarcia popupu i dodawanie zdjęć
+console.log("map:", map);
+
 map.on("popupopen", async function (e) {
     setTimeout(async () => {
         const popup = e.popup._contentNode;

@@ -350,40 +350,34 @@ if (!window.popupCache) window.popupCache = {};
 if (!window.imageCache) window.imageCache = {};  
 if (!window.pendingRequests) window.pendingRequests = {};  
 
-async function loadPopupData(marker, id) {
-   
-
-        // ✅ Resetujemy flagę zamknięcia przez użytkownika
-    window.popupClosedByUser = false;
-   
-    // ✅ Zapisujemy marker jako aktywny
-    window.activePopupMarker = marker;
-
-    if (marker.getPopup() && marker.getPopup().isOpen()) {
-       
-        return;
-    }
- 
-    marker.bindPopup("<b>Ładowanie danych...</b>");
-
-    // ✅ Otwieramy popup dopiero po pobraniu danych
-    setTimeout(() => {
-        if (popupCache[id]) {
-         
-            marker.openPopup();
+    async function loadPopupData(marker, id) {
+        // 🛠️ Blokada otwierania popupu na starcie strony (tylko na komputerach)
+        if (window.innerWidth >= 1024 && !window.userClickedMarker) {
+            console.warn("❌ Blokuję automatyczne otwieranie pustego popupu na komputerze.");
+            return;
         }
-    }, 500);
     
+        // ✅ Resetujemy flagę po otwarciu popupu
+        window.popupClosedByUser = false;
+        window.activePopupMarker = marker;
+    
+    // ❌ Blokujemy domyślny popup Leaflet na komputerach
+// ❌ Blokujemy domyślne popupy Leaflet na komputerach PRZED ich otwarciem
+if (window.innerWidth >= 1024) {
+    setTimeout(() => {
+        document.querySelectorAll(".leaflet-popup").forEach(el => el.remove());
+    }, 10); // 🔹 Dodajemy małe opóźnienie, żeby Leaflet nie zdążył otworzyć popupu
+} else {
+    marker.bindPopup("<b>Ładowanie danych...</b>");
+}
 
     let kmlText = popupCache[id] || null;
     let images = imageCache[id] || null;
 
     if (pendingRequests[id]) {
-       
         await pendingRequests[id];
         return renderPopup(marker, id, popupCache[id], imageCache[id]);
     }
-
 
     pendingRequests[id] = (async () => {
         try {
@@ -413,8 +407,16 @@ async function loadPopupData(marker, id) {
     kmlText = result.kmlData;
     images = result.imageData;
 
-    // ✅ Renderujemy popup
-    renderPopup(marker, id, kmlText, images);
+    // ✅ Jeśli jesteśmy na telefonie, otwieramy domyślny popup Leaflet
+    if (window.innerWidth < 1024) {
+        marker.bindPopup("<b>Ładowanie danych...</b>").openPopup();
+        setTimeout(() => {
+            renderPopup(marker, id, kmlText, images);
+        }, 500);
+    } else {
+        // ✅ Na komputerze otwieramy `popup-panel`
+        renderPopup(marker, id, kmlText, images);
+    }
 }
 
 // ✅ Funkcja renderująca popup
@@ -513,7 +515,8 @@ async function renderPopup(marker, id, kmlText, images) {
         </div>`;
 
     // ✅ Ustawienie treści popupu
-    marker.bindPopup(popupContent, { autoPan: true, minWidth: 200 }).openPopup();
+    openPopupPanel(popupContent);
+
 
     // ✅ Inicjalizacja Swiper.js, jeśli są zdjęcia
     if (finalImages.length > 0) {
@@ -528,13 +531,13 @@ async function renderPopup(marker, id, kmlText, images) {
 async function initializeMap() {
     
 
-    document.getElementById("loading-screen").style.display = "flex";
+   
 
     await loadMainMarkers();
 
-    document.getElementById("loading-screen").style.opacity = "0";
+    
     setTimeout(() => {
-        document.getElementById("loading-screen").style.display = "none";
+       
     }, 500);
 
    
@@ -687,3 +690,101 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+// 🔹 Funkcja do otwierania popupu w panelu
+function openPopupPanel(content) {
+    const popupPanel = document.getElementById("popup-panel");
+    const popupBody = document.getElementById("popup-body");
+
+    if (!popupPanel || !popupBody) {
+        console.error("❌ Brak #popup-panel w DOM!");
+        return;
+    }
+
+    // ✅ Jeśli popup jest już otwarty, zamknij go przed otwarciem nowego
+    if (popupPanel.classList.contains("active")) {
+        closePopupPanel();
+    }
+
+    // ❌ Blokujemy domyślne popupy Leaflet na komputerach
+    if (window.innerWidth >= 1024) {
+        document.querySelectorAll(".leaflet-popup").forEach(el => el.remove());
+    }
+
+    // ✅ Ukrywamy domyślne popupy Leaflet
+    document.querySelectorAll(".leaflet-popup").forEach(el => el.style.display = "none");
+
+    // ✅ Ustawiamy widoczność popupu (ale ukrywamy jego treść)
+    popupPanel.style.visibility = "visible";
+    popupPanel.style.opacity = "0"; // Ukrywamy, żeby uniknąć przesunięć CLS
+    popupPanel.style.display = "flex";
+    popupPanel.classList.add("active");
+
+    // ✅ Otwieramy popup stopniowo
+    requestAnimationFrame(() => {
+        popupPanel.style.height = window.innerWidth >= 1024 ? "70vh" : "90vh";
+        popupPanel.style.opacity = "1"; // Stopniowe pojawienie
+    });
+
+    // ✅ Dodajemy treść po krótkim opóźnieniu (zapobiega CLS)
+    setTimeout(() => {
+        popupBody.innerHTML = content;
+    }, 200);
+
+    // ✅ Blokujemy przewijanie mapy
+    document.body.classList.add("popup-open");
+}
+
+function closePopupPanel() {
+    const popupPanel = document.getElementById("popup-panel");
+    const closeButton = document.getElementById("close-popup");
+
+    if (!popupPanel) return;
+
+    // ✅ Zapobiegamy wielokrotnemu kliknięciu podczas zamykania
+    closeButton.style.pointerEvents = "none";
+
+    // ✅ Ukrywamy popup stopniowo
+    popupPanel.style.opacity = "0"; // 📌 Płynne zanikanie
+    popupPanel.style.height = "0vh"; // 📌 Zamknięcie popupu
+    popupPanel.classList.remove("active");
+
+    // ✅ Po zakończeniu animacji ukrywamy go całkowicie
+    popupPanel.addEventListener("transitionend", function onTransitionEnd() {
+        popupPanel.style.visibility = "hidden"; // 📌 Ukrywamy, ale nie zmieniamy układu
+        popupPanel.style.display = "none"; // 📌 Usuwamy z widoku
+        document.body.classList.remove("popup-open");
+
+        // ✅ Przywracamy działanie przycisku zamykania po zakończeniu animacji
+        closeButton.style.pointerEvents = "auto";
+
+        // ✅ Usuwamy event po pierwszym wywołaniu (żeby nie dodawać go ponownie)
+        popupPanel.removeEventListener("transitionend", onTransitionEnd);
+    });
+}
+
+// 🔹 Przycisk "X" do zamykania popupu
+// 🔹 Przycisk "X" do zamykania popupu (bez opóźnień)
+document.getElementById("close-popup").addEventListener("click", closePopupPanel);
+
+let isClosing = false;
+
+const popupPanel = document.getElementById("popup-panel");
+
+popupPanel.addEventListener("touchstart", function (e) {
+    startY = e.touches[0].clientY;
+});
+
+popupPanel.addEventListener("touchmove", function (e) {
+    if (isClosing) return; // Zapobiega wielokrotnemu zamykaniu
+
+    let deltaY = e.touches[0].clientY - startY;
+
+    if (deltaY > 50) { // 📌 Jeśli przesuniemy 50px w dół – zamykamy popup
+        isClosing = true;
+        closePopupPanel();
+
+        setTimeout(() => {
+            isClosing = false; // Resetujemy blokadę po 200ms
+        }, 200);
+    }
+}, { passive: true }); // 📌 `passive: true` poprawia responsywność dotyku
