@@ -181,7 +181,7 @@ body {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
-  z-index: 10001;
+  z-index: 214748361;
   display: none;
   opacity: 0;
   visibility: hidden;
@@ -237,7 +237,7 @@ body {
   padding: 5px;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 10001;
+  z-index: 214748361;
   width: var(--close-btn-width, 30px);
   height: var(--close-btn-height, 30px);
   display: flex;
